@@ -1,24 +1,28 @@
 #!/bin/bash
-#SBATCH --job-name=bbt_118
+#SBATCH --job-name=preprocessing
 #SBATCH --nodes=1
 #SBATCH --time=168:00:00
 #SBATCH --mem=10gb
-#SBATCH --output=bbtool_118.%J.out
-#SBATCH --error=bbtool_118.%J.err
+#SBATCH --output=preprocessing.%J.out
+#SBATCH --error=preprocessing.%J.err
 
 module load java/12
 echo 'starting bbmap'
 echo 'starting metaIMP test sequence v1'
 
-file1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_1.fastq
-file2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_2.fastq
-
-OT1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_filtered_1.fastq
-OT2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_filtered_2.fastq
+input1=$1
+input2=$2
 
 
-temp1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_temp_1.fastq
-temp2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205532/SRR9205532_temp_2.fastq
+file1=$input1
+file2=$input2
+
+OT1=$input1_filtered_1.fastq
+OT2=$input2_filtered_2.fastq
+
+temp1=$input1_temp_1.fastq
+temp2=$input1_temp_2.fastq
+
 echo 'finshing loading files'
 
 
