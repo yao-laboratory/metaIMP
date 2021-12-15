@@ -24,6 +24,15 @@ echo 'starting quast'
 echo 'loading quast module'
 module load quast/5.0
 echo 'quast loaded. starting quast'
+contigs=$output/contigs.fasta
+
+if [user wants to filter]
+then 
+	reformat.sh in=$output/contigs.fasta out=$output/filtered.fasta minlength=1000
+else 
+	continue
+
+contigs=$output/filtered.fasta
 
 quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
 
@@ -32,7 +41,7 @@ echo 'bowtie module load started'
 module load bowtie/2.3
 echo 'bowtie module loaded. starting bowtie conversion'
 #contigs=$4
-contigs=$output/contigs.fasta
+#contigs=$output/contigs.fasta
 idc=$output/indexed_contigs
 bowtie2-build $contigs $idc
 echo 'indexed contigs done'
