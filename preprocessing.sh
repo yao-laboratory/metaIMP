@@ -60,7 +60,7 @@ echo 'finishing temp file creation'
 
 echo 'starting filtered files'
 
-$bbmap_folderi/bbmap/bbduk.sh \
+$bbmap_folder/bbmap/bbduk.sh \
 	in1=$temp1 \
 	in2=$temp2 \
 	out1=$OT1 out2=$OT2 ref=$phiXadapters hdist=1 k=21 threads=8

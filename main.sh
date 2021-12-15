@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=assembly_main
 #SBATCH --nodes=1
-#SBATCH --time=108:00:00
-#SBATCH --mem=500gb
+#SBATCH --time=12:00:00
+#SBATCH --mem=8gb
 #SBATCH --output=assembly_main.%J.out
 #SBATCH --error=assembly_main%J.err
 
