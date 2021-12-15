@@ -28,7 +28,7 @@ do
                 --attr notes --attr owner  --attr p2_feature_id --attr pathway --attr patric_id --attr pgfam_id --attr plfam_id --attr product --attr property --attr protein_id \
                 --attr public --attr refseq_locus_tag --attr segments --attr sequence_id --attr start --attr strand --attr subsystem --attr taxon_id \
                 --attr text --attr user_read --attr user_write --attr function \
-                < f.patric.csv > f.feature.csv
+                < $f > ${f%%.*}.feature.csv
 
 
 echo 'completed mapping PEG_IDs to PATRIC'

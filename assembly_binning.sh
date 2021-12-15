@@ -9,6 +9,7 @@ fastq1=$1
 fastq2=$2
 output=$3
 t=$4
+minimum_contig_len=$5
 
 
 echo 'spades python file called for 1st sample-reverse and forward read'
@@ -26,12 +27,12 @@ module load quast/5.0
 echo 'quast loaded. starting quast'
 contigs=$output/contigs.fasta
 
-if [user wants to filter]
+if $minimum_contig_len>0
 then 
-	reformat.sh in=$output/contigs.fasta out=$output/filtered.fasta minlength=1000
+	reformat.sh in=$output/contigs.fasta out=$output/filtered.fasta minlength=$minimum_contig_len
 else 
 	continue
-
+#check mininmum contig lenght for integer/string value
 contigs=$output/filtered.fasta
 
 quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
