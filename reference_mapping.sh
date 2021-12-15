@@ -7,18 +7,18 @@ output_folder=$4
 
 echo 'this is reference based mapping'
 
-cd /work/yaolab/shared/2021_milk_2017_metagenome/PIPELINE_TESTING/python_scripts/
+#cd /work/yaolab/shared/2021_milk_2017_metagenome/PIPELINE_TESTING/python_scripts/
 
-python Reference_mapping.py -add_figid -gf $genes_fodler -pf $patric_folder
+python ./python_script/Reference_mapping.py -add_figid -gf $genes_fodler -pf $patric_folder
 
 echo 'finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command'
 
 
 module load singularity/3.7
 patric_directory=$1
-cd $patric_directory
+#cd $patric_directory
 
-for f in *.patric.csv:
+for f in $patric_directory/*.patric.csv
 do
         echo 'we are now processing all genes files to which 'fig_id' tag is added and these files will now run through PATRIC DATABASE'
 	echo 'currently processing'$f
@@ -33,7 +33,7 @@ do
 
 echo 'completed mapping PEG_IDs to PATRIC'
 
-python Reference_mapping.py -ref_map -pf $patric_folder -sf $snps_folder -o $output_folder
+python ./python_script/Reference_mapping.py -ref_map -pf $patric_folder -sf $snps_folder -o $output_folder
 
 echo 'completed reference_mapping. Good luck!!!'
 
