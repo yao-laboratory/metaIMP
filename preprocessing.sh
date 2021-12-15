@@ -18,11 +18,11 @@ input2=$2
 file1=$input1
 file2=$input2
 
-OT1=$input1_filtered_1.fastq
-OT2=$input2_filtered_2.fastq
+OT1=$input1.filtered_1.fastq
+OT2=$input2.filtered_2.fastq
 
-temp1=$input1_temp_1.fastq
-temp2=$input1_temp_2.fastq
+temp1=$input1.temp_1.fastq
+temp2=$input2.temp_2.fastq
 
 echo 'finshing loading files'
 
