@@ -14,7 +14,7 @@ t=$4
 echo 'spades python file called for 1st sample-reverse and forward read'
 spades.py --meta --pe1-1 $fastq1 \
         --pe1-2 $fastq2 \
-        -t 32 \
+        -t $t \
         -o $output
 echo 'finshed spades'
 
