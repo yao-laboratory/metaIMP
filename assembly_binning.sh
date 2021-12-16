@@ -29,11 +29,11 @@ contigs=$output/contigs.fasta
 
 if $minimum_contig_len>0
 then 
-	reformat.sh in=$output/contigs.fasta out=$output/filtered.fasta minlength=$minimum_contig_len
+	reformat.sh in=$output/contigs.fasta out=$output/contigs.fasta minlength=$minimum_contig_len
 else 
 	continue
 #check mininmum contig lenght for integer/string value
-contigs=$output/filtered.fasta
+#contigs=$output/filtered.fasta
 
 quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
 
@@ -113,4 +113,6 @@ checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$output/bins/checkm/bins
 
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
+
+echo 'assembly_binning step is complete'
 
