@@ -1,0 +1,11 @@
+/bin/bash: warning: shell level (1000) too high, resetting to 1
+/bin/bash: warning: shell level (1000) too high, resetting to 1
+/bin/bash: warning: shell level (1000) too high, resetting to 1
+/bin/bash: warning: shell level (1000) too high, resetting to 1
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: retry: Resource temporarily unavailable
+./main_assembly_processing.sh: fork: Resource temporarily unavailable
