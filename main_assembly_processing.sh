@@ -8,7 +8,7 @@
 
 A=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_1.fastq.filtered_1.fastq
 B=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_2.fastq.filtered_2.fastq
-C=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533
+C=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/no_filtered
 t=8
 D=0
 ./assembly_binning.sh $A $B $C $t $D
