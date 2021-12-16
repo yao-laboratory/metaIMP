@@ -111,3 +111,19 @@ bits per slot: 8 range: 0000000800000000
   0:09:43.428   380M / 729M  INFO    General                 (main.cpp                  : 167)   Clustering done. Total clusters: 7292900
   0:09:43.436   300M / 729M  INFO   K-mer Counting           (kmer_data.cpp             : 371)   Collecting K-mer information, this takes a while.
   0:09:43.522   556M / 729M  INFO   K-mer Counting           (kmer_data.cpp             : 377)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_1.fastq.filtered_1.fastq
+  0:12:44.749   525M / 729M  INFO   K-mer Counting           (kmer_data.cpp             : 377)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_2.fastq.filtered_2.fastq
+  0:15:37.007   525M / 729M  INFO   K-mer Counting           (kmer_data.cpp             : 384)   Collection done, postprocessing.
+  0:15:37.078   525M / 729M  INFO   K-mer Counting           (kmer_data.cpp             : 398)   There are 10227748 kmers in total. Among them 20446 (0.199907%) are singletons.
+  0:15:37.078   525M / 729M  INFO    General                 (main.cpp                  : 173)   Subclustering Hamming graph
+  0:15:43.648   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 649)   Subclustering done. Total 1 non-read kmers were generated.
+  0:15:43.648   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 650)   Subclustering statistics:
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 651)     Total singleton hamming clusters: 5012432. Among them 4972428 (99.2019%) are good
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 652)     Total singleton subclusters: 53712. Among them 53638 (99.8622%) are good
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 653)     Total non-singleton subcluster centers: 2274941. Among them 2269188 (99.7471%) are good
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 654)     Average size of non-trivial subcluster: 2.29251 kmers
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 655)     Average number of sub-clusters per non-singleton cluster: 1.02113
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 656)     Total solid k-mers: 7295254
+  0:15:43.649   353M / 729M  INFO   Hamming Subclustering    (kmer_cluster.cpp          : 657)     Substitution probabilities: [4,4]((0.914118,0.0539843,0.0156174,0.0162804),(0.00646088,0.981702,0.00350532,0.0083323),(0.00831909,0.0034987,0.981718,0.00646391),(0.0162702,0.0155982,0.0539843,0.914147))
+  0:15:43.667   353M / 729M  INFO    General                 (main.cpp                  : 178)   Finished clustering.
+  0:15:43.668   353M / 729M  INFO    General                 (main.cpp                  : 197)   Starting solid k-mers expansion in 1 threads.
+  0:17:28.176   353M / 729M  INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 0 produced 43224 new k-mers.
