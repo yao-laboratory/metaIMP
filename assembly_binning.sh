@@ -112,6 +112,5 @@ checkm lineage_wf -t $t -x fa $c_bins $checkm
 
 mergedfile=$output/bins/checkm/bins
 
-find $mergedfile  -type f -name '*.faa' -exec cat {} + >mergedfile.fna
-
+find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
 
