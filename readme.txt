@@ -33,10 +33,10 @@ STEP 5 python code
 
 Python modules used:
 
-Bio
+Bio- This module needs to be installed-- pip install biopython
 os
 argparse
-pandas 
+pandas - This module needs to be installed - pip install pandas
 gzip
 
 
