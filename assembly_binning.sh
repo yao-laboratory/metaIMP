@@ -115,4 +115,3 @@ mergedfile=$output/bins/checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
 
 echo 'assembly_binning step is complete'
-
