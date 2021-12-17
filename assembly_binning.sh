@@ -32,6 +32,7 @@ then
 	reformat.sh in=$output/contigs.fasta out=$output/contigs.fasta minlength=$minimum_contig_len
 else 
 	continue
+fi
 #check mininmum contig lenght for integer/string value
 #contigs=$output/filtered.fasta
 
