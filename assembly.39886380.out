@@ -167,3 +167,46 @@ bits per slot: 8 range: 0000000800000000
   0:22:50.909   508M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 6
   0:22:51.224   508M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 6
   0:22:51.614   509M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 7 of 100000 reads.
+  0:22:59.915   509M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 7
+  0:23:00.231   509M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 7
+  0:23:00.621   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 8 of 100000 reads.
+  0:23:08.203   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 8
+  0:23:08.518   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 8
+  0:23:08.906   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 9 of 100000 reads.
+  0:23:16.246   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 9
+  0:23:16.561   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 9
+  0:23:16.948   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 10 of 100000 reads.
+  0:23:24.249   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 10
+  0:23:24.565   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 10
+  0:23:24.954   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 11 of 100000 reads.
+  0:23:32.717   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 11
+  0:23:33.035   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 11
+  0:23:33.425   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 12 of 100000 reads.
+  0:23:41.213   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 12
+  0:23:41.530   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 12
+  0:23:41.915   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 13 of 100000 reads.
+  0:23:49.484   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 13
+  0:23:49.800   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 13
+  0:23:50.187   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 14 of 100000 reads.
+  0:23:58.279   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 14
+  0:23:58.597   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 14
+  0:23:58.982   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 15 of 100000 reads.
+  0:24:06.846   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 15
+  0:24:07.163   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 15
+  0:24:07.392   510M / 729M  INFO    General                 (hammer_tools.cpp          : 170)   Prepared batch 16 of 59482 reads.
+  0:24:11.807   510M / 729M  INFO    General                 (hammer_tools.cpp          : 177)   Processed batch 16
+  0:24:11.994   510M / 729M  INFO    General                 (hammer_tools.cpp          : 187)   Written batch 16
+  0:24:12.018   486M / 729M  INFO    General                 (hammer_tools.cpp          : 276)   Correction done. Changed 700972 bases in 562916 reads.
+  0:24:12.018   486M / 729M  INFO    General                 (hammer_tools.cpp          : 277)   Failed to correct 0 bases out of 431538523.
+  0:24:12.025   150M / 729M  INFO    General                 (main.cpp                  : 255)   Saving corrected dataset description to /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/corrected/corrected.yaml
+  0:24:12.030   154M / 729M  INFO    General                 (main.cpp                  : 262)   All done. Exiting.
+
+===== Read error correction finished. 
+
+
+===== corrected reads compression started. 
+
+
+== Running: /util/opt/anaconda/deployed-conda-envs/packages/python/envs/python-3.8/bin/python /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/share/spades/spades_pipeline/scripts/compress_all.py --input_file /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/corrected/corrected.yaml --ext_python_modules_home /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/share/spades --max_threads 8 --output_dir /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/corrected --gzip_output
+
+== Compressing corrected reads (with pigz)
