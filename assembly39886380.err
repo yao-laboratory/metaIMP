@@ -1,0 +1,46 @@
+java -ea -Xmx7g -Xms7g -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk -Xmx7g in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.temp_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.temp_2.fastq minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=./bbmap/resources/adapters.fa hdist=1 tbo tpe
+Executing jgi.BBDuk [-Xmx7g, in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq, in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq, out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.temp_1.fastq, out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.temp_2.fastq, minlen=10, qtrim=rl, trimq=20, ktrim=r, k=21, mink=11, ref=./bbmap/resources/adapters.fa, hdist=1, tbo, tpe]
+Version 38.90
+
+maskMiddle was disabled because useShortKmers=true
+0.032 seconds.
+Initial:
+Memory: max=7265m, total=7265m, free=7145m, used=120m
+
+Added 185707 kmers; time: 	0.387 seconds.
+Memory: max=7265m, total=7265m, free=6784m, used=481m
+
+Input is being processed as paired
+Started output streams:	0.019 seconds.
+Processing time:   		79.771 seconds.
+
+Input:                  	3328270 reads 		455452054 bases.
+QTrimmed:               	1506259 reads (45.26%) 	23436264 bases (5.15%)
+KTrimmed:               	6215 reads (0.19%) 	146505 bases (0.03%)
+Trimmed by overlap:     	15520 reads (0.47%) 	31161 bases (0.01%)
+Total Removed:          	9306 reads (0.28%) 	23613930 bases (5.18%)
+Result:                 	3318964 reads (99.72%) 	431838124 bases (94.82%)
+
+Time:                         	80.181 seconds.
+Reads Processed:       3328k 	41.51k reads/sec
+Bases Processed:        455m 	5.68m bases/sec
+java -ea -Xmx20438m -Xms20438m -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.temp_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.temp_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.filtered_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.filtered_2.fastq ref= hdist=1 k=21 threads=8
+Executing jgi.BBDuk [in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.temp_1.fastq, in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.temp_2.fastq, out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_1.fastq.filtered_1.fastq, out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/SRR9205534_2.fastq.filtered_2.fastq, ref=, hdist=1, k=21, threads=8]
+Version 38.90
+
+Set threads to 8
+0.028 seconds.
+Initial:
+Memory: max=20716m, total=20716m, free=20259m, used=457m
+
+Input is being processed as paired
+Started output streams:	0.142 seconds.
+Processing time:   		8.136 seconds.
+
+Input:                  	3318964 reads 		431838124 bases.
+Total Removed:          	0 reads (0.00%) 	0 bases (0.00%)
+Result:                 	3318964 reads (100.00%) 	431838124 bases (100.00%)
+
+Time:                         	8.280 seconds.
+Reads Processed:       3318k 	400.86k reads/sec
+Bases Processed:        431m 	52.16m bases/sec

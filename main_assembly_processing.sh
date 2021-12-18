@@ -6,14 +6,13 @@
 #SBATCH --output=assembly.%J.out
 #SBATCH --error=assembly%J.err
 
-DATA_PATH=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/
+DATA_PATH=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534
 
 
 A=$DATA_PATH/SRR9205534_1.fastq
 B=$DATA_PATH/SRR9205534_2.fastq
 
-
-echo'starting preprocessing'
+echo 'starting preprocessing'
 
 /home/yaolab/ksahu2/.ssh/metaIMP/preprocessing.sh $A $B
 
