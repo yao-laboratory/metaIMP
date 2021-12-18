@@ -210,3 +210,95 @@ bits per slot: 8 range: 0000000800000000
 == Running: /util/opt/anaconda/deployed-conda-envs/packages/python/envs/python-3.8/bin/python /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/share/spades/spades_pipeline/scripts/compress_all.py --input_file /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/corrected/corrected.yaml --ext_python_modules_home /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/share/spades --max_threads 8 --output_dir /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/corrected --gzip_output
 
 == Compressing corrected reads (with pigz)
+
+===== corrected reads compression finished. 
+
+
+===== Read error correction finished. 
+
+
+===== Assembling started. 
+
+
+===== K21 started. 
+
+
+== Running: /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/bin/spades-core /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/config.info /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/mda_mode.info /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/meta_mode.info
+
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  73)   Loaded config from /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/config.info
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  73)   Loaded config from /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/mda_mode.info
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  73)   Loaded config from /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/K21/configs/meta_mode.info
+  0:00:00.000     3M / 13M   INFO    General                 (memory_limit.cpp          :  49)   Memory limit set to 250 Gb
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  83)   Starting SPAdes, built from N/A, git revision N/A
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  84)   Maximum k-mer length: 128
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  85)   Assembling dataset (/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/dataset.info) with K=21
+  0:00:00.000     3M / 13M   INFO    General                 (main.cpp                  :  86)   Maximum # of threads to use (adjusted due to OMP capabilities): 1
+  0:00:00.000     3M / 13M   INFO    General                 (launch.hpp                :  79)   SPAdes started
+  0:00:00.000     3M / 13M   INFO    General                 (launch.hpp                :  86)   Starting from stage: read_conversion
+  0:00:00.000     3M / 13M   INFO    General                 (launch.hpp                :  92)   Two-step RR enabled: 0
+  0:00:00.001     3M / 13M   INFO   StageManager             (stage.cpp                 : 166)   STAGE == Binary Read Conversion
+  0:00:00.004     3M / 13M   INFO    General                 (read_converter.cpp        :  72)   Converting reads to binary format for library #0 (takes a while)
+  0:00:00.004     3M / 13M   INFO    General                 (read_converter.cpp        :  73)   Converting paired reads
+  0:00:00.207    38M / 38M   INFO    General                 (binary_converter.cpp      :  96)   16384 reads processed
+  0:00:00.403    49M / 49M   INFO    General                 (binary_converter.cpp      :  96)   32768 reads processed
+  0:00:00.967    60M / 62M   INFO    General                 (binary_converter.cpp      :  96)   65536 reads processed
+  0:00:01.914    60M / 70M   INFO    General                 (binary_converter.cpp      :  96)   131072 reads processed
+  0:00:03.983    59M / 70M   INFO    General                 (binary_converter.cpp      :  96)   262144 reads processed
+  0:00:07.953    60M / 70M   INFO    General                 (binary_converter.cpp      :  96)   524288 reads processed
+  0:00:15.904    75M / 87M   INFO    General                 (binary_converter.cpp      :  96)   1048576 reads processed
+  0:00:25.042    61M / 88M   INFO    General                 (binary_converter.cpp      : 111)   1635372 reads written
+  0:00:25.042    37M / 88M   INFO    General                 (read_converter.cpp        :  81)   Converting single reads
+  0:00:25.111    47M / 88M   INFO    General                 (binary_converter.cpp      :  96)   16384 reads processed
+  0:00:25.160    46M / 88M   INFO    General                 (binary_converter.cpp      : 111)   21685 reads written
+  0:00:25.160    46M / 88M   INFO    General                 (read_converter.cpp        :  87)   Converting merged reads
+  0:00:25.162    46M / 88M   INFO    General                 (binary_converter.cpp      : 111)   0 reads written
+  0:00:25.169    46M / 88M   INFO   StageManager             (stage.cpp                 : 166)   STAGE == de Bruijn graph construction
+  0:00:25.186    46M / 88M   INFO    General                 (construction.cpp          : 150)   Max read length 150
+  0:00:25.187    46M / 88M   INFO    General                 (construction.cpp          : 156)   Average read length 130.944
+  0:00:25.187    46M / 88M   INFO    General                 (stage.cpp                 : 113)   PROCEDURE == k+1-mer counting
+  0:00:25.189    46M / 88M   INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 1 files using 1 threads. This might take a while.
+  0:00:25.191    46M / 88M   INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 65536
+  0:00:25.191    46M / 88M   INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 83.333 Gb
+  0:00:25.191    46M / 88M   INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 67108864
+  0:00:40.204   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 1230393 reads
+  0:00:55.118   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 2445516 reads
+  0:01:10.074   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 3657793 reads
+  0:01:25.012   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 4874971 reads
+  0:01:40.000   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 6099841 reads
+  0:01:46.123   682M / 2G    INFO    General                 (kmer_splitters.hpp        : 287)   Processed 6584858 reads
+  0:01:46.124    42M / 2G    INFO    General                 (kmer_splitters.hpp        : 293)   Used 6584858 reads
+  0:01:46.124    42M / 2G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:01:47.467    42M / 2G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 4539673 kmers in total.
+  0:01:47.467    42M / 2G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:01:47.550    42M / 2G    INFO    General                 (stage.cpp                 : 113)   PROCEDURE == Extension index construction
+  0:01:47.551    42M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:01:47.551    42M / 2G    INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 16 files using 1 threads. This might take a while.
+  0:01:47.552    42M / 2G    INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 65536
+  0:01:47.554     8M / 2G    INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 83.3332 Gb
+  0:01:47.554     8M / 2G    INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 4194304
+  0:01:49.613   653M / 2G    INFO    General                 (kmer_splitters.hpp        : 364)   Processed 4539673 kmers
+  0:01:49.613   653M / 2G    INFO    General                 (kmer_splitters.hpp        : 369)   Used 4539673 kmers.
+  0:01:49.617    13M / 2G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:01:50.123    13M / 2G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 4523983 kmers in total.
+  0:01:50.123    13M / 2G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:01:50.244    13M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:01:51.219    11M / 2G    INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:01:51.341    11M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 2105968 bytes occupied (3.7241 bits per kmer).
+  0:01:51.345    16M / 2G    INFO   DeBruijnExtensionIndexBu (kmer_extension_index_build:  99)   Building k-mer extensions from k+1-mers
+  0:01:53.607    16M / 2G    INFO   DeBruijnExtensionIndexBu (kmer_extension_index_build: 103)   Building k-mer extensions from k+1-mers finished.
+  0:01:53.609    16M / 2G    INFO    General                 (stage.cpp                 : 113)   PROCEDURE == Early tip clipping
+  0:01:53.609    16M / 2G    INFO    General                 (construction.cpp          : 293)   Early tip clipper length bound set as (RL - K)
+  0:01:53.609    16M / 2G    INFO   Early tip clipping       (early_simplification.hpp  :  28)   Early tip clipping
+  0:01:55.804    18M / 2G    INFO   Early tip clipping       (early_simplification.hpp  :  63)   #tipped junctions: 40037
+  0:01:55.826    18M / 2G    INFO   Early tip clipping       (early_simplification.hpp  :  74)   Clipped tips: 40147
+  0:01:55.829    18M / 2G    INFO   Early tip clipping       (early_simplification.hpp  :  30)   221512 22-mers were removed by early tip clipper
+  0:01:55.829    18M / 2G    INFO    General                 (stage.cpp                 : 113)   PROCEDURE == Condensing graph
+  0:01:55.830    18M / 2G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 354)   Extracting unbranching paths
+  0:01:58.858    21M / 2G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 373)   Extracting unbranching paths finished. 57163 sequences extracted
+  0:02:00.634    23M / 2G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 309)   Collecting perfect loops
+  0:02:01.246    23M / 2G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 342)   Collecting perfect loops finished. 1 loops collected
+  0:02:01.342    36M / 2G    INFO    General                 (stage.cpp                 : 113)   PROCEDURE == Filling coverage indices (PHM)
+  0:02:01.342    36M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:02:01.343    36M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:02:02.481    35M / 2G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 2105560 bytes occupied (3.71051 bits per kmer).
+  0:02:02.486    55M / 2G    INFO    General                 (construction.cpp          : 429)   Collecting k-mer coverage information from reads, this takes a while.
