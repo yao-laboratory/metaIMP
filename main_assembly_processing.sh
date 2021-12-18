@@ -6,9 +6,11 @@
 #SBATCH --output=assembly.%J.out
 #SBATCH --error=assembly%J.err
 
+DATA_PATH=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/
 
-A=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_1.fastq
-B=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_2.fastq
+
+A=$DATA_PATH/SRR9205534_1.fastq
+B=$DATA_PATH/SRR9205534_2.fastq
 
 
 echo'starting preprocessing'
@@ -18,9 +20,9 @@ echo'starting preprocessing'
 
 echo 'completed pre-processing. starting assembly'
 
-A=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_1.fastq.filtered_1.fastq
-B=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/SRR9205533_2.fastq.filtered_2.fastq
-C=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205533/error_corrected_fi/no_filt_1k
+A=$A.filtered_1.fastq
+B=$B.filtered_2.fastq
+C=$DATA_PATH
 t=8
 D=0
 
