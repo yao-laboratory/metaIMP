@@ -9,9 +9,6 @@ python ./python_script/Reference_mapping.py -add_figid -gf $genes_folder -pf $pa
 
 echo 'finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command'
 
-module load singularity/3.7
-
-
 for f in $patric_folder/*.patric.csv
 do
         echo 'we are now processing all genes files to which 'fig_id' tag is added and these files will now run through PATRIC DATABASE'
