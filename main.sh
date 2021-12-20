@@ -40,8 +40,9 @@ export env_var
 
 ./main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len $env_var
 
+mkdir $output_folder_assembly/temp
 
 output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205535/reference_output
 ./main_reference_processing.sh $fastq1 $fastq2 $output_folder_reference
 
-
+mkdir $output_folder_reference/temp
