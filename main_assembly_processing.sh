@@ -95,7 +95,13 @@ else
 	annotation_file=$output_folder/eggnog_output/eggnog_results.emapper.annotations
 	log_snp_annotation=$log_folder/snp_annotation.log
 	assembly_snp_annotation=$output_folder/snp_annotation
-	#mkdir $assembly_snp_annotation
+	
+	if [[ ! -d $assembly_snp_annotation]]
+	then 
+		mkdir $assembly_snp_annotation
+	else
+		continue
+	fi
 
 	if [[ -f "$log_snp_annotation"]]
 	then
