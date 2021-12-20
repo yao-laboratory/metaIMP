@@ -44,3 +44,79 @@ Result:                 	3318964 reads (100.00%) 	431838124 bases (100.00%)
 Time:                         	8.280 seconds.
 Reads Processed:       3318k 	400.86k reads/sec
 Bases Processed:        431m 	52.16m bases/sec
+/home/yaolab/ksahu2/.ssh/metaIMP/assembly_binning.sh: line 30: 0: command not found
+/home/yaolab/ksahu2/.ssh/metaIMP/assembly_binning.sh: line 34: continue: only meaningful in a `for', `while', or `until' loop
+Building a SMALL index
+1659482 reads; of these:
+  1659482 (100.00%) were paired; of these:
+    93291 (5.62%) aligned concordantly 0 times
+    1553563 (93.62%) aligned concordantly exactly 1 time
+    12628 (0.76%) aligned concordantly >1 times
+    ----
+    93291 pairs aligned concordantly 0 times; of these:
+      79199 (84.89%) aligned discordantly 1 time
+    ----
+    14092 pairs aligned 0 times concordantly or discordantly; of these:
+      28184 mates make up the pairs; of these:
+        15511 (55.03%) aligned 0 times
+        8667 (30.75%) aligned exactly 1 time
+        4006 (14.21%) aligned >1 times
+99.53% overall alignment rate
+[bam_sort_core] merging from 1 files and 1 in-memory blocks...
+Output depth matrix to /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/depth.txt
+jgi_summarize_bam_contig_depths 2.15 (Bioconda) 2020-01-04T21:10:40
+Output matrix to /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/depth.txt
+0: Opening bam: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/bmfile_sort.bam
+Processing bam files
+Thread 0 finished: bmfile_sort.bam with 3303453 reads and 3268503 readsWellMapped
+Creating depth matrix file: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205534/depth.txt
+Closing most bam files
+Closing last bam file
+Finished
+    Finished processing 0 of 2 (0.00%) bins.    Finished processing 1 of 2 (50.00%) bins.    Finished processing 2 of 2 (100.00%) bins.
+    Finished processing 0 of 2 (0.00%) bins.    Finished processing 1 of 2 (50.00%) bins.    Finished processing 2 of 2 (100.00%) bins.
+    Finished parsing hits for 1 of 2 (50.00%) bins.    Finished parsing hits for 2 of 2 (100.00%) bins.
+    Finished extracting 0 of 43 (0.00%) HMMs.    Finished extracting 1 of 43 (2.33%) HMMs.    Finished extracting 2 of 43 (4.65%) HMMs.    Finished extracting 3 of 43 (6.98%) HMMs.    Finished extracting 4 of 43 (9.30%) HMMs.    Finished extracting 5 of 43 (11.63%) HMMs.    Finished extracting 6 of 43 (13.95%) HMMs.    Finished extracting 7 of 43 (16.28%) HMMs.    Finished extracting 8 of 43 (18.60%) HMMs.    Finished extracting 9 of 43 (20.93%) HMMs.    Finished extracting 10 of 43 (23.26%) HMMs.    Finished extracting 11 of 43 (25.58%) HMMs.    Finished extracting 12 of 43 (27.91%) HMMs.    Finished extracting 13 of 43 (30.23%) HMMs.    Finished extracting 14 of 43 (32.56%) HMMs.    Finished extracting 15 of 43 (34.88%) HMMs.    Finished extracting 16 of 43 (37.21%) HMMs.    Finished extracting 17 of 43 (39.53%) HMMs.    Finished extracting 18 of 43 (41.86%) HMMs.    Finished extracting 19 of 43 (44.19%) HMMs.    Finished extracting 20 of 43 (46.51%) HMMs.    Finished extracting 21 of 43 (48.84%) HMMs.    Finished extracting 22 of 43 (51.16%) HMMs.    Finished extracting 23 of 43 (53.49%) HMMs.    Finished extracting 24 of 43 (55.81%) HMMs.    Finished extracting 25 of 43 (58.14%) HMMs.    Finished extracting 26 of 43 (60.47%) HMMs.    Finished extracting 27 of 43 (62.79%) HMMs.    Finished extracting 28 of 43 (65.12%) HMMs.    Finished extracting 29 of 43 (67.44%) HMMs.    Finished extracting 30 of 43 (69.77%) HMMs.    Finished extracting 31 of 43 (72.09%) HMMs.    Finished extracting 32 of 43 (74.42%) HMMs.    Finished extracting 33 of 43 (76.74%) HMMs.    Finished extracting 34 of 43 (79.07%) HMMs.    Finished extracting 35 of 43 (81.40%) HMMs.    Finished extracting 36 of 43 (83.72%) HMMs.    Finished extracting 37 of 43 (86.05%) HMMs.    Finished extracting 38 of 43 (88.37%) HMMs.    Finished extracting 39 of 43 (90.70%) HMMs.    Finished extracting 40 of 43 (93.02%) HMMs.    Finished extracting 41 of 43 (95.35%) HMMs.    Finished extracting 42 of 43 (97.67%) HMMs.    Finished extracting 43 of 43 (100.00%) HMMs.
+    Finished aligning 0 of 43 (0.00%) marker genes.    Finished aligning 1 of 43 (2.33%) marker genes.    Finished aligning 2 of 43 (4.65%) marker genes.    Finished aligning 3 of 43 (6.98%) marker genes.    Finished aligning 4 of 43 (9.30%) marker genes.    Finished aligning 5 of 43 (11.63%) marker genes.    Finished aligning 6 of 43 (13.95%) marker genes.    Finished aligning 7 of 43 (16.28%) marker genes.    Finished aligning 8 of 43 (18.60%) marker genes.    Finished aligning 9 of 43 (20.93%) marker genes.    Finished aligning 10 of 43 (23.26%) marker genes.    Finished aligning 11 of 43 (25.58%) marker genes.    Finished aligning 12 of 43 (27.91%) marker genes.    Finished aligning 13 of 43 (30.23%) marker genes.    Finished aligning 14 of 43 (32.56%) marker genes.    Finished aligning 15 of 43 (34.88%) marker genes.    Finished aligning 16 of 43 (37.21%) marker genes.    Finished aligning 17 of 43 (39.53%) marker genes.    Finished aligning 18 of 43 (41.86%) marker genes.    Finished aligning 19 of 43 (44.19%) marker genes.    Finished aligning 20 of 43 (46.51%) marker genes.    Finished aligning 21 of 43 (48.84%) marker genes.    Finished aligning 22 of 43 (51.16%) marker genes.    Finished aligning 23 of 43 (53.49%) marker genes.    Finished aligning 24 of 43 (55.81%) marker genes.    Finished aligning 25 of 43 (58.14%) marker genes.    Finished aligning 26 of 43 (60.47%) marker genes.    Finished aligning 27 of 43 (62.79%) marker genes.    Finished aligning 28 of 43 (65.12%) marker genes.    Finished aligning 29 of 43 (67.44%) marker genes.    Finished aligning 30 of 43 (69.77%) marker genes.    Finished aligning 31 of 43 (72.09%) marker genes.    Finished aligning 32 of 43 (74.42%) marker genes.    Finished aligning 33 of 43 (76.74%) marker genes.    Finished aligning 34 of 43 (79.07%) marker genes.    Finished aligning 35 of 43 (81.40%) marker genes.    Finished aligning 36 of 43 (83.72%) marker genes.    Finished aligning 37 of 43 (86.05%) marker genes.    Finished aligning 38 of 43 (88.37%) marker genes.    Finished aligning 39 of 43 (90.70%) marker genes.    Finished aligning 40 of 43 (93.02%) marker genes.    Finished aligning 41 of 43 (95.35%) marker genes.    Finished aligning 42 of 43 (97.67%) marker genes.    Finished aligning 43 of 43 (100.00%) marker genes.
+    Finished parsing hits for 1 of 2 (50.00%) bins.    Finished parsing hits for 2 of 2 (100.00%) bins.
+    Finished processing 1 of 2 (50.00%) bins (current: bins.2).                                                                   Finished processing 2 of 2 (100.00%) bins (current: bins.1).
+    Finished processing 0 of 2 (0.00%) bins.    Finished processing 1 of 2 (50.00%) bins.    Finished processing 2 of 2 (100.00%) bins.
+    Finished parsing hits for 1 of 2 (50.00%) bins.    Finished parsing hits for 2 of 2 (100.00%) bins.
+    Finished processing 0 of 2 (0.00%) bins.    Finished processing 1 of 2 (50.00%) bins.    Finished processing 2 of 2 (100.00%) bins.
+    Finished processing 0 of 2 (0.00%) bins.    Finished processing 1 of 2 (50.00%) bins.    Finished processing 2 of 2 (100.00%) bins.
+    Finished parsing hits for 1 of 2 (50.00%) bins.    Finished parsing hits for 2 of 2 (100.00%) bins.
+[1;32mFuncional annotation of hits...[0m
+0 4.5299530029296875e-06 0.00 q/s (% mem usage: 41.80, % mem avail: 58.24)
+500 329.861200094223 1.52 q/s (% mem usage: 41.70, % mem avail: 58.25)
+1000 496.7073242664337 2.01 q/s (% mem usage: 41.90, % mem avail: 58.13)
+1500 581.4525258541107 2.58 q/s (% mem usage: 42.00, % mem avail: 58.00)
+2000 688.2503535747528 2.91 q/s (% mem usage: 42.00, % mem avail: 57.99)
+2500 724.7653167247772 3.45 q/s (% mem usage: 42.00, % mem avail: 57.99)
+2588 733.5525357723236 3.53 q/s (% mem usage: 42.00, % mem avail: 58.00)
+usage: inStrain profile [-o OUTPUT] [--use_full_fasta_header] [-p PROCESSES]
+                        [-d] [-h] [--version] [-l MIN_READ_ANI]
+                        [--min_mapq MIN_MAPQ]
+                        [--max_insert_relative MAX_INSERT_RELATIVE]
+                        [--min_insert MIN_INSERT]
+                        [--pairing_filter {non_discordant,paired_only,all_reads}]
+                        [--priority_reads PRIORITY_READS]
+                        [--detailed_mapping_info] [-c MIN_COV] [-f MIN_FREQ]
+                        [-fdr FDR] [-g GENE_FILE] [-s [STB [STB ...]]]
+                        [--mm_level] [--skip_mm_profiling] [--database_mode]
+                        [--min_scaffold_reads MIN_SCAFFOLD_READS]
+                        [--min_genome_coverage MIN_GENOME_COVERAGE]
+                        [--min_snp MIN_SNP] [--store_everything]
+                        [--scaffolds_to_profile SCAFFOLDS_TO_PROFILE]
+                        [--rarefied_coverage RAREFIED_COVERAGE]
+                        [--window_length WINDOW_LENGTH] [--skip_genome_wide]
+                        [--skip_plot_generation]
+                        bam fasta
+inStrain profile: error: argument -g/--gene_file: expected one argument
+
+The following have been reloaded with a version change:
+  1) python/3.8 => python/3.6
+
+Traceback (most recent call last):
+  File "Assembly_mapping.py", line 1, in <module>
+    import Bio
+ModuleNotFoundError: No module named 'Bio'
