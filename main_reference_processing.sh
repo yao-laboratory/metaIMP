@@ -30,7 +30,7 @@ else
 	else
 		 echo "$log_reference_pipeline  does not exist."
 		 echo "starting midas species, genes, snps procedures"
-		 ./ref_species_genes_snps.sh $output_folder $read1 $read2
+		 ./ref_species_genes_snps.sh $read1 $read2 $output_folder
 		 echo 'reference pipeline is ready for annotations'
 		 touch $log_reference_pipeline
 	fi
@@ -43,17 +43,7 @@ else
 		echo "$log_snp_annotation exists. Skipping annotations"
 	else
 		echo "$log_snp_annotation doesnot exist. Starting SNP_annotation"
-		./ref_snp_annotation.sh $output_folder $output_folder $output_folder $output_folder
+		./ref_snp_annotation.sh $output_folder/genes $output_folder/genes $output_folder/snps $output_folder
 		echo 'finished annotations and mapping snps. Thank you!!!'
 	fi
 fi
-
-
-
-
-
-
-
-
-
-
