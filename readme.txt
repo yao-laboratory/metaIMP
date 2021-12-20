@@ -82,6 +82,9 @@ OUTPUT FOLDER
 | |________MIDAS SNPS
 |__________REFERENCE SNP ANNOTATIONS
 
+
+We also create a empty temporary folder called 'temp' in the output folders for both ASSEMBLY PIPELINE and REFERENCE PIPELINE. User can move any non-essential file to this folder.
+
 ---------------------------------------
 ---------------------------------------
 
