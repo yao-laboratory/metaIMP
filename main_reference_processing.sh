@@ -4,12 +4,14 @@
 read1=$1
 read2=$2
 output_folder=$3
+env_var=$4
 
 if [[ $read1 = -h]]
 then
 	echo "Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path"
 else 
 	echo "starting pre-processing for reference-based pipeline"
+	source activate $env_var
 	log_folder=$output_folder/log_folder
 	mkdir $log_folder
 	log_preprocessing=$log_folder/preprocessing.log
@@ -46,4 +48,5 @@ else
 		./ref_snp_annotation.sh $output_folder/genes $output_folder/genes $output_folder/snps $output_folder
 		echo 'finished annotations and mapping snps. Thank you!!!'
 	fi
+	source deactivate $env_var
 fi

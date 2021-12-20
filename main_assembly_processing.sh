@@ -15,13 +15,14 @@ read2=$2
 output_folder=$3
 min_thread=$4
 min_contig_length=$5
-
+env_var=$6
 
 if [[ read1 = -h]]
 then 
 	echo 'Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path 4) min_thread= Total number of threads 5)min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)'
 
 else
+	source activate $env_var
 	# PRE-PROCESSING
 	log_folder=$output_folder/log_folder
 	mkdir $log_folder
@@ -115,7 +116,8 @@ else
 
 	fi
 
-echo 'finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!'
+	echo 'finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!'
+	source deactivate $env_var
 fi
 
 #THIS IS THE END OF MAIN_ASSEMBLY SCRIPT
