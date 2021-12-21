@@ -1,3 +1,0 @@
-loading modules for assembly_binning.sh
-loading modules for assembly_contig_annotation.sh
- no need to load python module. exists in env 
