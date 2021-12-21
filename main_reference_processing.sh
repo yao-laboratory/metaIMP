@@ -43,6 +43,6 @@ else
 		echo "$log_snp_annotation doesnot exist. Starting SNP_annotation"
 		./ref_snp_annotation.sh $output_folder/genes $output_folder/genes $output_folder/snps $output_folder
 		echo 'Finished annotations and mapping snps. Reference pipeline is now complete. Thank you!!!'
-	fi
+	fi 
 	source deactivate $env_var
 fi
