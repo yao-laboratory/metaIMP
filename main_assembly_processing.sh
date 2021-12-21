@@ -1,3 +1,4 @@
+#!/bin/bash
 #THIS IS THE MAIN_ASSEMBLY_SCRIPT.
 #STEPS INVOLVED IN THIS SCRIPT : 
 #		1) PREPROCESSING: This process is executed by preprocessing.sh which takes two inputs for paire-end forward and reverse fastq files 
@@ -17,11 +18,18 @@ min_thread=$4
 min_contig_length=$5
 env_var=$6
 
+if [ ! -d "$output_folder" ] ; then
+	mkdir $output_folder
+fi
+
 log_folder=$output_folder/log_folder
 mkdir $log_folder
 
+DIR="${BASH_SOURCE[0]}"
+DIR="$(dirname "$DIR")"
+echo "running main assembly process in the folder $DIR"
 
-if [ read1 = -h ] ; then
+if [ $read1 = -h ] ; then
 	echo 'Usage information: 1) read1 = Forward paired-end file (FASTQ)
 	2) read2 = Reverse paired-end file (FASTQ)
 	3) output_folder= Output folder path
@@ -31,29 +39,30 @@ if [ read1 = -h ] ; then
 else
 	source activate $env_var
 	# PRE-PROCESSING
-	
+
+	log_preprocessing=$log_folder/preprocessing.log
 	if [ -f "$log_preprocessing" ] ; then
 		echo "$log_preprocessing exists"
 	else
 		 echo "$log_preprocessing does not exist"
 	         echo "starting preprocessing"
-	         ./preprocessing.sh $read1 $read2
+		 echo "./preprocessing.sh $read1 $read2"
+	         $DIR/preprocessing.sh $read1 $read2
 	         echo "completed pre-processing. starting assembly"
-		 log_preprocessing=$log_folder/preprocessing.log
+
 	         touch $log_preprocessing
 	fi
 	echo ' '
 	echo '###########################################################################################################'
 	# BINNING
-	
+	log_assembly_binning=$log_folder/assembly_binning.log
 	if [ -f "$log_assembly_binning" ]; then
 		echo "$log_assembly_binning exists"
         else
 		echo "$log_assembly_binning does not exist"
                 echo "starting assembly binning"
-		./assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
+		$DIR/assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
 		echo "finished assembly binning. Check" $output_folder
-		log_assembly_binning=$log_folder/assembly_binning.log
 		cat > $log_assembly_binning
 	
 	fi
@@ -67,15 +76,14 @@ else
 	mergedfile=$output_folder/bins/checkm/bins/mergedfile.fna
 	annotation_results=$output_folder/eggnog_output
 	
-
+	log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
 	if [ -f "$log_assembly_contig_annotation" ] ; then
 		echo "$log_assembly_contig_annotation exists"
         else
 		echo "$log_assembly_contig_annotation does not exist"
                 echo "starting assembly contig annotation"
-		./assembly_contig_annotation.sh $mergedfile $annotation_results
+		$DIR/assembly_contig_annotation.sh $mergedfile $annotation_results
 		echo 'contig annotation complete. starting snp calling using instrain'
-		log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
 		cat > $log_assembly_contig_annotation
 	fi
 	echo ' '
@@ -87,15 +95,14 @@ else
 	contig=$output_folder/contigs.fasta
 	snp_output=$output_folder/instrain_results
 	
-
+	log_snp_calling=$log_folder/snp_calling.log
 	if [ -f "$log_snp_calling" ] ; then
 		echo "$log_snp_calling exists"
         else
 		echo "$log_snp_calling does not exist"
                 echo "starting snp calling"
-		./assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
+		$DIR/assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
 		echo 'completed snp calling. starting assembly_snp_annotation'
-		log_snp_calling=$log_folder/snp_calling.log
 		cat > $log_snp_calling
 	fi
 	echo ' '
@@ -111,15 +118,14 @@ else
 		mkdir $assembly_snp_annotation
 	
 	fi
-
+	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then
 		echo "$log_snp_annotation exists"
 	else
                 echo "$log_snp_annotation does not exist"
                 echo "starting final mapping between snps and annotations"
-		./assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
+		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
 		echo "finishd assembly_snp_annotation"
-		log_snp_annotation=$log_folder/snp_annotation.log
 		cat > $log_snp_annotations
 
 	fi

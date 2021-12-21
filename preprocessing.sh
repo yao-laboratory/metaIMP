@@ -1,3 +1,4 @@
+#!/bin/bash
 #this script is for pre-processing of paired-end fastq input files - forward and reverse
 
 echo 'starting bbmap'
