@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
-#SBATCH --output=example_hccn.%J.out
+#SBATCH --output=example_hcc.%J.out
 #SBATCH --error=example_hcc.%J.err
 
 
