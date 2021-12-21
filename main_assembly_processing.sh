@@ -53,7 +53,7 @@ else
 		./assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
 		echo "finished assembly binning. Check" $output_folder
 		log_assembly_binning=$log_folder/assembly_binning.log
-		touch $log_assembly_binning
+		cat > $log_assembly_binning
 	fi
 
 
@@ -72,7 +72,7 @@ else
 		./assembly_contig_annotation.sh $mergedfile $annotation_results
 		echo 'contig annotation complete. starting snp calling using instrain'
 		log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
-		touch $log_assembly_contig_annotation
+		cat > $log_assembly_contig_annotation
 	fi
 	
 
@@ -91,20 +91,19 @@ else
 		./assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
 		echo 'completed snp calling. starting assembly_snp_annotation'
 		log_snp_calling=$log_folder/snp_calling.log
-		touch $log_snp_calling
+		cat > $log_snp_calling
 	fi
 	
 
 	# SNP_ANNOTATION
 
-	instrain_file=$output_folder/instrain_results/instrain_SNVs.tsv
-	annotation_file=$output_folder/eggnog_output/eggnog_results.emapper.annotations
+	instrain_file=$snp_output/instrain_SNVs.tsv
+	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/snp_annotation
 	
 	if [ ! -d $assembly_snp_annotation ] ; then
 		mkdir $assembly_snp_annotation
-	else
-		continue
+	
 	fi
 
 	if [ -f "$log_snp_annotation" ] ; then
@@ -115,7 +114,7 @@ else
 		./assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
 		echo "finishd assembly_snp_annotation"
 		log_snp_annotation=$log_folder/snp_annotation.log
-		touch $log_snp_annotations
+		cat > $log_snp_annotations
 
 	fi
 
