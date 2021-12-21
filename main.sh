@@ -15,7 +15,7 @@ module load bowtie/2.3
 module load bowtie/2.3
 module load samtools/1.9
 module load samtools/1.9
-module load metabat2/2.15#
+module load metabat2/2.15
 module load checkm-genome/1.1
 
 #modules for assembly_contig_annotation.sh:
