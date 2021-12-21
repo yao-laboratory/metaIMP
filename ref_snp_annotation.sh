@@ -20,6 +20,7 @@ do
                 --attr public --attr refseq_locus_tag --attr segments --attr sequence_id --attr start --attr strand --attr subsystem --attr taxon_id \
                 --attr text --attr user_read --attr user_write --attr function \
                 < $f > ${f%%.*}.feature.csv
+done
 
 
 echo 'completed mapping PEG_IDs to PATRIC'

@@ -30,11 +30,8 @@ contigs=$output/contigs.fasta
 
 #OPTIONAL ARGUMENT FOR USER TO FILTER CONTIG
 
-if $minimum_contig_len>0
-then 
+if [ $minimum_contig_len -gt 0 ] ; then
 	reformat.sh in=$output/contigs.fasta out=$output/contigs.fasta minlength=$minimum_contig_len
-else 
-	continue
 fi
 
 #QUAST QUALITY CHECK
@@ -45,7 +42,7 @@ quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
 #INDEXED CONTIG
 
 echo 'Creating indexed contigs'
-idc=$output/indexed_contigs/
+idc=$output/indexed_contigs/indexed_contigs
 bowtie2-build $contigs $idc
 echo 'indexed contigs done'
 

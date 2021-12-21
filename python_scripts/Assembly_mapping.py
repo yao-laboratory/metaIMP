@@ -128,10 +128,13 @@ def main():
     
     
     
-    command_line = "a_map -i /somepath -e /somepath -m /somepath -o /somepath".split()
-    print(command_line)
-    args= parser.parse_args(command_line)
+          #command_line = "a_map -i /somepath -e /somepath -m /somepath -o /somepath".split()
+          #print(command_line)
+          #args= parser.parse_args(command_line)
     
+    args = parser.parse_args()
+
+
     if args.subcommand=='a_map':
         instrain = args.instrain_file_path
         eggnog = args.eggnog_file_path

@@ -6,7 +6,7 @@ read2=$2
 output_folder=$3
 env_var=$4
 
-if [ $read1 = -h] ; then
+if [ $read1 = -h ] ; then
 	echo "Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path"
 else 
 	echo "starting pre-processing for reference-based pipeline"
@@ -36,8 +36,8 @@ else
 
 	echo 'starting annotation using PATRIC and mapping annotations with snps'
 	log_snp_annotation=$log_folder/snp_annotation.log
-	
-	if [ -f "$log_snp_annotation"] ; then 
+
+	if [ -f "$log_snp_annotation" ] ; then 
 		echo "$log_snp_annotation exists. Skipping annotations"
 	else
 		echo "$log_snp_annotation doesnot exist. Starting SNP_annotation"

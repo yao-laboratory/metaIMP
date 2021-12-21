@@ -17,6 +17,10 @@ min_thread=$4
 min_contig_length=$5
 env_var=$6
 
+log_folder=$output_folder/log_folder
+mkdir $log_folder
+
+
 if [ read1 = -h ] ; then
 	echo 'Usage information: 1) read1 = Forward paired-end file (FASTQ)
 	2) read2 = Reverse paired-end file (FASTQ)
@@ -27,28 +31,28 @@ if [ read1 = -h ] ; then
 else
 	source activate $env_var
 	# PRE-PROCESSING
-	log_folder=$output_folder/log_folder
-	mkdir $log_folder
-	log_preprocessing=$log_folder/preprocessing.log
-	if [ -f "$log_preprocessing"] ; then
+	
+	if [ -f "$log_preprocessing" ] ; then
 		echo "$log_preprocessing exists"
 	else
 		 echo "$log_preprocessing does not exist"
 	         echo "starting preprocessing"
 	         ./preprocessing.sh $read1 $read2
 	         echo "completed pre-processing. starting assembly"
+		 log_preprocessing=$log_folder/preprocessing.log
 	         touch $log_preprocessing
 	fi
 	
 	# BINNING
-	log_assembly_binning=$log_folder/assembly_binning.log
-	if [ -f "$log_assembly_binning"]; then
+	
+	if [ -f "$log_assembly_binning" ]; then
 		echo "$log_assembly_binning exists"
         else
 		echo "$log_assembly_binning does not exist"
                 echo "starting assembly binning"
 		./assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
 		echo "finished assembly binning. Check" $output_folder
+		log_assembly_binning=$log_folder/assembly_binning.log
 		touch $log_assembly_binning
 	fi
 
@@ -58,15 +62,16 @@ else
 
 	mergedfile=$output_folder/bins/checkm/bins/mergedfile.fna
 	annotation_results=$output_folder/eggnog_output
-	log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
+	
 
-	if [ -f "$log_assembly_contig_annotation"] ; then
+	if [ -f "$log_assembly_contig_annotation" ] ; then
 		echo "$log_assembly_contig_annotation exists"
         else
 		echo "$log_assembly_contig_annotation does not exist"
                 echo "starting assembly contig annotation"
 		./assembly_contig_annotation.sh $mergedfile $annotation_results
 		echo 'contig annotation complete. starting snp calling using instrain'
+		log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
 		touch $log_assembly_contig_annotation
 	fi
 	
@@ -76,15 +81,16 @@ else
 	bam_sorted_file=$output_folder/bmfile_sort.bam
 	contig=$output_folder/contigs.fasta
 	snp_output=$output_folder/instrain_results
-	log_snp_calling=$log_folder/snp_calling.log
+	
 
-	if [ -f "$log_snp_calling"] ; then
+	if [ -f "$log_snp_calling" ] ; then
 		echo "$log_snp_calling exists"
         else
 		echo "$log_snp_calling does not exist"
                 echo "starting snp calling"
 		./assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
 		echo 'completed snp calling. starting assembly_snp_annotation'
+		log_snp_calling=$log_folder/snp_calling.log
 		touch $log_snp_calling
 	fi
 	
@@ -93,27 +99,27 @@ else
 
 	instrain_file=$output_folder/instrain_results/instrain_SNVs.tsv
 	annotation_file=$output_folder/eggnog_output/eggnog_results.emapper.annotations
-	log_snp_annotation=$log_folder/snp_annotation.log
 	assembly_snp_annotation=$output_folder/snp_annotation
 	
-	if [ ! -d $assembly_snp_annotation] ; then
+	if [ ! -d $assembly_snp_annotation ] ; then
 		mkdir $assembly_snp_annotation
 	else
 		continue
 	fi
 
-	if [ -f "$log_snp_annotation"] ; then
+	if [ -f "$log_snp_annotation" ] ; then
 		echo "$log_snp_annotation exists"
 	else
                 echo "$log_snp_annotation does not exist"
-                echo 'starting final mapping between snps and annotations'
+                echo "starting final mapping between snps and annotations"
 		./assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
 		echo "finishd assembly_snp_annotation"
+		log_snp_annotation=$log_folder/snp_annotation.log
 		touch $log_snp_annotations
 
 	fi
 
-	echo 'finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!'
+	echo "finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!"
 	source deactivate $env_var
 fi
 
