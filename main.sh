@@ -47,9 +47,9 @@ export PYTHONNOUSERSITE=1
 
 export USER_ENV_NAME=metaimp_env
 
-fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq
-fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq
-output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output
+fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq
+fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq
+output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output
 threads=8
 con_len=1500
 env_var=$USER_ENV_NAME
@@ -59,7 +59,7 @@ env_var=$USER_ENV_NAME
 
 mkdir $output_folder_assembly/temp
 
-output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output
+output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output
 ./main_reference_processing.sh $fastq1 $fastq2 $output_folder_reference $env_var
 
 mkdir $output_folder_reference/temp

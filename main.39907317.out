@@ -1,0 +1,120 @@
+loading modules for assembly_binning.sh
+loading modules for assembly_contig_annotation.sh
+ no need to load python module. exists in env 
+ does not exist
+starting preprocessing
+starting bbmap
+starting metaIMP test sequence v1
+finshing loading files
+starting adapters
+finishing adapters
+starting phix_adapters
+finishing phix_adapters
+creating temp files
+finishing temp file creation
+starting filtered files
+finishing filtered files
+completed pre-processing. starting assembly
+ does not exist
+starting assembly binning
+spades python file called for 1st sample-reverse and forward read
+
+
+== Error ==  file /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq was specified at least twice
+
+In case you have troubles running SPAdes, you can write to spades.support@cab.spbu.ru
+or report an issue on our GitHub repository github.com/ablab/spades
+Please provide us with params.txt and spades.log files from the output directory.
+finshed spades
+starting quast
+Creating indexed contigs
+Settings:
+  Output files: "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/indexed_contigs/.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+  Max bucket size, len divisor: 4
+  Difference-cover sample period: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 0
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/contigs.fasta
+Total time for call to driver() for forward index: 00:00:00
+indexed contigs done
+starting SAM file creation
+finished creating sam file
+starting SAM to BAM conversion
+touch bam file and change permission to global. also changed permission of SAM file to global
+bam sorting
+finished bam sort.starting binning
+starting BINNING modules
+starting depth file creation
+finished depth file creation
+starting binning
+MetaBAT 2 (2.15 (Bioconda)) using minContig 2500, minCV 1.0, minCVSum 1.0, maxP 95%, minS 60, maxEdges 200 and minClsSize 200000. with random seed=1640077964
+starting checkm
+[2021-12-21 03:12:47] INFO: CheckM v1.1.2
+[2021-12-21 03:12:47] INFO: checkm lineage_wf -t 8 -x fa /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/bins /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/bins/checkm
+[2021-12-21 03:12:47] INFO: [CheckM - tree] Placing bins in reference genome tree.
+[2021-12-21 03:12:47] ERROR: No bins found. Check the extension (-x) used to identify bins.
+
+  Controlled exit resulting from an unrecoverable error or warning.
+assembly_binning step is complete
+finished assembly binning. Check /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output
+ does not exist
+starting assembly contig annotation
+starting eggnog
+Assembly_contig annotation is complete. Check /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/eggnog_output
+contig annotation complete. starting snp calling using instrain
+ does not exist
+starting snp calling
+starting instrain
+finished instrain. ASSEMBLY_SNP_CALLING.sh complete
+completed snp calling. starting assembly_snp_annotation
+ does not exist
+starting final mapping between snps and annotations
+starting assembly mapping
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/instrain_results/instrain_SNVs.tsv /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/eggnog_output/eggnog_results.emapper.annotations /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/bins/checkm/bins/mergedfile.fna /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/snp_annotation
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/instrain_results/instrain_SNVs.tsv/instrain_SNVs.tsv
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/eggnog_output/eggnog_results.emapper.annotations/eggnog_results.emapper.annotations
+assembly mapping complete
+finishd assembly_snp_annotation
+finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!
+starting pre-processing for reference-based pipeline
+ does not exist.
+starting bbmap
+starting metaIMP test sequence v1
+finshing loading files
+starting adapters
+finishing adapters
+starting phix_adapters
+finishing phix_adapters
+creating temp files
+finishing temp file creation
+starting filtered files
+finishing filtered files
+finished preprocessing of paired-end input files. starting annotations now
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/log_folder/ref_species_genes_snps.log  does not exist.
+starting midas species, genes, snps procedures
+starting midas
+midas_species complete
+midas_genes complete
+midas_snps complete
+reference pipeline is ready for annotations
+starting annotation using PATRIC and mapping annotations with snps
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/log_folder/snp_annotation.log doesnot exist. Starting SNP_annotation
+this is reference based mapping
+finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command
+we are now processing all genes files to which fig_id tag is added and these files will now run through PATRIC DATABASE
+currently processing/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/genes/*.patric.csv
+completed mapping PEG_IDs to PATRIC
+completed reference_mapping. Good luck!!!
+Finished annotations and mapping snps. Reference pipeline is now complete. Thank you!!!
