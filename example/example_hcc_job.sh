@@ -1,15 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=main
+#SBATCH --job-name=example_hcc
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
-#SBATCH --output=main.%J.out
-#SBATCH --error=main.%J.err
+#SBATCH --output=example_hccn.%J.out
+#SBATCH --error=example_hcc.%J.err
 
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
-
 
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq
