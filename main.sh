@@ -54,7 +54,7 @@ threads=8
 con_len=1500
 env_var=$USER_ENV_NAME
 
-
+#/home/yaolab/ksahu2/.ssh/metaIMP
 ./main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len $env_var
 
 mkdir $output_folder_assembly/temp

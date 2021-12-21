@@ -46,3 +46,171 @@ Time:                         	8.391 seconds.
 Reads Processed:       3348k 	399.04k reads/sec
 Bases Processed:        438m 	52.31m bases/sec
 touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/log_folder/preprocessing.log': No such file or directory
+./assembly_binning.sh: line 34: reformat.sh: command not found
+Building a SMALL index
+Could not open index file for writing: "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/indexed_contigs/indexed_contigs.3.bt2"
+Please make sure the directory exists and that permissions allow writing by
+Bowtie.
+Error: Encountered internal Bowtie 2 exception (#1)
+Command: /util/opt/anaconda/deployed-conda-envs/packages/bowtie2/envs/bowtie2-2.3.5/bin/bowtie2-build-s --wrapper basic-0 /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/contigs.fasta /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/indexed_contigs/indexed_contigs 
+Deleting "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/indexed_contigs/indexed_contigs.3.bt2" file written during aborted indexing attempt.
+Deleting "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/indexed_contigs/indexed_contigs.4.bt2" file written during aborted indexing attempt.
+(ERR): "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/indexed_contigs/indexed_contigs" does not exist or is not a Bowtie 2 index
+Exiting now ...
+[E::hts_open_format] Failed to open file "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/smfile.sam" : No such file or directory
+samtools view: failed to open "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/smfile.sam" for reading: No such file or directory
+samtools sort: failed to read header from "/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bmfile.bam"
+Output depth matrix to /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/depth.txt
+jgi_summarize_bam_contig_depths 2.15 (Bioconda) 2020-01-04T21:10:40
+Output matrix to /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/depth.txt
+0: Opening bam: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bmfile_sort.bam
+[E::hts_open_format] Failed to open file /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bmfile_sort.bam
+0ERROR: Could not open bam: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bmfile_sort.bam
+./assembly_binning.sh: line 74: 2168468 Segmentation fault      (core dumped) jgi_summarize_bam_contig_depths --outputDepth $depth_file $bam_sorted_file
+[Error!] can't open input file /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/depth.txt
+[Error!] There are no lines in the abundance depth file or fasta file!
+./assembly_binning.sh: line 86: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bins/checkm/bins/mergedfile.fna: No such file or directory
+touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/log_folder/assembly_binning.log': No such file or directory
+usage: emapper.py [-h] [-v] [--list_taxa] [--cpu NUM_CPU] [--resume]
+                  [--override] [-i FASTA_FILE]
+                  [--itype {CDS,proteins,genome,metagenome}] [--translate]
+                  [--annotate_hits_table SEED_ORTHOLOGS_FILE] [-c FILE]
+                  [--data_dir DIR] [--genepred {search,prodigal}]
+                  [--trans_table TRANS_TABLE_CODE] [--training_genome FILE]
+                  [--training_file FILE]
+                  [--allow_overlaps {none,strand,diff_frame,all}]
+                  [--overlap_tol FLOAT]
+                  [-m {diamond,mmseqs,hmmer,no_search,cache}]
+                  [--pident PIDENT] [--query_cover QUERY_COVER]
+                  [--subject_cover SUBJECT_COVER] [--evalue EVALUE]
+                  [--score SCORE] [--dmnd_db DMND_DB_FILE]
+                  [--sensmode {fast,mid-sensitive,sensitive,more-sensitive,very-sensitive,ultra-sensitive}]
+                  [--matrix {BLOSUM62,BLOSUM90,BLOSUM80,BLOSUM50,BLOSUM45,PAM250,PAM70,PAM30}]
+                  [--gapopen GAPOPEN] [--gapextend GAPEXTEND]
+                  [--block_size BLOCK_SIZE] [--index_chunks CHUNKS]
+                  [--outfmt_short] [--mmseqs_db MMSEQS_DB_FILE]
+                  [--start_sens START_SENS] [--sens_steps SENS_STEPS]
+                  [--final_sens FINAL_SENS] [--mmseqs_sub_mat SUBS_MATRIX]
+                  [-d HMMER_DB_PREFIX] [--servers_list FILE]
+                  [--qtype {hmm,seq}] [--dbtype {hmmdb,seqdb}] [--usemem]
+                  [-p PORT] [--end_port PORT] [--num_servers NUM_SERVERS]
+                  [--num_workers NUM_WORKERS] [--hmm_maxhits MAXHITS]
+                  [--report_no_hits] [--hmm_maxseqlen MAXSEQLEN] [--Z DB_SIZE]
+                  [--cut_ga]
+                  [--clean_overlaps none|all|clans|hmmsearch_all|hmmsearch_clans]
+                  [--no_annot] [--dbmem] [--seed_ortholog_evalue MIN_E-VALUE]
+                  [--seed_ortholog_score MIN_SCORE] [--tax_scope TAX_SCOPE]
+                  [--tax_scope_mode TAX_SCOPE_MODE]
+                  [--target_orthologs {one2one,many2one,one2many,many2many,all}]
+                  [--target_taxa LIST_OF_TAX_IDS]
+                  [--excluded_taxa LIST_OF_TAX_IDS] [--report_orthologs]
+                  [--go_evidence {experimental,non-electronic,all}]
+                  [--pfam_realign {none,realign,denovo}] [--md5]
+                  [--output FILE_PREFIX] [--output_dir DIR]
+                  [--scratch_dir DIR] [--temp_dir DIR] [--no_file_comments]
+                  [--decorate_gff DECORATE_GFF]
+                  [--decorate_gff_ID_field DECORATE_GFF_ID_FIELD]
+emapper.py: error: argument -i: invalid existing_file value: '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/bins/checkm/bins/mergedfile.fna'
+touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/log_folder/assembly_contig_annotation.log': No such file or directory
+usage: inStrain profile [-o OUTPUT] [--use_full_fasta_header] [-p PROCESSES]
+                        [-d] [-h] [--version] [-l MIN_READ_ANI]
+                        [--min_mapq MIN_MAPQ]
+                        [--max_insert_relative MAX_INSERT_RELATIVE]
+                        [--min_insert MIN_INSERT]
+                        [--pairing_filter {paired_only,all_reads,non_discordant}]
+                        [--priority_reads PRIORITY_READS]
+                        [--detailed_mapping_info] [-c MIN_COV] [-f MIN_FREQ]
+                        [-fdr FDR] [-g GENE_FILE] [-s [STB [STB ...]]]
+                        [--mm_level] [--skip_mm_profiling] [--database_mode]
+                        [--min_scaffold_reads MIN_SCAFFOLD_READS]
+                        [--min_genome_coverage MIN_GENOME_COVERAGE]
+                        [--min_snp MIN_SNP] [--store_everything]
+                        [--scaffolds_to_profile SCAFFOLDS_TO_PROFILE]
+                        [--rarefied_coverage RAREFIED_COVERAGE]
+                        [--window_length WINDOW_LENGTH] [--skip_genome_wide]
+                        [--skip_plot_generation]
+                        bam fasta
+inStrain profile: error: argument -g/--gene_file: expected one argument
+touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/log_folder/snp_calling.log': No such file or directory
+Traceback (most recent call last):
+  File "Assembly_mapping.py", line 149, in <module>
+    main()
+  File "Assembly_mapping.py", line 144, in main
+    assembly_mapping(instrain,eggnog,mergedfile,fin_assembly)
+  File "Assembly_mapping.py", line 29, in assembly_mapping
+    df_instrain  = pd.read_csv(instrain_path, sep='\t')
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/parsers/base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "/home/yaolab/ksahu2/.conda/envs/metaimp_env/lib/python3.8/site-packages/pandas/io/common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/instrain_results/instrain_SNVs.tsv/instrain_SNVs.tsv'
+touch: missing file operand
+Try 'touch --help' for more information.
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output/log_folder’: No such file or directory
+java -ea -Xmx7g -Xms7g -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk -Xmx7g in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.temp_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.temp_2.fastq minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=./bbmap/resources/adapters.fa hdist=1 tbo tpe
+Executing jgi.BBDuk [-Xmx7g, in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq, in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq, out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.temp_1.fastq, out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.temp_2.fastq, minlen=10, qtrim=rl, trimq=20, ktrim=r, k=21, mink=11, ref=./bbmap/resources/adapters.fa, hdist=1, tbo, tpe]
+Version 38.90
+
+maskMiddle was disabled because useShortKmers=true
+0.054 seconds.
+Initial:
+Memory: max=7265m, total=7265m, free=7145m, used=120m
+
+Added 185707 kmers; time: 	0.440 seconds.
+Memory: max=7265m, total=7265m, free=6784m, used=481m
+
+Input is being processed as paired
+Started output streams:	0.458 seconds.
+Processing time:   		75.256 seconds.
+
+Input:                  	3356832 reads 		459667362 bases.
+QTrimmed:               	1358868 reads (40.48%) 	20586764 bases (4.48%)
+KTrimmed:               	5953 reads (0.18%) 	126596 bases (0.03%)
+Trimmed by overlap:     	12659 reads (0.38%) 	25211 bases (0.01%)
+Total Removed:          	8428 reads (0.25%) 	20738571 bases (4.51%)
+Result:                 	3348404 reads (99.75%) 	438928791 bases (95.49%)
+
+Time:                         	76.156 seconds.
+Reads Processed:       3356k 	44.08k reads/sec
+Bases Processed:        459m 	6.04m bases/sec
+java -ea -Xmx41082m -Xms41082m -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.temp_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.temp_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.filtered_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.filtered_2.fastq ref= hdist=1 k=21 threads=8
+Executing jgi.BBDuk [in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.temp_1.fastq, in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.temp_2.fastq, out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq.filtered_1.fastq, out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq.filtered_2.fastq, ref=, hdist=1, k=21, threads=8]
+Version 38.90
+
+Set threads to 8
+0.032 seconds.
+Initial:
+Memory: max=41641m, total=41641m, free=40722m, used=919m
+
+Input is being processed as paired
+Started output streams:	0.460 seconds.
+Processing time:   		8.054 seconds.
+
+Input:                  	3348404 reads 		438928791 bases.
+Total Removed:          	0 reads (0.00%) 	0 bases (0.00%)
+Result:                 	3348404 reads (100.00%) 	438928791 bases (100.00%)
+
+Time:                         	8.515 seconds.
+Reads Processed:       3348k 	393.22k reads/sec
+Bases Processed:        438m 	51.55m bases/sec
+touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output/log_folder/preprocessing.log': No such file or directory
+./ref_species_genes_snps.sh: line 10: run_midas.py: command not found
+./ref_species_genes_snps.sh: line 17: run_midas.py: command not found
+./ref_species_genes_snps.sh: line 24: run_midas.py: command not found
+touch: cannot touch '/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output/log_folder/ref_species_genes_snps.log': No such file or directory
+python: can't open file './python_script/Reference_mapping.py': [Errno 2] No such file or directory
+./ref_snp_annotation.sh: line 16: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output/genes/*.patric.csv: No such file or directory
+python: can't open file './python_script/Reference_mapping.py': [Errno 2] No such file or directory
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/reference_output/temp’: No such file or directory
