@@ -1,0 +1,131 @@
+loading modules for assembly_binning.sh
+loading modules for assembly_contig_annotation.sh
+ no need to load python module. exists in env 
+ does not exist
+starting preprocessing
+starting bbmap
+starting metaIMP test sequence v1
+finshing loading files
+starting adapters
+finishing adapters
+starting phix_adapters
+finishing phix_adapters
+creating temp files
+finishing temp file creation
+starting filtered files
+finishing filtered files
+completed pre-processing. starting assembly
+ does not exist
+starting assembly binning
+spades python file called for 1st sample-reverse and forward read
+
+
+== Warning ==  output dir is not empty! Please, clean output directory before run.
+
+
+Command line: /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/bin/spades.py	--meta	--pe1-1	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq	--pe1-2	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq	-t	8	-o	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output	
+
+System information:
+  SPAdes version: 3.14.0
+  Python version: 3.8.12
+  OS: Linux-4.18.0-305.17.1.hcc.el8.x86_64-x86_64-with-glibc2.10
+
+Output dir: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Metagenomic mode
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq']
+      right reads: ['/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: [21, 33, 55]
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/tmp
+  Threads: 8
+  Memory limit (in Gb): 250
+
+
+======= SPAdes pipeline started. Log can be found here: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/spades.log
+
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq: max reads length: 150
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq: max reads length: 150
+
+Reads length: 150
+
+
+===== Read error correction started. 
+
+
+===== Read error correction started. 
+
+
+== Running: /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/bin/spades-hammer /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/corrected/configs/config.info
+
+  0:00:00.000     3M / 10M   INFO    General                 (main.cpp                  :  75)   Starting BayesHammer, built from N/A, git revision N/A
+  0:00:00.000     3M / 10M   INFO    General                 (main.cpp                  :  76)   Loading config from /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/assembly_output/corrected/configs/config.info
+  0:00:00.005     3M / 10M   INFO    General                 (main.cpp                  :  78)   Maximum # of threads to use (adjusted due to OMP capabilities): 1
+  0:00:00.005     3M / 10M   INFO    General                 (memory_limit.cpp          :  49)   Memory limit set to 250 Gb
+  0:00:00.005     3M / 10M   INFO    General                 (main.cpp                  :  86)   Trying to determine PHRED offset
+  0:00:00.008     3M / 10M   INFO    General                 (main.cpp                  :  92)   Determined value is 33
+  0:00:00.008     3M / 11M   INFO    General                 (hammer_tools.cpp          :  38)   Hamming graph threshold tau=1, k=21, subkmer positions = [ 0 10 ]
+  0:00:00.008     3M / 11M   INFO    General                 (main.cpp                  : 113)   Size of aux. kmer data 24 bytes
+     === ITERATION 0 begins ===
+  0:00:00.009     3M / 11M   INFO   K-mer Counting           (kmer_data.cpp             : 280)   Estimating k-mer count
+  0:00:00.015    19M / 31M   INFO   K-mer Counting           (kmer_data.cpp             : 285)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq
+  0:00:47.564    19M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 294)   Processed 1678416 reads
+  0:00:47.564    19M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 285)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq
+  0:01:34.357    19M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 294)   Processed 3356832 reads
+  0:01:34.358    19M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 299)   Total 3356832 reads processed
+  0:01:34.612    19M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 302)   Estimated 33265436 distinct kmers
+  0:01:34.612     3M / 32M   INFO   K-mer Counting           (kmer_data.cpp             : 306)   Filtering singleton k-mers
+34 8 0
+nslots: 67108864
+bits per slot: 8 range: 0000000400000000
+  0:01:34.635    99M / 99M   INFO   K-mer Counting           (kmer_data.cpp             : 312)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq
+  0:03:36.914    99M / 99M   INFO   K-mer Counting           (kmer_data.cpp             : 321)   Processed 1678416 reads
+  0:03:36.915    99M / 99M   INFO   K-mer Counting           (kmer_data.cpp             : 312)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq
+  0:05:38.513    99M / 99M   INFO   K-mer Counting           (kmer_data.cpp             : 321)   Processed 3356832 reads
+  0:05:38.514    99M / 99M   INFO   K-mer Counting           (kmer_data.cpp             : 326)   Total 3356832 reads processed
+  0:05:38.520    99M / 99M   INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:05:38.520    99M / 99M   INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 16 files using 1 threads. This might take a while.
+  0:05:38.522    99M / 99M   INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 65536
+  0:05:38.522    99M / 99M   INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 83.3019 Gb
+  0:05:38.522    99M / 99M   INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 4194304
+  0:05:38.523   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             :  97)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq
+  0:06:00.621   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 289735 reads
+  0:06:22.461   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 580294 reads
+  0:06:44.214   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 869555 reads
+  0:07:06.049   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 1161162 reads
+  0:07:27.825   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 1450428 reads
+  0:07:45.050   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 1678416 reads
+  0:07:45.050   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             :  97)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq
+  0:08:28.671   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 2270958 reads
+  0:09:48.771   741M / 741M  INFO   K-mer Splitting          (kmer_data.cpp             : 112)   Total 3356832 reads processed
+  0:09:48.774   101M / 648M  INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:09:54.043   101M / 648M  INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 9538118 kmers in total.
+  0:09:54.043   101M / 648M  INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:09:54.268   101M / 648M  INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:09:56.073   107M / 648M  INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:09:56.247   107M / 648M  INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 4431040 bytes occupied (3.71649 bits per kmer).
+  0:09:56.253    11M / 648M  INFO   K-mer Counting           (kmer_data.cpp             : 351)   Arranging kmers in hash map order
+  0:09:57.582   171M / 648M  INFO    General                 (main.cpp                  : 148)   Clustering Hamming graph.
+  0:11:22.594   171M / 648M  INFO    General                 (main.cpp                  : 155)   Extracting clusters
+  0:11:25.645   365M / 648M  INFO    General                 (main.cpp                  : 167)   Clustering done. Total clusters: 7118975
+  0:11:25.652   285M / 648M  INFO   K-mer Counting           (kmer_data.cpp             : 371)   Collecting K-mer information, this takes a while.
+  0:11:25.749   509M / 648M  INFO   K-mer Counting           (kmer_data.cpp             : 377)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_1.fastq
+  0:15:24.470   509M / 648M  INFO   K-mer Counting           (kmer_data.cpp             : 377)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205536/SRR9205536_2.fastq
