@@ -42,7 +42,8 @@ else
 		 log_preprocessing=$log_folder/preprocessing.log
 	         touch $log_preprocessing
 	fi
-	
+	echo ' '
+	echo '###########################################################################################################'
 	# BINNING
 	
 	if [ -f "$log_assembly_binning" ]; then
@@ -54,7 +55,10 @@ else
 		echo "finished assembly binning. Check" $output_folder
 		log_assembly_binning=$log_folder/assembly_binning.log
 		cat > $log_assembly_binning
+	
 	fi
+	echo ' '
+        echo '###########################################################################################################'
 
 
 	# CONTIG_ANNOTATION
@@ -74,7 +78,8 @@ else
 		log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
 		cat > $log_assembly_contig_annotation
 	fi
-	
+	echo ' '
+        echo '###########################################################################################################'
 
 	# SNP_CALLING
 
@@ -93,7 +98,8 @@ else
 		log_snp_calling=$log_folder/snp_calling.log
 		cat > $log_snp_calling
 	fi
-	
+	echo ' '
+        echo '###########################################################################################################'
 
 	# SNP_ANNOTATION
 
@@ -117,6 +123,8 @@ else
 		cat > $log_snp_annotations
 
 	fi
+	echo ' '
+        echo '###########################################################################################################'
 
 	echo "finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!"
 	source deactivate $env_var

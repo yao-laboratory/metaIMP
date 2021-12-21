@@ -43,7 +43,9 @@ quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
 
 echo 'Creating indexed contigs'
 idc=$output/indexed_contigs/
-bowtie2-build $contigs $idc
+mkdir $idc
+
+bowtie2-build $contigs $idc/indexed_contigs
 echo 'indexed contigs done'
 
 #SAM FILE CREATION
