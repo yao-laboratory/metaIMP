@@ -49,7 +49,8 @@ else
 	echo 'finished preprocessing of paired-end input files $(date). starting annotations now'
 	echo ' '
         echo '###########################################################################################################'
-
+        read1=$read1.filtered_1.fastq
+        read2=$read2.filtered_2.fastq
 	log_reference_pipeline=$log_folder/ref_species_genes_snps.log
 	if [ -f "$log_reference_pipeline" ] ; then
 		echo "$log_reference_pipeline exists. Skipping MIDAS annotation procedures..."

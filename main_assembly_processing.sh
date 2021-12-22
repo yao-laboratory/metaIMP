@@ -61,6 +61,8 @@ else
 	fi
 	echo ' '
 	echo '###########################################################################################################'
+	read1=$read1.filtered_1.fastq
+	read2=$read2.filtered_2.fastq
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
 	if [ -f "$log_assembly_binning" ]; then
