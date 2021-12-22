@@ -31,22 +31,22 @@ if [ $read1 = -h ] ; then
 	echo "Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path"
 else 
 	echo "starting pre-processing for reference-based pipeline at $(date)"
-	source activate $USER_ENV_NAME
+	
 	
 	
 	
 	
 	log_preprocessing=$log_folder/preprocessing.log
-	if [ -f "$FILE" ] ; then
-		echo "$FILE exists. Skipping pre-processing"
+	if [ -f "$log_preprocessing" ] ; then
+		echo "$log_preprocessing exists. Skipping pre-processing"
 	else
-		echo "$FILE does not exist."
+		echo "$log_preprocessing does not exist."
 		echo "./preprocessing.sh $read1 $read2 $min_threadi $min_thread"
                 $DIR/preprocessing.sh $read1 $read2 $min_thread $min_thread
 		
 		touch $log_preprocessing
 	fi
-	echo 'finished preprocessing of paired-end input files $(date). starting annotations now'
+	echo "finished preprocessing of paired-end input files $(date). starting annotations now"
 	echo ' '
         echo '###########################################################################################################'
         read1=$read1.filtered_1.fastq
@@ -58,7 +58,7 @@ else
 		 echo "$log_reference_pipeline  does not exist."
 		 echo "starting midas species, genes, snps procedures at $(date)..."
 		 $DIR/ref_species_genes_snps.sh $read1 $read2 $min_thread $database_folder $output_folder
-		 echo 'reference pipeline is ready for annotations at $(date)'
+		 echo "reference pipeline is ready for annotations at $(date)"
 		 touch $log_reference_pipeline
 	fi
 
@@ -66,14 +66,14 @@ else
 	echo ' '
         echo '###########################################################################################################'
 
-	
+	source activate $USER_ENV_NAME
 	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then 
 		echo "$log_snp_annotation exists. Skipping annotations"
 	else
 		echo "$log_snp_annotation does not exist. Starting SNP_annotation at $(date)"
 		$DIR/ref_snp_annotation.sh $output_folder/MIDAS/genes $output_folder/MIDAS/genes $output_folder/MIDAS/snps $output_folder/REFERENCE_SNP_ANNOTATION
-		echo 'Finished annotations and mapping snps at $(date). Reference pipeline is now complete. Thank you!!!'
+		echo "Finished annotations and mapping snps at $(date). Reference pipeline is now complete. Thank you!!!"
 		touch $log_snp_annotation
 	fi
         echo ' '

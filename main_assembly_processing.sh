@@ -92,7 +92,7 @@ else
 		echo "$log_assembly_contig_annotation does not exist"
 		echo "starting assembly contig annotation at $(date)..."
 		$DIR/assembly_contig_annotation.sh $mergedfile $annotation_results
-		echo 'contig annotation complete at $(date). starting snp calling using instrain'
+		echo "contig annotation complete at $(date). starting snp calling using instrain"
 		touch $log_assembly_contig_annotation
 	fi
 	echo ' '
@@ -111,7 +111,7 @@ else
 		echo "$log_snp_calling does not exist"
 		echo "starting snp calling at $(date)..."
 		$DIR/assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
-		echo 'completed snp calling at $(date). starting assembly_snp_annotation'
+		echo "completed snp calling at $(date). starting assembly_snp_annotation"
 		touch $log_snp_calling
 	fi
 	echo ' '

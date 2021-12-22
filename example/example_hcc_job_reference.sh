@@ -1,30 +1,31 @@
 #!/bin/bash
-#SBATCH --job-name=hcc_both_task
+#SBATCH --job-name=hcc_reference
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
-#SBATCH --mem=96gb
-#SBATCH --output=hcc_both_task.%J.out
-#SBATCH --error=hcc_both_task.%J.err
+#SBATCH --mem=64gb
+#SBATCH --output=hcc_reference.%J.out
+#SBATCH --error=hcc_reference.%J.err
 
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
 
 #Inputs- FASTQ/FASTA paired-end files
-fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq
-fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq
+fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_1.fastq
+fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_2.fastq
 
 #output_folder_assembly path
-output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output
+output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/assembly_output
 
 #output_folder_reference path
-output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output
+output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/reference_output
 
 #number of threads to be used by metaSPADES and Instrain
 threads=8
 
 #Minimum_contig_length for filtering. THIS IS OPTIONAL
 con_len=1500
+
 
 #user environment name
 #env_var=$USER_ENV_NAME
@@ -48,11 +49,20 @@ module load eggnog-mapper/2.1
 module load instrain/1.3
 export PYTHONNOUSERSITE=1
 
-echo ' '
-echo '###########################################################################################################'
-echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
-#/home/yaolab/ksahu2/.ssh/metaIMP
-$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
+
+
+
+#echo ' '
+#echo '###########################################################################################################'
+#echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
+
+#$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
+
+#echo ' '
+#echo '###########################################################################################################'
+
+
+
 
 
 
@@ -70,6 +80,5 @@ echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
 
 echo ' '
-echo '###########################################################################################################'
-
+echo '###########################################################################################################' 
 

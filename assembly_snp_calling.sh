@@ -12,7 +12,7 @@ bms=$1
 contigs=$2
 op_folder=$3
 threads=$4
-mergefile=$5
+mergedfile=$5
 
 echo "inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile"
 
