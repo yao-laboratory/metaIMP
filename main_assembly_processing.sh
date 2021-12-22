@@ -52,10 +52,10 @@ else
 		echo "$log_preprocessing exists. Skip preprocessing..."
 	else
 		 echo "$log_preprocessing does not exist"
-	         echo "starting preprocessing..."
+		 echo "starting preprocessing $(date) ..."
 		 echo "./preprocessing.sh $read1 $read2 $min_thread"
 	         $DIR/preprocessing.sh $read1 $read2 $min_thread
-	         echo "completed pre-processing. starting assembly"
+		 echo "completed pre-processing at $(date). starting assembly"
 
 	         touch $log_preprocessing
 	fi
@@ -67,9 +67,9 @@ else
 		echo "$log_assembly_binning exists. Skip assembly and binning..."
         else
 		echo "$log_assembly_binning does not exist"
-                echo "starting assembly binning..."
+		echo "starting assembly binning at $(date)..."
 		$DIR/assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
-		echo "finished assembly binning. Check" $output_folder
+		echo "finished assembly binning at $(date). Check" $output_folder
 		touch $log_assembly_binning
 	
 	fi
@@ -88,9 +88,9 @@ else
 		echo "$log_assembly_contig_annotation exists. Skip annotation..."
         else
 		echo "$log_assembly_contig_annotation does not exist"
-                echo "starting assembly contig annotation..."
+		echo "starting assembly contig annotation at $(date)..."
 		$DIR/assembly_contig_annotation.sh $mergedfile $annotation_results
-		echo 'contig annotation complete. starting snp calling using instrain'
+		echo 'contig annotation complete at $(date). starting snp calling using instrain'
 		touch $log_assembly_contig_annotation
 	fi
 	echo ' '
@@ -107,9 +107,9 @@ else
 		echo "$log_snp_calling exists. Skip SNP calling..."
         else
 		echo "$log_snp_calling does not exist"
-                echo "starting snp calling..."
+		echo "starting snp calling at $(date)..."
 		$DIR/assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
-		echo 'completed snp calling. starting assembly_snp_annotation'
+		echo 'completed snp calling at $(date). starting assembly_snp_annotation'
 		touch $log_snp_calling
 	fi
 	echo ' '
@@ -127,9 +127,9 @@ else
 		echo "$log_snp_annotation exists. Skip snp annotation mapping..."
 	else
                 echo "$log_snp_annotation does not exist"
-                echo "starting final mapping between snps and annotations..."
+		echo "starting final mapping between snps and annotations at $(date)..."
 		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
-		echo "finishd assembly_snp_annotation"
+		echo "finishd assembly_snp_annotation at $(date)"
 		touch $log_snp_annotation
 
 	fi

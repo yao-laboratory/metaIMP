@@ -30,7 +30,7 @@ echo "running main reference based analysis process in the folder $DIR"
 if [ $read1 = -h ] ; then
 	echo "Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path"
 else 
-	echo "starting pre-processing for reference-based pipeline"
+	echo "starting pre-processing for reference-based pipeline at $(date)"
 	source activate $USER_ENV_NAME
 	
 	
@@ -46,7 +46,7 @@ else
 		
 		touch $log_preprocessing
 	fi
-	echo 'finished preprocessing of paired-end input files. starting annotations now'
+	echo 'finished preprocessing of paired-end input files $(date). starting annotations now'
 	echo ' '
         echo '###########################################################################################################'
 
@@ -55,9 +55,9 @@ else
 		echo "$log_reference_pipeline exists. Skipping MIDAS annotation procedures..."
 	else
 		 echo "$log_reference_pipeline  does not exist."
-		 echo "starting midas species, genes, snps procedures..."
+		 echo "starting midas species, genes, snps procedures at $(date)..."
 		 $DIR/ref_species_genes_snps.sh $read1 $read2 $min_thread $database_folder $output_folder
-		 echo 'reference pipeline is ready for annotations'
+		 echo 'reference pipeline is ready for annotations at $(date)'
 		 touch $log_reference_pipeline
 	fi
 
@@ -70,9 +70,9 @@ else
 	if [ -f "$log_snp_annotation" ] ; then 
 		echo "$log_snp_annotation exists. Skipping annotations"
 	else
-		echo "$log_snp_annotation does not exist. Starting SNP_annotation"
+		echo "$log_snp_annotation does not exist. Starting SNP_annotation at $(date)"
 		$DIR/ref_snp_annotation.sh $output_folder/MIDAS/genes $output_folder/MIDAS/genes $output_folder/MIDAS/snps $output_folder/REFERENCE_SNP_ANNOTATION
-		echo 'Finished annotations and mapping snps. Reference pipeline is now complete. Thank you!!!'
+		echo 'Finished annotations and mapping snps at $(date). Reference pipeline is now complete. Thank you!!!'
 		touch $log_snp_annotation
 	fi
         echo ' '

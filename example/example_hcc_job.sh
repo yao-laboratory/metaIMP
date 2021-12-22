@@ -57,6 +57,7 @@ $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembl
 
 
 module purge
+module load java
 module load midas/1.3
 module load samtools
 
