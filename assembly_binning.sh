@@ -62,7 +62,7 @@ echo 'indexed contigs done'
 
 echo 'starting SAM file creation'
 sam_file=$output/contig_mapping.sam
-bowtie2 --threads $t -x $idc -1 $fastq1 -2 $fastq2 --no-unal -S $sam_file
+bowtie2 --threads $t -x $idc/indexed_contigs -1 $fastq1 -2 $fastq2 --no-unal -S $sam_file
 echo 'finished creating sam file'
 
 #SAMTOBAM conversion
