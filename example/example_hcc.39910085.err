@@ -1,3 +1,0 @@
-/home/yaolab/ksahu2/.ssh/metaIMP/preprocessing.sh: line 37: ./bbmap/bbduk.sh: No such file or directory
-/home/yaolab/ksahu2/.ssh/metaIMP/preprocessing.sh: line 46: ./bbmap/bbduk.sh: No such file or directory
-slurmstepd: error: *** JOB 39910085 ON c3711 CANCELLED AT 2021-12-21T14:52:17 ***
