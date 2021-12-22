@@ -1,27 +1,24 @@
 #!/bin/bash
-#SBATCH --job-name=example_hcc
+#SBATCH --job-name=ex_37
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
-#SBATCH --output=example_hcc.%J.out
-#SBATCH --error=example_hcc.%J.err
+#SBATCH --output=ex_37.%J.out
+#SBATCH --error=ex_37.%J.err
 
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
 
 #Inputs- FASTQ/FASTA paired-end files
-fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq
-fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq
+fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq
+fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq
 
 #output_folder_assembly path
-output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output
+output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output
 
 #output_folder_reference path
-output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/reference_output
-
-#create output directory for reference pipeline
-mkdir $output_folder_reference
+output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output
 
 #number of threads to be used by metaSPADES and Instrain
 threads=8
@@ -30,7 +27,7 @@ threads=8
 con_len=1500
 
 #user environment name
-env_var=$USER_ENV_NAME
+#env_var=$USER_ENV_NAME
 
 
 #modules for assembly_binning.sh:
@@ -53,27 +50,25 @@ export PYTHONNOUSERSITE=1
 
 echo ' '
 echo '###########################################################################################################'
-echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len $env_var
+echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
 #/home/yaolab/ksahu2/.ssh/metaIMP
-$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len $env_var
+$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
 
-mkdir $output_folder_assembly/temp
+
 
 module purge
 module load midas/1.3
 module load samtools
 
-#create output directory for reference pipeline
-mkdir $output_folder_reference
-
+database_folder=$MIDAS_DB
 
 echo ' '
 echo '###########################################################################################################'
 
-echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $output_folder_reference $env_var
-$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $output_folder_reference $env_var
+echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
+$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
 
 echo ' '
 echo '###########################################################################################################'
 
-mkdir $output_folder_reference/temp
+

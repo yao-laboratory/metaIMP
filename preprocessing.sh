@@ -3,9 +3,12 @@
 
 echo 'starting bbmap'
 echo 'starting metaIMP test sequence v1'
+DIR="${BASH_SOURCE[0]}"
+DIR="$(dirname "$DIR")"
 
 input1=$1
 input2=$2
+num_thread=$3
 
 file1=$input1
 file2=$input2
@@ -18,7 +21,7 @@ temp2=$input2.temp_2.fastq
 
 echo 'finshing loading files'
 
-bbmap_folder=./bbmap
+bbmap_folder=$DIR/bbmap
 
 echo 'starting adapters'
 
@@ -37,7 +40,7 @@ echo 'creating temp files'
 $bbmap_folder/bbduk.sh -Xmx7g in1=$file1 in2=$file2 \
 	out1=$temp1\
 	out2=$temp2\
-	minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=$adapters hdist=1 tbo tpe
+	minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=$adapters hdist=1 threads=$num_thread tbo tpe
 
 echo 'finishing temp file creation'
 echo 'starting filtered files'
@@ -45,6 +48,9 @@ echo 'starting filtered files'
 $bbmap_folder/bbduk.sh \
 	in1=$temp1 \
 	in2=$temp2 \
-	out1=$OT1 out2=$OT2 ref=$phiXadapters hdist=1 k=21 threads=8
+	out1=$OT1 out2=$OT2 ref=$phiXadapters hdist=1 k=21 threads=$num_thread
+
+
+
 
 echo 'finishing filtered files'

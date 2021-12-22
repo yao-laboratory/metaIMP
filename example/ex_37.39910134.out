@@ -1,0 +1,61 @@
+loading modules for assembly_binning.sh
+loading modules for assembly_contig_annotation.sh
+ 
+###########################################################################################################
+/home/yaolab/ksahu2/.ssh/metaIMP/main_assembly_processing.sh /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output 8 1500 metaimp_env
+running main assembly process in the folder /home/yaolab/ksahu2/.ssh/metaIMP
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder/preprocessing.log exists
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder/assembly_binning.log exists
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder/assembly_contig_annotation.log exists
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder/snp_calling.log exists
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder/snp_annotation.log does not exist
+starting final mapping between snps and annotations
+starting assembly mapping
+assembly mapping complete
+finishd assembly_snp_annotation
+ 
+###########################################################################################################
+finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!
+ 
+###########################################################################################################
+/home/yaolab/ksahu2/.ssh/metaIMP/main_reference_processing.sh /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output metaimp_env
+starting pre-processing for reference-based pipeline
+ does not exist.
+starting bbmap
+starting metaIMP test sequence v1
+finshing loading files
+starting adapters
+finishing adapters
+starting phix_adapters
+finishing phix_adapters
+creating temp files
+finishing temp file creation
+starting filtered files
+finishing filtered files
+finished preprocessing of paired-end input files. starting annotations now
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/log_folder/ref_species_genes_snps.log exists. Skipping pre-processing
+starting annotation using PATRIC and mapping annotations with snps
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/log_folder/snp_annotation.log doesnot exist. Starting SNP_annotation
+this is reference based mapping
+finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command
+we are now processing all genes files to which fig_id tag is added and these files will now run through PATRIC DATABASE
+currently processing/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/genes/*.patric.csv
+completed mapping PEG_IDs to PATRIC
+completed reference_mapping. Good luck!!!
+Finished annotations and mapping snps. Reference pipeline is now complete. Thank you!!!
+ 
+###########################################################################################################
+ 
+###########################################################################################################

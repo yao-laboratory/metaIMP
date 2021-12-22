@@ -5,7 +5,12 @@
 echo 'starting eggnog'
 
 mergedfile=$1
-eggnog_output=$2
+eggnog_output_folder=$2
+
+if [ ! -d "$eggnog_output_folder" ] ; then
+        mkdir $eggnog_output_folder
+fi
+eggnog_output=$eggnog_output_folder/eggnog_results
 emapper.py -i $mergedfile -o $eggnog_output
 
 echo 'Assembly_contig annotation is complete. Check' $eggnog_output 

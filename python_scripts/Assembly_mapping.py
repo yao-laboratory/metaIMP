@@ -13,13 +13,14 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     #defining paths to instrain,eggnog and mergedfile.fna
 
     #paths
-    instrain_path = os.path.join(instrain, 'instrain_SNVs.tsv')
-    print(instrain_path)
+    #instrain_path = os.path.join(instrain, 'instrain_SNVs.tsv')
+    print(instrain)
 
-    eggnog_path = os.path.join(eggnog, 'eggnog_results.emapper.annotations')
-    print(eggnog_path)
+    #eggnog_path = os.path.join(eggnog, 'eggnog_results.emapper.annotations')
+    print(eggnog)
 
-    merged_file = os.path.join(mergedfile, 'mergedfile.fna')
+    #merged_file = os.path.join(mergedfile, 'mergedfile.fna')
+    print(mergedfile)
 
     fin_assembly = os.path.join(fin_assembly,'assembly_mapping_result.csv')
 
@@ -120,10 +121,10 @@ def main():
        
     
     assembly_mapping_parser = subparser.add_parser("a_map",help="This function is to map snps with annotations")
-    assembly_mapping_parser.add_argument("-i", dest="instrain_file_path", type=str, help="instrain file path as input")
-    assembly_mapping_parser.add_argument("-e", dest="eggnog_file_path", type=str, help="eggnog file path as input")
-    assembly_mapping_parser.add_argument("-m", dest="mergedfile_file_path", type=str, 
-                                         help="merged file path  obtained from checkm as input")
+    assembly_mapping_parser.add_argument("-i", dest="instrain_file", type=str, help="instrain file eg./path/to/instrain_SNVs.tsv as input")
+    assembly_mapping_parser.add_argument("-e", dest="eggnog_file", type=str, help="eggnog file eg. /path/to/eggnog_results.emapper.annotations as input")
+    assembly_mapping_parser.add_argument("-m", dest="mergedfile_file", type=str, 
+                                         help="merged file obtained from checkm as input eg. /path/to/mergedfile.fna")
     assembly_mapping_parser.add_argument("-o", dest="output_file_path", type=str, help="output file path")
     
     
@@ -136,9 +137,9 @@ def main():
 
 
     if args.subcommand=='a_map':
-        instrain = args.instrain_file_path
-        eggnog = args.eggnog_file_path
-        mergedfile = args.mergedfile_file_path
+        instrain = args.instrain_file
+        eggnog = args.eggnog_file
+        mergedfile = args.mergedfile_file
         fin_assembly = args.output_file_path
         print(instrain,eggnog,mergedfile,fin_assembly)
         assembly_mapping(instrain,eggnog,mergedfile,fin_assembly)

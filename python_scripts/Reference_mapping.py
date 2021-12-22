@@ -152,7 +152,7 @@ def main():
     ref_map_parser= subparser.add_parser("ref_map",help="This function is to map snp to annotations")
     ref_map_parser.add_argument("-pf", dest="patric_folder",type=str, help="patric folder as input folder")
     ref_map_parser.add_argument("-sf", dest="midas_snp_folder",type=str, help="midas snp folder as input folder")
-    ref_map_parser.add_argument("-o", dest="output_csv_file",type=str, help="final output csv file name")
+    ref_map_parser.add_argument("-o", dest="output_csv_file_path",type=str, help="final output folder name for csv files ")
 
 
         #command_line="add_figid -gf /somefolder/ -pf /someoutputfolder/".split()
@@ -176,7 +176,7 @@ def main():
     elif args.subcommand=='ref_map':
         patric_path = args.patric_folder
         midas = args.midas_snp_folder
-        reference_ppln = args. output_csv_file
+        reference_ppln = args. output_csv_file_path
         print(patric_path, midas, reference_ppln)
         reference_mapping(patric_path,midas,reference_ppln)
 

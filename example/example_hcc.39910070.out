@@ -1,0 +1,95 @@
+loading modules for assembly_binning.sh
+loading modules for assembly_contig_annotation.sh
+ 
+###########################################################################################################
+/home/yaolab/ksahu2/.ssh/metaIMP/main_assembly_processing.sh /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output 8 1500 metaimp_env
+running main assembly process in the folder /home/yaolab/ksahu2/.ssh/metaIMP
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/log_folder/preprocessing.log does not exist
+starting preprocessing
+./preprocessing.sh /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq
+starting bbmap
+starting metaIMP test sequence v1
+finshing loading files
+starting adapters
+finishing adapters
+starting phix_adapters
+finishing phix_adapters
+creating temp files
+finishing temp file creation
+starting filtered files
+finishing filtered files
+completed pre-processing. starting assembly
+ 
+###########################################################################################################
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/log_folder/assembly_binning.log does not exist
+starting assembly binning
+spades python file called for 1st sample-reverse and forward read
+
+
+== Warning ==  output dir is not empty! Please, clean output directory before run.
+
+
+Command line: /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/bin/spades.py	--meta	--pe1-1	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq	--pe1-2	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq	-t	8	-o	/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output	
+
+System information:
+  SPAdes version: 3.14.0
+  Python version: 3.8.12
+  OS: Linux-4.18.0-305.17.1.hcc.el8.x86_64-x86_64-with-glibc2.10
+
+Output dir: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Metagenomic mode
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq']
+      right reads: ['/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: [21, 33, 55]
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/tmp
+  Threads: 8
+  Memory limit (in Gb): 250
+
+
+======= SPAdes pipeline started. Log can be found here: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/spades.log
+
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq: max reads length: 150
+/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_2.fastq: max reads length: 150
+
+Reads length: 150
+
+
+===== Read error correction started. 
+
+
+===== Read error correction started. 
+
+
+== Running: /util/opt/anaconda/deployed-conda-envs/packages/spades/envs/spades-3.14.0/bin/spades-hammer /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/corrected/configs/config.info
+
+  0:00:00.000     3M / 12M   INFO    General                 (main.cpp                  :  75)   Starting BayesHammer, built from N/A, git revision N/A
+  0:00:00.000     3M / 12M   INFO    General                 (main.cpp                  :  76)   Loading config from /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/corrected/configs/config.info
+  0:00:00.005     3M / 12M   INFO    General                 (main.cpp                  :  78)   Maximum # of threads to use (adjusted due to OMP capabilities): 1
+  0:00:00.005     3M / 12M   INFO    General                 (memory_limit.cpp          :  49)   Memory limit set to 250 Gb
+  0:00:00.005     3M / 12M   INFO    General                 (main.cpp                  :  86)   Trying to determine PHRED offset
+  0:00:00.008     3M / 12M   INFO    General                 (main.cpp                  :  92)   Determined value is 33
+  0:00:00.008     3M / 12M   INFO    General                 (hammer_tools.cpp          :  38)   Hamming graph threshold tau=1, k=21, subkmer positions = [ 0 10 ]
+  0:00:00.008     3M / 12M   INFO    General                 (main.cpp                  : 113)   Size of aux. kmer data 24 bytes
+     === ITERATION 0 begins ===
+  0:00:00.008     3M / 12M   INFO   K-mer Counting           (kmer_data.cpp             : 280)   Estimating k-mer count
+  0:00:00.015    19M / 31M   INFO   K-mer Counting           (kmer_data.cpp             : 285)   Processing /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/SRR9205538_1.fastq

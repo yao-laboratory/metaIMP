@@ -6,13 +6,15 @@
 #						5) MERGEDFILE- MERGEDFILE.FNA CREATED POST-CHECKM (ASSEMBLY_BINNING.SH)
 
 
-echo 'starting instrain'
+echo 'starting instrain...'
 
 bms=$1
 contigs=$2
 op_folder=$3
 threads=$4
 mergefile=$5
+
+echo "inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile"
 
 inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile
 

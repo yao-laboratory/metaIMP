@@ -1,0 +1,18 @@
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output’: File exists
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/log_folder’: File exists
+/home/yaolab/ksahu2/.ssh/metaIMP/assembly_snp_annotation.sh: line 14: cd: ./python_scripts/: No such file or directory
+python: can't open file 'Assembly_mapping.py': [Errno 2] No such file or directory
+/home/yaolab/ksahu2/.ssh/metaIMP/main_assembly_processing.sh: line 129: $log_snp_annotations: ambiguous redirect
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/assembly_output/temp’: File exists
+NOTE: The MIDAS reference database is downloaded in $MIDAS_DB, and MIDAS is
+already set to use this directory. 
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output’: File exists
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/log_folder’: File exists
+java -ea -Xmx7g -Xms7g -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk -Xmx7g in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq.temp_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq.temp_2.fastq minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=/home/yaolab/ksahu2/.ssh/metaIMP/bbmap/resources/adapters.fa hdist=1 tbo tpe
+/home/yaolab/ksahu2/.ssh/metaIMP/bbmap/bbduk.sh: line 365: java: command not found
+java -ea -Xmx41082m -Xms41082m -cp /home/yaolab/ksahu2/.ssh/metaIMP/bbmap/current/ jgi.BBDuk in1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq.temp_1.fastq in2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq.temp_2.fastq out1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_1.fastq.filtered_1.fastq out2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/SRR9205537_2.fastq.filtered_2.fastq ref= hdist=1 k=21 threads=8
+/home/yaolab/ksahu2/.ssh/metaIMP/bbmap/bbduk.sh: line 365: java: command not found
+python: can't open file './python_scripts/Reference_mapping.py': [Errno 2] No such file or directory
+/home/yaolab/ksahu2/.ssh/metaIMP/ref_snp_annotation.sh: line 16: /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/genes/*.patric.csv: No such file or directory
+python: can't open file './python_scripts/Reference_mapping.py': [Errno 2] No such file or directory
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205537/reference_output/temp’: File exists

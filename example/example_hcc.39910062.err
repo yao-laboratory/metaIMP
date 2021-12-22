@@ -1,0 +1,3 @@
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/reference_output’: File exists
+mkdir: cannot create directory ‘/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205538/assembly_output/log_folder’: File exists
+slurmstepd: error: *** JOB 39910062 ON c3711 CANCELLED AT 2021-12-21T14:45:25 ***

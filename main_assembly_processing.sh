@@ -16,14 +16,21 @@ read2=$2
 output_folder=$3
 min_thread=$4
 min_contig_length=$5
-env_var=$6
+#env_var=$6
 
 if [ ! -d "$output_folder" ] ; then
 	mkdir $output_folder
 fi
 
 log_folder=$output_folder/log_folder
-mkdir $log_folder
+if [ ! -d "$log_folder" ] ; then
+        mkdir $log_folder
+fi
+
+temp_folder=$output_folder/temp_folder
+if [ ! -d "$temp_folder" ] ; then
+        mkdir $temp_folder
+fi
 
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
@@ -37,17 +44,17 @@ if [ $read1 = -h ] ; then
 	5)min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)'
 	
 else
-	source activate $env_var
+	source activate $USER_ENV_NAME
 	# PRE-PROCESSING
 
 	log_preprocessing=$log_folder/preprocessing.log
 	if [ -f "$log_preprocessing" ] ; then
-		echo "$log_preprocessing exists"
+		echo "$log_preprocessing exists. Skip preprocessing..."
 	else
 		 echo "$log_preprocessing does not exist"
-	         echo "starting preprocessing"
-		 echo "./preprocessing.sh $read1 $read2"
-	         $DIR/preprocessing.sh $read1 $read2
+	         echo "starting preprocessing..."
+		 echo "./preprocessing.sh $read1 $read2 $min_thread"
+	         $DIR/preprocessing.sh $read1 $read2 $min_thread
 	         echo "completed pre-processing. starting assembly"
 
 	         touch $log_preprocessing
@@ -57,13 +64,13 @@ else
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
 	if [ -f "$log_assembly_binning" ]; then
-		echo "$log_assembly_binning exists"
+		echo "$log_assembly_binning exists. Skip assembly and binning..."
         else
 		echo "$log_assembly_binning does not exist"
-                echo "starting assembly binning"
+                echo "starting assembly binning..."
 		$DIR/assembly_binning.sh $read1 $read2 $output_folder $min_thread $min_contig_length
 		echo "finished assembly binning. Check" $output_folder
-		cat > $log_assembly_binning
+		touch $log_assembly_binning
 	
 	fi
 	echo ' '
@@ -73,37 +80,37 @@ else
 	# CONTIG_ANNOTATION
 
 
-	mergedfile=$output_folder/bins/checkm/bins/mergedfile.fna
-	annotation_results=$output_folder/eggnog_output
+	mergedfile=$output_folder/BINS/CHECKM/bins/mergedfile.fna
+	annotation_results=$output_folder/EGGNOG
 	
 	log_assembly_contig_annotation=$log_folder/assembly_contig_annotation.log
 	if [ -f "$log_assembly_contig_annotation" ] ; then
-		echo "$log_assembly_contig_annotation exists"
+		echo "$log_assembly_contig_annotation exists. Skip annotation..."
         else
 		echo "$log_assembly_contig_annotation does not exist"
-                echo "starting assembly contig annotation"
+                echo "starting assembly contig annotation..."
 		$DIR/assembly_contig_annotation.sh $mergedfile $annotation_results
 		echo 'contig annotation complete. starting snp calling using instrain'
-		cat > $log_assembly_contig_annotation
+		touch $log_assembly_contig_annotation
 	fi
 	echo ' '
         echo '###########################################################################################################'
 
 	# SNP_CALLING
 
-	bam_sorted_file=$output_folder/bmfile_sort.bam
-	contig=$output_folder/contigs.fasta
-	snp_output=$output_folder/instrain_results
+	bam_sorted_file=$output_folder/METASPADES/contig_mapping_sort.bam
+	contig=$output_folder/METASPADES/contigs.fasta
+	snp_output=$output_folder/INSTRAIN
 	
 	log_snp_calling=$log_folder/snp_calling.log
 	if [ -f "$log_snp_calling" ] ; then
-		echo "$log_snp_calling exists"
+		echo "$log_snp_calling exists. Skip SNP calling..."
         else
 		echo "$log_snp_calling does not exist"
-                echo "starting snp calling"
+                echo "starting snp calling..."
 		$DIR/assembly_snp_calling.sh $bam_sorted_file $contig $snp_output $min_thread $mergedfile
 		echo 'completed snp calling. starting assembly_snp_annotation'
-		cat > $log_snp_calling
+		touch $log_snp_calling
 	fi
 	echo ' '
         echo '###########################################################################################################'
@@ -112,28 +119,25 @@ else
 
 	instrain_file=$snp_output/instrain_SNVs.tsv
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
-	assembly_snp_annotation=$output_folder/snp_annotation
+	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
 	
-	if [ ! -d $assembly_snp_annotation ] ; then
-		mkdir $assembly_snp_annotation
 	
-	fi
 	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then
-		echo "$log_snp_annotation exists"
+		echo "$log_snp_annotation exists. Skip snp annotation mapping..."
 	else
                 echo "$log_snp_annotation does not exist"
-                echo "starting final mapping between snps and annotations"
+                echo "starting final mapping between snps and annotations..."
 		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
 		echo "finishd assembly_snp_annotation"
-		cat > $log_snp_annotations
+		touch $log_snp_annotation
 
 	fi
 	echo ' '
         echo '###########################################################################################################'
 
 	echo "finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!"
-	source deactivate $env_var
+	source deactivate
 fi
 
 #THIS IS THE END OF MAIN_ASSEMBLY SCRIPT

@@ -5,7 +5,15 @@ output_folder=$4
 
 echo 'this is reference based mapping'
 
-python ./python_scripts/Reference_mapping.py -add_figid -gf $genes_folder -pf $patric_folder
+
+if [ ! -d "$output_folder" ] ; then
+        mkdir $output_folder
+fi
+
+DIR="${BASH_SOURCE[0]}"
+DIR="$(dirname "$DIR")"
+
+python $DIR/python_scripts/Reference_mapping.py -add_figid -gf $genes_folder -pf $patric_folder
 
 echo 'finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command'
 
@@ -25,7 +33,7 @@ done
 
 echo 'completed mapping PEG_IDs to PATRIC'
 
-python ./python_scripts/Reference_mapping.py -ref_map -pf $patric_folder -sf $snps_folder -o $output_folder
+python $DIR/python_scripts/Reference_mapping.py -ref_map -pf $patric_folder -sf $snps_folder -o $output_folder
 
 echo 'completed reference_mapping. Good luck!!!'
 

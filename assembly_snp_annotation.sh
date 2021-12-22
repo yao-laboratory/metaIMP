@@ -10,8 +10,15 @@ eggnog=$2
 mergedfile=$3
 output=$4
 
+if [ ! -d "$output" ] ; then
+        mkdir $output
+fi
+
+DIR="${BASH_SOURCE[0]}"
+DIR="$(dirname "$DIR")"
+
 echo 'starting assembly mapping'
-cd ./python_scripts/
-python Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
+#cd ./python_scripts/
+python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
 
 echo 'assembly mapping complete'

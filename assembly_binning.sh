@@ -10,12 +10,21 @@
 #INPUTS ARE CALLED FROM ASSEMBLY_MAIN_SCRIPT
 fastq1=$1
 fastq2=$2
-output=$3
+overall_output_folder=$3
 t=$4
 minimum_contig_len=$5
 
+
+DIR="${BASH_SOURCE[0]}"
+DIR="$(dirname "$DIR")"
+
 #METASPADES
 #STARTING ASSEMBLY
+output=$overall_output_folder/METASPADES
+if [ ! -d "$output" ] ; then
+        mkdir $output
+fi
+
 
 echo 'spades python file called for 1st sample-reverse and forward read'
 spades.py --meta --pe1-1 $fastq1 \
@@ -30,14 +39,15 @@ contigs=$output/contigs.fasta
 
 #OPTIONAL ARGUMENT FOR USER TO FILTER CONTIG
 
-if [ $minimum_contig_len -gt 0 ] ; then
-	./bbmap/reformat.sh in=$output/contigs.fasta out=$output/contigs.fasta minlength=$minimum_contig_len
+if [ $((minimum_contig_len+0)) -gt 0 ] ; then
+	mv $contigs $output/rawcontigs.fasta
+	$DIR/bbmap/reformat.sh in=$output/rawcontigs.fasta out=$output/contigs.fasta minlength=$minimum_contig_len
 fi
 
 #QUAST QUALITY CHECK
 
 echo 'starting quast'
-quast.py $contigs -1 $fastq1 -2  $fastq2 -o $output/quast
+quast.py $contigs -1 $fastq1 -2  $fastq2 -o $overall_output_folder/QUAST
 
 #INDEXED CONTIG
 
@@ -51,23 +61,26 @@ echo 'indexed contigs done'
 #SAM FILE CREATION
 
 echo 'starting SAM file creation'
-sam_file=$output/smfile.sam
+sam_file=$output/contig_mapping.sam
 bowtie2 --threads $t -x $idc -1 $fastq1 -2 $fastq2 --no-unal -S $sam_file
 echo 'finished creating sam file'
 
 #SAMTOBAM conversion
 
 echo 'starting SAM to BAM conversion'
-bam_file=$output/bmfile.bam
+bam_file=$output/contig_mapping.bam
 echo 'touch bam file and change permission to global. also changed permission of SAM file to global'
 samtools view -F 4 -bS $sam_file > $bam_file
 
 #BAM FILE SORTING
 echo 'bam sorting'
-bam_sorted_file=$output/bmfile_sort.bam
+bam_sorted_file=$output/contig_mapping_sort.bam
 samtools sort $bam_file -o $bam_sorted_file
-rm $bam_file
+
 echo 'finished bam sort.starting binning'
+
+rm $sam_file
+rm $bam_file
 
 #BINNING
 echo 'starting BINNING modules'
@@ -76,15 +89,25 @@ depth_file=$output/depth.txt
 jgi_summarize_bam_contig_depths --outputDepth $depth_file $bam_sorted_file
 echo 'finished depth file creation'
 echo 'starting binning'
-bins=$output/bins/bins
+binfolder=$overall_output_folder/BINS
+if [ ! -d "$binfolder" ] ; then
+        mkdir $binfolder
+fi
+
+bins=$binfolder/bins
 metabat2 -i $contigs -a $depth_file -o $bins
 
 #CHECKM
 echo 'starting checkm'
-c_bins=$output/bins
-checkm=$output/bins/checkm
+c_bins=$binfolder
+
+checkm=$binfolder/CHECKM
+if [ ! -d "$checkm" ] ; then
+        mkdir $checkm
+fi
+
 checkm lineage_wf -t $t -x fa $c_bins $checkm
-mergedfile=$output/bins/checkm/bins
+mergedfile=$checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
 
 #ASSEMBLY_BINNING script is complete
