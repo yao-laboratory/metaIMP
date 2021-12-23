@@ -58,7 +58,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
     patric_op = pd.read_csv(patric_fullpath_filename, sep="\t")
     midas_snps = pd.read_csv(midas_snp_fullpath_filename, sep="\t",compression ='gzip')
     if patric_op.shape[0] != 0:
-        print(patric_fullpath," is not empty, we continue processing")
+        print(patric_fullpath_filename," is not empty, we continue processing")
 
         range_beginning = list()
         range_end = list()
