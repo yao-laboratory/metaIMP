@@ -44,7 +44,6 @@ if [ $read1 = -h ] ; then
 	5)min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)'
 	
 else
-	source activate $USER_ENV_NAME
 	# PRE-PROCESSING
 
 	log_preprocessing=$log_folder/preprocessing.log
@@ -118,7 +117,7 @@ else
         echo '###########################################################################################################'
 
 	# SNP_ANNOTATION
-
+	source activate $USER_ENV_NAME
 	instrain_file=$snp_output/output/INSTRAIN_SNVs.tsv
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
