@@ -30,7 +30,8 @@ Steps:
 2) Update conda to the current version : conda update conda
 3) List the environment you have ever created : conda env list
 4) Install a package included in Anaconda : conda install PACKAGENAME  
-5) Create a new environment (example name: metaIMP_env), install Python 3.5 : conda create -n metaIMP_env python=3.8.12 
+5) Create a new environment (example name: metaIMP_env), install Python 3.8 : conda create -n metaIMP_env python=3.8.12 
+6) Install pacakges for python in the new environment: pip install biopython, pip install pandas
 6) Activate new environment : conda activate metaIMP_env
 7) Now your new environment is ready to use metaIMP python codes.
 8) Proceed with step 4 if any missing packages are found
