@@ -72,7 +72,7 @@ else
 		echo "$log_snp_annotation exists. Skipping annotations"
 	else
 		echo "$log_snp_annotation does not exist. Starting SNP_annotation at $(date)"
-		$DIR/ref_snp_annotation.sh $output_folder/MIDAS/genes $output_folder/MIDAS/genes $output_folder/MIDAS/snps $output_folder/REFERENCE_SNP_ANNOTATION
+		$DIR/ref_snp_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/REFERENCE_SNP_ANNOTATION
 		echo "Finished annotations and mapping snps at $(date). Reference pipeline is now complete. Thank you!!!"
 		touch $log_snp_annotation
 	fi
