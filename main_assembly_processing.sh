@@ -119,7 +119,7 @@ else
 
 	# SNP_ANNOTATION
 
-	instrain_file=$snp_output/instrain_SNVs.tsv
+	instrain_file=$snp_output/output/instrain_SNVs.tsv
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
 	
