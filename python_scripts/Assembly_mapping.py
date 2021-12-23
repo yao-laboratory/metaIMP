@@ -48,7 +48,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #merged eggnog and instrain dataframes - inner merge
 
-    df_inner = pd.merge(df1_eggnog, df2_instrain, left_on = 'location', right_on = 'scaffold', how = 'inner')
+    df_inner = pd.merge(df_eggnog, df_instrain, left_on = 'location', right_on = 'scaffold', how = 'inner')
 
 
     #manipulation of mergedfile
