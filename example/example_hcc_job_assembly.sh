@@ -34,6 +34,7 @@ con_len=1500
 #modules for assembly_binning.sh:
 
 echo "loading modules for assembly_binning.sh"
+module load python/3.8 
 module load spades/3.14
 module load quast/5.0
 module load bowtie/2.3
