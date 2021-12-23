@@ -27,7 +27,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #creating dataframes from paths
 
-    df_instrain  = pd.read_csv(instrain_path, sep='\t')
+    df_instrain  = pd.read_csv(instrain, sep='\t')
     df_eggnog    = pd.read_csv(eggnog,sep ='\t', skiprows =  2, header =2)
     records      = SeqIO.parse(mergedfile, 'fasta')
 
