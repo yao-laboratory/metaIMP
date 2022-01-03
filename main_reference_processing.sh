@@ -41,9 +41,8 @@ else
 		echo "$log_preprocessing exists. Skipping pre-processing"
 	else
 		echo "$log_preprocessing does not exist."
-		echo "./preprocessing.sh $read1 $read2 $min_threadi $min_thread"
-                $DIR/preprocessing.sh $read1 $read2 $min_thread $min_thread
-		
+		echo "./preprocessing.sh $read1 $read2 $min_thread"
+		$DIR/preprocessing.sh $read1 $read2 $min_thread
 		touch $log_preprocessing
 	fi
 	echo "finished preprocessing of paired-end input files $(date). starting annotations now"
