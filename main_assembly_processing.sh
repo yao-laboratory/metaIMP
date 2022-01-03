@@ -86,10 +86,12 @@ else
                 echo "starting fastqc $(date) ..."
                 ftqc=$output_folder/FASTQC_RESULTS
 		if [ ! -d "$ftqc" ] ; then
-		mkdir $ftqc
-		fastqc $read1
-		fastqc $read2
-		mv *.html *.zip $ftqc
+			mkdir $ftqc
+			fastqc $read1
+			fastqc $read2
+			mv *.html *.zip $ftqc
+		fi
+
 	fi
         echo 'finished fastqc. check results in' $ftqc	
 	

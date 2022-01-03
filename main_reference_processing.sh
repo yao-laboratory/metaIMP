@@ -61,22 +61,29 @@ else
         read2=$ouput_folder/$read2_temp
 
 	echo 'moved filtered fastq files.'
-
+	echo '###########################################################################################################'
+	
 	# FASTQC
-        echo 'starting fastqc'
-
-        ftqc=$output_folder/FASTQC_RESULTS
-
-        if [ ! -d "$ftqc" ] ; then
-                mkdir $ftqc
-        fi
-
-        fastqc $read1
-        fastqc $read2
-
-        mv *.html *.zip $ftqc
-
-        echo 'finished fastqc. check results in' $ftqc
+	echo 'starting fastqc'
+	log_fastqc=$log_folder/fastqc.log
+	if [ -f "$log_fastqc" ] ; then
+		echo "$log_fastqc exists. Skip preprocessing..."
+	
+        else
+		touch $log_fastqc
+		echo "$log_fastqc does not exist"
+                echo "starting fastqc $(date) ..."
+                ftqc=$output_folder/FASTQC_RESULTS
+		if [ ! -d "$ftqc" ] ; then
+			mkdir $ftqc
+			fastqc $read1
+			fastqc $read2
+			mv *.html *.zip $ftqc
+		fi
+	fi
+        echo 'finished fastqc. check results in' $ftqc	
+	
+	echo '###########################################################################################################'
 
         echo '###########################################################################################################'
 
