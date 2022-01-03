@@ -76,13 +76,22 @@ else
 	
 	# FASTQC
 	echo 'starting fastqc'
+	log_fastqc=$log_folder/fastqc.log
+	if [ -f "$log_fastqc" ] ; then
+		echo "$log_fastqc exists. Skip preprocessing..."
+	
+        else
+                 echo "$log_fastqc does not exist"
+                 echo "starting fastqc $(date) ..."
 
 	ftqc=$output_folder/FASTQC_RESULTS
 
 	if [ ! -d "$ftqc" ] ; then
 		mkdir $ftqc
 	fi
-
+        
+	if [ -f "$log_preprocessing" ] ; then
+                echo "$log_preprocessing exists. Skip preprocessing..."
 	fastqc $read1
 	fastqc $read2
 	
@@ -92,7 +101,7 @@ else
 	
 	echo '###########################################################################################################'
 
-
+	
 
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
@@ -106,6 +115,23 @@ else
 		touch $log_assembly_binning
 	
 	fi
+	echo ' '
+        echo '###########################################################################################################'
+
+	
+	# BINNING TAXONOMY
+
+	log_binning_taxonomy=$log_folder/binning_taxonomy.log
+
+	if [ -f "$log_binning_taxonomy" ]; then
+		echo "$log_binning_taxonomy exists. Skip binning taxonomy (kraken, phyophlan, DAS_TOOL)..."
+        else
+		echo "$log_binning_taxonomy does not exist"
+		echo " starting binning taxonomy at $(date)..."
+		$DIR/assembly_binning_taxonomy.sh $output_folder $min_thread
+		echo "finished taxonomy binning at $(date). Results available in KRAKEN, PHYLOPHLAN and DAS_TOOL folders in" $output_folder
+	fi
+
 	echo ' '
         echo '###########################################################################################################'
 
