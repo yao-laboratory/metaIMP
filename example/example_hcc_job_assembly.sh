@@ -41,7 +41,7 @@ module load bowtie/2.3
 module load samtools/1.9
 module load metabat2/2.15
 module load checkm-genome/1.1
-
+module laod fastqc/0.11
 #modules for assembly_contig_annotation.sh:
 echo "loading modules for assembly_contig_annotation.sh"
 module load eggnog-mapper/2.1

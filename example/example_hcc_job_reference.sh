@@ -71,7 +71,7 @@ module purge
 module load java
 module load midas/1.3
 module load samtools
-
+module laod fastqc/0.11
 database_folder=$MIDAS_DB
 
 echo ' '
