@@ -81,23 +81,17 @@ else
 		echo "$log_fastqc exists. Skip preprocessing..."
 	
         else
-                 echo "$log_fastqc does not exist"
-                 echo "starting fastqc $(date) ..."
-
-	ftqc=$output_folder/FASTQC_RESULTS
-
-	if [ ! -d "$ftqc" ] ; then
+		touch $log_fastqc
+		echo "$log_fastqc does not exist"
+                echo "starting fastqc $(date) ..."
+                ftqc=$output_folder/FASTQC_RESULTS
+		if [ ! -d "$ftqc" ] ; then
 		mkdir $ftqc
+		fastqc $read1
+		fastqc $read2
+		mv *.html *.zip $ftqc
 	fi
-        
-	if [ -f "$log_preprocessing" ] ; then
-                echo "$log_preprocessing exists. Skip preprocessing..."
-	fastqc $read1
-	fastqc $read2
-	
-	mv *.html *.zip $ftqc
-
-	echo 'finished fastqc. check results in' $ftqc	
+        echo 'finished fastqc. check results in' $ftqc	
 	
 	echo '###########################################################################################################'
 
