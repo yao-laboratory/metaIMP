@@ -72,6 +72,26 @@ else
 	read2=$ouput_folder/$read2_temp
 
 	echo 'finished moving reads to output folder'
+	echo '###########################################################################################################'
+	
+	# FASTQC
+	echo 'starting fastqc'
+
+	ftqc=$output_folder/FASTQC_RESULTS
+
+	if [ ! -d "$ftqc" ] ; thens
+		mkdir $ftqc
+	fi
+
+	fastqc $read1
+	fastqc $read2
+	
+	mv *.html *.zip $ftqc
+
+	echo 'finished fastqc. check results in' $ftqc	
+	
+	echo '###########################################################################################################'
+
 
 
 	# BINNING

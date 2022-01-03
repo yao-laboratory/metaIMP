@@ -62,6 +62,26 @@ else
 
 	echo 'moved filtered fastq files.'
 
+	# FASTQC
+        echo 'starting fastqc'
+
+        ftqc=$output_folder/FASTQC_RESULTS
+
+        if [ ! -d "$ftqc" ] ; thens
+                mkdir $ftqc
+        fi
+
+        fastqc $read1
+        fastqc $read2
+
+        mv *.html *.zip $ftqc
+
+        echo 'finished fastqc. check results in' $ftqc
+
+        echo '###########################################################################################################'
+
+
+
 	log_reference_pipeline=$log_folder/ref_species_genes_snps.log
 	if [ -f "$log_reference_pipeline" ] ; then
 		echo "$log_reference_pipeline exists. Skipping MIDAS annotation procedures..."
