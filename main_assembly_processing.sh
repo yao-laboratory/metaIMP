@@ -60,8 +60,20 @@ else
 	fi
 	echo ' '
 	echo '###########################################################################################################'
-	read1=$read1.filtered_1.fastq
-	read2=$read2.filtered_2.fastq
+
+	echo 'moving filtered reads to output folder provided by user'
+
+	read1_temp=$read1.filtered_1.fastq
+	read2_temp=$read2.filtered_2.fastq
+	
+	mv $read1_temp $read2_temp $output_folder
+
+	read1=$output_folder/$read1_temp
+	read2=$ouput_folder/$read2_temp
+
+	echo 'finished moving reads to output folder'
+
+
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
 	if [ -f "$log_assembly_binning" ]; then

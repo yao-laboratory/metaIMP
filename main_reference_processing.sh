@@ -48,8 +48,20 @@ else
 	echo "finished preprocessing of paired-end input files $(date). starting annotations now"
 	echo ' '
         echo '###########################################################################################################'
-        read1=$read1.filtered_1.fastq
-        read2=$read2.filtered_2.fastq
+        
+	echo 'moving filtered fastq reads to reference_output folder provided by user'
+
+
+	read1_temp=$read1.filtered_1.fastq
+        read2_temp=$read2.filtered_2.fastq
+
+	mv $read1_temp $read2_temp $output_folder
+
+        read1=$output_folder/$read1_temp
+        read2=$ouput_folder/$read2_temp
+
+	echo 'moved filtered fastq files.'
+
 	log_reference_pipeline=$log_folder/ref_species_genes_snps.log
 	if [ -f "$log_reference_pipeline" ] ; then
 		echo "$log_reference_pipeline exists. Skipping MIDAS annotation procedures..."
