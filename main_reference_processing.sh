@@ -67,7 +67,7 @@ else
 
         ftqc=$output_folder/FASTQC_RESULTS
 
-        if [ ! -d "$ftqc" ] ; thens
+        if [ ! -d "$ftqc" ] ; then
                 mkdir $ftqc
         fi
 
