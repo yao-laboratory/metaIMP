@@ -22,14 +22,11 @@ fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/
 #output_folder_assembly path
 output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/assembly_output
 
-#output_folder_reference path
-#output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/reference_output
-
 #number of threads to be used by metaSPADES and Instrain
 threads=8
 
 #Minimum_contig_length for filtering. THIS IS OPTIONAL
-con_len=1500
+con_len=1000
 
 
 #user environment name
@@ -70,24 +67,8 @@ $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembl
 
 echo ' '
 echo '###########################################################################################################'
-
-
-
-
-
-
-#module purge
-#module load midas/1.3
-#module load samtools
-
-#database_folder=$MIDAS_DB
-
-#echo ' '
-#echo '###########################################################################################################'
-
-#echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
-#$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
-
-#echo ' '
-#echo '###########################################################################################################' 
+echo ' '
+echo '###########################################################################################################'
+echo ' '
+echo '###########################################################################################################' 
 

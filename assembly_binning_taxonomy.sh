@@ -31,7 +31,7 @@ fi
 Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
 
 
-DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output
+DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output/
 
 echo "finishing DAS_TOOL at $(date)"
 
@@ -59,7 +59,7 @@ for i in $(seq $bins_count); do
 	#echo $outputfile
 	#echo $reportfile
 	#echo $inputfile
-	kraken --db $KRAKEN_DATABASE --use-names --threads $thread --output $outputfile --report $reportfile $inputfile
+	kraken2 --db $KRAKEN_DATABASE --use-names --threads $thread --output $outputfile --report $reportfile $inputfile
 done
 
 echo "finished kraken at $(date)"
