@@ -42,7 +42,7 @@ echo "finishing DAS_TOOL at $(date)"
 
 echo "starting KRAKEN at $(date)"
 
-bins_count=ls $bins/*.fa | wc -l
+bins_count= ls $bins/*.fa | wc -l
 
 kraken_output=$overall_output_folder/KRAKEN
 
