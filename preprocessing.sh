@@ -9,15 +9,16 @@ DIR="$(dirname "$DIR")"
 input1=$1
 input2=$2
 num_thread=$3
+output_folder=$4
 
 file1=$input1
 file2=$input2
 
-OT1=$input1.filtered_1.fastq
-OT2=$input2.filtered_2.fastq
+OT1=$output_folder/$input1.filtered_1.fastq
+OT2=$output_folder/$input2.filtered_2.fastq
 
-temp1=$input1.temp_1.fastq
-temp2=$input2.temp_2.fastq
+temp1=$output_folder/$input1.temp_1.fastq
+temp2=$output_folder/$input2.temp_2.fastq
 
 echo 'finshing loading files'
 
@@ -49,8 +50,5 @@ $bbmap_folder/bbduk.sh \
 	in1=$temp1 \
 	in2=$temp2 \
 	out1=$OT1 out2=$OT2 ref=$phiXadapters hdist=1 k=21 threads=$num_thread
-
-
-
 
 echo 'finishing filtered files'

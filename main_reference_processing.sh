@@ -41,48 +41,21 @@ else
 		echo "$log_preprocessing exists. Skipping pre-processing"
 	else
 		echo "$log_preprocessing does not exist."
-		echo "./preprocessing.sh $read1 $read2 $min_thread"
-		$DIR/preprocessing.sh $read1 $read2 $min_thread
+		echo "./preprocessing.sh $read1 $read2 $min_thread $output_folder"
+		$DIR/preprocessing.sh $read1 $read2 $min_thread $output_folder
 		touch $log_preprocessing
 	fi
 	echo "finished preprocessing of paired-end input files $(date). starting annotations now"
 	echo ' '
         echo '###########################################################################################################'
         
-	echo 'moving filtered fastq reads to reference_output folder provided by user'
+	
+	read1_temp=$output_folder/$read1.filtered_1.fastq
+        read2_temp=$output_folder/$read2.filtered_2.fastq
 
-
-	read1_temp=$read1.filtered_1.fastq
-        read2_temp=$read2.filtered_2.fastq
-
-	mv $read1_temp $read2_temp $output_folder
-
-        read1=$output_folder/$read1_temp
-        read2=$ouput_folder/$read2_temp
-
-	echo 'moved filtered fastq files.'
+	
 	echo '###########################################################################################################'
-	
-	# FASTQC
-	echo 'starting fastqc'
-	log_fastqc=$log_folder/fastqc.log
-	if [ -f "$log_fastqc" ] ; then
-		echo "$log_fastqc exists. Skip preprocessing..."
-	
-        else
-		touch $log_fastqc
-		echo "$log_fastqc does not exist"
-                echo "starting fastqc $(date) ..."
-                ftqc=$output_folder/FASTQC_RESULTS
-		if [ ! -d "$ftqc" ] ; then
-			mkdir $ftqc
-			fastqc $read1
-			fastqc $read2
-			mv *.html *.zip $ftqc
-		fi
-	fi
-        echo 'finished fastqc. check results in' $ftqc	
-	
+		
 	echo '###########################################################################################################'
 
         echo '###########################################################################################################'
