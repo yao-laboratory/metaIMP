@@ -14,11 +14,11 @@ output_folder=$4
 file1=$input1
 file2=$input2
 
-OT1=$output_folder/$input1.filtered_1.fastq
-OT2=$output_folder/$input2.filtered_2.fastq
+OT1=$output_folder/${input1##*/}.filtered_1.fastq
+OT2=$output_folder/${input2##*/}.filtered_2.fastq
 
-temp1=$output_folder/$input1.temp_1.fastq
-temp2=$output_folder/$input2.temp_2.fastq
+temp1=$output_folder/${input1##*/}.temp_1.fastq
+temp2=$output_folder/${input2##*/}.temp_2.fastq
 
 echo "finshing loading files at $(date)"
 
