@@ -10,8 +10,8 @@
 overall_output_folder=$1
 thread=$2
 
-DIR="${BASH_SOURCE[0]}"
-DIR="$(dirname "$DIR")"
+#DIR="${BASH_SOURCE[0]}"
+#DIR="$(dirname "$DIR")"
 
 
 #DAS_TOOL
@@ -72,7 +72,7 @@ if [ ! -d "$phylophlan_output" ] ; then
         mkdir $phylophlan_output
 fi
 
-phylophlan_metagenomic -i $bins -d SGB.Jan19 -e .fa -o $phylophlan_output
+phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DB -e .fa -o $phylophlan_output
 
 echo "finishing PHYLOPHLAN at $(date)"
 
