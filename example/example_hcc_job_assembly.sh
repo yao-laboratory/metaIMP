@@ -47,6 +47,10 @@ module load samtools/1.9
 module load metabat2/2.15
 module load checkm-genome/1.1
 module laod fastqc/0.11
+module load kraken2/2.0.8-beta
+module load das_tool/1.1
+module load usearch/11.0
+module load phylophlan/3.0
 #modules for assembly_contig_annotation.sh:
 echo "loading modules for assembly_contig_annotation.sh"
 module load eggnog-mapper/2.1

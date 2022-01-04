@@ -28,7 +28,7 @@ output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/s
 threads=8
 
 #Minimum_contig_length for filtering. THIS IS OPTIONAL
-con_len=1500
+con_len=1000
 
 #user environment name
 #env_var=$USER_ENV_NAME
@@ -45,6 +45,10 @@ module load samtools/1.9
 module load metabat2/2.15
 module load checkm-genome/1.1
 module load fastqc/0.11
+module load kraken2/2.0.8-beta
+module load das_tool/1.1
+module load usearch/11.0
+module load phylophlan/3.0
 #modules for assembly_contig_annotation.sh:
 echo "loading modules for assembly_contig_annotation.sh"
 module load eggnog-mapper/2.1
