@@ -46,7 +46,7 @@ module load bowtie/2.3
 module load samtools/1.9
 module load metabat2/2.15
 module load checkm-genome/1.1
-module laod fastqc/0.11
+module load fastqc/0.11
 module load kraken2/2.0.8-beta
 module load das_tool/1.1
 module load usearch/11.0
