@@ -22,3 +22,6 @@ echo 'starting assembly mapping'
 python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
 
 echo 'assembly mapping complete'
+
+imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  awk '{print $3}' | cut -d"." -f1)
+echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"

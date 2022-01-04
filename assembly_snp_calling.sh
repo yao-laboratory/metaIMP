@@ -19,3 +19,6 @@ echo "inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile"
 inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile
 
 echo 'finished instrain. ASSEMBLY_SNP_CALLING.sh complete'
+
+imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  awk '{print $3}' | cut -d"." -f1)
+echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"

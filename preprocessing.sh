@@ -69,3 +69,5 @@ fastqc -o $ftqc -t $num_thread  $OT2
 
 echo "finishing fastqc at $(date)"
 
+imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  awk '{print $3}' | cut -d"." -f1)
+echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"
