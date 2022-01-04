@@ -61,8 +61,8 @@ else
 	echo ' '
 	echo '###########################################################################################################'
 	
-	read1=$output_folder/$read1.filtered_1.fastq
-	read2=$output_folder/$read2.filtered_2.fastq	
+	read1=$output_folder/${read1##*/}.filtered_1.fastq
+	read2=$output_folder/${read2##*/}.filtered_2.fastq	
 	
 	echo '###########################################################################################################'
 
@@ -84,7 +84,7 @@ else
         echo '###########################################################################################################'
 
 	
-	# BINNING TAXONOMY
+	# BINNING TAXONOMY; this part is independent of the next one
 
 	log_binning_taxonomy=$log_folder/binning_taxonomy.log
 
@@ -95,13 +95,14 @@ else
 		echo " starting binning taxonomy at $(date)..."
 		$DIR/assembly_binning_taxonomy.sh $output_folder $min_thread
 		echo "finished taxonomy binning at $(date). Results available in KRAKEN, PHYLOPHLAN and DAS_TOOL folders in" $output_folder
+		touch $log_binning_taxonomy
 	fi
 
 	echo ' '
         echo '###########################################################################################################'
 
 
-	# CONTIG_ANNOTATION
+	# CONTIG_ANNOTATION; this part is independent
 
 
 	mergedfile=$output_folder/BINS/CHECKM/bins/mergedfile.fna
@@ -120,7 +121,7 @@ else
 	echo ' '
         echo '###########################################################################################################'
 
-	# SNP_CALLING
+	# SNP_CALLING; this part is independent
 
 	bam_sorted_file=$output_folder/METASPADES/contig_mapping_sort.bam
 	contig=$output_folder/METASPADES/contigs.fasta

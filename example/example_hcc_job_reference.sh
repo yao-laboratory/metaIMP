@@ -9,11 +9,10 @@
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
-kraken_db_path=/work/HCC/BCRF/app_specific/kraken/1.0
-export KRAKEN_DB=kraken_db_path
+kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
+export KRAKEN_DATABASE=$kraken_db_path
 phylophlan_db_name=SGB.Jan19
-export PHYLOPHLAN_DB=phylophlan_db_name
-
+export PHYLOPHLAN_DATABASE=$phylophlan_db_name
 
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_1.fastq

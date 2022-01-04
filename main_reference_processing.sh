@@ -50,8 +50,9 @@ else
         echo '###########################################################################################################'
         
 	
-	read1_temp=$output_folder/$read1.filtered_1.fastq
-        read2_temp=$output_folder/$read2.filtered_2.fastq
+	
+        read1=$output_folder/${read1##*/}.filtered_1.fastq
+        read2=$output_folder/${read2##*/}.filtered_2.fastq
 
 	
 	echo '###########################################################################################################'

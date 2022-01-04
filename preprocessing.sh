@@ -59,7 +59,7 @@ echo "finishing filtered files at $(date)"
 
 echo "starting fastqc at $(date)"
 
-ftqc=$output_folder/FASTQC_RESULTS
+ftqc=$output_folder/FASTQC
 if [ ! -d "$ftqc" ] ; then
 	mkdir $ftqc
 fi

@@ -28,7 +28,7 @@ if [ ! -d "$dastool_output" ] ; then
 fi
 
 
-Fasta_to_Scaffolds2Bin.sh -i $bins > $scaffold_file
+Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
 
 
 DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output
@@ -42,7 +42,7 @@ echo "finishing DAS_TOOL at $(date)"
 
 echo "starting KRAKEN at $(date)"
 
-bins_count= ls $bins/*.fa | wc -l
+bins_count=$(ls -la $bins/*.fa | wc -l)
 
 kraken_output=$overall_output_folder/KRAKEN
 
@@ -52,11 +52,14 @@ if [ ! -d "$kraken_output" ] ; then
 fi
 
 for i in $(seq $bins_count); do
-	outputfile="$bins/bin."$i".kraken"
-	reportfile="$bins/bin."$i".report"
-	inputfile= "$bins/bins."$i".fa"
+	outputfile=$kraken_output/bins.$i.kraken
+	reportfile=$kraken_output/bins.$i.report
+	inputfile=$bins/bins.$i.fa
 
-	kraken --db $KRAKEN_DB --use-names --threads $thread --output $outputfile --report $reportfile $inputfile
+	#echo $outputfile
+	#echo $reportfile
+	#echo $inputfile
+	kraken --db $KRAKEN_DATABASE --use-names --threads $thread --output $outputfile --report $reportfile $inputfile
 done
 
 echo "finished kraken at $(date)"
@@ -72,7 +75,7 @@ if [ ! -d "$phylophlan_output" ] ; then
         mkdir $phylophlan_output
 fi
 
-phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DB -e .fa -o $phylophlan_output
+phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DATABASE -e .fa -o $phylophlan_output
 
 echo "finishing PHYLOPHLAN at $(date)"
 
