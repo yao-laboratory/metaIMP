@@ -25,7 +25,7 @@ fi
 
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
-echo "running main reference based analysis process in the folder $DIR"
+echo "running main reference based analysis process in the folder $DIR at $(date)"
 
 if [ $read1 = -h ] ; then
 	echo "Usage information: 1) read1 = Forward paired-end file (FASTQ) 2) read2 = Reverse paired-end file (FASTQ) 3) output_folder= Output folder path"
@@ -40,7 +40,7 @@ else
 	if [ -f "$log_preprocessing" ] ; then
 		echo "$log_preprocessing exists. Skipping pre-processing"
 	else
-		echo "$log_preprocessing does not exist."
+		echo "$log_preprocessing does not exist. Startin pre-processing at $(date)"
 		echo "./preprocessing.sh $read1 $read2 $min_thread $output_folder"
 		$DIR/preprocessing.sh $read1 $read2 $min_thread $output_folder
 		touch $log_preprocessing
