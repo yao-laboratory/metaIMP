@@ -118,9 +118,9 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
 
     inst_egg_mapping['MetaIMP_ID']=metaimp_list
-    
+   
     #saving output
-    inst_egg_mapping.to_csv(fin_assembly)
+    inst_egg_mapping.to_csv(fin_assembly,index=None)
 
 def main():
     
