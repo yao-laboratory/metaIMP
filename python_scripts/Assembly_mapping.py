@@ -110,6 +110,14 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     df_final_assembly['in_protein_range']=check_list
 
     inst_egg_mapping = df_final_assembly.loc[df_final_assembly['in_protein_range']==1]
+
+    #adding 'MetaIMP_ID'
+    metaimp_list=list()
+    for i in inst_egg_mapping.index:
+        metaimp_list.append(i)
+
+
+    inst_egg_mapping['MetaIMP_ID']=metaimp_list
     
     #saving output
     inst_egg_mapping.to_csv(fin_assembly)
