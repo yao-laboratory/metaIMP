@@ -38,3 +38,7 @@ python $DIR/python_scripts/Reference_mapping.py ref_map -pf $patric_folder -sf $
 
 echo 'completed reference_mapping. Good luck!!!'
 
+
+echo 'creating VCF reference output file'
+python $DIR/python_scripts/VCF_converter_reference.py vcf_map_reference -i $output -o $output
+echo 'VCF file created for reference process'
