@@ -148,6 +148,7 @@ THESE ARE MODULES WHICH WERE ORIGNIALLY IN THE SCRIPT
 #MAKE SURE THIS SECTION IS CLEAN BEFORE PUBLISHING GIT
 
 MODULE LOADS:
+--------------------------------------
 
 
 REFERENCE PIPELINE:
@@ -163,7 +164,7 @@ REF_SPECIES_GENES_SNPS.SH:
 
 module purge
 module load midas/1.3
-module load samtools
+module load samtools/1.9
 --------------------
 
 
