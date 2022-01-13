@@ -27,6 +27,6 @@ imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  
 echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"
 
 echo 'creating VCF assembly output file'
-python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output -o $output
+python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output/assembly_mapping_result.csv -o $output
 echo 'VCF file created for assembly process'
 

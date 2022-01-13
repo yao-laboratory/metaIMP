@@ -40,5 +40,5 @@ echo 'completed reference_mapping. Good luck!!!'
 
 
 echo 'creating VCF reference output file'
-python $DIR/python_scripts/VCF_converter_reference.py vcf_map_reference -i $output -o $output
+python $DIR/python_scripts/VCF_converter_reference.py vcf_map_reference -i $output_folder -o $output_folder
 echo 'VCF file created for reference process'
