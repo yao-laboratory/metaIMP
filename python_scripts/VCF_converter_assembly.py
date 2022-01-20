@@ -108,11 +108,6 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     vcf_assembly_df.to_csv(outputfilename, index=None, mode='a',sep="\t")
 
 
-
-
-
-
-
 #main function to call the vcf_converter function
 def main():
     parser = argparse.ArgumentParser(prog='step6_assembly_based_VCF',description='this method converts the assembly based mapping to VCF file')

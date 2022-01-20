@@ -147,16 +147,6 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
     else:
         print(reference_mapping,"this midas_patric_mapping file is empty. skipping this file")
    
-    
-    
-    
-    
-    
-
-    
-    
-
-
 #main function to call the vcf_converter function
 
 def main():
