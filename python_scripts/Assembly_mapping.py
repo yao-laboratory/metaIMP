@@ -21,7 +21,8 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #merged_file = os.path.join(mergedfile, 'mergedfile.fna')
     print(mergedfile)
-
+    
+    #this is where the final assembly result is stored
     fin_assembly = os.path.join(fin_assembly,'assembly_mapping_result.csv')
 
 
