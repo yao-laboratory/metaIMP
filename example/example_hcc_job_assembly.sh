@@ -59,16 +59,11 @@ export PYTHONNOUSERSITE=1
 
 
 
-echo ' '
-echo '###########################################################################################################'
-echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
-#/home/yaolab/ksahu2/.ssh/metaIMP
+echo " "
+echo "###########################################################################################################"
+echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len"
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
 
-echo ' '
-echo '###########################################################################################################'
-echo ' '
-echo '###########################################################################################################'
-echo ' '
-echo '###########################################################################################################' 
+echo " "
+echo "###########################################################################################################"
 

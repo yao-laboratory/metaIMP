@@ -57,10 +57,9 @@ module load eggnog-mapper/2.1
 module load instrain/1.3
 export PYTHONNOUSERSITE=1
 
-echo ' '
-echo '###########################################################################################################'
-echo $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
-#/home/yaolab/ksahu2/.ssh/metaIMP
+echo " "
+echo "############################################################################################################"
+echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len"
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
 
 
@@ -72,13 +71,13 @@ module load samtools
 module load fastqc/0.11
 database_folder=$MIDAS_DB
 
-echo ' '
-echo '###########################################################################################################'
+echo " "
+echo "###########################################################################################################"
 
-echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
+echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads"
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
 
-echo ' '
-echo '###########################################################################################################'
+echo " "
+echo "###########################################################################################################"
 
 

@@ -24,9 +24,8 @@ output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/s
 #number of threads to be used by metaSPADES and Instrain
 threads=8
 
-echo ' '
-echo '###########################################################################################################'
-
+echo " "
+echo "###########################################################################################################"
 
 
 
@@ -38,12 +37,12 @@ module load midas/1.3
 module laod fastqc/0.11
 database_folder=$MIDAS_DB
 
-echo ' '
-echo '###########################################################################################################'
+echo " "
+echo "###########################################################################################################"
 
-echo $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
+echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads"
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
 
-echo ' '
-echo '###########################################################################################################' 
+echo " "
+echo "###########################################################################################################"
 

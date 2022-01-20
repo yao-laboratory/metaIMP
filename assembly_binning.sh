@@ -26,12 +26,12 @@ if [ ! -d "$output" ] ; then
 fi
 
 
-echo 'spades python file called for 1st sample-reverse and forward read'
+echo "spades python file called for 1st sample-reverse and forward read"
 spades.py --meta --pe1-1 $fastq1 \
         --pe1-2 $fastq2 \
         -t $t \
         -o $output
-echo 'finshed spades'
+echo "finshed spades"
 
 #DEFINE CONTIGS FILE IN contigs
 contigs=$output/contigs.fasta
@@ -46,49 +46,48 @@ fi
 
 #QUAST QUALITY CHECK
 
-echo 'starting quast'
+echo "starting quast"
 quast.py $contigs -1 $fastq1 -2  $fastq2 -o $overall_output_folder/QUAST
 
 #INDEXED CONTIG
 
-echo 'Creating indexed contigs'
+echo "Creating indexed contigs"
 idc=$output/indexed_contigs/
 mkdir $idc
 
 bowtie2-build $contigs $idc/indexed_contigs
-echo 'indexed contigs done'
+echo "indexed contigs done"
 
 #SAM FILE CREATION
 
-echo 'starting SAM file creation'
+echo "starting SAM file creation"
 sam_file=$output/contig_mapping.sam
 bowtie2 --threads $t -x $idc/indexed_contigs -1 $fastq1 -2 $fastq2 --no-unal -S $sam_file
-echo 'finished creating sam file'
+echo "finished creating sam file"
 
 #SAMTOBAM conversion
 
-echo 'starting SAM to BAM conversion'
+echo "starting SAM to BAM conversion"
 bam_file=$output/contig_mapping.bam
-echo 'touch bam file and change permission to global. also changed permission of SAM file to global'
 samtools view -F 4 -bS $sam_file > $bam_file
 
 #BAM FILE SORTING
-echo 'bam sorting'
+echo "bam sorting"
 bam_sorted_file=$output/contig_mapping_sort.bam
 samtools sort $bam_file -o $bam_sorted_file
 
-echo 'finished bam sort.starting binning'
+echo "finished bam sort.starting binning"
 
 rm $sam_file
 rm $bam_file
 
 #BINNING
-echo 'starting BINNING modules'
-echo 'starting depth file creation'
+echo "starting BINNING modules"
+echo "starting depth file creation"
 depth_file=$output/depth.txt
 jgi_summarize_bam_contig_depths --outputDepth $depth_file $bam_sorted_file
-echo 'finished depth file creation'
-echo 'starting binning'
+echo "finished depth file creation"
+echo "starting binning"
 binfolder=$overall_output_folder/BINS
 if [ ! -d "$binfolder" ] ; then
         mkdir $binfolder
@@ -98,7 +97,7 @@ bins=$binfolder/bins
 metabat2 -i $contigs -a $depth_file -o $bins
 
 #CHECKM
-echo 'starting checkm'
+echo "starting checkm"
 c_bins=$binfolder
 
 checkm=$binfolder/CHECKM
@@ -111,8 +110,7 @@ mergedfile=$checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
 
 #ASSEMBLY_BINNING script is complete
-echo 'assembly_binning step is complete'
-
+echo "assembly_binning step is complete"
 
 imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  awk '{print $3}' | cut -d"." -f1)
 echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"
