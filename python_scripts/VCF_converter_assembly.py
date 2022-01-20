@@ -29,11 +29,12 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     #assembly_mapping_result=os.path.join(assembly_mapping_result,'assembly_mapping_result.csv')
     assembly_input_df= pd.read_csv(assembly_mapping_result_file)
     
-    
+    #define vcf column names: https://samtools.github.io/hts-specs/VCFv4.2.pdf
+    #define dataframe for VCF columns
     vcf_column_names = ['#CHROM', 'POS','ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'MetaIMP_ID']
     vcf_assembly_df = pd.DataFrame(columns = vcf_column_names)
     
-    
+    #create empty lists for the following columns:
     contig_id_list = list()
     position_list = list()
     ref_base_list = list()
@@ -42,7 +43,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     INFO_string_list=list()
     
     
-    
+    #loop for updating the VCF_dataframe
     for i in assembly_input_df.index:
         contig_id_list.append(assembly_input_df.loc[i]['scaffold'])
         position_list.append(assembly_input_df['position'].loc[i])
@@ -63,7 +64,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
         metaimp_id_list.append(metaimp_id)
         
         
-        
+    #update VCF_dataframe    
     vcf_assembly_df['#CHROM']=contig_id_list
     vcf_assembly_df['POS']=position_list
     vcf_assembly_df['ID']=['.']*len(contig_id_list)
@@ -82,7 +83,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf"))
     
     
-    
+    #write into .vcf file
     with open(outputfilename, 'w') as f:
         f.write('##fileformat=VCFv4.2\n')
         f.write('##fileDate='+str(datetime.datetime.now())+'\n')
@@ -110,9 +111,9 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
 
 
 
-# In[2]:
 
 
+#main function to call the vcf_converter function
 def main():
     parser = argparse.ArgumentParser(prog='step6_assembly_based_VCF',description='this method converts the assembly based mapping to VCF file')
     subparser = parser.add_subparsers(dest='subcommand',help ='enter the outputfilepath')
@@ -135,22 +136,9 @@ def main():
     
     
 
-
-# In[ ]:
-
-
 if __name__ == "__main__":
         main()
 
-
-# In[8]:
-
-
-x=1
-print('datetime=',x,'newline is', '\n', 'this is new line')
-
-
-# In[ ]:
 
 
 

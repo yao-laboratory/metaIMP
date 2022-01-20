@@ -46,23 +46,27 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
     
     if reference_input_df.shape[0] != 0:
         print(reference_mapping_fullpath_filename," is not empty, converting into VCF")
+                
+        #define vcf column names: https://samtools.github.io/hts-specs/VCFv4.2.pdf
+        #define dataframe for VCF column
+        
         vcf_column_names = ['#CHROM', 'POS','ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'MetaIMP_ID']
         vcf_reference_df = pd.DataFrame(columns=vcf_column_names)
         
-        #create empty lists to store vcf_column_information
+        #create empty lists for the following columns:
         contig_id_list = list()
         position_list = list()
         ref_base_list = list()
         var_base_list = list()
         INFO_string_list=list()
         metaimp_id_list=list()
+
+        #loop for updating the VCF_dataframe
+
         for i in reference_input_df.index:
             contig_id_list.append(reference_input_df['ref_id'].loc[i])
             position_list.append(reference_input_df['ref_pos'].loc[i])
-
             depth=reference_input_df['depth'].loc[i]
-
-
             count=dict()
             count['A']=reference_input_df.loc[i]['count_a']
             count['C']=reference_input_df.loc[i]['count_c']
@@ -97,9 +101,9 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
             metaimp_id="MetaIMP_"+str(i+1)
             metaimp_id_list.append(metaimp_id)
         
-        print(contig_id_list)
+
+        #update VCF_dataframe
         vcf_reference_df['#CHROM']=contig_id_list
-        print(contig_id_list)
         vcf_reference_df['POS']=position_list
         vcf_reference_df['ID']=['.']*len(contig_id_list)
         vcf_reference_df['REF']=ref_base_list
@@ -109,12 +113,15 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
         vcf_reference_df['INFO']=INFO_string_list
         vcf_reference_df['MetaIMP_ID']=metaimp_id_list
                        
-            #reference_input_df['MetaIMP_ID']=metaimp_id_list
+        
             
             
         filename = os.path.basename(reference_mapping_fullpath_filename)
         outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf"))
-            
+        
+
+        #write into .vcf file
+
         with open(outputfilename, 'w') as f:
             f.write('##fileformat=VCFv4.2\n')
             f.write('##fileDate='+str(datetime.datetime.now())+'\n')
@@ -150,8 +157,7 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
     
 
 
-# In[2]:
-
+#main function to call the vcf_converter function
 
 def main():
     parser = argparse.ArgumentParser(prog='step6_reference_based',description='this method converts the reference based mapping to VCF file')
@@ -170,12 +176,6 @@ def main():
     else:
         print("Wrong input. Check parameters")
     
-    
-
-
-# In[ ]:
-
-
 if __name__ == "__main__":
         main()
 
