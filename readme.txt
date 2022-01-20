@@ -43,7 +43,22 @@ Steps:
 
 -------------------------------------------
 
+In order to install dependencies for this pipeline using conda/mamba, use the following commands:
 
+mamba install -y -c bioconda samtools
+mamba install -y -c bioconda quast
+mamba install -y -c bioconda bowtie2
+mamba install -y -c bioconda spades
+mamba install -y -c bioconda metabat2
+mamba install -y -c bioconda checkm-genome
+mamba install -y -c bioconda das_tool
+mamba install -y -c bioconda phylophlan
+mamba install -y -c conda-forge -c bioconda -c defaults instrain
+mamba install -y -c bioconda eggnog-mapper
+mamba install -y -c bioconda midas
+mamba install -y -c bioconda kraken2
+mamba install -y -c bioconda fastqc
+mamba install -c conda-forge singularity
 
 
 
