@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=saj_34
+#SBATCH --job-name=saj_a_34
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
-#SBATCH --output=saj_34.%J.out
-#SBATCH --error=saj_34.%J.err
+#SBATCH --output=saj_a_34.%J.out
+#SBATCH --error=saj_a_34.%J.err
 
-#SAJ=stand_alone_job
+#SAJ:stand_alone_job_assembly
 
 metaIMP_path=/work/yaolab/ksahu2/metaIMP
 export USER_ENV_NAME=metaimp_env

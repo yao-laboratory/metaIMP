@@ -6,7 +6,7 @@
 #SBATCH --output=saj_r_34.%J.out
 #SBATCH --error=saj_r_34.%J.err
 
-
+#SAJ_R: stand_alone_job_reference
 metaIMP_path=/work/yaolab/ksahu2/metaIMP
 export USER_ENV_NAME=metaimp_env
 
