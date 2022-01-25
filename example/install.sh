@@ -26,6 +26,6 @@ mamba install -y -c bioconda eggnog-mapper
 mamba install -y -c bioconda midas
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
-
+mamba install -y -c bioconda usearch
 conda deactivate
 
