@@ -9,7 +9,8 @@ conda install -y python=3.7
 echo " Python 3.7 is installed"
 echo " Activating $USER_ENV_NAME"
 source activate $USER_ENV_NAME
- 
+
+mamba install -y -c conda-forge biopython=1.76
 mamba install -y -c bioconda samtools
 mamba install -y -c bioconda quast
 mamba install -y -c bioconda bowtie2
