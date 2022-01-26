@@ -1,18 +1,15 @@
-#!/bin/bash
-#SBATCH --job-name=env_inst
-#SBATCH --nodes=1
-#SBATCH --time=2:00:00
-#SBATCH --mem=4gb
-#SBATCH --output=env_inst.%J.out
-#SBATCH --error=env_inst.%J.err
+#This script creates a new custom environment provided by the user
+#All dependencies for metaimp are installed using this script
 
-#this script is an example of how to install dependencies on HCC cluster
+echo "Creating new user environemnt"
 
-module unload python
-source activate metaimp_env2
+conda create -n $USER_ENV 
+conda install -y python=3.7
 
-module load mamba
-
+echo " Python 3.7 is installed"
+echo " Activating $USER_ENV_NAME"
+source activate $USER_ENV_NAME
+ 
 mamba install -y -c bioconda samtools
 mamba install -y -c bioconda quast
 mamba install -y -c bioconda bowtie2
@@ -27,5 +24,7 @@ mamba install -y -c bioconda midas
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -y -c bioconda usearch
+
+echo " All dependencies are installed. Deactivating $USER_ENV_NAME"
 conda deactivate
 

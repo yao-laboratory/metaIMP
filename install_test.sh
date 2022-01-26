@@ -1,13 +1,8 @@
-#!/bin/bash
-#SBATCH --job-name=env_test
-#SBATCH --nodes=1
-#SBATCH --time=24:00:00
-#SBATCH --mem=96gb
-#SBATCH --output=env_test.%J.out
-#SBATCH --error=env_test.%J.err
+#This script allows users to test installed dependencies in custom created 
+#Custom environment was created using install.sh
 
-#this job is an example to test the installed dependencies on HCC cluster
-source activate metaimp_env2
+USER_ENV=$1
+source activate $USER_ENV
 
 samtools view -h
 bowtie2 -h
