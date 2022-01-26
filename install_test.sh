@@ -27,7 +27,7 @@ echo " Testing commands for the following:
 samtools view -h
 bowtie2 -h
 spades.py -h
-quast.py-h
+quast.py -h
 metabat2 -h
 checkm lineage_wf -h
 DAS_Tool -h
