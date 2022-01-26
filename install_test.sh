@@ -1,8 +1,28 @@
 #This script allows users to test installed dependencies in custom created 
 #Custom environment was created using install.sh
 
-USER_ENV=$1
-source activate $USER_ENV
+echo " Activating $USER_ENV_NAME"
+source activate $USER_ENV_NAME
+
+echo " Testing commands for the following:
+	ASSEMBLY BASED PIPELINE:
+	1.Samtools
+	2.Bowtie
+	3.MetaSpades
+	4.Quast
+	5.Metabat
+	5.CheckM
+	6.DAS_TOOL
+	7.PHYLOPHLAN
+	8.INSTRAIN
+	9.EGGNOG
+	10.KRAKEN
+
+	REFERENCE BASED PIPELINE:
+	1.MIDAS
+	2.SINGULARITY
+
+	FASTQC is common installation to both the pipelines"
 
 samtools view -h
 bowtie2 -h
