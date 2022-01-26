@@ -14,6 +14,7 @@
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
 
+module load mamba
 echo " Starting installation in $USER_ENV_NAME "
 $metaIMP_path/install.sh $USER_ENV_NAME
 
