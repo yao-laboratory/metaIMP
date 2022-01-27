@@ -38,4 +38,4 @@ echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_a
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
 
 echo '###########################################################################################################'
-source deactivate
+conda deactivate

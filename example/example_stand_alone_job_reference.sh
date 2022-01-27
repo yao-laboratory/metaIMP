@@ -35,4 +35,4 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $out
 
 echo ' '
 echo '###########################################################################################################' 
-source deactivate
+conda deactivate
