@@ -8,7 +8,7 @@
 
 #SAJ:stand_alone_job_assembly
 
-metaIMP_path=/work/yaolab/ksahu2/metaIMP
+metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
 export USER_ENV_NAME=metaimp_env
 kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path

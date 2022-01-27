@@ -7,7 +7,7 @@
 #SBATCH --error=saj_r_34.%J.err
 
 #SAJ_R: stand_alone_job_reference
-metaIMP_path=/work/yaolab/ksahu2/metaIMP
+metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
 export USER_ENV_NAME=metaimp_env
 
 #Inputs- FASTQ/FASTA paired-end files
