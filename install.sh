@@ -4,11 +4,11 @@
 echo "Creating new user environemnt"
 
 conda create -n $USER_ENV_NAME
-conda install -y python=3.7
 
 echo " Python 3.7 is installed"
 echo " Activating $USER_ENV_NAME"
 source activate $USER_ENV_NAME
+mamba install -y python=3.7
 
 mamba install -y -c conda-forge biopython=1.76
 mamba install -y -c bioconda samtools
@@ -25,7 +25,7 @@ mamba install -y -c bioconda midas
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -y -c bioconda usearch
-mamba install -c conda-forge singularity
+mamba install -y -c conda-forge singularity
 
 echo " All dependencies are installed. Deactivating $USER_ENV_NAME"
 conda deactivate
