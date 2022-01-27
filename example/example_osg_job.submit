@@ -1,0 +1,17 @@
+Universe        = vanilla
+Executable      = metaimp_wrapper.sh
+Output          = MAP/MAP.out.txt
+Error           = MAP/MAP.error.txt
+Log             = MAP/MAP.log.txt
+request_cpus	= 1 
+request_memory	= 4 GB  
+request_disk	= 8 GB 
+notification 	= Never
+
+transfer_input_files = /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_1.fastq \
+		      /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_2.fastq
+
+Arguments = /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_1.fastq \
+	    /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_2.fastq \
+ 	    /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/assembly_output 8 1000
+Queue
