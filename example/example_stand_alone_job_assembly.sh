@@ -14,7 +14,8 @@ kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path
 phylophlan_db_name=SGB.Jan19
 export PHYLOPHLAN_DATABASE=$phylophlan_db_name
-
+eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
+export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
 
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/ksahu2/sample_SRR9205534/SRR9205534_1.fastq
