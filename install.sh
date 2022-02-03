@@ -45,6 +45,7 @@ mamba install -y -c conda-forge singularity
 
 mamba install -y -c conda-forge biopython=1.76
 mamba install -y -c bioconda midas
+#MIDAS corrupts SAMTOOLS binary files. INSTALL SAMTOOLS AGAIN in the last step.
 mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
 
