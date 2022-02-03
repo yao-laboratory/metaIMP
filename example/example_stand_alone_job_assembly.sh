@@ -8,12 +8,17 @@
 
 #SAJ:stand_alone_job_assembly
 
+#metaimp path: Repository downloaded by user from Github
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
+#create user environment
 export USER_ENV_NAME=metaimp_env
+#Kraken database path
 kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path
+#Phylophlan database path
 phylophlan_db_name=SGB.Jan19
 export PHYLOPHLAN_DATABASE=$phylophlan_db_name
+#Eggnog database path
 eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
 export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
 
@@ -30,6 +35,10 @@ threads=8
 #Minimum_contig_length for filtering. THIS IS OPTIONAL
 con_len=1000
 
+
+##############################################################
+#USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
+##############################################################
 
 export PYTHONNOUSERSITE=1
 

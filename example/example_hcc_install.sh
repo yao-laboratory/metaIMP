@@ -11,9 +11,17 @@
 #This script is an example of how to install dependencies on HCC cluster
 #This script is an example of testing the installed dependencies
 
+#metaimp path downloaded by user
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
+#create user environment
 export USER_ENV_NAME=metaimp_env
 
+
+
+
+##############################################################
+#USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
+##############################################################
 module purge
 #you may still have conda available in your cloud, double check
 module load mamba

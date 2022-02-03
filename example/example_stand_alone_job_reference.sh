@@ -7,6 +7,7 @@
 #SBATCH --error=saj_r_34.%J.err
 
 #SAJ_R: stand_alone_job_reference
+#metaimp path: Repository downloaded by user from Github
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
 export USER_ENV_NAME=metaimp_env
 
@@ -20,30 +21,12 @@ output_folder_reference=/work/yaolab/ksahu2/sample_SRR9205534/reference_output
 #number of threads 
 threads=8
 
-
-echo ' '
-echo '###########################################################################################################'
-
+#MIDAS database path
 database_folder=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 
-#choosing conda activate command
-current_env="$(basename $CONDA_PREFIX)"
-
-if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
-    source activate $USER_ENV_NAME
-fi
-
-current_env="$(basename $CONDA_PREFIX)"
-
-if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
-    conda activate $USER_ENV_NAME
-fi
-
-current_env="$(basename $CONDA_PREFIX)"
-if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
-    echo "the environment cannot be activated"
-    exit 1
-fi
+##############################################################
+#USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
+##############################################################
 
 module purge
 
