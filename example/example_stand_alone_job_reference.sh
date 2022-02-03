@@ -26,6 +26,27 @@ echo '##########################################################################
 
 database_folder=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 
+#choosing conda activate command
+current_env="$(basename $CONDA_PREFIX)"
+
+if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
+    source activate $USER_ENV_NAME
+fi
+
+current_env="$(basename $CONDA_PREFIX)"
+
+if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
+    conda activate $USER_ENV_NAME
+fi
+
+current_env="$(basename $CONDA_PREFIX)"
+if [[ "$current_env" != "$USER_ENV_NAME" ]]; then
+    echo "the environment cannot be activated"
+    exit 1
+fi
+
+module purge
+
 source activate $USER_ENV_NAME
 echo ' '
 echo '###########################################################################################################'
