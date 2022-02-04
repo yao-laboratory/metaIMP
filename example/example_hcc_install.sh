@@ -19,7 +19,7 @@ export USER_ENV_NAME=YAOLAB_METAIMP_MIDAS_TESTING
 ##############################################################
 #USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
 ##############################################################
-module unload python
+module purge
 #you may still have conda available in your cloud, double check
 module load mamba
 echo " Starting installation in $USER_ENV_NAME "
