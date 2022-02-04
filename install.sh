@@ -49,6 +49,10 @@ mamba install -y -c bioconda midas
 mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
 
+#updated ulitity.py
+cp ./python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
+#Copying MIDAS utility.py to user environment where MIDAS is installed
+
 echo " All dependencies are installed. Deactivating $USER_ENV_NAME"
 conda deactivate
 
