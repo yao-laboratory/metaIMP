@@ -12,7 +12,7 @@
 #This script is an example of testing the installed dependencies
 
 #metaimp path downloaded by user
-metaIMP_path=/work/yaolab/shared/2021_milk_2017_metagenome/metaimp_tesing_github/metaIMP
+metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
 #create user environment
 export USER_ENV_NAME=YAOLAB_METAIMP_MIDAS_TESTING
 
