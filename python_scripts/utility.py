@@ -140,7 +140,8 @@ def add_executables(args):
 		err += "  1) Download samtools v1.4: https://github.com/samtools/samtools/releases/download/1.4/samtools-1.4.tar.bz2\n"
 		err += "  2) Unpack and compile the software on your system\n"
 		err += "  3) Copy the new samtools binary to: %s\n" % os.path.dirname(args['samtools'])
-		sys.exit(err)
+		#sys.exit(err)
+                #commented out system error exit function - K.Sahu
 
 	process = sp.Popen("%s -h" % args['bowtie2'], shell=True, stdout=sp.PIPE, stderr=sp.PIPE)
 	process.wait()
@@ -154,7 +155,8 @@ def add_executables(args):
 		err += "  2) Download bowtie2-2.3.2-linux-x86_64.zip\n"
 		err += "  3) Unpack the software on your system\n"
 		err += "  4) Copy the new bowtie2 binaries to: %s\n" % os.path.dirname(args['bowtie2'])
-		sys.exit(err)
+		#sys.exit(err)
+                #commented out system error exit function - K.Sahu
 
 def auto_detect_file_type(inpath):
 	""" Detect file type [fasta or fastq] of <p_reads> """
