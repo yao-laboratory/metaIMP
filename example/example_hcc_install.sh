@@ -13,6 +13,8 @@
 
 #metaimp path downloaded by user
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP/
+export metaIMP_path
+
 #create user environment
 export USER_ENV_NAME=YAOLAB_METAIMP_MIDAS_TESTING
 
