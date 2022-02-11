@@ -101,7 +101,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
                 '##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\"> \n'+
                 '##FORMAT=<ID=GQ,Number=1,Type=Integer,Description=\"Genotype Quality\"> \n'+
                 '##FORMAT=<ID=DP,Number=1,Type=Integer,Description=\"Read Depth\"> \n'+
-                '##FORMAT=<ID=HQ,Number=2,Type=Integer,Description=\"Haplotype Quality\">')
+                '##FORMAT=<ID=HQ,Number=2,Type=Integer,Description=\"Haplotype Quality\"> \n')
         
             
             

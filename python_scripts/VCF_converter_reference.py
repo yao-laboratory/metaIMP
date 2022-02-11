@@ -139,8 +139,8 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
                     '##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\"> \n' +
                     '##FORMAT=<ID=GQ,Number=1,Type=Integer,Description=\"Genotype Quality\"> \n'+
                     '##FORMAT=<ID=DP,Number=1,Type=Integer,Description=\"Read Depth\"> \n'+
-                    '##FORMAT=<ID=HQ,Number=2,Type=Integer,Description=\"Haplotype Quality\">')
-            
+                    '##FORMAT=<ID=HQ,Number=2,Type=Integer,Description=\"Haplotype Quality\"> \n')
+           
         vcf_reference_df.to_csv(outputfilename, index=None, mode='a',sep="\t")
 
                       
