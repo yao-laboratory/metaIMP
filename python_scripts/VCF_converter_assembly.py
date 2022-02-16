@@ -45,10 +45,13 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     
     #loop for updating the VCF_dataframe
     for i in assembly_input_df.index:
+        #appending all the lists
         contig_id_list.append(assembly_input_df.loc[i]['scaffold'])
         position_list.append(assembly_input_df['position'].loc[i])
         ref_base_list.append(assembly_input_df['ref_base'].iloc[i])
         var_base_list.append(assembly_input_df['var_base'].loc[i])
+        metaimp_id_list.append(assembly_input_df['MetaIMP_ID'].loc[i])
+
 
         ref_base=assembly_input_df.loc[i]['ref_base']
         ref_count=assembly_input_df.loc[i][ref_base]
@@ -60,8 +63,8 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
         information_string="NS=1;DP="+str(depth)+";"+"AF="+str(frequency)+";"
         INFO_string_list.append(information_string)
 
-        metaimp_id="MetaIMP_"+str(i+1)
-        metaimp_id_list.append(metaimp_id)
+        #metaimp_id="MetaIMP_"+str(i+1)
+        #metaimp_id_list.append(metaimp_id)
         
         
     #update VCF_dataframe    
@@ -76,7 +79,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     vcf_assembly_df['MetaIMP_ID']=metaimp_id_list
     
     
-    assembly_input_df['MetaIMP_ID']=metaimp_id_list
+    #assembly_input_df['MetaIMP_ID']=metaimp_id_list
     
     filename = os.path.basename(assembly_mapping_result_file)
 
