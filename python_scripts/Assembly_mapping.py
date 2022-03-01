@@ -79,7 +79,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
         start_pos.append(split[1])
         end_pos.append(split[2])
         complement.append(split[3])
-
+        #1=original/forward -1=reverse_complement
     #add split records to mergedfile_dataframe
 
     df_mergedfile.start_pos = start_pos
