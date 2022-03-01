@@ -50,7 +50,7 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
         #define vcf column names: https://samtools.github.io/hts-specs/VCFv4.2.pdf
         #define dataframe for VCF column
         
-        vcf_column_names = ['#CHROM', 'POS','ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'MetaIMP_ID']
+        vcf_column_names = ['#CHROM', 'POS','ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO',] #'MetaIMP_ID']
         vcf_reference_df = pd.DataFrame(columns=vcf_column_names)
         
         #create empty lists for the following columns:
@@ -66,6 +66,7 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
         for i in reference_input_df.index:
             contig_id_list.append(reference_input_df['ref_id'].loc[i])
             position_list.append(reference_input_df['ref_pos'].loc[i])
+            metaimp_id_list.append(reference_input_df['MetaIMP_ID'].loc[i])
             depth=reference_input_df['depth'].loc[i]
             count=dict()
             count['A']=reference_input_df.loc[i]['count_a']
@@ -98,8 +99,9 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
 
             information_string="NS=1;DP="+str(depth)+";"+AF_string+";"
             INFO_string_list.append(information_string)
-            metaimp_id="MetaIMP_"+str(i+1)
-            metaimp_id_list.append(metaimp_id)
+            
+            #metaimp_id="MetaIMP_"+str(i+1)
+            #metaimp_id_list.append(metaimp_id)
         
 
         #update VCF_dataframe
