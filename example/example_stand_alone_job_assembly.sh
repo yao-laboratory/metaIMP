@@ -20,7 +20,8 @@ phylophlan_db_name=SGB.Jan19
 export PHYLOPHLAN_DATABASE=$phylophlan_db_name
 #Eggnog database path
 eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
-export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
+export EGGNOG_DIAMOND_DATABASE=$eggnog_db_name
+#export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
 
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/ksahu2/sample_SRR9205534/SRR9205534_1.fastq
