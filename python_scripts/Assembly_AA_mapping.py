@@ -97,15 +97,16 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     vcf_file=vcf_file.drop(['ID', 'QUAL', 'FILTER', 'INFO'], axis = 1)
     
     
-    with open(contigs) as fasta_file:  # Will close handle cleanly
-    identifiers = []
-    lengths = []
-    sequence = []
+    with open(contigs) as fasta_file:
+        # Will close handle cleanly
+        identifiers = []
+        lengths = []
+        sequence = []
     
-    for seq_record in SeqIO.parse(fasta_file, 'fasta'):  # (generator)
-        identifiers.append(seq_record.id)
-        lengths.append(len(seq_record.seq))
-        sequence.append(str(seq_record.seq))
+        for seq_record in SeqIO.parse(fasta_file, 'fasta'):# (generator)
+            identifiers.append(seq_record.id)
+            lengths.append(len(seq_record.seq))
+            sequence.append(str(seq_record.seq))
 
     #create columns to save id and sequenece in data frame
     column_names = ["ID","sequence"]
