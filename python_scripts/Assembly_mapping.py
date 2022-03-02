@@ -103,7 +103,8 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
         position = int(this_record['position'])
         startpos = int(this_record['start_pos'])
         endpos = int(this_record['end_pos'])
-        if (position>=startpos) & (position<=endpos):
+        #position from instrain is zero-based, but startpos and endpos from contig are one-based
+        if ((position+1)>=startpos) & ((position+1)<=endpos):
             check_list.append(1)
         else:
             check_list.append(0)
