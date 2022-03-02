@@ -145,7 +145,7 @@ else
 	instrain_file=$snp_output/output/INSTRAIN_SNVs.tsv
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
-	
+	contigs_file=$output_folder/METASPADES/contigs.fasta
 	
 	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then
@@ -153,7 +153,7 @@ else
 	else
                 echo "$log_snp_annotation does not exist"
 		echo "starting final mapping between snps and annotations at $(date)..."
-		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation
+		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file
 		echo "finishd assembly_snp_annotation at $(date)"
 		touch $log_snp_annotation
 

@@ -9,7 +9,7 @@ instrain=$1
 eggnog=$2
 mergedfile=$3
 output=$4
-
+contigs=$5
 if [ ! -d "$output" ] ; then
         mkdir $output
 fi
@@ -30,3 +30,6 @@ echo 'creating VCF assembly output file'
 python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output/assembly_mapping_result.csv -o $output
 echo 'VCF file created for assembly process'
 
+echo 'starting amino acid mapping'
+python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/assembly_mapping_result.csv -v $output/assembly_mapping_result.vcf  -c $contigs -o $output
+echo 'amino acid mapping complete'
