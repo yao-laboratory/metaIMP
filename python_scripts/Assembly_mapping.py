@@ -81,7 +81,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
         complement.append(split[3])
         #1=original/forward -1=reverse_complement
     #add split records to mergedfile_dataframe
-
+    
     df_mergedfile.start_pos = start_pos
     df_mergedfile.end_pos = end_pos
     df_mergedfile.sequence = sequence
@@ -117,7 +117,9 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
         metaimp_id="MetaIMP_"+str(i+1)
         metaimp_id_list.append(metaimp_id)
     df_final_assembly['MetaIMP_ID']=metaimp_id_list
-        
+    
+    df_final_assembly.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
+
     #saving output
     inst_egg_mapping.to_csv(fin_assembly,index=None)
     
