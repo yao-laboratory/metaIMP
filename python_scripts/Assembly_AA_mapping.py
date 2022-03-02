@@ -89,7 +89,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     #get assembly_mapping_final_results
     assembly_mapping_result_file=pd.read_csv(assembly_final_result)
-    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','ID','start_pos','end_pos','complement','pos_gap','MetaIMP_ID']]
+    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','ID','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','MetaIMP_ID']]
     assembly_cleaner_df.rename(columns = {'scaffold':'SCAFFOLD'}, inplace = True)
     
     vcf_file=pd.read_csv(vcf, sep ='\t', header=15)#,comment="##")
@@ -154,7 +154,9 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     aa_df['ALT_AA']=alt_aa_list
     aa_df['REF_AA']=ref_aa_list    
     
-    aa_df.to_csv(aa_final_output, index=None, mode='a',sep="\t")
+
+    final_assembly_AA = os.path.join(aa_final_output,'assembly_AA_mapping_result.csv')
+    aa_df.to_csv(final_assembly_AA,index=None)
 
     
     
@@ -169,7 +171,7 @@ def main():
     subparser = parser.add_subparsers(dest='subcommand',help ='following files are the input:1)aaembly_mapping_final_result 2) vcf file 3) contigs.fasta')
     
     amino_acid_parser=subparser.add_parser("aa_map",help="This function is to map amino acids with mutations")
-    
+   
     amino_acid_parser.add_argument("-a", dest="assembly_mapping_file", type=str, help="assembly file eg./path/to/assembly_mapping_result.csv as input")
     amino_acid_parser.add_argument("-v", dest="vcf_file", type=str, help="vcf file eg. /path/to/assembly_mapping_result.vcf as input")
     amino_acid_parser.add_argument("-c", dest="contigs_file", type=str, 

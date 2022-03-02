@@ -110,15 +110,22 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
             check_list.append(0)
     
     df_final_assembly['in_protein_range']=check_list
-
-    inst_egg_mapping = df_final_assembly.loc[df_final_assembly['in_protein_range']==1]
+    
     metaimp_id_list = list()
     for i in df_final_assembly.index:
         metaimp_id="MetaIMP_"+str(i+1)
         metaimp_id_list.append(metaimp_id)
     df_final_assembly['MetaIMP_ID']=metaimp_id_list
-    
     df_final_assembly.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
+
+    inst_egg_mapping = df_final_assembly.loc[df_final_assembly['in_protein_range']==1]
+    #metaimp_id_list = list()
+    #for i in df_final_assembly.index:
+    #    metaimp_id="MetaIMP_"+str(i+1)
+    #    metaimp_id_list.append(metaimp_id)
+    #df_final_assembly['MetaIMP_ID']=metaimp_id_list
+    
+    #df_final_assembly.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
 
     #saving output
     inst_egg_mapping.to_csv(fin_assembly,index=None)

@@ -47,7 +47,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     for i in assembly_input_df.index:
         #appending all the lists
         contig_id_list.append(assembly_input_df.loc[i]['scaffold'])
-        position_list.append(assembly_input_df['position'].loc[i])
+        position_list.append(assembly_input_df['position(0-based)'].loc[i])
         ref_base_list.append(assembly_input_df['ref_base'].iloc[i])
         var_base_list.append(assembly_input_df['var_base'].loc[i])
         metaimp_id_list.append(assembly_input_df['MetaIMP_ID'].loc[i])
