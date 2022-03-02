@@ -184,7 +184,7 @@ def main():
         contigs_file = args.contigs_file
         assembly_aa_file= args.output_file_path
         print(aa_map_file,vcf_file,contigs_file,assembly_aa_file)
-        amino_acid_mapping(aa_map_file, vcf_file, contigs, assembly_aa_file)
+        amino_acid_mapping(aa_map_file, vcf_file, contigs_file, assembly_aa_file)
     else:
         print("Wrong input. Check parameters")
 
