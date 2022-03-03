@@ -34,3 +34,5 @@ run_midas.py snps $output_folder \
         -d $database_folder
 
 echo 'midas_snps complete'
+
+
