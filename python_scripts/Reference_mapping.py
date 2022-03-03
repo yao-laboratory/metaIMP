@@ -98,6 +98,14 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                     b=patric_op.loc[[i], :]
                     newrow=pd.merge(a,b,on='ref_id',how='inner')
                     df_reference_final =pd.concat([df_reference_final,newrow],axis=0,ignore_index=True)
+        #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
+        #print('FINISH!!!!')
+
+        metaimp_id_list = list()
+        for i in df_reference_final.index:
+            metaimp_id="MetaIMP_"+str(i+1)
+            metaimp_id_list.append(metaimp_id)
+            df_reference_final['MetaIMP_ID']=metaimp_id_list
         df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         print('FINISH!!!!')
 
