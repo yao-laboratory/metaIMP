@@ -105,13 +105,12 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         for i in df_reference_final.index:
             metaimp_id="MetaIMP_"+str(i+1)
             metaimp_id_list.append(metaimp_id)
-            df_reference_final['MetaIMP_ID']=metaimp_id_list
+        df_reference_final['MetaIMP_ID']=metaimp_id_list
         df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         print('FINISH!!!!')
 
     else:
         print(patric_fullpath,"this patric file is empty. skipping this file")
-
 
 
 
