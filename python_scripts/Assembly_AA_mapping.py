@@ -125,13 +125,19 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     ref_aa_list = list()
     gene_sequence_list=list()
     protein_sequence_list=list()
-    
+    go_list=list()
+    ec_list=list()
+    description_list=list()
     
     for i in aa_df.index:
         contig_seq=aa_df.loc[i]['sequence']
         start_pos=int(aa_df.loc[i]['start_pos(1-based)'])
         end_pos=int(aa_df.loc[i]['end_pos(1-based)'])
         gene_na = contig_seq[start_pos-1:end_pos]
+        go=aa_df.loc[i]['GOs']
+        ec=aa_df.loc[i]['EC']
+        description=aa_df.loc[i]['Description']
+        
 
         mutation_na_pos=int(aa_df.loc[i]['POS'])
         ref_na_letter=aa_df.loc[i]['REF']
@@ -147,6 +153,9 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             gene_sequence_list.append(gene_na)
             protein_seq=translate_gene(gene_na)
             protein_sequence_list.append(protein_seq)
+            go_list.append(go)
+            ec_list.append(ec)
+            description_list.append(description)
 
         elif aa_df.loc[i]['complement']==-1:
             gene_na_rev=rev_comp(gene_na)
@@ -159,8 +168,13 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             gene_sequence_list.append(gene_na_rev)
             protein_seq=translate_gene(gene_na)
             protein_sequence_list.append(protein_seq)
+            go_list.append(go)
+            ec_list.append(ec)
+            description_list.append(description)
     
-    
+    aa_df['Description']=description_list
+    aa_df['GO']=go_list
+    aa_df['EC']=ec_list
     aa_df['Protein_Seq']=protein_sequence_list
     aa_df['Gene Seq']=gene_sequence_list
     aa_df['ALT_AA']=alt_aa_list
