@@ -215,7 +215,7 @@ def main():
         reference_files=args.reference_mapping_files_folder
         output_files=args.aa_file_path
         print(reference_files,output_files)
-        amino_acid_mapping_all_files(reference_files, output_files)
+        amino_acid_all_files(reference_files, output_files)
     else:
         print("Wrong input. Check parameters")
     
