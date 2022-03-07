@@ -44,4 +44,4 @@ echo 'VCF file created for reference process'
 
 echo 'calculating Amino acid mutations'
 python $DIR/python_scripts/Reference_AA_mapping.py aa_map_reference -i $output_folder -o $output_folder
-echo 'AA mutations calcuated"
+echo 'AA mutations calcuated'
