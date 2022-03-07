@@ -7,13 +7,20 @@
 #SBATCH --error=hcc_assembly.%J.err
 
 
+#Example HCC Assembly job
+#metaimp path: Repository downloaded by user from Github
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaimp_env
+#Kraken database path
 kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path
+#Phylophlan database path
 phylophlan_db_name=SGB.Jan19
 export PHYLOPHLAN_DATABASE=$phylophlan_db_name
-
+#Eggnog database path
+eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
+export EGGNOG_DIAMOND_DATABASE=$eggnog_db_name
+#export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
 
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_1.fastq
