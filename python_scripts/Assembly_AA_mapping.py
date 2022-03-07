@@ -123,7 +123,10 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     
     alt_aa_list = list()
     ref_aa_list = list()
-
+    gene_sequence_list=list()
+    protein_sequence_list=list()
+    
+    
     for i in aa_df.index:
         contig_seq=aa_df.loc[i]['sequence']
         start_pos=int(aa_df.loc[i]['start_pos(1-based)'])
@@ -141,6 +144,9 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, gene_na)
             alt_aa_list.append(alt_aa)
             ref_aa_list.append(ref_aa)
+            gene_sequence_list.append(gene_na)
+            protein_seq=translate_gene(gene_na)
+            protein_sequence_list.append(protein_seq)
 
         elif aa_df.loc[i]['complement']==-1:
             gene_na_rev=rev_comp(gene_na)
@@ -150,10 +156,17 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, gene_na_rev)
             alt_aa_list.append(alt_aa)
             ref_aa_list.append(ref_aa)
-
+            gene_sequence_list.append(gene_na)
+            protein_seq=translate_gene(gene_na)
+            protein_sequence_list.append(protein_seq)
+    
+    
+    aa_df['Protein_Seq']=protein_sequence_list
+    aa_df['Gene Seq']=gene_sequence_list
     aa_df['ALT_AA']=alt_aa_list
     aa_df['REF_AA']=ref_aa_list    
-    
+    #drop contig column
+    aa_df=aa_df.drop(['sequence'], axis=1)
 
     final_assembly_AA = os.path.join(aa_final_output,'assembly_AA_mapping_result.csv')
     aa_df.to_csv(final_assembly_AA,index=None)
