@@ -89,7 +89,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     #get assembly_mapping_final_results
     assembly_mapping_result_file=pd.read_csv(assembly_final_result)
-    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','ID','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','MetaIMP_ID']]
+    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','ID','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','eggNOG_OGs','GOs','EC','MetaIMP_ID']]
     assembly_cleaner_df.rename(columns = {'scaffold':'SCAFFOLD'}, inplace = True)
     
     vcf_file=pd.read_csv(vcf, sep ='\t', header=15)#,comment="##")
@@ -128,7 +128,9 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     go_list=list()
     ec_list=list()
     description_list=list()
-    
+    eggnog_og_list=list()
+
+
     for i in aa_df.index:
         contig_seq=aa_df.loc[i]['sequence']
         start_pos=int(aa_df.loc[i]['start_pos(1-based)'])
@@ -137,8 +139,7 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
         go=aa_df.loc[i]['GOs']
         ec=aa_df.loc[i]['EC']
         description=aa_df.loc[i]['Description']
-        
-
+        eggnog_og=aa_df.loc[i]['eggNOG_OGs']
         mutation_na_pos=int(aa_df.loc[i]['POS'])
         ref_na_letter=aa_df.loc[i]['REF']
         alt_na_letter=aa_df.loc[i]['ALT']
@@ -156,6 +157,7 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             go_list.append(go)
             ec_list.append(ec)
             description_list.append(description)
+            eggnog_og_list.append(eggnog_og)
 
         elif aa_df.loc[i]['complement']==-1:
             gene_na_rev=rev_comp(gene_na)
@@ -171,7 +173,9 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             go_list.append(go)
             ec_list.append(ec)
             description_list.append(description)
+            eggnog_og_list.append(eggnog_og)
     
+    aa_df['eggNOG_OGs']=eggnog_og_list
     aa_df['Description']=description_list
     aa_df['GO']=go_list
     aa_df['EC']=ec_list
