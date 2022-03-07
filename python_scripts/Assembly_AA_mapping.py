@@ -156,7 +156,7 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, gene_na_rev)
             alt_aa_list.append(alt_aa)
             ref_aa_list.append(ref_aa)
-            gene_sequence_list.append(gene_na)
+            gene_sequence_list.append(gene_na_rev)
             protein_seq=translate_gene(gene_na)
             protein_sequence_list.append(protein_seq)
     

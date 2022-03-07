@@ -90,7 +90,7 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
     
     snp_annotation_files_list=os.listdir(reference_snp_annotation_folder)
     
-    for i in range (0, len(snp_annotation_files)):
+    for i in range (0, len(snp_annotation_files_list)):
         split_filename=string.split_filename('.')
         if split_filename[1]=='csv':
             if split_filename[0].find("_patric_midassnps")>0:
@@ -221,20 +221,3 @@ def main():
     
 if __name__ == "__main__":
         main()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
