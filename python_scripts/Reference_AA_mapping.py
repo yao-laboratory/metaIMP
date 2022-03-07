@@ -69,7 +69,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
     ref_aa=''
     alt_aa=''
      
-    
+     
 
     codon_num=math.ceil(mutation_na_pos/3)
     na_start=3*codon_num-2
@@ -101,7 +101,6 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
                 amino_acid_mapping(reference_mapping_result,vcf_file,output_path)
         
         
-
 
 
 

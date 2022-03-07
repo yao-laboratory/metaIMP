@@ -35,7 +35,6 @@ done
 echo 'completed mapping PEG_IDs to PATRIC'
 
 python $DIR/python_scripts/Reference_mapping.py ref_map -pf $patric_folder -sf $snps_folder -o $output_folder
-
 echo 'completed reference_mapping. Good luck!!!'
 
 echo 'creating VCF reference output file'
