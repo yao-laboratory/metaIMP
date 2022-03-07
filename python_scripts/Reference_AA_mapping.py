@@ -9,13 +9,13 @@ This program maps mutations in nucleotide sequence to mutations in corresponding
 import pandas as pd
 import math
 import Bio
-import skbio
+#import skbio
 import os
 import argparse
 
 from Bio import SeqIO
 from Bio.SeqIO import parse
-from skbio import DNA
+#from skbio import DNA
 
 #functions for calculation
 def complement(base):
