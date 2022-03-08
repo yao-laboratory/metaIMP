@@ -13,14 +13,13 @@ fi
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
 
-
 python $DIR/python_scripts/Reference_mapping.py add_figid -gf $genes_folder -pf $patric_folder
 
 echo 'finished adding fig_ids to peg_ids. now run patric.sh first to get the annotation. then last step is to map the annotation with midas by running the ref_map command'
 
 for f in $patric_folder/*.patric.csv
 do
-        echo 'we are now processing all genes files to which 'fig_id' tag is added and these files will now run through PATRIC DATABASE'
+       echo 'we are now processing all genes files to which 'fig_id' tag is added and these files will now run through PATRIC DATABASE'
 	echo 'currently processing'$f
         singularity exec docker://unlhcc/patric p3-get-feature-data --col=1 --attr aa_length --attr aa_sequence  --attr aa_sequence_md5 --attr accession --attr alt_locus_tag \
                 --attr annotation --attr classifier_round --attr classifier_score --attr date_inserted --attr date_modified --attr ec --attr end --attr feature_id --attr feature_type \
@@ -43,4 +42,5 @@ echo 'VCF file created for reference process'
 
 echo 'calculating Amino acid mutations'
 python $DIR/python_scripts/Reference_AA_mapping.py aa_map_reference -i $output_folder -o $output_folder
+#echo 'aa_map_reference -i $output_folder -o $output_folder'
 echo 'AA mutations calcuated'
