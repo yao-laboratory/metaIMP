@@ -91,7 +91,14 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
     snp_annotation_files_list=os.listdir(reference_snp_annotation_folder)
     
     for i in range (0, len(snp_annotation_files_list)):
-        split_filename=string.split_filename('.')
+        #filename=str(snp_annotation_files_list[i])
+        #print(filename)
+        #split_filename=filename.split_filename('.')
+        #split_filename=string.split_filename('.')
+        #print(filename)
+        filename=snp_annotation_files_list[i]
+        #split_filename=string.split_filename('.')
+        split_filename=filename.split('.')
         if split_filename[1]=='csv':
             if split_filename[0].find("_patric_midassnps")>0:
                 species_id = split_filename[0].replace("_patric_midassnps","")
