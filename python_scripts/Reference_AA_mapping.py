@@ -72,7 +72,15 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
     print(alt_na)
     print(mutation_na_pos)
     print(gene_na)
-     
+    
+
+    if alt_na.find(",")>0:
+        alt_na_first=alt_na[0]
+        alt_na_second=alt_na[2]
+        print(alt_na_first)
+        print(alt_na_second)
+
+
 
     codon_num=math.ceil(mutation_na_pos/3)
     na_start=3*codon_num-2
