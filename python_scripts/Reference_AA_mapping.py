@@ -68,19 +68,26 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
     #alt_na='G'
     ref_aa=''
     alt_aa=''
-    print(ref_na)
-    print(alt_na)
-    print(mutation_na_pos)
-    print(gene_na)
+    #print(ref_na)
+    #print(alt_na)
+    #print(mutation_na_pos)
+    #print(gene_na)
     
+   
+    #if alt_na.find(',')>0:
+    #    alt_na_split=alt_na.split(',')
+    #    print('this is the split alt_na',alt_na_split[0],alt_na_split[1])
+       # print(alt_na_split[1])
+   
 
+    '''
     if alt_na.find(",")>0:
         alt_na_first=alt_na[0]
         alt_na_second=alt_na[2]
         print(alt_na_first)
         print(alt_na_second)
 
-
+    '''
 
     codon_num=math.ceil(mutation_na_pos/3)
     na_start=3*codon_num-2
@@ -92,7 +99,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
         alt_codon = new_gene[na_start-1:na_end]
         ref_aa=translate(ref_codon)
         alt_aa=translate(alt_codon)
-    return ref_aa, alt_aa
+    return ref_aa, alt_aa,codon_num
 
 
 
@@ -139,11 +146,15 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     description_list=list()
     genome_name_list=list()
     alt_aa_list = list()
+    #alt_aa_list_second= list()
     ref_aa_list = list()
+    alt_na_list=list()
+    ref_na_list=list()
     na_sequence_list=list()
     aa_sequence_list=list()
-    
-
+    metaimp_id_list=list()
+    protein_mutation_pos_list=list()
+    gene_mutation_pos_list=list()
     
 
     for i in reference_merged_df.index:
@@ -156,52 +167,73 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
         end_pos=int(reference_merged_df.loc[i]['feature.end'])
         mutation_na_pos=int(reference_merged_df.loc[i]['ref_pos'])
         ref_na_letter=reference_merged_df.loc[i]['REF']
-        alt_na_letter=reference_merged_df.loc[i]['ALT']
+        alt_na_letter_string=reference_merged_df.loc[i]['ALT'] #can be 'A', or two letters 'A,T'
         reference_id=reference_merged_df.loc[i]['ref_id']
         strand= reference_merged_df.loc[i]['feature.strand']
         ec_number= reference_merged_df.loc[i]['feature.ec']
         go_number=reference_merged_df.loc[i]['feature.go']
         description=reference_merged_df.loc[i]['feature.product']
         genome_name=reference_merged_df.loc[i]['feature.genome_name']
+        metaimp_id = reference_merged_df.loc[i]['MetaIMP_ID']
  
 
-
-        if reference_merged_df.loc[i]['feature.strand']=='+':
-            #protein_seq_converted=translate_gene(na_seq_patric)
-            mutation_pos=mutation_na_pos-start_pos
-            mutation_pos=mutation_pos+1
-            ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, na_seq_patric)
-            alt_aa_list.append(alt_aa)
-            ref_aa_list.append(ref_aa)
-            
-
-        elif reference_merged_df.loc[i]['feature.strand']=='-':
-            #new_na_rev_seq=rev_comp(na_seq_patric)#MIDAS provides the reverse complement sequence
-            #protein_seq_converted=translate_gene(new_na_rev_seq)
-
-            mutation_pos=end_pos-mutation_na_pos
-            mutation_pos=mutation_pos+1
-
-            ref_na_letter_rev=rev_comp(ref_na_letter)
-            alt_na_letter_rev=rev_comp(alt_na_letter)
-            ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, na_seq_patric)
-            alt_aa_list.append(alt_aa)
-            ref_aa_list.append(ref_aa)
-            
-            
-        reference_id_list.append(reference_id)
-        strand_list.append(strand)
-        ec_number_list.append(ec_number)
-        go_number_list.append(go_number)
-        description_list.append(description)
-        genome_name_list.append(genome_name)
-        na_sequence_list.append(na_seq_patric)
-        aa_sequence_list.append(protein_seq_converted)
         
+    
+    
+        alt_na_split_list=alt_na_letter_string.split(',')
+        for alt_na_letter in alt_na_split_list:
+            # print('this is the split alt_na',alt_na_split[0],alt_na_split[1])
+            if reference_merged_df.loc[i]['feature.strand']=='+':
+                #protein_seq_converted=translate_gene(na_seq_patric)
+                mutation_pos=mutation_na_pos-start_pos
+                mutation_pos=mutation_pos+1
+                ref_aa,alt_aa,mutated_protein_pos=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, na_seq_patric)
+                #ref_aa,alt_aa_second=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, na_seq_patric)
+                alt_aa_list.append(alt_aa)
+                ref_aa_list.append(ref_aa)
+                protein_mutation_pos_list.append(mutated_protein_pos)
+                alt_na_list.append(alt_na_letter)
+                ref_na_list.append(ref_na_letter)
+                gene_mutation_pos_list.append(mutation_pos)
+            
+            elif reference_merged_df.loc[i]['feature.strand']=='-':
+                #new_na_rev_seq=rev_comp(na_seq_patric)#MIDAS provides the reverse complement sequence
+                #protein_seq_converted=translate_gene(new_na_rev_seq)
+
+                mutation_pos=end_pos-mutation_na_pos
+                mutation_pos=mutation_pos+1
+
+                ref_na_letter_rev=rev_comp(ref_na_letter)
+                alt_na_letter_rev=rev_comp(alt_na_letter)
+                ref_aa,alt_aa,mutated_protein_pos=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, na_seq_patric)
+                alt_aa_list.append(alt_aa)
+                ref_aa_list.append(ref_aa)
+                protein_mutation_pos_list.append(mutated_protein_pos)
+                alt_na_list.append(alt_na_letter)
+                ref_na_list.append(ref_na_letter)
+                gene_mutation_pos_list.append(mutation_pos)
+
+
+            #print(len(protein_seq_converted))
+            if protein_seq_converted[-1]!='*'  or protein_seq_converted.count('*')>1:
+                aa_sequence_list.append('')
+            else:
+                aa_sequence_list.append(protein_seq_converted)
+
+            reference_id_list.append(reference_id)
+            strand_list.append(strand)
+            ec_number_list.append(ec_number)
+            go_number_list.append(go_number)
+            description_list.append(description)
+            genome_name_list.append(genome_name)
+            na_sequence_list.append(na_seq_patric)
+            #aa_sequence_list.append(protein_seq_converted)
+            metaimp_id_list.append(metaimp_id)
 
     #please make this aa_df dataframe as output
     
     
+
     aa_df['Ref_ID']=reference_id_list
     aa_df['Genome_Name']=genome_name_list
     aa_df['Description']=description_list
@@ -211,9 +243,12 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     aa_df['Protein_seq']=aa_sequence_list
     aa_df['ALT_AA']=alt_aa_list
     aa_df['REF_AA']=ref_aa_list
-    
-    
-
+    aa_df['MetaIMP_ID']=metaimp_id_list
+    aa_df['Protein Mutation Position (1-based)']=protein_mutation_pos_list    
+    aa_df['Gene Mutation Position (1-basefd)']=gene_mutation_pos_list
+    aa_df['ALT_NA']=alt_na_list
+    aa_df['REF_NA']=ref_na_list
+        
 
 
 

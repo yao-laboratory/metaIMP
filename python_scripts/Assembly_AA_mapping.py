@@ -82,7 +82,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
         alt_codon = new_gene[na_start-1:na_end]
         ref_aa=translate(ref_codon)
         alt_aa=translate(alt_codon)
-    return ref_aa, alt_aa
+    return ref_aa, alt_aa,codon_num
 
 
 
@@ -121,6 +121,8 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     #amino_acid dataframe
     aa_df=pd.merge(pd.merge(df_contig,vcf_file,on='SCAFFOLD'),assembly_cleaner_df,on=('MetaIMP_ID','SCAFFOLD'))
     
+    alt_na_list=list()
+    ref_na_list=list()
     alt_aa_list = list()
     ref_aa_list = list()
     gene_sequence_list=list()
@@ -129,6 +131,8 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     ec_list=list()
     description_list=list()
     eggnog_og_list=list()
+    mutation_na_pos_list=list()
+    mutation_aa_pos_list=list()
 
 
     for i in aa_df.index:
@@ -148,7 +152,7 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             #instrain mutation position is based on zero coordinate
             mutation_pos=(mutation_na_pos+1)-start_pos+1
             #relative start position
-            ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, gene_na)
+            ref_aa,alt_aa,aa_pos=calculate_mutation_aa(ref_na_letter, alt_na_letter, mutation_pos, gene_na)
             alt_aa_list.append(alt_aa)
             ref_aa_list.append(ref_aa)
             gene_sequence_list.append(gene_na)
@@ -158,13 +162,17 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             ec_list.append(ec)
             description_list.append(description)
             eggnog_og_list.append(eggnog_og)
+            mutation_na_pos_list.append(mutation_pos)
+            mutation_aa_pos_list.append(aa_pos)
+            alt_na_list.append(alt_na_letter)
+            ref_na_list.append(ref_na_letter)
 
         elif aa_df.loc[i]['complement']==-1:
             gene_na_rev=rev_comp(gene_na)
             mutation_pos=end_pos-(mutation_na_pos+1)+1
             ref_na_letter_rev=rev_comp(ref_na_letter)
             alt_na_letter_rev=rev_comp(alt_na_letter)
-            ref_aa,alt_aa=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, gene_na_rev)
+            ref_aa,alt_aa,aa_pos=calculate_mutation_aa(ref_na_letter_rev, alt_na_letter_rev, mutation_pos, gene_na_rev)
             alt_aa_list.append(alt_aa)
             ref_aa_list.append(ref_aa)
             gene_sequence_list.append(gene_na_rev)
@@ -174,7 +182,11 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
             ec_list.append(ec)
             description_list.append(description)
             eggnog_og_list.append(eggnog_og)
-    
+            mutation_na_pos_list.append(mutation_pos)
+            mutation_aa_pos_list.append(aa_pos)
+            alt_na_list.append(alt_na_letter_rev)
+            ref_na_list.append(ref_na_letter_rev)
+
     aa_df['eggNOG_OGs']=eggnog_og_list
     aa_df['Description']=description_list
     aa_df['GO']=go_list
@@ -182,7 +194,12 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     aa_df['Protein_Seq']=protein_sequence_list
     aa_df['Gene Seq']=gene_sequence_list
     aa_df['ALT_AA']=alt_aa_list
-    aa_df['REF_AA']=ref_aa_list    
+    aa_df['REF_AA']=ref_aa_list
+    aa_df['ALT_NA']=alt_na_list
+    aa_df['REF_NA']=ref_na_list
+    aa_df['NA_Mutatation_Pos']=mutation_na_pos_list
+    aa_df['AA_Mutation_Pos']=mutation_aa_pos_list
+
     #drop contig column
     aa_df=aa_df.drop(['sequence'], axis=1)
 
