@@ -68,7 +68,10 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
     #alt_na='G'
     ref_aa=''
     alt_aa=''
-     
+    print(ref_na)
+    print(alt_na)
+    print(mutation_na_pos)
+    print(gene_na)
      
 
     codon_num=math.ceil(mutation_na_pos/3)
@@ -87,7 +90,8 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 
 
 def amino_acid_all_files(reference_snp_annotation_folder, output_path):
-    
+    print(reference_snp_annotation_folder)
+    print(output_path)
     snp_annotation_files_list=os.listdir(reference_snp_annotation_folder)
     
     for i in range (0, len(snp_annotation_files_list)):
@@ -102,10 +106,12 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
         if split_filename[1]=='csv':
             if split_filename[0].find("_patric_midassnps")>0:
                 species_id = split_filename[0].replace("_patric_midassnps","")
-                #print(species_id)
-                paired_vcf_file_name=split_filename[0]+".vcf"
-                #print(paired_vcf_file_name)
-                amino_acid_mapping(reference_mapping_result,vcf_file,output_path)
+                print(species_id)
+                reference_mapping_result=os.path.join(reference_snp_annotation_folder,species_id+"_patric_midassnps.csv")
+                vcf_file_name=split_filename[0]+".vcf"
+                paired_vcf_file_name=os.path.join(reference_snp_annotation_folder,vcf_file_name)
+                print(paired_vcf_file_name)
+                amino_acid_mapping(reference_mapping_result,paired_vcf_file_name,output_path)
         
         
 
@@ -114,8 +120,8 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
 def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     #get reference_mapping_final_results
     reference_mapping_result=pd.read_csv(reference_final_result)
-    vcf_file=pd.read_csv(vcf, sep='\t', skiprows=15)#,comment="##")
-    reference_merged_df=pd.merge(reference_mapping,vcf_file,on='MetaIMP_ID')
+    vcf_file=pd.read_csv(vcf, sep='\t', skiprows=17)#,comment="##")
+    reference_merged_df=pd.merge(reference_mapping_result,vcf_file,on='MetaIMP_ID')
     aa_df=pd.DataFrame([])
     
     reference_id_list=list()
