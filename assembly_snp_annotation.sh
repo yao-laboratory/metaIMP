@@ -38,5 +38,6 @@ python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/assembly_map
 echo 'amino acid mapping complete'
 
 echo "mapping Kraken annotations to bins"
-python $DIR/python_scripts/Assembly_Kraken_Checkm_mapping.py c_map -c $checkm_stats -s $scaffold_file -a $output/assembly_mapping_result.csv -o $path_to_kraken_dir
+echo "scaffold is $scaffold_info"
+python $DIR/python_scripts/Assembly_Kraken_Checkm_mapping.py c_map -c $checkm_stats -s $scaffold_info -a $output/assembly_mapping_result.csv -o $path_to_kraken_dir
 echo "Kraken annotation-bin mapping complete"
