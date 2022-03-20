@@ -8,6 +8,7 @@ ASSEMBLY-PROCESS
 import pandas as pd
 import os
 import json
+import argparse
 
 def kraken_checkm_mapping(checkm_stats, scaffold_information, step_5_mapping_result,path_of_the_directory):
     
