@@ -10,6 +10,9 @@ eggnog=$2
 mergedfile=$3
 output=$4
 contigs=$5
+path_to_kraken_dir=$6
+scaffold_info=$7
+checkm_stats=$8
 if [ ! -d "$output" ] ; then
         mkdir $output
 fi
@@ -33,3 +36,7 @@ echo 'VCF file created for assembly process'
 echo 'starting amino acid mapping'
 python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/assembly_mapping_result.csv -v $output/assembly_mapping_result.vcf  -c $contigs -o $output
 echo 'amino acid mapping complete'
+
+echo "mapping Kraken annotations to bins"
+python $DIR/python_scripts/Assembly_Kraken_Checkm_mapping.py c_map -c $checkm_stats -s $scaffold_file -a $output/assembly_mapping_result.csv -o $path_to_kraken_dir
+echo "Kraken annotation-bin mapping complete"

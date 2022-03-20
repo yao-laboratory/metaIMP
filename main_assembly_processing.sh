@@ -146,14 +146,17 @@ else
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
 	contigs_file=$output_folder/METASPADES/contigs.fasta
-	
+	path_to_kraken_dir=$output_folder/KRAKEN
+	scaffold_info=$output_folder/BINS/my_scaffolds2bin.tsv
+	checkm_stats=$output_folder/BINS/CHECKM/storage/bin_stats.analyze.tsv
+
 	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then
 		echo "$log_snp_annotation exists. Skip snp annotation mapping..."
 	else
                 echo "$log_snp_annotation does not exist"
 		echo "starting final mapping between snps and annotations at $(date)..."
-		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file
+		$DIR/assembly_snp_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats
 		echo "finishd assembly_snp_annotation at $(date)"
 		touch $log_snp_annotation
 
