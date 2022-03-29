@@ -93,8 +93,18 @@ if [ ! -d "$binfolder" ] ; then
         mkdir $binfolder
 fi
 
+
 bins=$binfolder/bins
-metabat2 -i $contigs -a $depth_file -o $bins
+
+#checking for mininmum_contig_length. If user provides value, use that. Else set minimum_contig_length as 1000bp.
+#to get binned and unbinned contigs
+if [ $((minimum_contig_len+0)) -gt 0 ] ; then
+	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
+else
+	metaIMP_min_contig_len = 1000
+	metabat2 -i $contigs -a $depth_file -o $bins -m $metaIMP_min_contig_len --seed 1 --unbinned
+
+
 
 #CHECKM
 echo "starting checkm"
