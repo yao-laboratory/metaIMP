@@ -104,7 +104,7 @@ else
 	metaIMP_min_contig_len = 1000
 	metabat2 -i $contigs -a $depth_file -o $bins -m $metaIMP_min_contig_len --seed 1 --unbinned
 
-
+fi
 
 #CHECKM
 echo "starting checkm"
