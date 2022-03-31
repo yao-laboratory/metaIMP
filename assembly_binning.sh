@@ -106,6 +106,15 @@ else
 
 fi
 
+unbinnedfolder=$bins/unbinned
+if [ ! -d "$unbinnedfolder" ] ; then
+        mkdir $unbinnedfolder
+fi
+mv $bins/*lowDepth* $unbinnedfolder
+mv $bins/*tooShort* $unbinnedfolder
+mv $bins/*unbinned* $unbinnedfolder
+
+
 #CHECKM
 echo "starting checkm"
 c_bins=$binfolder
@@ -115,9 +124,23 @@ if [ ! -d "$checkm" ] ; then
         mkdir $checkm
 fi
 
+checkm_unbinned= $binfolder/CHECKM_UNBINNED
+
+if [ ! -d "$checkm_unbinned" ] ; then
+        mkdir $checkm_unbinned
+fi
+
 checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
+
+u_bin=$unbinnedfolder
+
+checkm lineage_wf -t $t -x fa $u_bin $checkm_unbinned
+mergedfile_unbinnbed=$checkm_unbinned
+find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile_unbinned.fna
+
+
 
 #ASSEMBLY_BINNING script is complete
 echo "assembly_binning step is complete"
