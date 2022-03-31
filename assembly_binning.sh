@@ -137,6 +137,9 @@ cat $bins/*lowDepth* $bins/*tooShort *$bins/*unbinned* > $bins/bins.0.fa
 checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
+
+rm $bins/bins.0.fa
+
 '''
 u_bin=$unbinnedfolder
 
