@@ -25,8 +25,8 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     print(mergedfile)
     
     #this is where the final assembly result is stored
-    fin_assembly = os.path.join(fin_assembly,'assembly_mapping_result.csv')
-    
+    fin_assembly_coding = os.path.join(fin_assembly,'assembly_mapping_result_coding.csv')
+    fin_assembly_noncoding = os.path.join(fin_assembly,'assembly_mapping_result_noncoding.csv')
     #creating dataframes from paths
 
     instrain  = pd.read_csv(instrain, sep='\t')
@@ -93,7 +93,6 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     
     final_assembly = final_assembly.dropna(subset=['start_pos', 'end_pos'])
     
-    check_list=[]
     coding_region=list()
     
     
@@ -106,37 +105,27 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
         #position from instrain is zero-based, but startpos and endpos from contig are one-based
 
         if ((position+1)>=startpos) & ((position+1)<=endpos):
-            check_list.append(1)
             coding_region.append(1)
 
         else:
-            check_list.append(0)
             coding_region.append(0)
 
 
-    final_assembly['in_protein_range']=check_list
+    
     final_assembly['coding_region']=coding_region
 
    
-
-
-    for i in final_assembly.index:
-        non_coding_record=final_assembly.loc[i]
-        if non_coding_record['coding_region'] == -1:
-            final_assembly_noncoding_mutations=non_coding_record
-        else:
-            final_assembly_coding_mutations=non_coding_record
-
     final_assembly_noncoding_mutations=final_assembly.loc[final_assembly['coding_region']==0]
     final_assembly_coding_mutations=final_assembly.loc[final_assembly['coding_region']==1]  
     
     final_assembly_noncoding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
     final_assembly_coding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
     
-    
-    
-    final_assembly_noncoding_mutations.to_csv(fin_assembly,index=None)
-    final_assembly_coding_mutations.to_csv(fin_assembly,index=None)
+    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations[['scaffold','position(0-based)','position_coverage','allele_count','ref_base','con_base','var_base','ref_freq','con_freq',
+        'var_freq','A','C','T','G','gene','mutation','mutation_type','cryptic','class','MetaIMP_ID']]   
+    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations.drop_duplicates()
+    final_assembly_noncoding_mutations.to_csv(fin_assembly_noncoding,index=None)
+    final_assembly_coding_mutations.to_csv(fin_assembly_coding,index=None)
     
     
 def main():
