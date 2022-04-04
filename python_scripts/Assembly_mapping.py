@@ -1,3 +1,180 @@
+##THIS IS THE UPDATED VERSION OF METAIMP_ASSEMBLY_MAPPING ( Step-5 )
+##Authors: Kalyan Sahu, Qiuming Yao
+##Affiliation: Integrated Digital Omics Lab (IDOL), School of Computing, University of Nebraska-Lincoln
+
+
+#imports
+import Bio
+import os
+import argparse
+import pandas as pd
+from Bio import SeqIO
+
+#create a function to call in 4 arguments
+
+def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
+    
+    #paths
+    #instrain_path = os.path.join(instrain, 'instrain_SNVs.tsv')
+    print(instrain)
+
+    #eggnog_path = os.path.join(eggnog, 'eggnog_results.emapper.annotations')
+    print(eggnog)
+
+    #merged_file = os.path.join(mergedfile, 'mergedfile.fna')
+    print(mergedfile)
+    
+    #this is where the final assembly result is stored
+    fin_assembly = os.path.join(fin_assembly,'assembly_mapping_result.csv')
+    
+    #creating dataframes from paths
+
+    instrain  = pd.read_csv(instrain, sep='\t')
+    eggnog    = pd.read_csv(eggnog,sep ='\t', skiprows =  2, header =2,skipfooter= 3, engine='python')
+    records   = SeqIO.parse(mergedfile, 'fasta')
+    
+    eggnog.rename(columns= {'#query': 'protein_id'}, inplace = True)
+    
+    #binning merged file manipulation 
+
+    column_names = ["protein_id","start_pos","end_pos","sequence","complement",'pos_gap']
+    mergedfile = pd.DataFrame(columns = column_names)
+    #list for splitting mergedfile.fna
+    #creating multiple lists to add the following information
+    start_pos = list()
+    end_pos = list()
+    split = list()
+    seq_ID = list()
+    sequence = list()
+    complement = list()
+    
+    
+    for seq_record in binned_records:
+        
+        split = seq_record.description.split(" # ")
+        se = seq_record.seq
+        sequence.append(se)
+        seq_ID.append(split[0])
+        start_pos.append(split[1])
+        end_pos.append(split[2])
+        complement.append(split[3])
+        contig=split[0].rsplit("_",1)[0]
+        contig_list.append(contig)
+    #1=original/forward -1=reverse_complement   
+    #add split records to mergedfile_dataframe
+
+    mergedfile['start_pos'] = start_pos           
+    mergedfile['end_pos'] = end_pos
+    mergedfile['sequence'] = sequence
+    mergedfile['protein_id'] = seq_ID
+    mergedfile['complement'] = complement
+    mergedfile['pos_gap'] = mergedfile['end_pos'].astype(int) - mergedfile['start_pos'].astype(int)
+    mergedfile['scaffold'] = contig_list
+    
+    #merge between checkm data and eggnog- gives all proteins
+    all_proteins = pd.merge (mergedfile, eggnog, on = 'protein_id', how = 'left')
+
+    all_proteins.to_csv(fin_assembly,index=None)
+
+    #merge between all proteins and instrain
+
+    final_assembly = pd.merge (instrain , all_proteins,  on = 'scaffold', how = 'left')
+    
+    #creating metaimp_ID for tagging mutations
+    metaimp_id_list = list()
+    for i in final_assembly.index:
+        metaimp_id="MetaIMP_"+str(i+1)
+        metaimp_id_list.append(metaimp_id)
+    final_assembly['MetaIMP_ID']=metaimp_id_list
+
+    #declare two new dfs to save coding non-coding mutations      
+    final_assembly_noncoding_mutations=pd.DataFrame()
+    final_assembly_coding_mutations=pd.DataFrame()
+    
+    final_assembly = final_assembly.dropna(subset=['start_pos', 'end_pos'])
+    
+    check_list=[]
+    coding_region=list()
+    
+    
+    
+    for i in final_assembly.index:
+        this_record = final_assembly.loc[i]
+        position = int(this_record['position'])
+        startpos = int(this_record['start_pos'])
+        endpos = int(this_record['end_pos'])
+        #position from instrain is zero-based, but startpos and endpos from contig are one-based
+
+        if ((position+1)>=startpos) & ((position+1)<=endpos):
+            check_list.append(1)
+            coding_region.append(1)
+
+        else:
+            check_list.append(0)
+            coding_region.append(0)
+
+
+    final_assembly['in_protein_range']=check_list
+    final_assembly['coding_region']=coding_region
+
+   
+
+
+    for i in final_assembly.index:
+        non_coding_record=final_assembly.loc[i]
+        if non_coding_record['coding_region'] == -1:
+            final_assembly_noncoding_mutations=non_coding_record
+        else:
+            final_assembly_coding_mutations=non_coding_record
+
+    final_assembly_noncoding_mutations=final_assembly.loc[final_assembly['coding_region']==0]
+    final_assembly_coding_mutations=final_assembly.loc[final_assembly['coding_region']==1]  
+    
+    final_assembly_noncoding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
+    final_assembly_coding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
+    
+    
+    
+    final_assembly_noncoding_mutations.to_csv(fin_assembly,index=None)
+    final_assembly_coding_mutations.to_csv(fin_assembly,index=None)
+    
+    
+def main():
+    
+    parser = argparse.ArgumentParser(prog='META_IMP_assembly_based',description='this method executes the assembly based mapping')
+    subparser = parser.add_subparsers(dest='subcommand',help ='enter the eggnog and instrain file names')
+       
+    
+    assembly_mapping_parser = subparser.add_parser("a_map",help="This function is to map snps with annotations")
+    assembly_mapping_parser.add_argument("-i", dest="instrain_file", type=str, help="instrain file eg./path/to/instrain_SNVs.tsv as input")
+    assembly_mapping_parser.add_argument("-e", dest="eggnog_file", type=str, help="eggnog file eg. /path/to/eggnog_results.emapper.annotations as input")
+    assembly_mapping_parser.add_argument("-m", dest="mergedfile_file", type=str, 
+                                         help="merged file obtained from checkm as input eg. /path/to/mergedfile.fna")
+    assembly_mapping_parser.add_argument("-o", dest="output_file_path", type=str, help="output file path")
+    
+    
+    
+          #command_line = "a_map -i /somepath -e /somepath -m /somepath -o /somepath".split()
+          #print(command_line)
+          #args= parser.parse_args(command_line)
+    
+    args = parser.parse_args()
+
+
+    if args.subcommand=='a_map':
+        instrain = args.instrain_file
+        eggnog = args.eggnog_file
+        mergedfile = args.mergedfile_file
+        fin_assembly = args.output_file_path
+        print(instrain,eggnog,mergedfile,fin_assembly)
+        assembly_mapping(instrain,eggnog,mergedfile,fin_assembly)
+    else:
+        print("Wrong input. Check parameters")
+
+if __name__ == "__main__":
+    main()
+
+'''
 import Bio
 import os
 import argparse
@@ -169,3 +346,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
