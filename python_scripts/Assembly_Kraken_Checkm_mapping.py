@@ -85,7 +85,7 @@ def kraken_checkm_mapping(checkm_stats, scaffold_information, step_5_mapping_res
     
     binning_info_final_df = pd.merge(checkm_mapping_final_df, step_5_scaffold_mapping_df, left_on = 'BINS', right_on = 'bin',how='inner' )
     
-    final_filename="Kraken_Checkm_assembly_mapping.csv"
+    final_filename="Assembly_protein_annotation_mapping.csv"
     output_filename=os.path.join(path_of_the_directory,final_filename)
     binning_info_final_df.to_csv(output_filename, index = None)
    
