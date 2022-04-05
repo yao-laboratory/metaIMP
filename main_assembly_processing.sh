@@ -126,6 +126,7 @@ else
 	bam_sorted_file=$output_folder/METASPADES/contig_mapping_sort.bam
 	contig=$output_folder/METASPADES/contigs.fasta
 	snp_output=$output_folder/INSTRAIN
+	scaffold2bin=$output_folder/BINS/my_scaffolds2bin.tsv
 	
 	log_snp_calling=$log_folder/snp_calling.log
 	if [ -f "$log_snp_calling" ] ; then

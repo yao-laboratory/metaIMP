@@ -13,10 +13,11 @@ contigs=$2
 op_folder=$3
 threads=$4
 mergedfile=$5
+scaffold2bin=$6
 
 echo "inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile"
 
-inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile
+inStrain profile $bms $contigs -o $op_folder -p $threads -g $mergedfile -s $scaffold2bin
 
 echo 'finished instrain. ASSEMBLY_SNP_CALLING.sh complete'
 
