@@ -83,12 +83,6 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     final_assembly = pd.merge (instrain , all_proteins,  on = 'scaffold', how = 'left')
     
-    #creating metaimp_ID for tagging mutations
-    metaimp_id_list = list()
-    for i in final_assembly.index:
-        metaimp_id="MetaIMP_"+str(i+1)
-        metaimp_id_list.append(metaimp_id)
-    final_assembly['MetaIMP_ID']=metaimp_id_list
 
     #declare two new dfs to save coding non-coding mutations      
     final_assembly_noncoding_mutations=pd.DataFrame()
@@ -124,9 +118,24 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     final_assembly_noncoding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
     final_assembly_coding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
     
-    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations[['scaffold','position(0-based)','position_coverage','allele_count','ref_base','con_base','var_base','ref_freq','con_freq',
-        'var_freq','A','C','T','G','gene','mutation','mutation_type','cryptic','class','MetaIMP_ID']]   
+    noncoding_col=19
+    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations.iloc[: , :noncoding_col]
     final_assembly_noncoding_mutations=final_assembly_noncoding_mutations.drop_duplicates()
+
+
+    metaimp_id_coding_list = list()
+    for i in final_assembly_coding_mutations.index:
+        metaimp_id="MetaIMP_"+str(i+1)
+        metaimp_id_coding_list.append(metaimp_id)
+    final_assembly_coding_mutations['MetaIMP_ID']=metaimp_id_coding_list
+
+    metaimp_id_noncoding_list=list()
+    for i in final_assembly_noncoding_mutations.index:
+        metaimp_id="MetaIMP_"+str(i+1)
+        metaimp_id_noncoding_list.append(metaimp_id)
+    final_assembly_noncoding_mutations['MetaIMP_ID']=metaimp_id_noncoding_list
+
+
     final_assembly_noncoding_mutations.to_csv(fin_assembly_noncoding,index=None)
     final_assembly_coding_mutations.to_csv(fin_assembly_coding,index=None)
     
