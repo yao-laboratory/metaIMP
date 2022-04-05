@@ -107,7 +107,7 @@ if [ $((minimum_contig_len+0)) -gt 1500 ] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
 	echo "Metabat for greater than 1500 KBP"
 elif [ $((minimum_contig_len+0))-eq 1500] ; then
-	metabat2 -i $contigs -a $depth_file -o $bins -m $metaIMP_min_contig_len --seed 1 --unbinned
+	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
 	echo "Metabat equal to 1500 KBP"
 fi
 
