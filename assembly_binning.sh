@@ -105,21 +105,12 @@ bins=$binfolder/bins
 #to get binned and unbinned contigs
 if [ $((minimum_contig_len+0)) -gt 1500 ] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
-else
-	minimum_contig_len = 1500
+	echo "Metabat for greater than 1500 KBP"
+elif [ $((minimum_contig_len+0))-eq 1500] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $metaIMP_min_contig_len --seed 1 --unbinned
-
+	echo "Metabat equal to 1500 KBP"
 fi
 
-'''
-unbinnedfolder=$bins/unbinned
-if [ ! -d "$unbinnedfolder" ] ; then
-        mkdir $unbinnedfolder
-fi
-mv $bins/*lowDepth* $unbinnedfolder
-mv $bins/*tooShort* $unbinnedfolder
-mv $bins/*unbinned* $unbinnedfolder
-'''
 
 
 #CHECKM
@@ -130,14 +121,7 @@ checkm=$binfolder/CHECKM
 if [ ! -d "$checkm" ] ; then
         mkdir $checkm
 fi
-'''
-checkm_unbinned= $binfolder/CHECKM_UNBINNED
 
-if [ ! -d "$checkm_unbinned" ] ; then
-        mkdir $checkm_unbinned
-fi
-'''
-cat $bins/*lowDepth* $bins/*tooShort *$bins/*unbinned* > $bins/bins.0.fa
 
 checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$checkm/bins
@@ -145,12 +129,6 @@ find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.f
 
 rm $bins/bins.0.fa
 
-'''
-u_bin=$unbinnedfolder
-
-checkm lineage_wf -t $t -x fa $u_bin $checkm_unbinned
-mergedfile_unbinnbed=$checkm_unbinned
-find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile_unbinned.fna
 '''
 
 
