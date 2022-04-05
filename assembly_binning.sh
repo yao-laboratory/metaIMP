@@ -103,11 +103,11 @@ bins=$binfolder/bins
 
 #checking for mininmum_contig_length. If user provides value, use that. Else set minimum_contig_length as 1000bp.
 #to get binned and unbinned contigs
-if [ $((minimum_contig_len+0)) -gt 1500 ] ; then
+if [[ $((minimum_contig_len+0)) -gt 1500 ]] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
 	echo "Metabat for greater than 1500 KBP"
-elif [ $((minimum_contig_len+0))-eq 1500] ; then
-	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
+else
+	metabat2 -i $contigs -a $depth_file -o $bins -m 1000 --seed 1 --unbinned
 	echo "Metabat equal to 1500 KBP"
 fi
 
