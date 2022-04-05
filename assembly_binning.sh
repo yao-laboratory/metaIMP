@@ -106,7 +106,7 @@ bins=$binfolder/bins
 if [ $((minimum_contig_len+0)) -gt 1500 ] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
 else
-	metaIMP_min_contig_len = 1500
+	minimum_contig_len = 1500
 	metabat2 -i $contigs -a $depth_file -o $bins -m $metaIMP_min_contig_len --seed 1 --unbinned
 
 fi
