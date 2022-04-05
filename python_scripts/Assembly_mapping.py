@@ -71,10 +71,13 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     mergedfile['pos_gap'] = mergedfile['end_pos'].astype(int) - mergedfile['start_pos'].astype(int)
     mergedfile['scaffold'] = contig_list
     
+    
+
     #merge between checkm data and eggnog- gives all proteins
     all_proteins = pd.merge (mergedfile, eggnog, on = 'protein_id', how = 'left')
-
-    all_proteins.to_csv(fin_assembly,index=None)
+    all_proteins_file = os.path.join(fin_assembly,'complete_protein_table.csv')
+    all_proteins.to_csv(all_proteins_file,index=None)
+    #save all_proteins information
 
     #merge between all proteins and instrain
 
