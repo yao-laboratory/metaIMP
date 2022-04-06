@@ -107,7 +107,7 @@ if [[ $((minimum_contig_len+0)) -gt 1500 ]] ; then
 	metabat2 -i $contigs -a $depth_file -o $bins -m $minimum_contig_len --seed 1 --unbinned
 	echo "Metabat for greater than 1500 KBP"
 else
-	metabat2 -i $contigs -a $depth_file -o $bins -m 1000 --seed 1 --unbinned
+	metabat2 -i $contigs -a $depth_file -o $bins -m 1500 --seed 1 --unbinned
 	echo "Metabat equal to 1500 KBP"
 fi
 
@@ -121,7 +121,6 @@ checkm=$binfolder/CHECKM
 if [ ! -d "$checkm" ] ; then
         mkdir $checkm
 fi
-
 
 checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$checkm/bins
