@@ -24,7 +24,7 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     groups_instrain_df=groups_instrain.to_frame().reset_index()
     groups_instrain_df.columns=['scaffold','total_mutation_count_instrain']
     
-    groups_step_5_mapping_result=step_5_mapping_result.groupby(['location_x']).size()
+    groups_step_5_mapping_result=step_5_mapping_result.groupby(['scaffold']).size()
     group_step_5_mapping_result=groups_step_5_mapping_result.to_frame().reset_index()
     group_step_5_mapping_result.columns=['scaffold','total_mutation_count_step5']
       
@@ -40,7 +40,7 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
 
     #scaffold_info
     scaffold_information=scaffold_information.rename(columns={0: "contig", 1: "bin"})
-    groups_step_5_mapping_result=step_5_mapping_result.groupby(['location_x']).size()
+    groups_step_5_mapping_result=step_5_mapping_result.groupby(['scaffold']).size()
     group_step_5_mapping_result=groups_step_5_mapping_result.to_frame().reset_index()
     group_step_5_mapping_result.columns=['scaffold','total_mutation_count_by_metaIMP']
 
@@ -52,8 +52,7 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     #groupby bin for scaffold info
     new_bin_scaffold_info_grouped=bin_scaffold_info.groupby(['bin']).sum()
 
-
-    #creaeting checkm_final dataframe
+    #creating checkm_final dataframe
     for i in checkm_stats.index:
         bins_list.append(checkm_stats.loc[i][0])
         dict_string=checkm_stats.loc[i][1]
