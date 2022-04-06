@@ -71,6 +71,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         mutation_list = midas_snps[mutations]
 
         mutation_list=mutation_list.sort_values(by='ref_id', ascending=True)
+        mutation_list['coding_region']=[0]*mutation_list.shape[0]
 
         df_reference_final = pd.DataFrame([])
         patric_op_sub=pd.DataFrame([])
@@ -99,6 +100,8 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                     b=patric_op.loc[[i], :]
                     newrow=pd.merge(a,b,on='ref_id',how='inner')
                     df_reference_final =pd.concat([df_reference_final,newrow],axis=0,ignore_index=True)
+                    #new codes:
+                    mutation_list.at[j, 'coding_region']=1
         #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         #print('FINISH!!!!')
 
@@ -108,6 +111,11 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
             metaimp_id_list.append(metaimp_id)
         df_reference_final['MetaIMP_ID']=metaimp_id_list
         df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
+
+        #non-coding df:
+        non_coding_output=os.path.join('non_coding',output_fullpath_filename)
+        non_coding_df=mutation_list.loc(mutation_list['coding_region']==1)
+        non_coding_df.to_csv(non_coding_output, sep=",",index=None)
         print('FINISH!!!!')
 
     else:
