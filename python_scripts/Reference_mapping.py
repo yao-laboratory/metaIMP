@@ -8,6 +8,7 @@ from Bio import SeqIO
 from os import listdir
 from os.path import isfile, join
 
+#in this code, all positions are one-based
 #function to add the term 'figid|' to peg_id in genes/output folder.
 def adding_figid(genes_path,patric_path):
     genes_path = (genes_path)
