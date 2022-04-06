@@ -20,7 +20,7 @@ echo "starting DAS_TOOL at $(date)"
 bins=$overall_output_folder/BINS
 scaffold_file=$bins/my_scaffolds2bin.tsv
 contigs_file=$overall_output_folder/METASPADES/contigs.fasta
-dastool_output=$overall_output_folder/DAS_TOOL
+dastool_output=$overall_output_folder/DAS_TOOL/das_tool_output
 
 
 if [ ! -d "$dastool_output" ] ; then

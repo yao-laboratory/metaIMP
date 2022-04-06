@@ -126,13 +126,15 @@ checkm lineage_wf -t $t -x fa $c_bins $checkm
 mergedfile=$checkm/bins
 find $mergedfile  -type f -name '*.faa' -exec cat {} + >$mergedfile/mergedfile.fna
 
-rm $bins/bins.0.fa
 
-'''
+mv $binfolder/bins.lowDepth.fa $binfolder/lowDepth.fa
+mv $binfolder/bins.tooShort.fa $binfolder/tooShort.fa
+mv $binfolder/bins.unbinned.fa $binfolder/unbinned.fa
+
 
 
 #ASSEMBLY_BINNING script is complete
 echo "assembly_binning step is complete"
 
-imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  awk '{print $3}' | cut -d"." -f1)
-echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"
+
+
