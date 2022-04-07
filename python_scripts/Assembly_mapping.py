@@ -49,7 +49,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     complement = list()
     
     
-    for seq_record in binned_records:
+    for seq_record in records:
         
         split = seq_record.description.split(" # ")
         se = seq_record.seq
