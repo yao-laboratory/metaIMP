@@ -81,8 +81,9 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     
     #assembly_input_df['MetaIMP_ID']=metaimp_id_list
     
-    filename = os.path.basename(assembly_mapping_result_file)
-
+    base_filename = os.path.basename(assembly_mapping_result_file)
+    filename = 'Table_3_assembly_' + base_filename
+    #adding table_3 to mark vcf file 
     outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf"))
     
     

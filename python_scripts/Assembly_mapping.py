@@ -25,8 +25,8 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     print(mergedfile)
     
     #this is where the final assembly result is stored
-    fin_assembly_coding = os.path.join(fin_assembly,'assembly_mapping_result_coding.csv')
-    fin_assembly_noncoding = os.path.join(fin_assembly,'assembly_mapping_result_noncoding.csv')
+    fin_assembly_coding = os.path.join(fin_assembly,'Table_1_assembly_mapping_result_coding.csv')
+    fin_assembly_noncoding = os.path.join(fin_assembly,'Table_2_assembly_mapping_result_noncoding.csv')
     #creating dataframes from paths
 
     instrain  = pd.read_csv(instrain, sep='\t')
@@ -75,7 +75,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #merge between checkm data and eggnog- gives all proteins
     all_proteins = pd.merge (mergedfile, eggnog, on = 'protein_id', how = 'left')
-    all_proteins_file = os.path.join(fin_assembly,'complete_protein_table.csv')
+    all_proteins_file = os.path.join(fin_assembly,'Table_3_assembly_complete_protein.csv')
     all_proteins.to_csv(all_proteins_file,index=None)
     #save all_proteins information
 
