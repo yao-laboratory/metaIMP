@@ -47,7 +47,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     seq_ID = list()
     sequence = list()
     complement = list()
-    
+    contig_list = list()
     
     for seq_record in records:
         
