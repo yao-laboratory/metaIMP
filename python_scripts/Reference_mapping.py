@@ -102,6 +102,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                     df_reference_final =pd.concat([df_reference_final,newrow],axis=0,ignore_index=True)
                     #new codes:
                     mutation_list.at[j, 'coding_region']=1
+                    #coding-value is one-value
         #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         #print('FINISH!!!!')
 
@@ -113,8 +114,9 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
 
         #non-coding df:
+        #non_coding df is zero-value
         non_coding_output=os.path.join('non_coding',output_fullpath_filename)
-        non_coding_df=mutation_list.loc(mutation_list['coding_region']==1)
+        non_coding_df=mutation_list.loc(mutation_list['coding_region']==0)
         non_coding_df.to_csv(non_coding_output, sep=",",index=None)
         print('FINISH!!!!')
 
