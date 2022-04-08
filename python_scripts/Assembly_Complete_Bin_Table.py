@@ -8,6 +8,7 @@ import os
 import json
 import functools
 from functools import reduce
+import argparse
 pd.options.mode.chained_assignment = None  # default='warn'
 
 def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, output):
