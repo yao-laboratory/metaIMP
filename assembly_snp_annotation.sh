@@ -43,7 +43,7 @@ echo 'amino acid mapping complete'
 
 echo "mapping Kraken annotations to bins"
 echo "scaffold is $scaffold_info"
-python $DIR/python_scripts/Assembly_Kraken_Checkm_mapping.py c_map -c $checkm_stats -s $scaffold_info -a $output/assembly_bin_table.csv -o $path_to_kraken_dir
+python $DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -o $output
 echo "Kraken annotation-bin mapping complete"
 
 echo "EC and GO tables"
