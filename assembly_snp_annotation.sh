@@ -32,16 +32,16 @@ imusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f%\n Mbits"), $3/1000000}' |  
 echo "Current Memory Usage for ${BASH_SOURCE[0]} is: $imusage MBits"
 
 echo 'creating VCF assembly output file'
-python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output/Table_1_assembly_mapping_result_coding.csv -o $output
+#python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output/Table_1_assembly_mapping_result_coding.csv -o $output
 echo 'VCF file created for assembly process'
 
 echo 'starting amino acid mapping'
-python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/Table_1_assembly_mapping_result_coding.csv -v $output/Table_4_coding_Table_1_assembly_mapping_result_coding.vcf -c $contigs -o $output
+#python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/Table_1_assembly_mapping_result_coding.csv -v $output/Table_4_coding_Table_1_assembly_mapping_result_coding.vcf -c $contigs -o $output
 echo 'amino acid mapping complete'
 
 echo "mapping Kraken annotations to bins"
 echo "scaffold is $scaffold_info"
-python $DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -o $output
+#python $DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -o $output
 echo "Kraken annotation-bin mapping complete"
 
 echo "EC and GO tables"
