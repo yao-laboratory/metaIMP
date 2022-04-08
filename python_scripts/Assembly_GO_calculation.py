@@ -93,7 +93,7 @@ def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
         coverage_list.append(float(coverage[-1]))
 
     final_go_table_assembly['cov']=coverage_list 
-    final_go_table=os.path.join(output,'Assembly_GO_table.csv')
+    final_go_table=os.path.join(output,'Table_8_Assembly_GO_table.csv')
     final_go_table_assembly.to_csv(output,index=None)
     
 def main():
