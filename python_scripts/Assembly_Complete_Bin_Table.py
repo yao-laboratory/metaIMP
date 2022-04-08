@@ -8,7 +8,7 @@ import os
 import json
 import functools
 from functools import reduce
-
+pd.options.mode.chained_assignment = None  # default='warn'
 
 def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, output):
     path_of_the_directory= (path_of_the_directory)
@@ -92,7 +92,7 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     final_merge_dfs= [kraken_inter_df, checkm_mapping_final_df, bin_scaffold_info]
     df_kraken_checkm_annotation = reduce(lambda left,right: pd.merge(left,right,on='bin'), final_merge_dfs)
     
-    output=os.path.join(output, 'Assembly_protein_information.csv')
+    output=os.path.join(output, 'Table_6_Assembly_protein_information.csv')
     df_kraken_checkm_annotation.to_csv(output, index= None)
     
 def main():
