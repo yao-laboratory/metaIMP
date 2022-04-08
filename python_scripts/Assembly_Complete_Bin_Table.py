@@ -101,7 +101,7 @@ def main():
     subparser = parser.add_subparsers(dest='subcommand',help ='Enter the following files: 1) Scaffold_information 2) Instrain_SNVS 3) Assemnly_based_mapping_result 4) Checkm_stats')
     
     kraken_assembly_mapping_parser = subparser.add_parser("k_map",help="This function is to map snps with annotations")
-    kraken_assembly_mapping.parser.add_argument("-k", dest="path_of_the_directory", type=str, help='path to kraken results')
+    kraken_assembly_mapping_parser.add_argument("-k", dest="path_of_the_directory", type=str, help='path to kraken results')
     kraken_assembly_mapping_parser.add_argument("-c", dest="scaffold_information", type=str, help="eggnog file eg. /path/to/my_scaffolds2bin.tsv as input")
     kraken_assembly_mapping_parser.add_argument("-i", dest="instrain_snvs", type=str, help="instrain file eg./path/to/instrain_SNVs.tsv as input")
     kraken_assembly_mapping_parser.add_argument("-v", dest="step_5_mapping_result", type=str, 
