@@ -99,7 +99,7 @@ def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
 
     final_go_table_assembly['cov']=coverage_list 
     final_go_table=os.path.join(output,'Table_8_Assembly_GO_table.csv')
-    final_go_table_assembly.to_csv(output,index=None)
+    final_go_table_assembly.to_csv(final_go_table,index=None)
     
 def main():
     parser = argparse.ArgumentParser(prog='step6_assembly_based',description='this method creates GO table')
