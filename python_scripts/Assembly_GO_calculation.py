@@ -12,7 +12,7 @@ pd.options.mode.chained_assignment = None  # default='warn'
 
 def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs, output):
     eggnong_file=pd.read_csv(eggnog_file, sep ='\t', skiprows =  2, header =2, skipfooter= 3, engine='python')
-    scaffold_file=pd.read_csv(scaffold_information,sep='\t',header=None)
+    scaffold_information=pd.read_csv(scaffold_file,sep='\t',header=None)
     step_5_mapping_result=pd.read_csv(step_5_mapping_result)
     instrain_snvs=pd.read_csv(instrain_snvs,sep='\t')
     path_of_the_directory= (path_of_the_directory)
