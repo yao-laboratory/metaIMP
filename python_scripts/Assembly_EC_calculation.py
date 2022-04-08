@@ -29,7 +29,7 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     #scaffold_info renamed
     scaffold_information=scaffold_information.rename(columns={0: "contig", 1: "bin"})
     #getting species information from kraken
-os.chdir(path_of_the_directory)
+    os.chdir(path_of_the_directory)
     
 onlyfiles = [f for f in os.listdir(path_of_the_directory) if os.path.isfile(os.path.join(path_of_the_directory, f)) and f.split(".")[-1]=='report']
 kraken_list=list()
