@@ -140,7 +140,7 @@ def main():
         path_of_the_directory=args.path_of_the_directory
         instrain_snvs=args.instrain_file
         output=args.output
-        
+        assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs, output)
     else:
         print("Wrong input. Check parameters")
         
