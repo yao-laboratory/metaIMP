@@ -7,8 +7,8 @@
 import pandas as pd 
 import numpy as np
 import os
-
-
+import argparse
+pd.options.mode.chained_assignment = None  # default='warn'
 
 def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs, output):
     eggnong_file=pd.read_csv(eggnog_file, sep ='\t', skiprows =  2, header =2, skipfooter= 3, engine='python')
