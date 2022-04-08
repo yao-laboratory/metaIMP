@@ -31,14 +31,14 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     #getting species information from kraken
     os.chdir(path_of_the_directory)
     
-onlyfiles = [f for f in os.listdir(path_of_the_directory) if os.path.isfile(os.path.join(path_of_the_directory, f)) and f.split(".")[-1]=='report']
-kraken_list=list()
-kraken_bin_list=list()
-for filename in onlyfiles:
-    bin_id=filename.replace('.report','')
-    kraken_bin_list.append(bin_id)
-    df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
-    df_kraken_report.columns=['a','b','c','Notion','e','Description']
+    onlyfiles = [f for f in os.listdir(path_of_the_directory) if os.path.isfile(os.path.join(path_of_the_directory, f)) and f.split(".")[-1]=='report']
+    kraken_list=list()
+    kraken_bin_list=list()
+    for filename in onlyfiles:
+        bin_id=filename.replace('.report','')
+        kraken_bin_list.append(bin_id)
+        df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
+        df_kraken_report.columns=['a','b','c','Notion','e','Description']
     
     new_annotation_list=list()
     for i in df_kraken_report.index:
