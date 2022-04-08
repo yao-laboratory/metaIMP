@@ -47,8 +47,12 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
         new_annotation=(species_id, species_name)
         new_annotation_list.append(new_annotation)
     df_kraken_report['New_annotation']=new_annotation_list
+    
+    #possible SettingWithCopyWarning:
+    #df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
+    #new_update 4/8
 
-    df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
+    df_kraken_report=df_kraken_report[df_kraken_report['a']>=80]
     kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
     kraken_list.append(kraken_dict)
     
