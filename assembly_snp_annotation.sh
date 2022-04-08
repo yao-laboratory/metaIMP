@@ -38,7 +38,7 @@ python $DIR/python_scripts/VCF_converter_assembly.py vcf_map_assembly -i $output
 echo 'VCF file created for assembly process'
 
 echo 'starting amino acid mapping'
-python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/Table_1_assembly_mapping_result_coding.csv -v $output/assembly_mapping_result_coding.vcf  -c $contigs -o $output
+python $DIR/python_scripts/Assembly_AA_mapping.py aa_map -a $output/Table_1_assembly_mapping_result_coding.csv -v $output/Table_4_coding_Table_1_assembly_mapping_result_coding.vcf -c $contigs -o $output
 echo 'amino acid mapping complete'
 
 echo "mapping Kraken annotations to bins"
