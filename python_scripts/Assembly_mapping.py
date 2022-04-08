@@ -9,6 +9,9 @@ import os
 import argparse
 import pandas as pd
 from Bio import SeqIO
+#added new parameter to ignore SettingWithCopyWarning
+pd.options.mode.chained_assignment = None  # default='warn'
+
 
 #create a function to call in 4 arguments
 
