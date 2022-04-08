@@ -70,22 +70,30 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     kraken_list=list()
     kraken_bin_list=list()
     for filename in onlyfiles:
+        #print("filename is"+str(filename))
         bin_id=filename.replace('.report','')
+        #print("bin_id is"+str(bin_id))
+        #print("path of dir is :"+str(path_of_the_directory))
         kraken_bin_list.append(bin_id)
-        df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
-        df_kraken_report.columns=['a','b','c','Notion','e','Description']
+        #take kraken_report_fullpath with filename
+        kraken_report_file_fullpath=os.path.join(path_of_the_directory,filename)
+        
+        #check if kraken_file is empty
+        if os.path.getsize(kraken_report_file_fullpath) > 0:
+            df_kraken_report = pd.read_csv(kraken_report_file_fullpath),sep='\t',header=None)
+            df_kraken_report.columns=['a','b','c','Notion','e','Description']
 
-        new_annotation_list=list()
-        for i in df_kraken_report.index:
-            species_id=df_kraken_report.loc[i]['e']
-            species_name=df_kraken_report.loc[i]['Description'].strip()
-            new_annotation=(species_id, species_name)
-            new_annotation_list.append(new_annotation)
-        df_kraken_report['New_annotation']=new_annotation_list
+            new_annotation_list=list()
+            for i in df_kraken_report.index:
+                species_id=df_kraken_report.loc[i]['e']
+                species_name=df_kraken_report.loc[i]['Description'].strip()
+                new_annotation=(species_id, species_name)
+                new_annotation_list.append(new_annotation)
+            df_kraken_report['New_annotation']=new_annotation_list
 
-        df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
-        kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
-        kraken_list.append(kraken_dict)
+            df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
+            kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
+            kraken_list.append(kraken_dict)
 
     kraken_inter_df=pd.DataFrame.from_records(kraken_list)
     kraken_inter_df['bin']=kraken_bin_list
