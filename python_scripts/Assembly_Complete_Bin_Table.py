@@ -71,15 +71,18 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     kraken_bin_list=list()
     for filename in onlyfiles:
         #print("filename is"+str(filename))
-        bin_id=filename.replace('.report','')
+        #bin_id=filename.replace('.report','')
         #print("bin_id is"+str(bin_id))
         #print("path of dir is :"+str(path_of_the_directory))
-        kraken_bin_list.append(bin_id)
+        #kraken_bin_list.append(bin_id)
         #take kraken_report_fullpath with filename
         kraken_report_file_fullpath=os.path.join(path_of_the_directory,filename)
         
         #check if kraken_file is empty
         if os.path.getsize(kraken_report_file_fullpath) > 0:
+            basename = os.path.basename(kraken_report_file_fullpath)
+            bin_id=basename.replace('.report','')
+            kraken_bin_list.append(bin_id)
             df_kraken_report = pd.read_csv(kraken_report_file_fullpath,sep='\t',header=None)
             df_kraken_report.columns=['a','b','c','Notion','e','Description']
 
