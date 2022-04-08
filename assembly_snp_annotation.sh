@@ -13,9 +13,7 @@ contigs=$5
 path_to_kraken_dir=$6
 scaffold_info=$7
 checkm_stats=$8
-step_5_mapping_results=$output/assembly_mapping_result_coding.csv
-
-
+step_5_mapping_results=$output/Table_1_assembly_mapping_result_coding.csv
 
 if [ ! -d "$output" ] ; then
         mkdir $output
