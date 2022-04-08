@@ -89,7 +89,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     #get assembly_mapping_final_results
     assembly_mapping_result_file=pd.read_csv(assembly_final_result)
-    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','ID','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','eggNOG_OGs','GOs','EC','MetaIMP_ID']]
+    assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','protein_id','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','eggNOG_OGs','GOs','EC','MetaIMP_ID']]
     assembly_cleaner_df.rename(columns = {'scaffold':'SCAFFOLD'}, inplace = True)
     
     vcf_file=pd.read_csv(vcf, sep ='\t', header=15)#,comment="##")
