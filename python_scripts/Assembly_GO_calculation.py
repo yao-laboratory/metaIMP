@@ -35,25 +35,30 @@ def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     kraken_list=list()
     kraken_bin_list=list()
     for filename in onlyfiles:
-        bin_id=filename.replace('.report','')
-        kraken_bin_list.append(bin_id)
-        df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
-        df_kraken_report.columns=['a','b','c','Notion','e','Description']
+        kraken_report_file_fullpath=os.path.join(path_of_the_directory,filename)
 
-        new_annotation_list=list()
-        for i in df_kraken_report.index:
-            species_id=df_kraken_report.loc[i]['e']
-            species_name=df_kraken_report.loc[i]['Description'].strip()
-            new_annotation=(species_id, species_name)
-            new_annotation_list.append(new_annotation)
-        df_kraken_report['New_annotation']=new_annotation_list
+        #check if kraken_file is empty
+        if os.path.getsize(kraken_report_file_fullpath) > 0:
+            basename = os.path.basename(kraken_report_file_fullpath)
+            bin_id=filename.replace('.report','')
+            kraken_bin_list.append(bin_id)
+            df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
+            df_kraken_report.columns=['a','b','c','Notion','e','Description']
 
-        #df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
+            new_annotation_list=list()
+            for i in df_kraken_report.index:
+                species_id=df_kraken_report.loc[i]['e']
+                species_name=df_kraken_report.loc[i]['Description'].strip()
+                new_annotation=(species_id, species_name)
+                new_annotation_list.append(new_annotation)
+            df_kraken_report['New_annotation']=new_annotation_list
+
+        df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
         #possible SettingWithCopyWarning:
         #df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
         #new_update 4/8
 
-        df_kraken_report=df_kraken_report[df_kraken_report['a']>=80]
+        #df_kraken_report=df_kraken_report[df_kraken_report['a']>=80]
         kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
         kraken_list.append(kraken_dict)
 
