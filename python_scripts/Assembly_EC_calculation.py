@@ -25,10 +25,14 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     protein_id_list= list()
     contig_list_eggnog_for_ec = list()
     ec_number_split_list=list()
-
+    
     #scaffold_info renamed
     scaffold_information=scaffold_information.rename(columns={0: "contig", 1: "bin"})
     #getting species information from kraken
+
+    print('--------PART1------------')
+
+
     os.chdir(path_of_the_directory)
     
     onlyfiles = [f for f in os.listdir(path_of_the_directory) if os.path.isfile(os.path.join(path_of_the_directory, f)) and f.split(".")[-1]=='report']
@@ -58,7 +62,8 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     
     kraken_inter_df=pd.DataFrame.from_records(kraken_list)
     kraken_inter_df['bin']=kraken_bin_list
-
+    
+    print('--------PART2-----KRAKEN_INTER_DF------------')
 
     for i in eggnog_df.index:    
 
@@ -91,19 +96,21 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     final_ec_table_assembly['total_mutation_in_metaIMP'] = final_ec_table_assembly['total_mutation_in_metaIMP'].fillna(int(0))
     final_ec_table_assembly = final_ec_table_assembly.astype({"total_mutation_in_metaIMP": int})
 
-
+    print('--------------------PART3---finalectable--------')
     coverage_list=list()
-
+    
     for i in final_ec_table_assembly.index:
         contig_id=final_ec_table_assembly.loc[i]['contig']
         coverage=contig_id.rsplit('_')
         coverage_list.append(float(coverage[-1]))
 
+        
+
     final_ec_table_assembly['cov']=coverage_list   
     final_ec_table=os.path.join(output,'Table_7_ssembly_EC_table.csv')
     final_ec_table_assembly.to_csv(final_ec_table,index=None)
 
-
+    print('----------------------------PART4------------you should have EC table=-==---------')
 
 def main():
     parser = argparse.ArgumentParser(prog='step6_assembly_based',description='this method creates EC table')
