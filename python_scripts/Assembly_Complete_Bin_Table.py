@@ -80,7 +80,7 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
         
         #check if kraken_file is empty
         if os.path.getsize(kraken_report_file_fullpath) > 0:
-            df_kraken_report = pd.read_csv(kraken_report_file_fullpath),sep='\t',header=None)
+            df_kraken_report = pd.read_csv(kraken_report_file_fullpath,sep='\t',header=None)
             df_kraken_report.columns=['a','b','c','Notion','e','Description']
 
             new_annotation_list=list()
