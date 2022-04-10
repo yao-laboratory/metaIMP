@@ -1,4 +1,9 @@
 #!/bin/bash
+
+##THIS IS THE UPDATED VERSION OF METAIMP_ASSEMBLY_MAPPING
+##Authors: Kalyan Sahu, Qiuming Yao
+##Affiliation: Integrated Digital Omics Lab (IDOL), School of Computing, University of Nebraska-Lincoln
+
 #THIS IS THE MAIN_ASSEMBLY_SCRIPT.
 #STEPS INVOLVED IN THIS SCRIPT : 
 #		1) PREPROCESSING: This process is executed by preprocessing.sh which takes two inputs for paire-end forward and reverse fastq files 
@@ -8,7 +13,7 @@
 #												 D) NUMBER OF THREADS
 #												 E) MINIMUM CONTIG LENGTH
 
-
+##WE HAVE NOW ADDED STEP_6 TO METAIMP
 #DEFINING THE VARIABLES	
 
 read1=$1
@@ -167,6 +172,36 @@ else
 
 	echo "finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!"
 	source deactivate
+
+	# PROTEIN_ANNOTATION
+
+	source activate $USER_ENV_NAME
+        instrain_file=$snp_output/output/INSTRAIN_SNVs.tsv
+        annotation_file=$annotation_results/eggnog_results.emapper.annotations
+        assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
+        contigs_file=$output_folder/METASPADES/contigs.fasta
+        path_to_kraken_dir=$output_folder/KRAKEN
+        scaffold_info=$output_folder/BINS/my_scaffolds2bin.tsv
+        checkm_stats=$output_folder/BINS/CHECKM/storage/bin_stats.analyze.tsv
+	
+	log_protein_annotation=$log_folder/protein_annotation.log
+        if [ -f "$log_protein_annotation" ] ; then
+                echo "$log_protein_annotation exists. Skip snp annotation mapping..."
+        else
+                echo "$log_protein_annotation does not exist"
+                echo "starting final mapping between snps and annotations at $(date)..."
+                $DIR/assembly_protein_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats
+                echo "finishd assembly_protein_annotation at $(date)"
+                touch $log_protein_annotation
+	fi
+	
+	echo ' '
+        echo '###########################################################################################################'
+
+        echo "MetaIMP assembly pipeline complete with protein identification and annotations. Thank you!!! CHECK $output_folder for results."
+        source deactivate
+
+
 fi
 
 #THIS IS THE END OF MAIN_ASSEMBLY SCRIPT
