@@ -8,21 +8,21 @@ import pandas as pd
 import numpy as np
 import os
 import argparse
-pd.options.mode.chained_assignment = None  # default='warn'
+#pd.options.mode.chained_assignment = None  # default='warn'
 
 def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs, output):
     print('----------------INside the function assembly_ec_calculation----------------')
-    eggnong_file=pd.read_csv(eggnog_file, sep ='\t', skiprows =  2, header =2, skipfooter= 3, engine='python')
+    eggnog_df=pd.read_csv(eggnog_file, sep ='\t', skiprows =  2, header =2, skipfooter= 3, engine='python')
     scaffold_information=pd.read_csv(scaffold_file,sep='\t',header=None)
-    step_5_mapping_result=pd.read_csv(step_5_mapping_result)
+    step_5_mapping_result=pd.read_csv(step_5_mapping_result,header=0)
     instrain_snvs=pd.read_csv(instrain_snvs,sep='\t')
     path_of_the_directory= path_of_the_directory
     
-    
+    #create empty dataframe
     final_ec_table = pd.DataFrame()
     checkm_mapping_final_df= pd.DataFrame()
-
-
+       
+    #defining lists 
     protein_id_list= list()
     contig_list_eggnog_for_ec = list()
     ec_number_split_list=list()
@@ -30,50 +30,40 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     #scaffold_info renamed
     scaffold_information=scaffold_information.rename(columns={0: "contig", 1: "bin"})
     #getting species information from kraken
-
-    print('--------PART1------------')
-
-
-    os.chdir(path_of_the_directory)
+       
+    print(os.chdir(path_of_the_directory))
     
+    os.chdir(path_of_the_directory)
+
     onlyfiles = [f for f in os.listdir(path_of_the_directory) if os.path.isfile(os.path.join(path_of_the_directory, f)) and f.split(".")[-1]=='report']
     kraken_list=list()
     kraken_bin_list=list()
-
-
     for filename in onlyfiles:
-        kraken_report_file_fullpath=os.path.join(path_of_the_directory,filename)
-        #check if kraken_file is empty
-        if os.path.getsize(kraken_report_file_fullpath) > 0:
-            basename = os.path.basename(kraken_report_file_fullpath)
-            bin_id=filename.replace('.report','')
-            kraken_bin_list.append(bin_id)
-            df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
-            df_kraken_report.columns=['a','b','c','Notion','e','Description']
-        
-            new_annotation_list=list()
-            for i in df_kraken_report.index:
-                species_id=df_kraken_report.loc[i]['e']
-                species_name=df_kraken_report.loc[i]['Description'].strip()
-                new_annotation=(species_id, species_name)
-                new_annotation_list.append(new_annotation)
-        df_kraken_report['New_annotation']=new_annotation_list
-    
-    #possible SettingWithCopyWarning:
-    df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
-    #new_update 4/8
+        bin_id=filename.replace('.report','')
+        kraken_bin_list.append(bin_id)
+        df_kraken_report = pd.read_csv(os.path.join(path_of_the_directory,filename),sep='\t',header=None)
+        df_kraken_report.columns=['a','b','c','Notion','e','Description']
 
-    #df_kraken_report=df_kraken_report[df_kraken_report['a']>=80]
-    kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
-    kraken_list.append(kraken_dict)
-    
-    kraken_inter_df=pd.DataFrame.from_records(kraken_list)
-    kraken_inter_df['bin']=kraken_bin_list
+        new_annotation_list=list()
+        for i in df_kraken_report.index:
+            species_id=df_kraken_report.loc[i]['e']
+            species_name=df_kraken_report.loc[i]['Description'].strip()
+            new_annotation=(species_id, species_name)
+            new_annotation_list.append(new_annotation)
+        df_kraken_report['New_annotation']=new_annotation_list
+
+        df_kraken_report=df_kraken_report.loc[df_kraken_report['a']>=80]
+        kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
+        kraken_list.append(kraken_dict)
+
+        kraken_inter_df=pd.DataFrame.from_records(kraken_list)
+        kraken_inter_df['bin']=kraken_bin_list
+
+
     
     print('--------PART2-----KRAKEN_INTER_DF------------')
-
-    for i in eggnog_df.index:    
-
+    
+    for i in eggnog_df.index:
         ec_number= str(eggnog_df.loc[i]['EC'])
         ec_number_split=ec_number.rsplit(',')
         ec_number_split_list=ec_number_split_list+ec_number_split  
@@ -95,7 +85,7 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     bin_species_info_df = pd.merge(bin_contig_info_df, kraken_inter_df,how='left', on ='bin')
 
 
-    step_5_mutataion=step_5_mapping_result.groupby(['#query']).size()
+    step_5_mutataion=step_5_mapping_result.groupby(['scaffold']).size()
     step_5_mutataion_df=step_5_mutataion.to_frame().reset_index()
     step_5_mutataion_df.columns=['protein_id','total_mutation_in_metaIMP']
 
