@@ -23,8 +23,8 @@ DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
 
 echo 'starting assembly mapping'
-#cd ./python_scripts/
-#python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
+cd ./python_scripts/
+python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
 
 echo 'assembly mapping complete'
 
@@ -46,9 +46,6 @@ echo "Kraken annotation-bin mapping complete"
 
 echo "python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output"
 echo "EC and GO tables"
-python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
-python $DIR/python_scripts/Assembly_GO_calculation.py go_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
+#python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
+#python $DIR/python_scripts/Assembly_GO_calculation.py go_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
 echo "EC + GO annotations ready"
-
-
-
