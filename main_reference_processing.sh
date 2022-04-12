@@ -95,7 +95,7 @@ else
 
 
 	source activate $USER_ENV_NAME
-        log_snp_annotation=$log_folder/protein_annotation.log
+        log_protein_annotation=$log_folder/protein_annotation.log
 
 	if [ -f "$log_protein_annotation" ] ; then
                 echo "$log_protein_annotation exists. Skipping annotations"
