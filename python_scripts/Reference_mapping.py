@@ -118,6 +118,13 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         non_coding_output=os.path.join('non_coding',output_fullpath_filename)
         non_coding_df=mutation_list.loc(mutation_list['coding_region']==0)
         non_coding_df.to_csv(non_coding_output, sep=",",index=None)
+        
+        #coding_df is one-value
+
+        coding_output=os.path.join('coding',output_fullpath_filename)
+        coding_df=mutation_list.loc(mutation_list['coding_region']==1)
+        coding_df.to_csv(non_coding_output, sep=",",index=None)
+
         print('FINISH!!!!')
 
     else:
