@@ -85,10 +85,26 @@ else
 	else
 		echo "$log_snp_annotation does not exist. Starting SNP_annotation at $(date)"
 		$DIR/ref_snp_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/REFERENCE_SNP_ANNOTATION
-		echo "Finished annotations and mapping snps at $(date). Reference pipeline is now complete. Thank you!!!"
+		echo "Finished annotations and mapping snps at $(date)."
 		touch $log_snp_annotation
 	fi
         echo ' '
         echo '###########################################################################################################'	
+	source deactivate
+
+
+
+	source activate $USER_ENV_NAME
+        log_snp_annotation=$log_folder/protein_annotation.log
+
+	if [ -f "$log_protein_annotation" ] ; then
+                echo "$log_protein_annotation exists. Skipping annotations"
+        else
+                echo "$log_protein_annotation does not exist. Starting SNP_annotation at $(date)"
+		$DIR/ref_protein_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/REFERENCE_SNP_ANNOTATION
+		echo "Finished protein_annotaion at $(date)."
+	fi
+	echo ' '
+	echo '###########################################################################################################'
 	source deactivate
 fi
