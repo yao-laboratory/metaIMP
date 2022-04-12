@@ -135,6 +135,7 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
 def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     #get reference_mapping_final_results
     reference_mapping_result=pd.read_csv(reference_final_result)
+    print("REFERNCE_MAPPING_RESULT FILENAME:",reference_mapping_result)
     vcf_file=pd.read_csv(vcf, sep='\t', skiprows=17)#,comment="##")
     reference_merged_df=pd.merge(reference_mapping_result,vcf_file,on='MetaIMP_ID')
     aa_df=pd.DataFrame([])
@@ -250,10 +251,7 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     aa_df['REF_NA']=ref_na_list
         
 
-
-
-
-    final_reference_AA = os.path.join(aa_final_output,reference_mapping_result,'AA_mapping.csv')
+    final_reference_AA = os.path.join(aa_final_output,'AA_mapping.csv')
     aa_df.to_csv(final_reference_AA,index=None)        
 
 def main():

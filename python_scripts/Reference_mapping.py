@@ -52,7 +52,12 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
             continue
             
         print(species)
-        output_fullpath_filename = join(output_path, species+"_patric_midassnps.csv")
+        #create new folder for each species #0412
+        output_folder_name= os.join(output_path,species)
+        os.mkdir(output_folder_name)
+        print("new directory created is : ", output_folder_name)
+
+        output_fullpath_filename = join(output_folder, species+"_patric_midassnps.csv")
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
 
 
