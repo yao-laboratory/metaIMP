@@ -124,9 +124,9 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
                 print(species_id)
                 reference_mapping_result=os.path.join(reference_snp_annotation_folder,species_id+"_patric_midassnps.csv")
                 vcf_file_name=split_filename[0]+".vcf"
-                paired_vcf_file_name=os.path.join(reference_snp_annotation_folder,vcf_file_name)
-                print(paired_vcf_file_name)
-                amino_acid_mapping(reference_mapping_result,paired_vcf_file_name,output_path)
+                paired_vcf_file_path=os.path.join(reference_snp_annotation_folder,vcf_file_name)
+                print(paired_vcf_file_path)
+                amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,output_path)
         
         
 
@@ -253,7 +253,7 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
 
 
 
-    final_reference_AA = os.path.join(aa_final_output,'reference_AA_mapping_result.csv')
+    final_reference_AA = os.path.join(aa_final_output,reference_mapping_result,'AA_mapping.csv')
     aa_df.to_csv(final_reference_AA,index=None)        
 
 def main():
