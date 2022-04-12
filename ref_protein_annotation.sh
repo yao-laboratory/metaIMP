@@ -1,3 +1,4 @@
+
 genes_folder=$1
 patric_folder=$2
 snps_folder=$3
@@ -12,7 +13,6 @@ fi
 
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
-
 
 
 echo 'creating VCF reference output file'
