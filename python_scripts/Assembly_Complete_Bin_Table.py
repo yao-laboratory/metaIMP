@@ -104,6 +104,17 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     final_merge_dfs= [kraken_inter_df, checkm_mapping_final_df, bin_scaffold_info]
     df_kraken_checkm_annotation = reduce(lambda left,right: pd.merge(left,right,on='bin'), final_merge_dfs)
     
+    coverage_list=list()
+    for i in scaffold_information.index:
+        contig=scaffold_information.loc[i]['contig']
+        #bin=scaffold_information.loc[i]['bin']
+        #print(contig)
+        coverage=contig.rsplit('_')
+        #print(coverage)
+        coverage_list.append(float(coverage[-1]))
+    scaffold_information['coverage']=coverage_list
+    scaffold_information_coverage=scaffold_information.groupby(['bin']).median()
+    final_merge=pd.merge(scaffold_information_coverage, df_kraken_checkm_annotation, on = 'bin')
     output=os.path.join(output, 'Table_6_Assembly_protein_information.csv')
     df_kraken_checkm_annotation.to_csv(output, index= None)
     
