@@ -53,7 +53,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
             
         print(species)
         #create new folder for each species #0412
-        output_folder_name= os.join(output_path,species)
+        output_folder_name= os.path.join(output_path,species)
         os.mkdir(output_folder_name)
         print("new directory created is : ", output_folder_name)
 
