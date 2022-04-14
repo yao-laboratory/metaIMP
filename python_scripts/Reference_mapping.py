@@ -24,8 +24,7 @@ def adding_figid(genes_path,patric_path):
         df_peg_id['gene_id'] = 'fig|' + df_peg_id['gene_id'].astype(str)
         realfilename = onlyfiles[i].replace(".genes.gz","")
         df_peg_id.to_csv(join(patric_path, realfilename + '.patric.csv'), index = None, sep = '\t')
-            
-            
+                       
 #after adding fig_id, we call patric using the new file obtained from here. Once PATRIC is complete, we map the results to
 #corresponding to the MIDAS_snps
 #The filename will change from "Akkermansia_muciniphila_55290.patric.csv" to "Akkermansia_muciniphila_55290.feature.csv"
@@ -108,8 +107,8 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                     #new codes:
                     mutation_list.at[j, 'coding_region']=1
                     #coding-value is one-value
-        #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
-        #print('FINISH!!!!')
+        df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
+        print('FINISH!!!!')
 
         metaimp_id_list = list()
         for i in df_reference_final.index:
@@ -126,11 +125,11 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         
         #coding_df is one-value
 
-        coding_output=os.path.join('coding',output_fullpath_filename)
-        coding_df=mutation_list.loc(mutation_list['coding_region']==1)
-        coding_df.to_csv(non_coding_output, sep=",",index=None)
+        #coding_output=os.path.join('coding',output_fullpath_filename)
+        #coding_df=mutation_list.loc(mutation_list['coding_region']==1)
+        #coding_df.to_csv(non_coding_output, sep=",",index=None)
 
-        print('FINISH!!!!')
+        print('FINISH!!! We should have 2 files for coding and non-coding dataframes.')
 
     else:
         print(patric_fullpath,"this patric file is empty. skipping this file")
