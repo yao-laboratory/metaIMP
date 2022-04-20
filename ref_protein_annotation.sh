@@ -3,7 +3,7 @@ genes_folder=$1
 patric_folder=$2
 snps_folder=$3
 output_folder=$4
-
+midas_species_folder=$output_folder/MIDAS/genes/species.txt
 echo 'this is reference based mapping'
 
 
@@ -25,3 +25,8 @@ echo 'calculating Amino acid mutations'
 python $DIR/python_scripts/Reference_AA_mapping.py aa_map_reference -i $output_folder -o $output_folder
 #echo 'aa_map_reference -i $output_folder -o $output_folder'
 echo 'AA mutations calcuated'
+
+
+echo "species summary is being created at $(date)"
+python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder
+echo "species summary is done at $(date)"
