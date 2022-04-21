@@ -30,7 +30,7 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
     print( ref_snp_annotations_folder_path+" \n ")
     print("^^^^ that is reference snp folder- step 5 output folder \n")
 
-    midas_species_profile=pd.read_csv(midas_species_profile_file,sep="\t")
+    midas_species_profile=pd.read_csv(midas_species_table_path,sep="\t")
 
     midas_species_profile.rename(columns = {'species_id': 'species'}, inplace = True)
 
