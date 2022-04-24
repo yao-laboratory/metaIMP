@@ -30,3 +30,11 @@ echo 'AA mutations calcuated'
 echo "species summary is being created at $(date)"
 python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder
 echo "species summary is done at $(date)"
+
+echo "starting ec and go map"
+
+python $DIR/python_scripts/Reference_EC_mapping.py ec_map -i $output_folder -o $output_folder
+
+python $DIR/python_scripts/Reference_GO_mapping.py go_map -i $output_folder -o $output_folder
+
+echo "finished ec go map $(date)"
