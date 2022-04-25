@@ -105,8 +105,53 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 
 
 def amino_acid_all_files(reference_snp_annotation_folder, output_path):
-    print(reference_snp_annotation_folder)
-    print(output_path)
+    path=reference_snp_annotation_folder
+    dir_list=next(os.walk(path))[1]
+    #print(path)
+    #print(output_path)
+    print(" HI THIS IS PRINTING FOR NEW FUNCTION \n ")
+    print(" &&&&********************************&&&&&&&&&&&&&&*************&&&&&&&&&&&& \n ")
+    
+    for species in dir_list:
+        #folder_name=dir_list[species]
+        folder_name=species
+        
+        print("FOLDER NAME IS HERE \n")
+        print(folder_name)
+
+        abs_folder_name=os.path.join(output_path,folder_name)
+
+        
+        reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.csv")
+        paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.vcf")
+        amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,abs_folder_name)
+        
+
+        print("THIS IS THE ABSOLUTE FOLDER PATH \n")
+        print(abs_folder_name)
+        print("THIS IS THE NEW AMINO ACID MAPPING CODE")
+        #filename=os.path.join
+
+        #print("THIS SPECIES IS IS DONE:"+ species)
+        
+        '''
+        split_filename=filename.split('.')
+        if split_filename[1]=='csv':
+            if split_filename[0].find("_patric_midassnps")>0:
+                species_id = split_filename[0].replace("_patric_midassnps","")
+                #print(species_id)
+                reference_mapping_result=os.path.join(reference_snp_annotation_folder,species_id+"_patric_midassnps.csv")
+                vcf_file_name=split_filename[0]+".vcf"
+                paired_vcf_file_path=os.path.join(reference_snp_annotation_folder,vcf_file_name)
+                #print(paired_vcf_file_path)
+                amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,output_path)
+        '''
+
+
+
+def amino_acid_all_files_old(reference_snp_annotation_folder, output_path):
+    #print(reference_snp_annotation_folder)
+    #print(output_path)
     snp_annotation_files_list=os.listdir(reference_snp_annotation_folder)
     
     for i in range (0, len(snp_annotation_files_list)):
@@ -135,7 +180,7 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
 def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     #get reference_mapping_final_results
     reference_mapping_result=pd.read_csv(reference_final_result)
-    print("REFERNCE_MAPPING_RESULT FILENAME:",reference_mapping_result)
+    #print("REFERNCE_MAPPING_RESULT FILENAME:"+reference_mapping_result)
     vcf_file=pd.read_csv(vcf, sep='\t', skiprows=17)#,comment="##")
     reference_merged_df=pd.merge(reference_mapping_result,vcf_file,on='MetaIMP_ID')
     aa_df=pd.DataFrame([])
