@@ -26,8 +26,48 @@ import os
 #all files in REFERENCE_SNPS_ANNOTATION folder
 
 
+
+
 def vcf_converter_all_files(reference_snp_annotation_folder, output_path):
     
+    path=reference_snp_annotation_folder
+    dir_list=next(os.walk(path))[1]
+    #os.path.join(path, "User/Desktop", "file.txt"
+    for species in dir_list:
+        filename=species+"_patric_midassnps.csv"
+        final_filename=os.path.join(reference_snp_annotation_folder,species,filename)
+        output_path=os.path.join(reference_snp_annotation_folder,species)
+        vcf_converter(final_filename, output_path)
+
+    ##NEWLY COPIED.
+
+    #dir_list=list()
+
+    #for root, dirs, files in os.walk(".", topdown=False):
+    #    for name in files:
+    #        filename=os.path.join(root, name)
+    #        print(filename)
+    #    for name in dirs:
+    #        dir_list=os.path.join(root, name)
+    #        print(dir_list)
+    #        if filename.endswith(".csv"):
+    #            #vcf_file_input=os.path.join(dir_list, filename)
+    #            vcf_converter(dir_list, output_path)
+            #list_of_dir=next(os.walk('.'))[1] #this is a list
+    #for species in range (0, len(list_of_dir)):
+    #snp_annotation_files_list=os.listdir(species)
+    #print(snp_annotation_files)
+        
+    #for filename in snp_annotation_files_list:
+            #if filename.endswith(".csv"):
+            #    vcf_file_input=os.path.join(reference_snp_annotation_folder, filename)
+            #    vcf_converter(vcf_file_input, output_path)
+
+
+
+
+def vcf_converter_all_files_old(reference_snp_annotation_folder, output_path):
+
     snp_annotation_files_list=os.listdir(reference_snp_annotation_folder)
        
     for filename in snp_annotation_files_list:
