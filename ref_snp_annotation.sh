@@ -2,7 +2,7 @@ genes_folder=$1
 patric_folder=$2
 snps_folder=$3
 output_folder=$4
-
+output_folder_final=$output_folder/REFERENCE_SNP_ANNOTATION
 echo 'this is reference based mapping'
 
 
