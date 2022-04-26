@@ -5,10 +5,13 @@ import os
 import argparse
 
 def ec_all_file(reference_snp_output_folder,output_folder):
+    #print(reference_snp_output_folder, output_folder)
     list_of_species=os.listdir(reference_snp_output_folder)
+    #print(list_of_species)
     for dir in list_of_species:
-        if os.path.isdir(dir):
-            print("dir is ::",dir)
+        input_dir = os.path.join(reference_snp_output_folder, dir)
+        if os.path.isdir(input_dir):
+            #print("dir is ::",dir)
             output_file_loc=os.path.join(output_folder,dir)
             final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_patric_midassnps.csv"))
             
