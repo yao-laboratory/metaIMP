@@ -57,7 +57,7 @@ def ec_one_file(final_step5_file_loc,output_file_loc):
     final_ec_table = final_ec_table.groupby(['ref_id','EC']).sum().reset_index()
     
     ec_table_name=os.path.join(output_file_loc,"table_7_ec.csv")
-    print("GO TABLE NAME IS:",ec_table_name)
+    print("EC TABLE NAME IS:",ec_table_name)
     final_ec_table.to_csv(str(ec_table_name), sep=",",index=None)
     
 def main():
