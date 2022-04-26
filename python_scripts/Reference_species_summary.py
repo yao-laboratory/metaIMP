@@ -43,7 +43,7 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
         id_list.append(midas_species_id_split[-1])
 
         filename=midas_species+'_patric_midassnps.csv'
-        midas_filename=os.path.join(ref_snp_annotations_folder_path,filename)
+        midas_filename=os.path.join(ref_snp_annotations_folder_path,midas_species,filename)
         #print("step 5 result full path filename::$$$ \n")
         #print("$$$$$$$$$$$$$$$$ \n")
         #print(midas_filename)
