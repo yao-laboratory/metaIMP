@@ -123,6 +123,9 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
 
         
         reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.csv")
+        print("***********************")
+        print("\n \n \n")
+        print("THIS IS REFERENCE MAPPING RESULT FILE:", reference_mapping_result)
         paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.vcf")
         amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,abs_folder_name)
         

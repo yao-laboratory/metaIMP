@@ -85,7 +85,7 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
     bin_species_info_df = pd.merge(bin_contig_info_df, kraken_inter_df,how='left', on ='bin')
 
 
-    step_5_mutataion=step_5_mapping_result.groupby(['scaffold']).size()
+    step_5_mutataion=step_5_mapping_result.groupby(['protein_id']).size()
     step_5_mutataion_df=step_5_mutataion.to_frame().reset_index()
     step_5_mutataion_df.columns=['protein_id','total_mutation_in_metaIMP']
 
