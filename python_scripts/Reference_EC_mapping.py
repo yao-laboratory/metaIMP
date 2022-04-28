@@ -66,7 +66,7 @@ def ec_one_file(final_step5_file_loc,output_file_loc):
     
     ec_table_name_gene=os.path.join(output_file_loc,"table_7_ec_gene.csv")
     print("EC TABLE NAME IS:",ec_table_name_gene)
-    final_ec_table_ref.to_csv(str(ec_table_name_gene), sep=",",index=None)
+    final_ec_table_gene.to_csv(str(ec_table_name_gene), sep=",",index=None)
     
 def main():
     parser = argparse.ArgumentParser(prog='step6_reference_based_ec_go', description='ec go tables')
