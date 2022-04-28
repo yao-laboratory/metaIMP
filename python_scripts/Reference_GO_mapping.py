@@ -54,12 +54,17 @@ def go_one_file(final_step5_file_loc,output_file_loc):
     final_go_table['coverage']=coverage_list
     final_go_table['reads']=reads_list
     final_go_table['num_of_mutations']=mutation_list
-
-    final_go_table = final_go_table.groupby(['ref_id','GO']).sum().reset_index()
     
-    go_table_name=os.path.join(output_file_loc,"table_8_go.csv")
-    print("GO TABLE NAME IS:",go_table_name)
-    final_go_table.to_csv(str(go_table_name), sep=",",index=None)
+    go_table_name_ref=os.path.join(output_file_loc,"table_8_go_ref.csv")
+    print("GO TABLE NAME IS:",go_table_name_ref)
+    final_go_table.to_csv(str(go_table_name_ref), sep=",",index=None)
+    
+
+    final_go_table_gene = final_go_table.groupby(['gene_id','GO']).sum().reset_index()
+    
+    go_table_name_gene=os.path.join(output_file_loc,"table_8_go_gene.csv")
+    print("GO TABLE NAME IS:",go_table_name_gene)
+    final_go_table_gene.to_csv(str(go_table_name_gene), sep=",",index=None)
     
 def main():
     parser = argparse.ArgumentParser(prog='step6_reference_based_ec_go', description='ec go tables')
