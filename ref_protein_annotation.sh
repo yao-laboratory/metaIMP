@@ -40,3 +40,8 @@ echo "python $DIR/python_scripts/Reference_EC_mapping.py ec_map -i $output_folde
 python $DIR/python_scripts/Reference_GO_mapping.py go_map -i $output_folder_final -o $output_folder_final
 
 echo "finished ec go map $(date)"
+
+python $DIR/python_scripts/Reference_EC_species_summary.py ec_species_map -i $output_folder_final
+
+python $DIR/python_scripts/Reference_GO_species_summary.py go_species_map -i $output_folder_final
+
