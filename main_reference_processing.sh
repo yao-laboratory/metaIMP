@@ -92,8 +92,9 @@ else
         echo '###########################################################################################################'	
 	source deactivate
 
-
-
+	echo before comment
+	: <<'END'
+	
 	source activate $USER_ENV_NAME
         log_protein_annotation=$log_folder/protein_annotation.log
 
