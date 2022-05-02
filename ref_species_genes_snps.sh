@@ -18,6 +18,16 @@ run_midas.py species $output_folder \
         -d $database_folder
 
 echo 'midas_species complete'
+echo ' this is midas_species'
+echo ' \n \n \n '
+echo " run_midas.py species $output_folder \
+        -1 $fastq1 \
+        -2 $fastq2 \
+        -t $num_thread \
+        -d $database_folder "
+echo " \n \n THIS IS THE INPUT TO MIDAS"
+<<com
+
 
 run_midas.py genes $output_folder \
         -1 $fastq1 \
@@ -34,5 +44,4 @@ run_midas.py snps $output_folder \
         -d $database_folder
 
 echo 'midas_snps complete'
-
 
