@@ -17,7 +17,7 @@ run_midas.py species $output_folder \
 	-t $num_thread \
         -d $database_folder
 
-echo 'midas_species complete'
+echo " midas_species complete at $(date) "
 echo ' this is midas_species'
 echo ' \n \n \n '
 echo " run_midas.py species $output_folder \
@@ -25,7 +25,7 @@ echo " run_midas.py species $output_folder \
         -2 $fastq2 \
         -t $num_thread \
         -d $database_folder "
-echo " \n \n THIS IS THE INPUT TO MIDAS"
+echo " \n \n THIS IS THE INPUT TO MIDAS at $(date) "
 
 run_midas.py genes $output_folder \
         -1 $fastq1 \
@@ -35,11 +35,10 @@ run_midas.py genes $output_folder \
 
 echo 'midas_genes complete'
 
-#run_midas.py snps $output_folder \
-#        -1 $fastq1 \
-#        -2 $fastq2 \
-#	-t $num_thread \
-#        -d $database_folder
-
-echo 'midas_snps complete'
+run_midas.py snps $output_folder \
+        -1 $fastq1 \
+        -2 $fastq2 \
+	-t $num_thread \
+        -d $database_folder
+echo "midas_snps complete at $(date)"
 
