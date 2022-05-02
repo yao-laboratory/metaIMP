@@ -27,11 +27,11 @@ echo " run_midas.py species $output_folder \
         -d $database_folder "
 echo " \n \n THIS IS THE INPUT TO MIDAS"
 
-#run_midas.py genes $output_folder \
-#        -1 $fastq1 \
-#        -2 $fastq2 \
-#	-t $num_thread \
-#        -d $database_folder
+run_midas.py genes $output_folder \
+        -1 $fastq1 \
+        -2 $fastq2 \
+	-t $num_thread \
+        -d $database_folder
 
 echo 'midas_genes complete'
 
