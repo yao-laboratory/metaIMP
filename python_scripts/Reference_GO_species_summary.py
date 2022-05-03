@@ -48,7 +48,7 @@ def main():
 
     args = parser.parse_args()
 
-    if args.subcommand=='ec_go_summary':
+    if args.subcommand=='go_species_map':
         reference_output_folder=args.output_folder
         print(reference_output_folder)
         go_summary_map(reference_output_folder)

@@ -44,7 +44,7 @@ def main():
 
     args = parser.parse_args()
 
-    if args.subcommand=='ec_summary':
+    if args.subcommand=='ec_species_map':
         reference_output_folder=args.output_folder
         print(reference_output_folder)
         ec_summary_map(reference_output_folder)
