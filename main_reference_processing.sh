@@ -91,19 +91,34 @@ else
         echo ' '
         echo '###########################################################################################################'	
 	source deactivate
-
+	
 	
 	source activate $USER_ENV_NAME
         log_protein_annotation=$log_folder/protein_annotation.log
-
+	
 	if [ -f "$log_protein_annotation" ] ; then
-                echo "$log_protein_annotation exists. Skipping annotations"
+                echo "$log_protein_annotation exists. Skipping annotations @ $(date) "
         else
                 echo "$log_protein_annotation does not exist. Starting SNP_annotation at $(date)"
 		$DIR/ref_protein_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/
 		echo "Finished protein_annotaion at $(date)."
 		touch $log_protein_annotation
 	fi
+
+	log_protein_annotation_post=$log_folder/protein_annotation_post.log
+
+	if [ -f "$log_protein_annotation_post" ] ; then
+		echo "$log_protein_annotation_post exists. No log creation @ $(date)"
+	else
+		echo "$log_protein_annotation_post does not exists. Log creation @ $(date)"
+		echo "#### PROTEIN_ANNOTATION_LOG CREATED AT #### $(date)."
+		touch $log_protein_annotation
+	fi
+		
+
+	
+
+
 	echo ' '
 	echo '###########################################################################################################'
 	source deactivate
