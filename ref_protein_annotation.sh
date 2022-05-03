@@ -15,8 +15,12 @@ fi
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
 
-#python $DIR/python_scripts/Reference_mapping.py ref_map -pf $patric_folder -sf $snps_folder -o $output_folder_final
-echo 'completed reference_mapping. Good luck!!!'
+
+echo "Welcome to REFERENCE MAPPING, presented by metaIMP. Starting @ $(date)"
+
+
+python $DIR/python_scripts/Reference_mapping.py ref_map -pf $patric_folder -sf $snps_folder -o $output_folder_final
+echo "completed reference_mapping. Good luck!!!"
 
 echo 'creating VCF reference output file'
 python $DIR/python_scripts/VCF_converter_reference.py vcf_map_reference -i $output_folder_final -o $output_folder_final
