@@ -84,9 +84,8 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
 
         df_reference_final = pd.DataFrame([])
         patric_op_sub=pd.DataFrame([])
-
-       pre_ref_id=""
-
+    
+        pre_ref_id=""
         count=0
         for j in mutation_list.index:
             if count%100==0:
