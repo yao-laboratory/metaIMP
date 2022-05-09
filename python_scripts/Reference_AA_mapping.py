@@ -100,7 +100,11 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
         ref_aa=translate(ref_codon)
         alt_aa=translate(alt_codon)
     return ref_aa, alt_aa,codon_num
-
+    
+    if len(ref_codon) < 3:
+        print(ref_codon)
+        print(gene_na)
+        print(alt_codon)
 
 
 
@@ -262,7 +266,7 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
                 ref_na_list.append(ref_na_letter)
                 gene_mutation_pos_list.append(mutation_pos)
 
-
+         
             #print(len(protein_seq_converted))
             if protein_seq_converted[-1]!='*'  or protein_seq_converted.count('*')>1:
                 aa_sequence_list.append('')

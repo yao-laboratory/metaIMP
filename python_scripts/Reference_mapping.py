@@ -60,13 +60,13 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
         output_fullpath_filename = join(output_folder_name, species+"_patric_midassnps.csv")
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
 
-        patric_op=pd.read_csv(patric_fullpath)
+        patric_op=pd.read_csv(patric_fullpath,sep="\t", header = None)
 
         if patric_op.shape[0]==0:
             os.rmdir(output_folder_name)
 
 def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_filename, output_fullpath_filename):
-    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t")
+    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t",header = None )
     midas_snps = pd.read_csv(midas_snp_fullpath_filename, sep="\t",compression ='gzip')
 
     if patric_op.shape[0] !=0:
@@ -181,13 +181,13 @@ def main():
     elif args.subcommand=='ref_map':
         patric_path = args.patric_folder
         midas = args.midas_snp_folder
-        reference_ppln = args. output_csv_file_path
+        reference_ppln = args.output_csv_file_path
         print(patric_path, midas, reference_ppln)
         reference_mapping(patric_path,midas,reference_ppln)
 
-        
+    
 
 
 if __name__ == "__main__":
-        main()
+    main()
 
