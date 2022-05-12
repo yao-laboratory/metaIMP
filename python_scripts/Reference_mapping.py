@@ -66,7 +66,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
             os.rmdir(output_folder_name)
 
 def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_filename, output_fullpath_filename):
-    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t",header = None )
+    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t")
     midas_snps = pd.read_csv(midas_snp_fullpath_filename, sep="\t",compression ='gzip')
 
     if patric_op.shape[0] !=0:
