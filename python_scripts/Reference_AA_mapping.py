@@ -99,14 +99,15 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
         alt_codon = new_gene[na_start-1:na_end]
         ref_aa=translate(ref_codon)
         alt_aa=translate(alt_codon)
-    return ref_aa, alt_aa,codon_num
+    #return ref_aa, alt_aa,codon_num
     
     if len(ref_codon) < 3:
         print(ref_codon)
         print(gene_na)
         print(alt_codon)
-
-
+    
+    return ref_aa, alt_aa, codon_num
+    
 
 def amino_acid_all_files(reference_snp_annotation_folder, output_path):
     path=reference_snp_annotation_folder
@@ -116,6 +117,7 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
     print(" HI THIS IS PRINTING FOR NEW FUNCTION \n ")
     print(" &&&&********************************&&&&&&&&&&&&&&*************&&&&&&&&&&&& \n ")
     
+
     for species in dir_list:
         #folder_name=dir_list[species]
         folder_name=species
