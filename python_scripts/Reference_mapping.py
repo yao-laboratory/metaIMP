@@ -60,13 +60,13 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
         output_fullpath_filename = join(output_folder_name, species+"_patric_midassnps.csv")
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
 
-        patric_op=pd.read_csv(patric_fullpath,sep="\t", header = None)
+        patric_op=pd.read_csv(patric_fullpath,sep="\t", header = 0)
 
         if patric_op.shape[0]==0:
             os.rmdir(output_folder_name)
 
 def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_filename, output_fullpath_filename):
-    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t")
+    patric_op = pd.read_csv(patric_fullpath_filename, sep="\t",header=0)
     midas_snps = pd.read_csv(midas_snp_fullpath_filename, sep="\t",compression ='gzip')
 
     if patric_op.shape[0] !=0:
@@ -88,9 +88,10 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         pre_ref_id=""
         count=0
         for j in mutation_list.index:
-            if count%100==0:
-                print(count)
-            count=count+1
+            
+            #if count%100==0:
+            #    print(count)
+            #count=count+1
 
             current_ref_id=mutation_list.loc[j]['ref_id']
             mutation_pos=mutation_list.loc[j]['ref_pos']
