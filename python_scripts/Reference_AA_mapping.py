@@ -300,7 +300,7 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     aa_df['REF_AA']=ref_aa_list
     aa_df['MetaIMP_ID']=metaimp_id_list
     aa_df['Protein Mutation Position (1-based)']=protein_mutation_pos_list    
-    aa_df['Gene Mutation Position (1-basefd)']=gene_mutation_pos_list
+    aa_df['Gene Mutation Position (1-based)']=gene_mutation_pos_list
     aa_df['ALT_NA']=alt_na_list
     aa_df['REF_NA']=ref_na_list
         
