@@ -104,7 +104,7 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
         
 
     final_ec_table_assembly['cov']=coverage_list   
-    final_ec_table=os.path.join(output,'Table_7_ssembly_EC_table.csv')
+    final_ec_table=os.path.join(output,'Table_7_assembly_EC_table.csv')
     final_ec_table_assembly.to_csv(final_ec_table,index=None)
 
     print('----------------------------PART4------------you should have EC table=-==---------')
