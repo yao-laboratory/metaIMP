@@ -27,8 +27,8 @@ from argparse import ArgumentParser
 def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     #defining paths to final output from assembly_mapping and vcf_output_file
     #assembly_mapping_result=os.path.join(assembly_mapping_result,'assembly_mapping_result.csv')
-    assembly_input_df= pd.read_csv(assembly_mapping_result_file)
-    
+    #assembly_input_df= pd.read_csv(assembly_mapping_result_file)
+    assembly_input_df= pd.read_csv(assembly_mapping_result_file, dtype={'gene': 'str','mutation': 'str','mutation_type': 'str'},sep=",",header=0)
     #define vcf column names: https://samtools.github.io/hts-specs/VCFv4.2.pdf
     #define dataframe for VCF columns
     vcf_column_names = ['#CHROM', 'POS','ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'MetaIMP_ID']

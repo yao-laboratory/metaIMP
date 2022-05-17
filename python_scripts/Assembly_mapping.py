@@ -71,7 +71,7 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
     mergedfile['sequence'] = sequence
     mergedfile['protein_id'] = seq_ID
     mergedfile['complement'] = complement
-    mergedfile['pos_gap'] = mergedfile['end_pos'].astype(int) - mergedfile['start_pos'].astype(int)
+    mergedfile['pos_gap'] = mergedfile['end_pos'].astype(int) - mergedfile['start_pos'].astype(int) + 1
     mergedfile['scaffold'] = contig_list
     
     

@@ -28,7 +28,7 @@ def complement(base):
 def rev_comp(seq):
 	""" Reverse complement sequence """
 	return(''.join([complement(base) for base in list(seq[::-1])]))
-
+'''
 def translate(codon):
 	""" Translate individual codon """
 	codontable = {
@@ -50,7 +50,46 @@ def translate(codon):
 	'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',
 	}
 	return codontable[str(codon)]
+'''
 
+
+def translate(codon):
+    codon=codon.upper()
+    codontable = {
+    'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+    'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+    'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+    'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+    'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+    'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+    'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+    'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+    'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+    'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+    'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+    'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+    'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+    'TAC':'Y', 'TAT':'Y', 'TAA':'*', 'TAG':'*',
+    'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',
+    }
+    if codon in codontable:
+        return codontable[str(codon)]
+    elif codon.find('N')!=-1:
+        possible_na=['A','T','C','G']
+        possible_aa=''
+        for na in possible_na:
+            possible_codon=codon.replace("N",na)
+            current_aa=codontable[str(possible_codon)]
+            if possible_aa=='':
+                possible_aa=current_aa
+            if possible_aa==current_aa:
+                continue
+            else:
+                return '-'
+        return possible_aa
+    else:
+        return '-'
 
 def translate_gene(gene_seq):
     protein_seq=""
@@ -88,7 +127,7 @@ def calculate_mutation_aa(ref_na, alt_na, mutation_na_pos, gene_na):
 
 def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     #get assembly_mapping_final_results
-    assembly_mapping_result_file=pd.read_csv(assembly_final_result)
+    assembly_mapping_result_file=pd.read_csv(assembly_final_result,dtype={'gene': 'str','mutation': 'str','mutation_type': 'str'},sep=",",header=0)
     assembly_cleaner_df=assembly_mapping_result_file[['Description','scaffold','position(0-based)','position_coverage','protein_id','start_pos(1-based)','end_pos(1-based)','complement','pos_gap','eggNOG_OGs','GOs','EC','MetaIMP_ID']]
     assembly_cleaner_df.rename(columns = {'scaffold':'SCAFFOLD'}, inplace = True)
     
