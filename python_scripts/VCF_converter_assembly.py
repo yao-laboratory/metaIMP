@@ -48,11 +48,11 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
         #appending all the lists
         contig_id_list.append(assembly_input_df.loc[i]['scaffold'])
         position_list.append(assembly_input_df['position(0-based)'].loc[i])
-        ref_base_list.append(assembly_input_df['ref_base'].iloc[i])
+        ref_base_list.append(assembly_input_df['ref_base'].loc[i])
         var_base_list.append(assembly_input_df['var_base'].loc[i])
         metaimp_id_list.append(assembly_input_df['MetaIMP_ID'].loc[i])
 
-
+        
         ref_base=assembly_input_df.loc[i]['ref_base']
         ref_count=assembly_input_df.loc[i][ref_base]
         alt_base=assembly_input_df.loc[i]['var_base']
