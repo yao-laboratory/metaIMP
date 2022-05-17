@@ -18,7 +18,7 @@ DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
 
 echo 'starting assembly mapping'
-cd ./python_scripts/
+#cd ./python_scripts/
 python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
 
 echo 'assembly mapping complete'
