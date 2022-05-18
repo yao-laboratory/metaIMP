@@ -28,6 +28,46 @@ def rev_comp(seq):
 	""" Reverse complement sequence """
 	return(''.join([complement(base) for base in list(seq[::-1])]))
 
+
+def translate(codon):
+    codon=codon.upper()
+    codontable = {
+    'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+    'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+    'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+    'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+    'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+    'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+    'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+    'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+    'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+    'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+    'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+    'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+    'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+    'TAC':'Y', 'TAT':'Y', 'TAA':'*', 'TAG':'*',
+    'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',
+    }
+    if codon in codontable:
+        return codontable[str(codon)]
+    elif codon.find('N')!=-1:
+        possible_na=['A','T','C','G']
+        possible_aa=''
+        for na in possible_na:
+            possible_codon=codon.replace("N",na)
+            current_aa=codontable[str(possible_codon)]
+            if possible_aa=='':
+                possible_aa=current_aa
+            if possible_aa==current_aa:
+                continue
+            else:
+                return '-'
+        return possible_aa
+    else:
+        return '-'
+
+'''
 def translate(codon):
 	""" Translate individual codon """
 	codontable = {
@@ -50,7 +90,7 @@ def translate(codon):
 	}
 	return codontable[str(codon)]
 
-
+'''
 def translate_gene(gene_seq):
     protein_seq=""
     number_of_condons=math.floor(len(gene_seq)/3)
