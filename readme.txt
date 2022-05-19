@@ -159,8 +159,10 @@ pandas - This module needs to be installed - pip install pandas
 gzip
 
 --------------------------------------
-THESE ARE MODULES WHICH WERE ORIGNIALLY IN THE SCRIPT
-#MAKE SURE THIS SECTION IS CLEAN BEFORE PUBLISHING GIT
+These modules are used in scripts which can found in the 'example' folder.
+These modules are maintained by Holland Computing Centre  @ University of Nebraska, Lincoln.
+We highly recommend users to acquire exact version of the tools we have mentioned below.
+______________________________________
 
 MODULE LOADS:
 --------------------------------------
@@ -200,21 +202,14 @@ ASSEMBLY PIPELINE:
 
 ASSEMBLY_BINNING.SH:
 
-
-*During indexed contig creation
-**During SAM_FILE creation
-***SAM TO BAM conversion
-****BAM FILE SORTING
-#BINNING
-##CHECKM
 module load spades/3.14
 module load quast/5.0
-module load bowtie/2.3* 
-module load bowtie/2.3**
-module load samtools/1.9***
-module load samtools/1.9****
-module load metabat2/2.15#
-module load checkm-genome/1.1##
+module load bowtie/2.3
+module load bowtie/2.3
+module load samtools/1.9
+module load samtools/1.9
+module load metabat2/2.15
+module load checkm-genome/1.1
 --------------------------------
 
 assembly_contig_annotation.sh:
