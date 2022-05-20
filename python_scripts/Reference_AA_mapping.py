@@ -168,11 +168,15 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
         abs_folder_name=os.path.join(output_path,folder_name)
 
         
-        reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.csv")
+        #reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.csv")
+        reference_mapping_result=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.csv")
+
+
         print("***********************")
         print("\n \n \n")
         print("THIS IS REFERENCE MAPPING RESULT FILE:", reference_mapping_result)
-        paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.vcf")
+        #paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.vcf")
+        paired_vcf_file_path=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.vcf")
         amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,abs_folder_name)
         
 
@@ -216,7 +220,10 @@ def amino_acid_all_files_old(reference_snp_annotation_folder, output_path):
             if split_filename[0].find("_patric_midassnps")>0:
                 species_id = split_filename[0].replace("_patric_midassnps","")
                 print(species_id)
-                reference_mapping_result=os.path.join(reference_snp_annotation_folder,species_id+"_patric_midassnps.csv")
+
+
+                reference_mapping_result=os.path.join("Table_1_reference_mapping"+reference_snp_annotation_folder,species_id+"coding.csv")
+                
                 vcf_file_name=split_filename[0]+".vcf"
                 paired_vcf_file_path=os.path.join(reference_snp_annotation_folder,vcf_file_name)
                 print(paired_vcf_file_path)
@@ -345,7 +352,7 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     aa_df['REF_NA']=ref_na_list
         
 
-    final_reference_AA = os.path.join(aa_final_output,'AA_mapping.csv')
+    final_reference_AA = os.path.join("Table_5_reference_",aa_final_output,'_AA_mapping.csv')
     aa_df.to_csv(final_reference_AA,index=None)        
 
 def main():
