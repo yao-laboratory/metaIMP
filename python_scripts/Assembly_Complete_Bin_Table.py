@@ -115,8 +115,9 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     scaffold_information['coverage']=coverage_list
     scaffold_information_coverage=scaffold_information.groupby(['bin']).median()
     final_merge_df=pd.merge(scaffold_information_coverage, df_kraken_checkm_annotation, on = 'bin')
-    output=os.path.join(output, 'Table_6_Assembly_protein_information.csv')
+    output=os.path.join(output, 'Table_6_assembly_bin_species.csv')
     final_merge_df.to_csv(output, index= None)
+
 
 def main():
     parser = argparse.ArgumentParser(prog='META_IMP_assembly_based',description='this method executes Kraken annotation mapping with CHECKM-Prodigal protein inforamtion')
