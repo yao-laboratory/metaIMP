@@ -31,8 +31,6 @@ def adding_figid(genes_path,patric_path):
 
 def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
 
-
-
     patric_list = os.listdir(patric_path)
     species_list=list()
     for filename in patric_list:
@@ -122,10 +120,18 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
             metaimp_id="MetaIMP_"+str(i+1)
             metaimp_id_list.append(metaimp_id)
         df_reference_final['MetaIMP_ID']=metaimp_id_list
+        df_reference_final_1=df_reference_final.loc[df_reference_final['feature.feature_type']=='CDS']
+        df_reference_final_1.to_csv(output_fullpath_filename, sep=",",index=None)
 
-        df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
 
+        #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
 
+        non_coding_dir_2=os.path.dirname(output_fullpath_filename)
+        non_coding_base_2='not_cds_gene'+os.path.basename(output_fullpath_filename)
+        non_coding_output_2=os.path.join(non_coding_dir_2,non_coding_base_2)
+        df_reference_final_2=df_reference_final.loc[df_reference_final['feature.feature_type']!='CDS']
+        
+        df_reference_final_2.to_csv(non_coding_output_2, sep=",",index=None)
 
         #non-coding df:
         #non_coding df is zero-value
