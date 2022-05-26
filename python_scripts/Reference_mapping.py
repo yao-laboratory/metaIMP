@@ -55,8 +55,8 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
         if os.path.exists(output_folder_name)==False:
             os.mkdir(output_folder_name)
             print("new directory created is : ", output_folder_name)
-        #output_fullpath_filename = join(output_folder_name, species+"_patric_midassnps.csv")
-        output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
+        output_fullpath_filename = join(output_folder_name, species+"_patric_midassnps.csv")
+        #output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
 
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
 
@@ -89,9 +89,9 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         count=0
         for j in mutation_list.index:
             
-            #if count%100==0:
-            #    print(count)
-            #count=count+1
+            if count%10000==0:
+                print(count)
+            count=count+1
 
             current_ref_id=mutation_list.loc[j]['ref_id']
             mutation_pos=mutation_list.loc[j]['ref_pos']
@@ -122,11 +122,13 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
             metaimp_id="MetaIMP_"+str(i+1)
             metaimp_id_list.append(metaimp_id)
         df_reference_final['MetaIMP_ID']=metaimp_id_list
-        df_reference_final_1=df_reference_final.loc[df_reference_final['feature.feature_type']=='CDS']
-        df_reference_final_1.to_csv(output_fullpath_filename, sep=",",index=None)
 
 
-        #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
+        #df_reference_final_1=df_reference_final.loc[df_reference_final['feature.feature_type']=='CDS']
+        #df_reference_final_1.to_csv(output_fullpath_filename, sep=",",index=None)
+
+        df_reference_final=df_reference_final.loc[df_reference_final['feature.feature_type']=='CDS']
+        df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
 
         non_coding_dir_2=os.path.dirname(output_fullpath_filename)
         non_coding_base_2='Table_2_not_cds_gene_'+os.path.basename(output_fullpath_filename)
