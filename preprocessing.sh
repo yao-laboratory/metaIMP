@@ -58,9 +58,10 @@ echo "finishing filtered files at $(date)"
 Rename_OT_1=$output_folder/${input1##*/}.refiltered_1.fastq
 Rename_OT_2=$output_folder/${input2##*/}.refiltered_2.fastq
 
-prefix=${input1#*_} 
+#prefix=${input1#*_} 
 
-$bbmap_folder/rename.sh in=$OT1 in2=$OT2 out=$Rename_OT_1 out2=$Rename_OT_2 prefix=$prefix
+$bbmap_folder/rename.sh in=$OT1 in2=$OT2 out=$Rename_OT_1 out2=$Rename_OT_2
+#prefix=$prefix
 
 # FASTQC
 
