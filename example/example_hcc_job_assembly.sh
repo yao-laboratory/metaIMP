@@ -25,7 +25,7 @@ export EGGNOG_DIAMOND_DATABASE=$eggnog_db_name
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_1.fastq
 fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_2.fastq
-
+sampleID=SRR9205542
 #output_folder_assembly path
 output_folder_assembly=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/assembly_output
 
@@ -68,8 +68,8 @@ export PYTHONNOUSERSITE=1
 
 echo " "
 echo "###########################################################################################################"
-echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len"
-$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $output_folder_assembly $threads $con_len
+echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len"
+$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
 
 echo " "
 echo "###########################################################################################################"

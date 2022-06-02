@@ -13,5 +13,6 @@ transfer_input_files = /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sa
 
 Arguments = /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_1.fastq \
 	    /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/SRR9205549_2.fastq \
+            SRR9205549 \
  	    /work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205549/assembly_output 8 1000
 Queue

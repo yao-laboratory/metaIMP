@@ -14,7 +14,7 @@ export USER_ENV_NAME=metaimp_env
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/ksahu2/sample_SRR9205534/SRR9205534_1.fastq
 fastq2=/work/yaolab/ksahu2/sample_SRR9205534/SRR9205534_2.fastq
-
+sampleID=SRR9205534
 #output_folder_reference path
 output_folder_reference=/work/yaolab/ksahu2/sample_SRR9205534/reference_output
 
@@ -34,8 +34,8 @@ source activate $USER_ENV_NAME
 echo ' '
 echo '###########################################################################################################'
 
-echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads"
-$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
+echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads"
+$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 
 echo ' '
 echo '###########################################################################################################' 

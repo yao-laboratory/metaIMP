@@ -17,7 +17,7 @@ export USER_ENV_NAME=metaimp_env
 #Inputs- FASTQ/FASTA paired-end files
 fastq1=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_1.fastq
 fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/SRR9205542_2.fastq
-
+sampleID=SRR9205542
 #output_folder_reference path
 output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/reference_output
 
@@ -40,8 +40,8 @@ database_folder=$MIDAS_DB
 echo " "
 echo "###########################################################################################################"
 
-echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads"
-$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $database_folder $output_folder_reference $threads
+echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads"
+$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 
 echo " "
 echo "###########################################################################################################"
