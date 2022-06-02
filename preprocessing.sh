@@ -8,8 +8,9 @@ DIR="$(dirname "$DIR")"
 
 input1=$1
 input2=$2
-num_thread=$3
-output_folder=$4
+sampleID=$3
+num_thread=$4
+output_folder=$5
 
 file1=$input1
 file2=$input2
@@ -53,8 +54,7 @@ Rename_OT_2=$output_folder/${input2##*/}.renamed_2.fastq
 
 #prefix=${input1#*_}
 
-$bbmap_folder/rename.sh in=$file1 in2=$file2 out=$Rename_OT_1 out2=$Rename_OT_2 
-#prefix=$samplename
+$bbmap_folder/rename.sh in=$file1 in2=$file2 out=$Rename_OT_1 out2=$Rename_OT_2 prefix=$sampleID
 
 
 

@@ -9,18 +9,20 @@
 #		1) PREPROCESSING: This process is executed by preprocessing.sh which takes two inputs for paire-end forward and reverse fastq files 
 #		2) ASSEMBLY: This process is executed by assembly_binning.sh which has 5 inputs: A) FORWARD-END FASTQ FILE PATH
 #												 B) REVERSE-END FASTQ FILE PATH
-#												 C) OUTPUT PATH
-#												 D) NUMBER OF THREADS
-#												 E) MINIMUM CONTIG LENGTH
+#												 C) SAMPLEID
+#												 D) OUTPUT PATH
+#												 E) NUMBER OF THREADS
+#												 F) MINIMUM CONTIG LENGTH
 
 ##WE HAVE NOW ADDED STEP_6 TO METAIMP
 #DEFINING THE VARIABLES	
 
 read1=$1
 read2=$2
-output_folder=$3
-min_thread=$4
-min_contig_length=$5
+sampeID=$3
+output_folder=$4
+min_thread=$5
+min_contig_length=$6
 #env_var=$6
 
 if [ ! -d "$output_folder" ] ; then
@@ -57,8 +59,8 @@ else
 	else
 		 echo "$log_preprocessing does not exist"
 		 echo "starting preprocessing $(date) ..."
-		 echo "./preprocessing.sh $read1 $read2 $min_thread $output_folder"
-		 $DIR/preprocessing.sh $read1 $read2 $min_thread $output_folder
+		 echo "./preprocessing.sh $read1 $read2 $sampleID $min_thread $output_folder"
+		 $DIR/preprocessing.sh $read1 $read2 $sampleID $min_thread $output_folder
 		 echo "completed pre-processing at $(date). starting assembly"
 
 	         touch $log_preprocessing

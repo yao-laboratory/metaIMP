@@ -3,9 +3,10 @@
 
 read1=$1
 read2=$2
-database_folder=$3
-output_folder=$4
-min_thread=$5
+sampleID=$3
+database_folder=$4
+output_folder=$5
+min_thread=$6
 
 
 if [ ! -d "$output_folder" ] ; then
@@ -41,8 +42,8 @@ else
 		echo "$log_preprocessing exists. Skipping pre-processing"
 	else
 		echo "$log_preprocessing does not exist. Startin pre-processing at $(date)"
-		echo "./preprocessing.sh $read1 $read2 $min_thread $output_folder"
-		$DIR/preprocessing.sh $read1 $read2 $min_thread $output_folder
+		echo "./preprocessing.sh $read1 $read2 $sampleID $min_thread $output_folder"
+		$DIR/preprocessing.sh $read1 $read2 $sampleID $min_thread $output_folder
 		touch $log_preprocessing
 	fi
 	echo "finished preprocessing of paired-end input files $(date). starting annotations now"
