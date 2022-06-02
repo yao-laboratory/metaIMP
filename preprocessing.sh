@@ -14,6 +14,11 @@ output_folder=$4
 file1=$input1
 file2=$input2
 
+
+
+
+
+
 OT1=$output_folder/${input1##*/}.filtered_1.fastq
 OT2=$output_folder/${input2##*/}.filtered_2.fastq
 
@@ -36,9 +41,26 @@ phiX_adapters=$bbmap_folder/resources/phix174_ill.ref.fa.gz
 
 echo "finishing phix_adapters at $(date)"
 
+
+echo "rename the fastq files readid $(date)"
+
+
+
+echo "finishing the rename procedure $(date)"
+
+Rename_OT_1=$output_folder/${input1##*/}.renamed_1.fastq
+Rename_OT_2=$output_folder/${input2##*/}.renamed_2.fastq
+
+#prefix=${input1#*_}
+
+$bbmap_folder/rename.sh in=$file1 in2=$file2 out=$Rename_OT_1 out2=$Rename_OT_2 
+#prefix=$samplename
+
+
+
 echo "creating temp files at $(date)"
 
-$bbmap_folder/bbduk.sh -Xmx7g in1=$file1 in2=$file2 \
+$bbmap_folder/bbduk.sh -Xmx7g in1=$Rename_OT_1 in2=$Rename_OT_2 \
 	out1=$temp1\
 	out2=$temp2\
 	minlen=10 qtrim=rl trimq=20 ktrim=r k=21 mink=11 ref=$adapters hdist=1 threads=$num_thread tbo tpe
@@ -53,15 +75,6 @@ $bbmap_folder/bbduk.sh \
 
 echo "finishing filtered files at $(date)"
 
-#to rename files
-
-Rename_OT_1=$output_folder/${input1##*/}.refiltered_1.fastq
-Rename_OT_2=$output_folder/${input2##*/}.refiltered_2.fastq
-
-#prefix=${input1#*_} 
-
-$bbmap_folder/rename.sh in=$OT1 in2=$OT2 out=$Rename_OT_1 out2=$Rename_OT_2
-#prefix=$prefix
 
 # FASTQC
 
