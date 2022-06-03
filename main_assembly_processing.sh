@@ -46,9 +46,10 @@ echo "running main assembly process in the folder $DIR"
 if [ $read1 = -h ] ; then
 	echo 'Usage information: 1) read1 = Forward paired-end file (FASTQ)
 	2) read2 = Reverse paired-end file (FASTQ)
-	3) output_folder= Output folder path
-	4) min_thread= Total number of threads
-	5)min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)'
+	3) sampleID = sample name used in renaming the fastq reads and later processing
+	4) output_folder= Output folder path
+	5) min_thread= Total number of threads
+	6)min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)'
 	
 else
 	# PRE-PROCESSING
