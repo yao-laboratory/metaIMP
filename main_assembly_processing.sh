@@ -19,7 +19,7 @@
 
 read1=$1
 read2=$2
-sampeID=$3
+sampleID=$3
 output_folder=$4
 min_thread=$5
 min_contig_length=$6
