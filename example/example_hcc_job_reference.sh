@@ -8,7 +8,7 @@
 
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
-export USER_ENV_NAME=metaimp_env
+export USER_ENV_NAME=mimp_v1
 #kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 #export KRAKEN_DATABASE=$kraken_db_path
 #phylophlan_db_name=SGB.Jan19
@@ -20,11 +20,15 @@ fastq2=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/
 sampleID=SRR9205542
 #output_folder_reference path
 output_folder_reference=/work/yaolab/shared/2021_milk_2017_metagenome/MIT_DATA/sample_SRR9205542/reference_output
+MIDAS_DB=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 
 #number of threads to be used by metaSPADES and Instrain
 threads=8
 
-echo " "
+
+
+###THIS IS THE END FOR USER###
+echo -e " \n "
 echo "###########################################################################################################"
 
 
@@ -34,7 +38,9 @@ echo "##########################################################################
 module purge
 module load java
 module load midas/1.3
-module laod fastqc/0.11
+module load samtools/1.9
+module load fastqc/0.11
+#MIDAS_DB=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 database_folder=$MIDAS_DB
 
 echo " "
