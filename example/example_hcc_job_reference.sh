@@ -40,6 +40,7 @@ module load java
 module load midas/1.3
 module load samtools/1.9
 module load fastqc/0.11
+module load singularity/3.7
 #MIDAS_DB=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 database_folder=$MIDAS_DB
 
