@@ -68,7 +68,7 @@ mamba install -y -c bioconda usearch
 
 if [["$install_singularity" == "-s"]]; then
 	mamba install -y -c conda-forge singularity
-
+fi
 
 #important tools
 
