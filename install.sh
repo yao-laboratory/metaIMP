@@ -1,6 +1,7 @@
 #This script creates a new custom environment provided by the user
 #All dependencies for metaimp are installed using this script
 
+install_singularity=$1
 echo "Creating new user environemnt"
 
 mamba create -n $USER_ENV_NAME
@@ -64,7 +65,10 @@ mamba install -y -c bioconda eggnog-mapper
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -y -c bioconda usearch
-mamba install -y -c conda-forge singularity
+
+if [["$install_singularity" == "-s"]]; then
+	mamba install -y -c conda-forge singularity
+
 
 #important tools
 
