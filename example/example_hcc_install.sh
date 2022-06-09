@@ -26,7 +26,7 @@ module purge
 module load mamba
 echo " Starting installation in $USER_ENV_NAME "
 $metaIMP_path/install.sh
-
+#$metaIMP_path/install.sh -s
 echo " Starting installation testing in $USER_ENV_NAME "
 $metaIMP_path/install_test.sh
 
