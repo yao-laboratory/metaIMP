@@ -66,7 +66,7 @@ mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -y -c bioconda usearch
 
-if [[ "$install_singularity" != "-s" ]]; then
+if [[ "$install_singularity" == "-s" ]]; then
 	mamba install -y -c conda-forge singularity
 fi
 
