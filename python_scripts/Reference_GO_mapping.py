@@ -11,8 +11,10 @@ def go_all_file(reference_snp_output_folder,output_folder):
         if os.path.isdir(input_dir):
             print("dir is ::",dir)
             output_file_loc=os.path.join(output_folder,dir)
-            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_patric_midassnps.csv"))
-            
+            #final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_patric_midassnps.csv"))
+            #Edited by K.Sahu 06102022
+            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_reference_coding_Table_1.csv"))
+
             print(final_step5_file_loc)
             go_one_file(final_step5_file_loc,output_file_loc)
             
