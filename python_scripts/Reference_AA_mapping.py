@@ -169,14 +169,17 @@ def amino_acid_all_files(reference_snp_annotation_folder, output_path):
 
         
         #reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.csv")
-        reference_mapping_result=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.csv")
-
+        #reference_mapping_result=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.csv")
+        #Edited by K.sahu 06102022
+        reference_mapping_result=os.path.join(abs_folder_name,folder_name+"_reference_coding_Table_1.csv")
 
         print("***********************")
         print("\n \n \n")
         print("THIS IS REFERENCE MAPPING RESULT FILE:", reference_mapping_result)
         #paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_patric_midassnps.vcf")
-        paired_vcf_file_path=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.vcf")
+        #paired_vcf_file_path=os.path.join("Table_1_reference_mapping"+abs_folder_name,folder_name+"coding.vcf")
+        #Edited by K.sahu 06102022
+        paired_vcf_file_path=os.path.join(abs_folder_name,folder_name+"_reference_coding_Table_4.vcf")
         amino_acid_mapping(reference_mapping_result,paired_vcf_file_path,abs_folder_name)
         
 
@@ -352,7 +355,9 @@ def amino_acid_mapping(reference_final_result, vcf, aa_final_output):
     aa_df['REF_NA']=ref_na_list
         
 
-    final_reference_AA = os.path.join("Table_5_reference_",aa_final_output,'_AA_mapping.csv')
+    #final_reference_AA = os.path.join("Table_5_reference_",aa_final_output,'_AA_mapping.csv')
+    #Edited by K.Sahu 06102022
+    final_reference_AA = os.path.join(aa_final_output,'_AA_mapping_Table_5.csv')
     aa_df.to_csv(final_reference_AA,index=None)        
 
 def main():
