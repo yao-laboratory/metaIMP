@@ -55,7 +55,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
         if os.path.exists(output_folder_name)==False:
             os.mkdir(output_folder_name)
             print("new directory created is : ", output_folder_name)
-        output_fullpath_filename = join(output_folder_name, species+"_patric_midassnps.csv")
+        output_fullpath_filename = join(output_folder_name, species+"_reference_codings_Table_1.csv")
         #output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
 
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
@@ -131,7 +131,8 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
 
         non_coding_dir_2=os.path.dirname(output_fullpath_filename)
-        non_coding_base_2='Table_2_not_cds_gene_'+os.path.basename(output_fullpath_filename)
+        #non_coding_base_2='Table_2_not_cds_gene_'+os.path.basename(output_fullpath_filename)
+        non_coding_base_2=+os.path.basename(output_fullpath_filename)+'_non_cds_gene_Table_2'
         non_coding_output_2=os.path.join(non_coding_dir_2,non_coding_base_2)
         df_reference_final_2=df_reference_final.loc[df_reference_final['feature.feature_type']!='CDS']
         
@@ -142,7 +143,8 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         #non_coding_output=os.path.join('non_coding',output_fullpath_filename)
 
         non_coding_dir=os.path.dirname(output_fullpath_filename)
-        non_coding_base="Table_3_reference_mapping_NON_CODING_"+os.path.basename(output_fullpath_filename)
+        #non_coding_base="Table_3_reference_mapping_NON_CODING_"+os.path.basename(output_fullpath_filename)
+        non_coding_base=os.path.basename(output_fullpath_filename)+"_reference_mapping_NON_CODING_Table_3_"
         non_coding_output=os.path.join(non_coding_dir,non_coding_base)
 
         non_coding_df=mutation_list.loc[mutation_list['coding_region']==0]
