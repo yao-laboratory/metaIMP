@@ -70,6 +70,7 @@ mamba install -y -c bioconda midas
 #MIDAS corrupts SAMTOOLS binary files. INSTALL SAMTOOLS AGAIN in the last step.
 mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
+mamba install -y -c anaconda scikit-bio
 
 #updated ulitity.py
 cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
