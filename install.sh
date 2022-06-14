@@ -65,13 +65,6 @@ mamba install -y -c bioconda eggnog-mapper
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -y -c bioconda usearch
-
-if [[ "$install_singularity" == "-s" ]]; then
-	mamba install -y -c conda-forge singularity
-fi
-
-#important tools
-
 mamba install -y -c conda-forge biopython=1.76
 mamba install -y -c bioconda midas
 #MIDAS corrupts SAMTOOLS binary files. INSTALL SAMTOOLS AGAIN in the last step.
@@ -80,6 +73,20 @@ mamba install -y -c bioconda samtools=1.14
 
 #updated ulitity.py
 cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
+#Copying MIDAS utility.py to user environment where MIDAS is installed
+
+if [[ "$install_singularity" == "-s" ]]; then
+	mamba install -y -c conda-forge singularity
+fi
+
+#important tools
+#mamba install -y -c conda-forge biopython=1.76
+#mamba install -y -c bioconda midas
+#MIDAS corrupts SAMTOOLS binary files. INSTALL SAMTOOLS AGAIN in the last step.
+#mamba install -y -c conda-forge -c bioconda -c defaults instrain
+#mamba install -y -c bioconda samtools=1.14
+#updated ulitity.py
+#cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
 #Copying MIDAS utility.py to user environment where MIDAS is installed
 
 echo " All dependencies are installed. Deactivating $USER_ENV_NAME"
