@@ -29,7 +29,7 @@ import os
 
 
 def vcf_converter_all_files(reference_snp_annotation_folder, output_path):
-    
+   
     path=reference_snp_annotation_folder
     dir_list=next(os.walk(path))[1]
     #os.path.join(path, "User/Desktop", "file.txt"
@@ -41,7 +41,7 @@ def vcf_converter_all_files(reference_snp_annotation_folder, output_path):
         print("\n \n \n ")
         print("THIS IS FILENAME WHICH IS INPUT TO VCF CONVERTER:", filename)
         #final_filename=os.path.join(reference_snp_annotation_folder,species,filename)
-        final_filename=os.path.join(reference_snp_annotation_folder,filename)   ##edited by K.Sahu 6102022
+        final_filename=os.path.join(reference_snp_annotation_folder,species,filename)   ##edited by K.Sahu 6102022 #reedit 06152022
         print("Final_filename input to vcf_converter is this: \n \n "+final_filename)
         output_path=os.path.join(reference_snp_annotation_folder,species)
         vcf_converter(final_filename, output_path)
