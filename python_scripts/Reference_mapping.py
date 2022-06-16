@@ -55,7 +55,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
         if os.path.exists(output_folder_name)==False:
             os.mkdir(output_folder_name)
             print("new directory created is : ", output_folder_name)
-        output_fullpath_filename = join(output_folder_name, species+"_reference_codings_Table_1.csv")
+        output_fullpath_filename = join(output_folder_name, species+"_reference_coding_Table_1.csv")
         #output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
 
         reference_mapping_for_one_data(patric_fullpath, snp_fullpath, output_fullpath_filename)
