@@ -132,7 +132,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
 
         non_coding_dir_2=os.path.dirname(output_fullpath_filename)
         #non_coding_base_2='Table_2_not_cds_gene_'+os.path.basename(output_fullpath_filename)
-        non_coding_base_2=os.path.basename(output_fullpath_filename)+'_non_cds_gene_Table_2'
+        non_coding_base_2=os.path.basename(output_fullpath_filename)+str("_non_cds_gene_Table_2")
         non_coding_output_2=os.path.join(non_coding_dir_2,non_coding_base_2)
         df_reference_final_2=df_reference_final.loc[df_reference_final['feature.feature_type']!='CDS']
         
