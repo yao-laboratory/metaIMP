@@ -36,12 +36,16 @@ def vcf_converter_all_files(reference_snp_annotation_folder, output_path):
     for species in dir_list:
         #filename=species+"_patric_midassnps.csv"
         #filename="Table_1_reference_mapping"+species+"coding.csv"
-        filename=species+"_reference_coding_Table_1.csv"
+        #filename=species+"_reference_coding_Table_1.csv"
+        #Update 06202022-K.Sahu
+        filename=join(species,"Table_1_coding.csv")
         print("*********************************")
         print("\n \n \n ")
         print("THIS IS FILENAME WHICH IS INPUT TO VCF CONVERTER:", filename)
         #final_filename=os.path.join(reference_snp_annotation_folder,species,filename)
-        final_filename=os.path.join(reference_snp_annotation_folder,species,filename)   ##edited by K.Sahu 6102022 #reedit 06152022
+        #final_filename=os.path.join(reference_snp_annotation_folder,species,filename)   ##edited by K.Sahu 6102022 #reedit 06152022
+        final_filename=os.path.join(reference_snp_annotation_folder,filename) #Update 06202022-K.Sahu
+
         print("Final_filename input to vcf_converter is this: \n \n "+final_filename)
         output_path=os.path.join(reference_snp_annotation_folder,species)
         vcf_converter(final_filename, output_path)
@@ -168,7 +172,7 @@ def vcf_converter(reference_mapping_fullpath_filename, final_vcf_path):
         filename = os.path.basename(reference_mapping_fullpath_filename)
         #outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf"))
         #edited by K.Sahu 6102022
-        outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf").replace("_Table_1","_Table_4"))
+        outputfilename=os.path.join(final_vcf_path, filename.replace(".csv",".vcf").replace("Table_1","Table_4"))
         #outputfilename=os.path.join(final_vcf_path, filename.replace("_Table_1.csv","_Table_4.vcf"))
         #write into .vcf file
 
