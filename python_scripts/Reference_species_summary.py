@@ -40,10 +40,16 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
     for i in midas_species_profile.index:
         midas_species =midas_species_profile.loc[i]['species']
         midas_species_id_split=midas_species.rsplit('_')
-        id_list.append(midas_species_id_split[-1])
+        id_list.append(midas_species_id_split[-1])  
 
-        filename=midas_species+'_patric_midassnps.csv'
-        midas_filename=os.path.join(ref_snp_annotations_folder_path,midas_species,filename)
+        #Update 06202022-K.Sahu
+        #filename=midas_species+'_patric_midassnps.csv'
+        filename=join(midas_species,"Table_1_coding.csv")
+
+        #Update 06202022-K.Sahu
+        #midas_filename=os.path.join(ref_snp_annotations_folder_path,midas_species,filename)
+        midas_filename=os.path.join(ref_snp_annotations_folder_path,filename)
+        
         #print("step 5 result full path filename::$$$ \n")
         #print("$$$$$$$$$$$$$$$$ \n")
         #print(midas_filename)
