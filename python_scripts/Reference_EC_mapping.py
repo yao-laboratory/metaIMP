@@ -15,11 +15,15 @@ def ec_all_file(reference_snp_output_folder,output_folder):
             output_file_loc=os.path.join(output_folder,dir)
             #final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_patric_midassnps.csv"))
             #Edited by K.Sahu 06092022
-            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_reference_coding_Table_1.csv"))
+            #final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,(str(dir)+"_reference_coding_Table_1.csv"))
+            
 
+            #Update 06202022-K.Sahu
+            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,"Table_1_coding.csv") 
+            
             print(final_step5_file_loc)
             ec_one_file(final_step5_file_loc,output_file_loc)
-            
+           
 def ec_one_file(final_step5_file_loc,output_file_loc):
     reference_mapping_file=pd.read_csv(final_step5_file_loc)
     temp_ec_table = reference_mapping_file[['ref_id','gene_id','feature.ec','coverage','count_reads']]
