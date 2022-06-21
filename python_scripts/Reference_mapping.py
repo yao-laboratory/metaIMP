@@ -57,7 +57,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
             print("new directory created is : ", output_folder_name)
         
         #Update 06202022-K.Sahu
-        output_fullpath_filename = join(output_folder_name,species,"Table_1_coding.csv")  
+        output_fullpath_filename = os.path.join(output_folder_name,"Table_1_coding.csv")  
         #output_fullpath_filename = join(output_folder_name, species+"_reference_coding_Table_1.csv")
         #output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
 
@@ -144,14 +144,14 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         
 
 
-        
+         
         df_reference_final_2=df_reference_final.loc[df_reference_final['feature.feature_type']!='CDS']
         df_reference_final_2.to_csv(non_coding_output_2, sep=",",index=None)
 
         #non-coding df:
         #non_coding df is zero-value
         #non_coding_output=os.path.join('non_coding',output_fullpath_filename)
-        
+       
         non_coding_dir=os.path.dirname(output_fullpath_filename)
         #Update 06202022-K.Sahu
 
