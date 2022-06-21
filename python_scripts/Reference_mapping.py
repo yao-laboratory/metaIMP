@@ -146,7 +146,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
 
          
         df_reference_final_2=df_reference_final.loc[df_reference_final['feature.feature_type']!='CDS']
-        df_reference_final_2.to_csv(non_coding_output_2, sep=",",index=None)
+        df_reference_final_2.to_csv(non_coding_base_2, sep=",",index=None)
 
         #non-coding df:
         #non_coding df is zero-value

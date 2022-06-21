@@ -44,7 +44,7 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
 
         #Update 06202022-K.Sahu
         #filename=midas_species+'_patric_midassnps.csv'
-        filename=join(midas_species,"Table_1_coding.csv")
+        filename=os.path.join(midas_species,"Table_1_coding.csv")
 
         #Update 06202022-K.Sahu
         #midas_filename=os.path.join(ref_snp_annotations_folder_path,midas_species,filename)
