@@ -19,7 +19,7 @@ def ec_all_file(reference_snp_output_folder,output_folder):
             
 
             #Update 06202022-K.Sahu
-            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,"Table_1_coding.csv") 
+            final_step5_file_loc=os.path.join(reference_snp_output_folder,dir,"Table_1_reference_mapping_result_coding.csv") 
             
             print(final_step5_file_loc)
             ec_one_file(final_step5_file_loc,output_file_loc)

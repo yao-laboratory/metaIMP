@@ -38,7 +38,7 @@ def vcf_converter_all_files(reference_snp_annotation_folder, output_path):
         #filename="Table_1_reference_mapping"+species+"coding.csv"
         #filename=species+"_reference_coding_Table_1.csv"
         #Update 06202022-K.Sahu
-        filename=os.path.join(species,"Table_1_coding.csv")
+        filename=os.path.join(species,"Table_1_reference_mapping_result_coding.csv")
         print("*********************************")
         print("\n \n \n ")
         print("THIS IS FILENAME WHICH IS INPUT TO VCF CONVERTER:", filename)

@@ -57,7 +57,7 @@ def reference_mapping(patric_path, midas_snps_path, output_path): #for looping
             print("new directory created is : ", output_folder_name)
         
         #Update 06202022-K.Sahu
-        output_fullpath_filename = os.path.join(output_folder_name,"Table_1_coding.csv")  
+        output_fullpath_filename = os.path.join(output_folder_name,"Table_1_reference_mapping_result_coding.csv")  
         #output_fullpath_filename = join(output_folder_name, species+"_reference_coding_Table_1.csv")
         #output_fullpath_filename = join("Table_1_reference_mapping"+output_folder_name, species+"coding.csv")
 
@@ -136,7 +136,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         #Update 06202022-K.Sahu
         non_coding_dir_2=os.path.dirname(output_fullpath_filename)
         #non_coding_base_2='Table_2_not_cds_gene_'+os.path.basename(output_fullpath_filename)
-        non_coding_base_2=os.path.join(non_coding_dir_2,str("Table_2_non_cds_gene.csv"))
+        non_coding_base_2=os.path.join(non_coding_dir_2,str("Table_2_reference_mapping_result_non_cds_gene.csv"))
 
         
         #non_coding_base_2=os.path.basename(output_fullpath_filename)+str("_non_cds_gene_Table_2")
@@ -155,7 +155,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         non_coding_dir=os.path.dirname(output_fullpath_filename)
         #Update 06202022-K.Sahu
 
-        non_coding_output=os.path.join(non_coding_dir,str("Table_3_reference_mapping_NON_CODING.csv"))
+        non_coding_output=os.path.join(non_coding_dir,str("Table_3_reference_mapping_result_non_coding.csv"))
         
         #non_coding_base="Table_3_reference_mapping_NON_CODING_"+os.path.basename(output_fullpath_filename)
         #non_coding_base=os.path.basename(output_fullpath_filename)+"_reference_mapping_NON_CODING_Table_3_"

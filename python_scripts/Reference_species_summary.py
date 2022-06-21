@@ -44,7 +44,7 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
 
         #Update 06202022-K.Sahu
         #filename=midas_species+'_patric_midassnps.csv'
-        filename=os.path.join(midas_species,"Table_1_coding.csv")
+        filename=os.path.join(midas_species,"Table_1_reference_mapping_result_coding.csv")
 
         #Update 06202022-K.Sahu
         #midas_filename=os.path.join(ref_snp_annotations_folder_path,midas_species,filename)
@@ -68,7 +68,7 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
     midas_species_profile['species_id']=id_list
     midas_species_profile['mutation_count']=mutation_count_list
     
-    total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_total_mutation.csv")
+    total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_reference_mapping_result_total_mutation.csv")
     midas_species_profile.to_csv(total_species_info, sep=",",index=None)
 
     #path=ref_snp_annotations_folder_path
