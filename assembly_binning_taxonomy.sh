@@ -31,7 +31,7 @@ fi
 Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
 
 
-DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output/
+DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output
 
 echo "finishing DAS_TOOL at $(date)"
 
