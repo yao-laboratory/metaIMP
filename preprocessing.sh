@@ -75,6 +75,10 @@ $bbmap_folder/bbduk.sh \
 
 echo "finishing filtered files at $(date)"
 
+rm $Rename_OT_1 
+rm $Rename_OT_2
+rm $temp1
+rm $temp2
 
 # FASTQC
 
