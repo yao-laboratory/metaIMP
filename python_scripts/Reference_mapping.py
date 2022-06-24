@@ -75,16 +75,30 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
     if patric_op.shape[0] !=0:
         print(patric_fullpath_filename," is not empty, we continue processing")
         patric_op.rename(columns={'feature.accession':'ref_id'},inplace='True')
-        mut_count= midas_snps[['count_a','count_c','count_g','count_t']].max(axis=1)
-        count_equals = mut_count.eq(midas_snps['depth'])
-        midas_snps['count_equals']= count_equals
+        
 
-        mutations = midas_snps['count_equals'].values == 0
-        mutation_list = midas_snps[mutations]
-
+        #Updates by Qiuming Yao 06242022
+        depth_threshold=4
+        midas_snps=midas_snps.loc[midas_snps['depth']>=depth_threshold]
+        allel_threshold=2
+        midas_snps['count_equals'] = (midas_snps[['count_a','count_c','count_g','count_t']] >= allel_threshold).sum(axis=1)
+        mutation_list=midas_snps.loc[midas_snps['count_equals']>=2]
         mutation_list=mutation_list.sort_values(by='ref_id', ascending=True)
         mutation_list['coding_region']=[0]*mutation_list.shape[0]
+        
 
+
+
+        #mut_count= midas_snps[['count_a','count_c','count_g','count_t']].max(axis=1)
+        #count_equals = mut_count.eq(midas_snps['depth'])
+        #midas_snps['count_equals']= count_equals
+
+        #mutations = midas_snps['count_equals'].values == 0
+        #mutation_list = midas_snps[mutations]
+
+        #mutation_list=mutation_list.sort_values(by='ref_id', ascending=True)
+        #mutation_list['coding_region']=[0]*mutation_list.shape[0]
+        
         df_reference_final = pd.DataFrame([])
         patric_op_sub=pd.DataFrame([])
     
