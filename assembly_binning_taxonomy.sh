@@ -20,24 +20,24 @@ echo "starting DAS_TOOL at $(date)"
 bins=$overall_output_folder/BINS
 scaffold_file=$bins/my_scaffolds2bin.tsv
 contigs_file=$overall_output_folder/METASPADES/contigs.fasta
-dastool_output=$overall_output_folder/DAS_TOOL/das_tool_output
+dastool_output=$overall_output_folder/DAS_TOOL/
 
 
 if [ ! -d "$dastool_output" ] ; then
         mkdir $dastool_output
 fi
-
+dastool_output_base=$dastool_output/das_tool_output
 
 Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
 
 
 echo " Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file  " 
-DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output
+DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output_base
 
 echo "********************** \n \n \n **************** \n \n \n  "
 echo " THIS IS DAS TOOL PRINT statment:" 
 echo " \n \n "
-echo " DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output " 
+echo " DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output_base " 
 echo "finishing DAS_TOOL at $(date)"
 
 
