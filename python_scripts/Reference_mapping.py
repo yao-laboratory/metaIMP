@@ -121,7 +121,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
 
             current_ref_id=mutation_list.loc[j]['ref_id']
             mutation_pos=mutation_list.loc[j]['ref_pos']
-            a=mutation_list.loc[[j], :]
+            #a=mutation_list.loc[[j], :]
 
 
             if current_ref_id!=pre_ref_id:
@@ -136,6 +136,7 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                 if mutation_pos>=start_pos and mutation_pos<=end_pos:
                     #new codes:
                     mutation_list.at[j, 'coding_region']=1
+                    a=mutation_list.loc[[j], :]
                     b=patric_op.loc[[i], :]
                     newrow=pd.merge(a,b,on='ref_id',how='inner')
                     df_reference_final =pd.concat([df_reference_final,newrow],axis=0,ignore_index=True)
