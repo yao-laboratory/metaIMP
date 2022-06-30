@@ -88,6 +88,15 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         
 
 
+        metaimp_id_list = list()
+        for i in mutation_list.index:
+            metaimp_id="MetaIMP_"+str(i+1)
+            metaimp_id_list.append(metaimp_id)
+        mutation_list['MetaIMP_ID']=metaimp_id_list
+
+        
+
+
 
         #mut_count= midas_snps[['count_a','count_c','count_g','count_t']].max(axis=1)
         #count_equals = mut_count.eq(midas_snps['depth'])
@@ -136,11 +145,11 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
         #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         #print('FINISH!!!!')
 
-        metaimp_id_list = list()
-        for i in df_reference_final.index:
-            metaimp_id="MetaIMP_"+str(i+1)
-            metaimp_id_list.append(metaimp_id)
-        df_reference_final['MetaIMP_ID']=metaimp_id_list
+        #metaimp_id_list = list()
+        #for i in df_reference_final.index:
+        #    metaimp_id="MetaIMP_"+str(i+1)
+        #    metaimp_id_list.append(metaimp_id)
+        #df_reference_final['MetaIMP_ID']=metaimp_id_list
 
 
         #df_reference_final_1=df_reference_final.loc[df_reference_final['feature.feature_type']=='CDS']
