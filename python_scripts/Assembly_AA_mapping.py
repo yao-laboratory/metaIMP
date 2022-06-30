@@ -243,7 +243,10 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
     aa_df=aa_df.drop(['sequence'], axis=1)
 
     final_assembly_AA = os.path.join(aa_final_output,'Table_5_assembly_AA_mapping_result.csv')
+    final_assembly_AA = final_assembly_AA.drop_duplicates()
     aa_df.to_csv(final_assembly_AA,index=None)
+
+
 
     
     
