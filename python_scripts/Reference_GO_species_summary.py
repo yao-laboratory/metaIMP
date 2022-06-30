@@ -17,7 +17,7 @@ def go_summary_map(reference_output_folder):
         this_species_name = this_species_list[0]
         this_species_id = this_species_list[1]
 
-        go_table_file=os.path.join(reference_output_folder,species,'table_8_go_gene.csv')
+        go_table_file=os.path.join(reference_output_folder,species,'Table_8-2_reference_mapping_result_go_gene.csv')
 
         #print(ec_table_file)
 
@@ -34,7 +34,7 @@ def go_summary_map(reference_output_folder):
 
         final_species_go_sumarry= final_species_go_sumarry.append(go_file,ignore_index = True)
 
-    final_species_table=os.path.join(reference_output_folder,'go_summary_table.csv')
+    final_species_table=os.path.join(reference_output_folder,'Table_8-3_reference_mapping_result_go_summary_table.csv')
     final_species_go_sumarry.to_csv(str(final_species_table),sep=',',index=None)
 
 

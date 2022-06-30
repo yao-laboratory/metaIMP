@@ -125,11 +125,13 @@ def reference_mapping_for_one_data(patric_fullpath_filename,midas_snp_fullpath_f
                 start_pos=patric_op.loc[i]['feature.start']
                 end_pos=patric_op.loc[i]['feature.end']
                 if mutation_pos>=start_pos and mutation_pos<=end_pos:
+                    #new codes:
+                    mutation_list.at[j, 'coding_region']=1
                     b=patric_op.loc[[i], :]
                     newrow=pd.merge(a,b,on='ref_id',how='inner')
                     df_reference_final =pd.concat([df_reference_final,newrow],axis=0,ignore_index=True)
-                    #new codes:
-                    mutation_list.at[j, 'coding_region']=1
+                    ##new codes:#moved it above
+                    #mutation_list.at[j, 'coding_region']=1
                     #coding-value is one-value
         #df_reference_final.to_csv(output_fullpath_filename, sep=",",index=None)
         #print('FINISH!!!!')

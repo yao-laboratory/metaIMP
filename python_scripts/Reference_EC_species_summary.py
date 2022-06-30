@@ -18,7 +18,7 @@ def ec_summary_map(reference_output_folder):
         this_species_id = this_species_list[1]
 
 
-        ec_table_file=os.path.join(reference_output_folder,species,'table_7_ec_gene.csv')
+        ec_table_file=os.path.join(reference_output_folder,species,'Table_7-2_reference_mapping_result_ec_gene.csv')
 
         ec_file=pd.read_csv(ec_table_file)
         num_rows=ec_file.shape[0]
@@ -27,7 +27,7 @@ def ec_summary_map(reference_output_folder):
 
         final_species_ec_sumarry= final_species_ec_sumarry.append(ec_file,ignore_index = True)
     
-    final_species_table=os.path.join(reference_output_folder,'ec_summary_table.csv')
+    final_species_table=os.path.join(reference_output_folder,'Table_7-3_reference_mapping_result_ec_summary_table.csv')
     print("THIS IS THE FINAL SPECIES TABLE PATH FOR EC_SUmMARY.py \n \n ")
     print(final_species_table)
     final_species_ec_sumarry.to_csv(str(final_species_table),sep=',',index=None)

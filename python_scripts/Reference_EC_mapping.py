@@ -63,14 +63,14 @@ def ec_one_file(final_step5_file_loc,output_file_loc):
     final_ec_table['reads']=reads_list
     final_ec_table['num_of_mutations']=mutation_list
     
-    ec_table_name_ref=os.path.join(output_file_loc,"table_7_ec_ref.csv")
+    ec_table_name_ref=os.path.join(output_file_loc,"Table_7-1_reference_mapping_result_ec_ref.csv")
     print("EC TABLE NAME IS:",ec_table_name_ref)
     final_ec_table.to_csv(str(ec_table_name_ref), sep=",",index=None)
 
 
     final_ec_table_gene = final_ec_table.groupby(['gene_id','EC']).sum().reset_index()
     
-    ec_table_name_gene=os.path.join(output_file_loc,"table_7_ec_gene.csv")
+    ec_table_name_gene=os.path.join(output_file_loc,"Table_7-2_reference_mapping_result_ec_gene.csv")
     print("EC TABLE NAME IS:",ec_table_name_gene)
     final_ec_table_gene.to_csv(str(ec_table_name_gene), sep=",",index=None)
     

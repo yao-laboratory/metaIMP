@@ -84,19 +84,23 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #merge between all proteins and instrain
 
-    final_assembly = pd.merge (instrain , all_proteins,  on = 'scaffold', how = 'left')
-    
+    metaimp_id_list = list()
+    instrain_with_metaIMPID=instrain.copy()
+    for i in instrain_with_metaIMPID.index:
+        metaimp_id="MetaIMP_"+str(i+1)
+        metaimp_id_list.append(metaimp_id)
+    instrain_with_metaIMPID['MetaIMP_ID']=metaimp_id_list
 
+    #This merge step needs to be optimized in future
+    final_assembly = pd.merge (instrain_with_metaIMPID , all_proteins,  on = 'scaffold', how = 'left')
     #declare two new dfs to save coding non-coding mutations      
     final_assembly_noncoding_mutations=pd.DataFrame()
     final_assembly_coding_mutations=pd.DataFrame()
-    
+
     final_assembly = final_assembly.dropna(subset=['start_pos', 'end_pos'])
-    
+
     coding_region=list()
-    
-    
-    
+
     for i in final_assembly.index:
         this_record = final_assembly.loc[i]
         position = int(this_record['position'])
@@ -108,41 +112,23 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
             coding_region.append(1)
 
         else:
-            coding_region.append(0)
+            coding_region.append(0) #contain redundant information with coding mutations
 
-
-    
     final_assembly['coding_region']=coding_region
 
-   
-    final_assembly_noncoding_mutations=final_assembly.loc[final_assembly['coding_region']==0]
     final_assembly_coding_mutations=final_assembly.loc[final_assembly['coding_region']==1]  
-    
-    final_assembly_noncoding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
     final_assembly_coding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
-    
-    noncoding_col=19
-    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations.iloc[: , :noncoding_col]
-    final_assembly_noncoding_mutations=final_assembly_noncoding_mutations.drop_duplicates()
-
-
-    metaimp_id_coding_list = list()
-    for i in final_assembly_coding_mutations.index:
-        metaimp_id="MetaIMP_"+str(i+1)
-        metaimp_id_coding_list.append(metaimp_id)
-    final_assembly_coding_mutations['MetaIMP_ID']=metaimp_id_coding_list
-
-    metaimp_id_noncoding_list=list()
-    for i in final_assembly_noncoding_mutations.index:
-        metaimp_id="MetaIMP_"+str(i+1)
-        metaimp_id_noncoding_list.append(metaimp_id)
-    final_assembly_noncoding_mutations['MetaIMP_ID']=metaimp_id_noncoding_list
-
-
-    final_assembly_noncoding_mutations.to_csv(fin_assembly_noncoding,index=None)
     final_assembly_coding_mutations.to_csv(fin_assembly_coding,index=None)
-    
-    
+
+    coding_mutation_list=final_assembly_coding_mutations['MetaIMP_ID'].unique()
+    final_assembly_noncoding_mutations=final_assembly.loc[final_assembly['coding_region']==0]
+    final_assembly_noncoding_mutations.rename(columns = {'start_pos':'start_pos(1-based)','end_pos':'end_pos(1-based)','position':'position(0-based)'}, inplace = True)
+    final_assembly_noncoding_mutations_new=final_assembly_noncoding_mutations.loc[~final_assembly_noncoding_mutations['MetaIMP_ID'].isin(coding_mutation_list)]
+    noncoding_col=20
+    final_assembly_noncoding_mutations_new=final_assembly_noncoding_mutations_new.iloc[: , :noncoding_col]
+    final_assembly_noncoding_mutations_new=final_assembly_noncoding_mutations_new.drop_duplicates()
+    final_assembly_noncoding_mutations_new.to_csv(fin_assembly_noncoding,index=None)   
+
 def main():
     
     parser = argparse.ArgumentParser(prog='META_IMP_assembly_based',description='this method executes the assembly based mapping')
