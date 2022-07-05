@@ -32,12 +32,12 @@ Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
 
 
 echo " Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file  " 
-DAS_Tool -i $scaffold_file -c $contigs_file --score_threshold=0 -o $dastool_output_base
+DAS_Tool -i $scaffold_file -c $contigs_file --score_threshold 0 -o $dastool_output_base
 
 echo "********************** \n \n \n **************** \n \n \n  "
 echo " THIS IS DAS TOOL PRINT statment:" 
 echo " \n \n "
-echo " DAS_Tool -i $scaffold_file -c $contigs_file -o $dastool_output_base " 
+echo " DAS_Tool -i $scaffold_file -c $contigs_file --score_threshold 0 -o $dastool_output_base " 
 echo "finishing DAS_TOOL at $(date)"
 
 
