@@ -30,7 +30,9 @@ echo "spades python file called for 1st sample-reverse and forward read"
 spades.py --meta --pe1-1 $fastq1 \
         --pe1-2 $fastq2 \
         -t $t \
-        -o $output
+	-m 1000 \
+	-o $output
+
 echo "finshed spades"
 
 #DEFINE CONTIGS FILE IN contigs
