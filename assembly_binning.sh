@@ -78,9 +78,10 @@ echo "bam sorting"
 bam_sorted_file=$output/contig_mapping_sort.bam
 samtools sort $bam_file -o $bam_sorted_file
 
+#816-add_path-K.Sahu
 #create bam.bai file
 #explicit creation (remove samtools overwrite inconsistency) 
-bam_bai_file=contig_mapping_sort.bam.bai
+bam_bai_file=$output/contig_mapping_sort.bam.bai
 samtools index $bam_sorted_file $bam_bai_file
 
 echo "finished bam sort.starting binning"
