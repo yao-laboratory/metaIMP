@@ -56,8 +56,8 @@ def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
         kraken_dict=df_kraken_report.set_index('Notion')['New_annotation'].to_dict()
         kraken_list.append(kraken_dict)
 
-        kraken_inter_df=pd.DataFrame.from_records(kraken_list)
-        kraken_inter_df['bin']=kraken_bin_list
+    kraken_inter_df=pd.DataFrame.from_records(kraken_list)
+    kraken_inter_df['bin']=kraken_bin_list
 
 
     
