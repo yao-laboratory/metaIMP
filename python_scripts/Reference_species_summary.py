@@ -18,7 +18,7 @@ from Bio import SeqIO
 #function for one folder
 
 
-def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path,midas_tax_db):
+def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path):
     #print("MIDAS SPECIES TEXT FILE PATH IS THIS ::: $$$ \n")
     #print(midas_species_table_path,"\n")
     #get species_profile filename from MIDAS. this is constant
@@ -68,38 +68,25 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
     midas_species_profile['species_id']=id_list
     midas_species_profile['mutation_count']=mutation_count_list
     
-    total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_reference_mapping_result_total_mutation.csv")
-    midas_species_profile.to_csv(total_species_info, sep=",",index=None)
     
-    midas_tax=pd.read_csv(midas_tax_db,sep='|',dtype=str)
-    midas_tax.columns = midas_tax.columns.str.strip()
-    for col_name in midas_tax.columns:
-        midas_tax[col_name]=midas_tax[col_name].str.strip()
-    midas_tax=midas_tax.drop(['code', 'preferred name'], axis=1)
-    midas_tax=midas_tax.rename(columns={"name": "species_name"})
-
-    table_6=pd.read_csv(total_species_info,sep=',')
+    
     new_species_list=list()
-    for i in table_6.index:
-        species_name=table_6.loc[i]['species'].split('_')
+    for i in midas_species_profile.index:
+        species_name=midas_species_profile.loc[i]['species'].split('_')
         new_sname=(species_name[0]+" " + species_name[1])
         new_species_list.append(new_sname)
-    #print(species_name)
-    table_6['species_name']=new_species_list
-    table_6_ncbi_tax_id=pd.merge(table_6,midas_tax_db,how='left',on='species_name')
-
+    midas_species_profile['species_name']=new_species_list
     
+    midas_tax_db=pd.read_csv("./midas_tax_db.csv",sep='\t')
+    table_6_ncbi_tax_id=pd.merge(midas_species_profile,midas_tax_db,how='left',on='species_name')
+    
+    total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_reference_mapping_result_total_mutation.csv") 
     table_6_ncbi_tax_id.to_csv(total_species_info, sep=",",index=None)
-#table_6=table_6.drop(columns=['species'])
-
-    #path=ref_snp_annotations_folder_path
-
-    #step_5_results_folder_list=next(os.walk(path))[1]
 
     
+    
 
-    #step_5_results_folder=os.path.join(ref_snp_annotations_folder_path,species)
-
+    
 
  #   for species in step_5_results_folder_list:
  #       step_5_results_folder=os.path.join(ref_snp_annotations_folder_path,species)
