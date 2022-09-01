@@ -18,7 +18,7 @@ from Bio import SeqIO
 #function for one folder
 
 
-def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path):
+def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path,midas_tax_db):
     #print("MIDAS SPECIES TEXT FILE PATH IS THIS ::: $$$ \n")
     #print(midas_species_table_path,"\n")
     #get species_profile filename from MIDAS. this is constant
@@ -70,7 +70,8 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
     
     total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_reference_mapping_result_total_mutation.csv")
     midas_species_profile.to_csv(total_species_info, sep=",",index=None)
-
+    
+    
     #path=ref_snp_annotations_folder_path
 
     #step_5_results_folder_list=next(os.walk(path))[1]
@@ -154,18 +155,18 @@ def main():
     add_parser = subparser.add_parser("species_mut_count",help="This function is count mutation per species")
     add_parser.add_argument("-m", dest="midas_species_file", type=str, help="species file from midas as input")
     add_parser.add_argument("-n", dest="metaimp_reference_mapping_results_main_folder", type=str, help="this is the main folder where all results for step 5 is saved organzied by species")
-    
+    add_parser.add_argument("-d", dest="tax_db",type=str, help="midas taxonomy database by ncbi")
     
     args = parser.parse_args()
     
     if args.subcommand=='species_mut_count':
         midas_species_folder_path=args.midas_species_file
         step_5_mapping_result=args.metaimp_reference_mapping_results_main_folder
-        
+        midas_tax_db=args.tax_db
         print("MIDAS SPECIES PROFILE AND STeP 5 mapping reuslt are :: \n")
-        print(midas_species_folder_path, step_5_mapping_result)
+        print(midas_species_folder_path, step_5_mapping_result,midas_tax_db)
         
-        species_profile_for_all_files(midas_species_folder_path, step_5_mapping_result)
+        species_profile_for_all_files(midas_species_folder_path, step_5_mapping_result,midas_tax_db)
     else:
         print("Wrong input. Check parameters")
         
