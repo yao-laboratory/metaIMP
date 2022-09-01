@@ -8,7 +8,6 @@
 
 
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
-midas_tax_db=$metaIMP_path/tax_report_midas_db.txt
 export USER_ENV_NAME=mimp_v1 
 #kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 #export KRAKEN_DATABASE=$kraken_db_path
@@ -48,9 +47,8 @@ database_folder=$MIDAS_DB
 echo " "
 echo "###########################################################################################################"
 
-echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads $midas_tax_db"
-$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads $midas_tax_db
-
+echo "$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads"
+$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 echo " "
 echo "###########################################################################################################"
 
