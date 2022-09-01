@@ -7,7 +7,7 @@ sampleID=$3
 database_folder=$4
 output_folder=$5
 min_thread=$6
-
+midas_tax_db=$7
 
 if [ ! -d "$output_folder" ] ; then
         mkdir $output_folder
