@@ -3,6 +3,7 @@ genes_folder=$1
 patric_folder=$2
 snps_folder=$3
 output_folder=$4
+midas_tax_db=$5
 midas_species_folder=$output_folder/MIDAS/species/species_profile.txt
 output_folder_final=$output_folder/REFERENCE_SNP_ANNOTATION
 echo 'this is reference based mapping'
@@ -32,7 +33,7 @@ echo 'AA mutations calcuated'
 
 
 echo "species summary is being created at $(date)"
-python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder_final
+python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder_final -d $midas_tax_db
 echo "species summary is done at $(date)"
 
 echo "starting ec and go map"

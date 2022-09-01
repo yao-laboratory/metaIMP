@@ -101,7 +101,7 @@ else
                 echo "$log_protein_annotation exists. Skipping annotations @ $(date) "
         else
                 echo "$log_protein_annotation does not exist. Starting SNP_annotation at $(date)"
-		$DIR/ref_protein_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/
+		$DIR/ref_protein_annotation.sh $output_folder/MIDAS/genes/output $output_folder/MIDAS/genes/output $output_folder/MIDAS/snps/output $output_folder/ $midas_tax_db
 		echo "Finished protein_annotaion at $(date)."
 		touch $log_protein_annotation
 	fi
