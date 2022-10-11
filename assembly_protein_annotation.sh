@@ -21,6 +21,7 @@ contigs=$5
 path_to_kraken_dir=$6
 scaffold_info=$7
 checkm_stats=$8
+coverage_file=$9 #coverage file from bbwrap
 step_5_mapping_results=$output/Table_1_assembly_mapping_result_coding.csv
 
 if [ ! -d "$output" ] ; then
@@ -44,7 +45,7 @@ echo "mapping Kraken annotations to bins"
 echo "scaffold is $scaffold_info"
 python $DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -o $output
 echo "Kraken annotation-bin mapping complete"
-echo "$DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -o $output"
+echo "$DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_kraken_dir -c $scaffold_info -i $instrain -v $step_5_mapping_results -s $checkm_stats -e $coverage_file -o $output"
 
 echo "python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output"
 echo "EC and GO tables"

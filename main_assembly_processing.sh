@@ -186,14 +186,14 @@ else
         path_to_kraken_dir=$output_folder/KRAKEN
         scaffold_info=$output_folder/BINS/my_scaffolds2bin.tsv
         checkm_stats=$output_folder/BINS/CHECKM/storage/bin_stats.analyze.tsv
-	
+	coverage_file=$output_folder/METASPADES/coverage.txt #coverage file from bbwrap added as parameter 
 	log_protein_annotation=$log_folder/protein_annotation.log
         if [ -f "$log_protein_annotation" ] ; then
                 echo "$log_protein_annotation exists. Skip snp annotation mapping..."
         else
                 echo "$log_protein_annotation does not exist"
                 echo "starting final mapping between snps and annotations at $(date)..."
-                $DIR/assembly_protein_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats
+                $DIR/assembly_protein_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats $coverage_file
                 echo "finishd assembly_protein_annotation at $(date)"
                 touch $log_protein_annotation
 	fi
