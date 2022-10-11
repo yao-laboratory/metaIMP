@@ -240,6 +240,7 @@ def main():
     kraken_assembly_mapping_parser.add_argument("-v", dest="step_5_mapping_result", type=str, 
                                          help="step_5_mapping_result obtained from metaIMP as input eg. /path/to/assembly_mapping.csv")
     kraken_assembly_mapping_parser.add_argument("-s", dest="checkm_stats", type=str, help='checkm stats file eg. /path/to/BINS/CHECKM/storage/bin_stats.analyze.tsv')
+    kraken_assembly_mapping_parser.add_argument("-e", dest="coverage", type=str, help="coverage file from bbwrap path") #new addition coverage file from bbwrap
     kraken_assembly_mapping_parser.add_argument("-o", dest="output", type=str, help="output file path")
     
     args = parser.parse_args()
@@ -250,8 +251,9 @@ def main():
         step_5_mapping_result=args.step_5_mapping_result
         checkm_stats=args.checkm_stats
         scaffold_information=args.scaffold_information
+        coverage=args.coverage
         output=args.output
-        checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, output)
+        checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, coverage, output)
         
     else:
         print("Wrong input. Check parameters")
