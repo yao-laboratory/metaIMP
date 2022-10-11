@@ -139,5 +139,17 @@ mv $binfolder/bins.unbinned.fa $binfolder/unbinned.fa
 #ASSEMBLY_BINNING script is complete
 echo "assembly_binning step is complete"
 
+#new addition for bbwrap
+# Determine coverage
+## Align reads with BBmap BBwrap
+$DIR/bbmap/bbwrap.sh \
+	ref=$contigs \
+        in1=$fastq1 \
+        in2=$fastq2 \
+        out=$output/aln.sam.gz
 
+## Output contig coverage
+$DIR/bbmap/pileup.sh \
+        in1=$output/aln.sam.gz \
+        out=$output/coverage.txt
 
