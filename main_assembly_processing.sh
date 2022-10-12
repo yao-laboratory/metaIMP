@@ -193,7 +193,7 @@ else
         else
                 echo "$log_protein_annotation does not exist"
                 echo "starting final mapping between snps and annotations at $(date)..."
-                $DIR/assembly_protein_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats $coverage_file
+                $DIR/assembly_protein_annotation.sh $instrain_file $annotation_file $mergedfile $assembly_snp_annotation $contigs_file $path_to_kraken_dir $scaffold_info $checkm_stats $coverage_file $output_folder $sampleID
                 echo "finishd assembly_protein_annotation at $(date)"
                 touch $log_protein_annotation
 	fi

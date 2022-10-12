@@ -22,6 +22,8 @@ path_to_kraken_dir=$6
 scaffold_info=$7
 checkm_stats=$8
 coverage_file=$9 #coverage file from bbwrap
+main_output_folder=$10
+sampleID=$11
 step_5_mapping_results=$output/Table_1_assembly_mapping_result_coding.csv
 
 if [ ! -d "$output" ] ; then
@@ -52,3 +54,8 @@ echo "EC and GO tables"
 python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
 python $DIR/python_scripts/Assembly_GO_calculation.py go_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
 echo "EC + GO annotations ready"
+
+echo "Bin_AA mapping py from DST and bins"
+python $DIR/python_scripts/Assembly_bin_AA_mapping.py bin_aa_map -i $main_output_folder -s $sampleID
+echo "python $DIR/python_scripts/Assembly_bin_AA_mapping.py bin_aa_map -i $main_output_folder -s $sampleID"
+echo "Bin_AA mapping complete"
