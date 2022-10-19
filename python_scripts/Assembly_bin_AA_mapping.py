@@ -15,6 +15,7 @@ import argparse
 
 def make_bin_table(sample_dir,sample_name):
     dst=pd.read_csv(os.path.join(sample_dir,"DAS_TOOL/das_tool_output_DASTool_summary.tsv"),sep='\t',header=0)
+    print(dst,"this is the das tool file")
     dst_selective=dst[['bin','bin_score','SCG_completeness','SCG_redundancy']]
     t1_coding=pd.read_csv(os.path.join(sample_dir,"ASSEMBLY_SNP_ANNOTATION/Table_1_assembly_mapping_result_coding.csv"),sep=",",header=0)
     t1_coding_selective=t1_coding[['scaffold','coding_region']].groupby('scaffold').size().to_frame().reset_index()
@@ -67,6 +68,7 @@ def make_bin_table(sample_dir,sample_name):
 
     final_merge['sample_name']=[sample_name]*final_merge.shape[0]
     output_file=sample_dir+"/ASSEMBLY_SNP_ANNOTATION/Table_9_bin_AA.csv"
+    print(output_file,"this is the output file")
     final_merge.to_csv(output_file,index=None, sep = '\t')
     return final_merge
 
