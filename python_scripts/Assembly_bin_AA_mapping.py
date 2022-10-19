@@ -66,7 +66,7 @@ def make_bin_table(sample_dir,sample_name):
     final_merge=pd.merge(intermediate_table,dst_selective,on='bin',how="left")
 
     final_merge['sample_name']=[sample_name]*final_merge.shape[0]
-    output_file=sample_dir+"ASSEMBLY_SNP_ANNOTATION/Table_9_bin_AA.csv"
+    output_file=sample_dir+"/ASSEMBLY_SNP_ANNOTATION/Table_9_bin_AA.csv"
     final_merge.to_csv(output_file,index=None, sep = '\t')
     return final_merge
 
