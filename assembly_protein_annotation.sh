@@ -22,8 +22,8 @@ path_to_kraken_dir=$6
 scaffold_info=$7
 checkm_stats=$8
 coverage_file=$9 #coverage file from bbwrap
-main_output_folder=$10
-sampleID=$11
+main_output_folder=${10}
+sampleID=${11}
 step_5_mapping_results=$output/Table_1_assembly_mapping_result_coding.csv
 
 if [ ! -d "$output" ] ; then
