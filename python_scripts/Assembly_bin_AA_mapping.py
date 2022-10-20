@@ -91,3 +91,6 @@ def main():
         print("---------------End assembly AA map")
     else:
         print("Wrong input. Check parameters")
+
+if __name__ == "__main__": 
+    main()
