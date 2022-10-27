@@ -28,7 +28,12 @@ if [ ! -d "$dastool_output" ] ; then
 fi
 dastool_output_base=$dastool_output/das_tool_output
 
-Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
+#new if-else for version compatability
+if command -v Fasta_to_Contig2Bin.sh; then
+	Fasta_to_Contig2Bin.sh -e fa -i $bins > $scaffold_file
+else
+	Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file
+fi
 
 
 echo " Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file  " 
