@@ -17,6 +17,12 @@ fi
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
 
+
+if [ ! -f "$instrain" ] ; then
+	echo "WARNING:---INSTRAIN result is empty, now using a default empty file. Please check INSTRAIN results if you need INSTRAIN results"
+        scp $DIR/python_scripts/INSTRAIN_SNVs.tsv $instrain
+fi
+
 echo 'starting assembly mapping'
 #cd ./python_scripts/
 python $DIR/python_scripts/Assembly_mapping.py a_map -i $instrain -e $eggnog -m $mergedfile -o $output
