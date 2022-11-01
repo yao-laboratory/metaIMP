@@ -37,5 +37,5 @@ emapper.py -h
 run_midas.py -h
 kraken2 -h
 fastqc -h
-
+megahit -h
 conda deactivate
