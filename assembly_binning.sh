@@ -151,9 +151,9 @@ $DIR/bbmap/bbwrap.sh \
         in1=$fastq1 \
         in2=$fastq2 \
         out=$output/aln.sam.gz
-
+	threads=$t
 ## Output contig coverage
 $DIR/bbmap/pileup.sh \
         in1=$output/aln.sam.gz \
-        out=$output/coverage.txt
-
+        out=$output/coverage.txt\
+	threads=$t
