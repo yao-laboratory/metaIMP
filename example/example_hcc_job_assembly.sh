@@ -58,7 +58,7 @@ module load phylophlan/3.0
 #modules for assembly_contig_annotation.sh:
 echo "loading modules for assembly_contig_annotation.sh"
 module load eggnog-mapper/2.1
-
+ml megahit/1.1
 #modules for assembly_snp_calling.sh:
 module load instrain/1.3
 export PYTHONNOUSERSITE=1
