@@ -83,7 +83,7 @@ else
                 echo "$log_assembly_methods does not exist"
                 echo "starting assembly methods at $(date)..."
 		$DIR/assembly_binning.sh $read1 $read2 $assembly_mode $output_folder $min_thread $min_contig_length
-
+	fi
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
 	if [ -f "$log_assembly_binning" ]; then
