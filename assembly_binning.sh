@@ -25,15 +25,19 @@ if [ ! -d "$output" ] ; then
         mkdir $output
 fi
 
+if [ ! -f "$output/contigs.fasta" ] ; then
 
-echo "spades python file called for 1st sample-reverse and forward read"
-spades.py --meta --pe1-1 $fastq1 \
-        --pe1-2 $fastq2 \
-        -t $t \
-	-m 1000 \
-	-o $output
+	echo "spades python file called for 1st sample-reverse and forward read"
+	spades.py --meta --pe1-1 $fastq1 \
+	        --pe1-2 $fastq2 \
+	        -t $t \
+		-m 1000 \
+		-o $output
 
-echo "finshed spades"
+	echo "finshed spades"
+else
+	echo "Assembly is skipped due to the existence of contigs.fasta in assembly-binning.sh"
+fi
 
 #DEFINE CONTIGS FILE IN contigs
 contigs=$output/contigs.fasta
@@ -49,7 +53,7 @@ fi
 #QUAST QUALITY CHECK
 
 echo "starting quast"
-quast.py $contigs -1 $fastq1 -2  $fastq2 -o $overall_output_folder/QUAST
+quast.py $contigs -1 $fastq1 -2 $fastq2 -o $overall_output_folder/QUAST
 
 #INDEXED CONTIG
 
