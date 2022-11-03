@@ -56,7 +56,7 @@ echo " Python 3.7 is installed"
 
 mamba install -y -c bioconda quast
 mamba install -y -c bioconda bowtie2
-mamba install -y -c bioconda spades
+mamba install -y -c bioconda spades=3.15
 mamba install -y -c bioconda metabat2
 mamba install -y -c bioconda checkm-genome
 mamba install -y -c bioconda das_tool
@@ -71,7 +71,7 @@ mamba install -y -c bioconda midas
 mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
 mamba install -y -c anaconda scikit-bio
-mamba install -y -c bioconda megahit
+mamba install -y -c bioconda megahit=1.2
 
 #updated ulitity.py
 cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
