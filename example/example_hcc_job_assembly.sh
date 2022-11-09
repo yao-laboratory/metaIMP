@@ -65,11 +65,10 @@ export PYTHONNOUSERSITE=1
 
 
 
-
 echo " "
 echo "###########################################################################################################"
 echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len"
-$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
+$metaIMP_path/main_assembly_processing_new.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
 
 echo " "
 echo "###########################################################################################################"
