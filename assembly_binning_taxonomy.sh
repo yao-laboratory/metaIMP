@@ -78,13 +78,13 @@ echo "finished kraken at $(date)"
 #PHYLOPHLAN
 echo "starting PHYLOPHLAN at $(date)"
 
-phylophlan_output=$overall_output_folder/PHYLOPHLAN
+phylophlan_output=$overall_output_folder/PHYLOPHLAN/
 
 if [ ! -d "$phylophlan_output" ] ; then
         mkdir $phylophlan_output
 fi
 
-phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DATABASE -e .fa -o $phylophlan_output
+phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DATABASE -e .fa -o $phylophlan_output/phylophlan
 
 echo "finishing PHYLOPHLAN at $(date)"
 
