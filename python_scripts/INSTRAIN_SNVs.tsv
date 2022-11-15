@@ -1,1 +1,1 @@
-scaffold	position	position_coverage	allele_count	ref_base	con_base	var_base	ref_freq	con_freq	var_freq	A	C	T	G	gene	mutation	mutation_type	cryptic class
+scaffold	position	position_coverage	allele_count	ref_base	con_base	var_base	ref_freq	con_freq	var_freq	A	C	T	G	gene	mutation	mutation_type	cryptic	class
