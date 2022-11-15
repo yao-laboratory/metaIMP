@@ -93,6 +93,8 @@ def assembly_mapping(instrain,eggnog,mergedfile,fin_assembly):
 
     #This merge step needs to be optimized in future
     final_assembly = pd.merge (instrain_with_metaIMPID , all_proteins,  on = 'scaffold', how = 'left')
+    first_column=final_assembly.pop('scaffold')
+    final_assembly.insert(0,'scaffold',first_column)
     #declare two new dfs to save coding non-coding mutations      
     final_assembly_noncoding_mutations=pd.DataFrame()
     final_assembly_coding_mutations=pd.DataFrame()
