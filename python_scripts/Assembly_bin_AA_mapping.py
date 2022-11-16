@@ -59,7 +59,10 @@ def make_bin_table(sample_dir,sample_name):
     t6_species=pd.read_csv(os.path.join(sample_dir,"ASSEMBLY_SNP_ANNOTATION/Table_6_assembly_bin_species.csv"),sep=",",header=0)
     t6_species_selective=t6_species[['bin','P','C','O','F','G','S','coverage','Genome size','N50 (scaffolds)','Coding density',
                                      'total_mutation_count_by_instrain','total_mutation_count_by_metaIMP','scaffold']]
-
+    
+    t5_aa_count_df['scaffold']=t5_aa_count_df['scaffold'].astype(str)
+    t6_species_selective['scaffold']=t6_species_selective['scaffold'].astype(str)
+    
     species_aa_merge=pd.merge(t6_species_selective,t5_aa_count_df,how='left',on='scaffold')
  
     intermediate_table=pd.merge(species_aa_merge,t1_t2_merge,on='scaffold',how='left')
