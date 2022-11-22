@@ -46,7 +46,7 @@ export PYTHONNOUSERSITE=1
 source activate $USER_ENV_NAME
 echo '###########################################################################################################'
 #echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len"
-echo "$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len $assembly_mode"
+echo "$metaIMP_path/main_assembly_processing_new.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len $assembly_mode"
 #$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
 $metaIMP_path/main_assembly_processing_new.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len $assembly_mode
 echo '###########################################################################################################'
