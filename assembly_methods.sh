@@ -65,17 +65,17 @@ case $assembly_mode in
     ;;
 
   3 |  "3") 
-	megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output
+	megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output/out
 	scp $megahit_output/final.contigs.fa $metaspade_output/contigs.fasta
     	
-    	echo -n "megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output"
+    	echo -n "megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output/out"
 
     ;;
   4 | "4")
-	megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output
+	megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output/out
 	scp $megahit_output/final.contigs.fa $metaspade_output/contigs.fasta
 	
-    	echo -n "megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output"
+    	echo -n "megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output/out"
     ;;    
 
   *)
