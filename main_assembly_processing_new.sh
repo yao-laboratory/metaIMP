@@ -76,14 +76,14 @@ else
 	echo '###########################################################################################################'
 
 	#METHODS
-	log_assmebly_methods=$log_folder/assembly_methods.log
+	log_assembly_methods=$log_folder/assembly_methods.log
 	if [ -f "$log_assembly_methods" ]; then
                 echo "$log_assembly_methods exists. Skip assembly and binning..."
         else
                 echo "$log_assembly_methods does not exist"
                 echo "starting assembly methods at $(date)..."
 		$DIR/assembly_methods.sh $read1 $read2 $assembly_mode $output_folder $min_thread $min_contig_length
-		touch $log_assmebly_methods
+		touch $log_assembly_methods
 	fi
 	# BINNING
 	log_assembly_binning=$log_folder/assembly_binning.log
