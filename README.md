@@ -108,14 +108,14 @@ OUTPUT FOLDER <br />
 | |_____CHECKM FOLDER <br />
 | |____ MERGEDFILE.FNA <br />
 | 
-|_INSTRAIN FOLDER
-|_EGGNOG RESULTS
-|_PHYLOPHLAN FOLDER
-|_______KRAKEN FOLDER
-|_______QUAST FOLDER
-|_______DAS_TOOL FOLDER
-|_______QC TOOL FOLDER
-|_______ASSEMBLY SNP ANNOTATION
+|_INSTRAIN FOLDER <br />
+|_EGGNOG RESULTS <br /> 
+|_PHYLOPHLAN FOLDER <br />
+|_______KRAKEN FOLDER <br />
+|_______QUAST FOLDER <br />
+|_______DAS_TOOL FOLDER <br />
+|_______QC TOOL FOLDER <br />
+|_______ASSEMBLY SNP ANNOTATION <br />
 
 ---------------------------------------
 
@@ -123,12 +123,12 @@ OUTPUT FOLDER <br />
 
 OUTPUT FOLDER
 |
-|__________MIDAS FOLDER
-| |________MIDAS SPECIES
-| |________MIDAS GENES
-| | |______UPDATED PATRIC FILES (WITH FIG_ID PREFIX- PATRIC.CSV) AND PATRIC ANNOTATIONS ( FEATURE.CSV)
-| |________MIDAS SNPS
-|__________REFERENCE SNP ANNOTATIONS
+|__________MIDAS FOLDER <br />
+| |________MIDAS SPECIES <br />
+| |________MIDAS GENES <br />
+| | |______UPDATED PATRIC FILES (WITH FIG_ID PREFIX- PATRIC.CSV) AND PATRIC ANNOTATIONS ( FEATURE.CSV) <br />
+| |________MIDAS SNPS <br />
+|__________REFERENCE SNP ANNOTATIONS <br />
 
 
 We also create a empty temporary folder called 'temp' in the output folders for both ASSEMBLY PIPELINE and REFERENCE PIPELINE. User can move any non-essential file to this folder.
