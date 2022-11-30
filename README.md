@@ -99,14 +99,14 @@ mamba install -c conda-forge singularity
 #ASSEMBLY PIPELINE OUTPUT OUTLINE:
 OUTPUT FOLDER <br />
 |______METASPADES FOLDER <br />
-| |_____SAM FILE
-| |___BAM FILE
-| |____BAM SORTED FILE
-| |___CONTIGS.FASTA
+| |_____SAM FILE <br />
+| |___BAM FILE <br />
+| |____BAM SORTED FILE <br />
+| |___CONTIGS.FASTA <br />
 |
-|______BINS FOLDER
-| |_____CHECKM FOLDER
-| |____ MERGEDFILE.FNA
+|______BINS FOLDER <br /> 
+| |_____CHECKM FOLDER <br />
+| |____ MERGEDFILE.FNA <br />
 | 
 |_INSTRAIN FOLDER
 |_EGGNOG RESULTS
