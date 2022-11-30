@@ -97,8 +97,8 @@ mamba install -c conda-forge singularity
 ----------------------------------------------------
 
 #ASSEMBLY PIPELINE OUTPUT OUTLINE:
-OUTPUT FOLDER
-|______METASPADES FOLDER
+OUTPUT FOLDER <br />
+|______METASPADES FOLDER <br />
 | |_____SAM FILE
 | |___BAM FILE
 | |____BAM SORTED FILE
