@@ -3,31 +3,76 @@
 metaIMP
 
 An integrated metagenomic pipeline which allows you to use multiple genomic tools in sequence and tells you the annnotations of discovered mutations.
-
+---------------------------------------------------------------------------------------
 Description:
 
+metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 
+The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
-metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis.
+---------------------------------------------------------------------------------------
+Installation:
 
+metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal. 
 
+These are tools required for metaIMP:
 
-Prepare your dataset: Paired-end files ( FASTQ1,FASTQ2). Can be FASTA format
+samtools
+quast
+bowtie2
+spades
+metabat2
+checkm-genome
+das_tool
+phylophlan
+instrain
+eggnog-mapper
+midas
+kraken2
+fastqc
+singularity
 
-Download metaIMP repository. Use the folder path as input to all the sh scripts.
-	
-Install dependencies in your environment such as Python. Install packages: pandas and Bio
+These python packages are required for metaIMP:
+python/3.6
+pandas
+Bio
+
+In order to install dependencies for this pipeline using conda/mamba, use the following commands:
+
+mamba install -y -c bioconda samtools
+mamba install -y -c bioconda quast
+mamba install -y -c bioconda bowtie2
+mamba install -y -c bioconda spades
+mamba install -y -c bioconda metabat2
+mamba install -y -c bioconda checkm-genome
+mamba install -y -c bioconda das_tool
+mamba install -y -c bioconda phylophlan
+mamba install -y -c conda-forge -c bioconda -c defaults instrain
+mamba install -y -c bioconda eggnog-mapper
+mamba install -y -c bioconda midas
+mamba install -y -c bioconda kraken2
+mamba install -y -c bioconda fastqc
+mamba install -c conda-forge singularity
+
 
 Follow the example shell script named “example_hcc_job.sh” to create a bash job for metaIMP pipeline. 
+---------------------------------------------------------------------------------------
+Usage:
 
-In this job, the user will need to provide the following information:
-	
+
+---------------------------------------------------------------------------------------
+Test data:
+---------------------------------------------------------------------------------------
+Module detaisl:
+
+---------------------------------------------------------------------------------------
+
+In this job, the user will need to provide the following informatio
 Input paired-end file path
 Output folder path
 Number of threads 
 Minimum contig length ( OPTIONAL) (ASSEMBLY ONLY) - if the user wants to filter contigs after assembly process, this option should be used.
-Path to metaIMP directory
-Environment variable calling
+h to metaIMP directoryEnvironment variable calling
 
 Tools used:
 
@@ -190,75 +235,3 @@ pandas - This module needs to be installed - pip install pandas
 gzip
 
 --------------------------------------
-These modules are used in scripts which can found in the 'example' folder.
-These modules are maintained by Holland Computing Centre  @ University of Nebraska, Lincoln.
-We highly recommend users to acquire exact version of the tools we have mentioned below.
-______________________________________
-
-MODULE LOADS:
---------------------------------------
-
-
-REFERENCE PIPELINE:
--------------------
-
-PREPROCESSING.SH:
-
-BBMAP - java/12
--------------------
-
-REF_SPECIES_GENES_SNPS.SH:
-
-
-module purge
-module load midas/1.3
-module load samtools/1.9
---------------------
-
-
-REF_SNP_ANNOTATION:
-
-module load singularity/3.7
-
--------------------------------
-
-
-
-________________________________________
-
-
-ASSEMBLY PIPELINE:
-------------------
-
-
-ASSEMBLY_BINNING.SH:
-
-module load spades/3.14
-module load quast/5.0
-module load bowtie/2.3
-module load bowtie/2.3
-module load samtools/1.9
-module load samtools/1.9
-module load metabat2/2.15
-module load checkm-genome/1.1
---------------------------------
-
-assembly_contig_annotation.sh:
-
-module load eggnog-mapper/2.1
-
-
---------------------------------
-
-ASSEMBLY_SNP_ANNOTATION.SH: 
-
-module load python/3.6
-
--------------------------------
-ASSEMBLY_SNP_CALLING.SH:
-
-module load instrain/1.3
-#module load python/3.6
-#module load biopython/py27/1.74
-export PYTHONNOUSERSITE=1
-
