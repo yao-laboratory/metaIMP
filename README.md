@@ -1,29 +1,39 @@
-
-
-
 MetaIMP
 
 -------------
-INTRODUCTION:
+INTRODUCTION
 -------------
+metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 
-An integrated metagenomic pipeline which allows you to use multiple genomic tools in sequence and tells you the annnotations of discovered mutations.
-
----------------------------------------------------------------------------------------
-INSTALLATION:
+-------------
+INSTALLATION
+-------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
 
--To download metaIMP from Github, use : git clone https://github.com/yao-laboratory/metaIMP
+To download metaIMP from Github, use : git clone https://github.com/yao-laboratory/metaIMP
 
-After the repo is with the downloaded path: 
+After the repo is cloned, user can run the following shell script to install their custom python environment
+1) ./install.sh
+2) ./install_test.sh
 
+-------------
+TUTORIAL
+-------------
 
-Description:
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
----------------------------------------------------------------------------------------
-Installation:
 
+----------------------
+COMMAND LINE AND INPUT
+----------------------
+
+-------------
+OUTPUT
+-------------
+
+-------------
+TIPS
+-------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal. 
 
 These are tools required for metaIMP:
