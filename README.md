@@ -13,7 +13,7 @@ Installation:
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal. 
 
 These are tools required for metaIMP:
-
+asd
 samtools
 quast
 bowtie2
@@ -28,6 +28,7 @@ midas
 kraken2
 fastqc
 singularity
+
 
 These python packages are required for metaIMP:
 python/3.6
