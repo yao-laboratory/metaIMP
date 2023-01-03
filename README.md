@@ -119,8 +119,7 @@ Steps:
 
 -------------------------------------------
 
-In order to install dependencies for this pipeline using conda/mamba, use the following commands:
-
+In order to install dependencies for this pipeline using conda/mamba, use the following commands: <\n>
 mamba install -y -c bioconda samtools <br />
 mamba install -y -c bioconda quast <br />
 mamba install -y -c bioconda bowtie2 <br />
@@ -135,7 +134,6 @@ mamba install -y -c bioconda midas <br />
 mamba install -y -c bioconda kraken2 <br />
 mamba install -y -c bioconda fastqc <br />
 mamba install -c conda-forge singularity <br />
-
 
 
 ----------------------------------------------------
