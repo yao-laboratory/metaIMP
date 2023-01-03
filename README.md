@@ -1,15 +1,12 @@
 
 
 metaIMP
-echo
+
 An integrated metagenomic pipeline which allows you to use multiple genomic tools in sequence and tells you the annnotations of discovered mutations.
 ---------------------------------------------------------------------------------------
 Description:
-echo
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
-echo
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
-echo
 ---------------------------------------------------------------------------------------
 Installation:
 
