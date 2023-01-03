@@ -65,6 +65,7 @@ In this pipeline, the user will need to provide the following information:
 4) Minimum contig length ( OPTIONAL) (ASSEMBLY ONLY) - if the user wants to filter contigs after assembly process, this option should be used.
 5) Path to metaIMP directoryEnvironment variable calling
 
+Users must run install.sh to create an environment for metaIMP. Next, users must the stand-alone version of example jobs shell scripts provided in the Example folder.
 ---------------------------------------------------------------------------------------
 Test data:
 
