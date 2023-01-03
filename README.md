@@ -16,6 +16,45 @@ After the repo is cloned, user can run the following shell script to install the
 1) ./install.sh
 2) ./install_test.sh
 
+These tools are required to be installed for metaIMP:
+samtools
+quast
+bowtie2
+spades
+metabat2
+checkm-genome
+das_tool
+phylophlan
+instrain
+eggnog-mapper
+midas
+kraken2
+fastqc
+singularity
+
+
+These python packages are required for metaIMP:
+python/3.6
+pandas
+Bio
+
+
+These steps describes how to create a virtual python environment to run our pipeline:
+
+1) Verify conda is installed, check version number : conda info
+2) Update conda to the current version : conda update conda
+3) List the environment you have ever created : conda env list
+4) Install a package included in Anaconda : conda install PACKAGENAME
+5) Create a new environment (example name: metaIMP_env), install Python 3.8 : conda create -n metaIMP_env python=3.8.12
+6) Install pacakges for python in the new environment: pip install biopython 1.79, pip install pandas 1.3.5
+6) Activate new environment : conda activate metaIMP_env
+7) Now your new environment is ready to use metaIMP python codes.
+8) Proceed with step 4 if any missing packages are found
+9) Deleting environment:conda remove --name metaIMP_env
+        a) Deleting a package: conda remove package
+10) Sharing environment with a friend:
+        a) conda metaIMP_env export > environment.yml
+        b) conda env create -f environment.yml
 -------------
 TUTORIAL
 -------------
@@ -23,12 +62,12 @@ TUTORIAL
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
-STEP 0: Download fastq files from NCBI (add link)
+STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
 STEP 1: Assembly based method
-	Option 1)Submit stand alone job for assembly pipeline using
-	Option 2)Submit job from Open-Science Grid (OSG) using  
-	Option 3)Submit job from UNL's Holland Computing Center (HCC) server using 
+	Option 1)Submit stand alone job for assembly pipeline using the stand alone example jobs in the Example folder.
+	Option 2)Submit job from Open-Science Grid (OSG) using example OSG jobs in the Example folder. 
+	Option 3)Submit job from UNL's Holland Computing Center (HCC) server using using HCC jobs in the Example folder.
 STEP 2: Reference based method
 	Option 1)Submit stand alone job for reference pipeline using
         Option 2)Submit job from Open-Science Grid (OSG) using
@@ -88,31 +127,6 @@ OUTPUT FOLDER
 ----
 TIPS
 ----
-metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal. 
-
-These are tools required for metaIMP
-
-samtools
-quast
-bowtie2
-spades
-metabat2
-checkm-genome
-das_tool
-phylophlan
-instrain
-eggnog-mapper
-midas
-kraken2
-fastqc
-singularity
-
-
-These python packages are required for metaIMP:
-python/3.6
-pandas
-Bio
-
 In order to install dependencies for this pipeline using conda/mamba, use the following commands:
 
 mamba install -y -c bioconda samtools
@@ -154,25 +168,5 @@ REFERENCE:
                                   The annotations can be mapped with the mutations (MIDAS/SNPS) using this script. GENES FOLDER + PATRIC FOLDER + SNPS FOLDER -> OUTPUT FOLDER
 3) main_reference_processing.sh:  Calls steps 1,2 and 3 after pre-processing. Inputs: 1) FASTQ1 2) FASTQ2 3)OUTPUT_FOLDER PATH 4)ENVIRONMENT VARIABLE NAME
 
-
 ---------------------------------------------------------------------------------------
-#This section describes how to create a virtual python environment to run our pipeline:
-Steps:
-
-1) Verify conda is installed, check version number : conda info
-2) Update conda to the current version : conda update conda
-3) List the environment you have ever created : conda env list
-4) Install a package included in Anaconda : conda install PACKAGENAME  
-5) Create a new environment (example name: metaIMP_env), install Python 3.8 : conda create -n metaIMP_env python=3.8.12 
-6) Install pacakges for python in the new environment: pip install biopython 1.79, pip install pandas 1.3.5
-6) Activate new environment : conda activate metaIMP_env
-7) Now your new environment is ready to use metaIMP python codes.
-8) Proceed with step 4 if any missing packages are found
-9) Deleting environment:conda remove --name metaIMP_env
-	a) Deleting a package: conda remove package
-10) Sharing environment with a friend: 
-	a) conda metaIMP_env export > environment.yml 
-	b) conda env create -f environment.yml
-
--------------------------------------------
 
