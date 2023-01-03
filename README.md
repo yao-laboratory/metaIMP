@@ -120,7 +120,7 @@ Steps:
 -------------------------------------------
 
 In order to install dependencies for this pipeline using conda/mamba, use the following commands: <\n>
-mamba install -y -c bioconda samtools <br />
+mamba install -y -c bioconda samtools <br /><\n>
 mamba install -y -c bioconda quast <br />
 mamba install -y -c bioconda bowtie2 <br />
 mamba install -y -c bioconda spades <br />
