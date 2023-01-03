@@ -1,9 +1,14 @@
 
 
+
 MetaIMP
-----------
+
+-------------
 INTRODUCTION:
-- An integrated metagenomic pipeline which allows you to use multiple genomic tools in sequence and tells you the annnotations of discovered mutations.
+-------------
+
+An integrated metagenomic pipeline which allows you to use multiple genomic tools in sequence and tells you the annnotations of discovered mutations.
+
 ---------------------------------------------------------------------------------------
 INSTALLATION:
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
