@@ -23,21 +23,75 @@ TUTORIAL
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
+STEP 0: Download fastq files from NCBI (add link)
+
+STEP 1: Assembly based method
+	Option 1)Submit stand alone job for assembly pipeline using
+	Option 2)Submit job from Open-Science Grid (OSG) using  
+	Option 3)Submit job from UNL's Holland Computing Center (HCC) server using 
+STEP 2: Reference based method
+	Option 1)Submit stand alone job for reference pipeline using
+        Option 2)Submit job from Open-Science Grid (OSG) using
+        Option 3)Submit job from UNL's Holland Computing Center (HCC) server using
+
+
 ----------------------
 COMMAND LINE AND INPUT
 ----------------------
+In this pipeline, the user will need to provide the following information:
 
--------------
+1) Input paired-end file path
+2) Output folder path
+3) Number of threads
+4) Minimum contig length ( OPTIONAL) (ASSEMBLY ONLY) - if the user wants to filter contigs after assembly process, this option should be used.
+5) Path to metaIMP directoryEnvironment variable calling
+
+Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
+from the examples folder to complete their analysis.
+
+
+------
 OUTPUT
--------------
+------
+ASSEMBLY PIPELINE OUTPUT FOLDER OUTLINE:
+OUTPUT FOLDER <br />
+|______METASPADES FOLDER <br />
+| |_____SAM FILE <br />
+| |___BAM FILE <br />
+| |____BAM SORTED FILE <br />
+| |___CONTIGS.FASTA <br />
+|
+|______BINS FOLDER <br />
+| |_____CHECKM FOLDER <br />
+| |____ MERGEDFILE.FNA <br />
+| 
+|_INSTRAIN FOLDER <br />
+|_EGGNOG RESULTS <br /> 
+|_PHYLOPHLAN FOLDER <br />
+|_______KRAKEN FOLDER <br />
+|_______QUAST FOLDER <br />
+|_______DAS_TOOL FOLDER <br />
+|_______QC TOOL FOLDER <br />
+|_______ASSEMBLY SNP ANNOTATION <br />
 
--------------
+REFERENCE PIPELINE OUTPUT OUTLINE:
+
+OUTPUT FOLDER
+|
+|__________MIDAS FOLDER <br />
+| |________MIDAS SPECIES <br />
+| |________MIDAS GENES <br />
+| | |______UPDATED PATRIC FILES (WITH FIG_ID PREFIX- PATRIC.CSV) AND PATRIC ANNOTATIONS ( FEATURE.CSV) <br />
+| |________MIDAS SNPS <br />
+|__________REFERENCE SNP ANNOTATIONS <br />
+
+----
 TIPS
--------------
+----
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal. 
 
-These are tools required for metaIMP:
-asd
+These are tools required for metaIMP
+
 samtools
 quast
 bowtie2
@@ -75,26 +129,6 @@ mamba install -y -c bioconda midas
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc
 mamba install -c conda-forge singularity
-
-
-Follow the example shell script named “example_hcc_job.sh” to create a bash job for metaIMP pipeline. 
----------------------------------------------------------------------------------------
-Usage:
-
-In this pipeline, the user will need to provide the following information:
-
-1) Input paired-end file path
-2) Output folder path
-3) Number of threads
-4) Minimum contig length ( OPTIONAL) (ASSEMBLY ONLY) - if the user wants to filter contigs after assembly process, this option should be used.
-5) Path to metaIMP directoryEnvironment variable calling
-
-Users must run install.sh to create an environment for metaIMP. Next, users must the stand-alone version of example jobs shell scripts provided in the Example folder.
----------------------------------------------------------------------------------------
-Test data:
-
-Users will use the stand alone version of the module in order to conduct testing.
-ATM, test data is unavailable.
 
 ---------------------------------------------------------------------------------------
 Module details:
