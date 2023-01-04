@@ -17,12 +17,12 @@ metaIMP requires a cocktail of Java, Python and Linux scripts in order to provid
 To download metaIMP from Github, use : git clone https://github.com/yao-laboratory/metaIMP
 
 After the repo is cloned, user can run the following shell script to install their custom python environment
-'''
+```
 export $USER_ENVIRONMENT
-$_
+
 1) ./install.sh
 2) ./install_test.sh
-'''
+```
 These tools are required to be installed for metaIMP:
 samtools
 quast
