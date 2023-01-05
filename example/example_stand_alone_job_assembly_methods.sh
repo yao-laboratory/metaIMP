@@ -3,6 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
+#SBATCH --ntasks-per-node=8
 #SBATCH --output=saj_a_34.%J.out
 #SBATCH --error=saj_a_34.%J.err
 

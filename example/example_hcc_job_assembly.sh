@@ -3,6 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=24:00:00
 #SBATCH --mem=96gb
+#SBATCH --ntasks-per-node=8
 #SBATCH --output=hcc_assembly.%J.out
 #SBATCH --error=hcc_assembly.%J.err
 
