@@ -72,7 +72,9 @@ conda create -n metaIMP_env python=3.8.12
 ```
 7) Install pacakges for python in the new environment
 ```
-pip install biopython 1.79, pip install pandas 1.3.5
+pip install biopython 1.79
+
+pip install pandas 1.3.5
 ```
 8) Activate new environment 
 ```
@@ -84,14 +86,10 @@ conda activate metaIMP_env
 ```
 conda remove --name metaIMP_env
 ```
-        a) Deleting a package
-```
-conda remove package
-```
 12) Sharing environment with a friend
 ```
-        a) conda metaIMP_env export > environment.yml
-        b) conda env create -f environment.yml
+conda metaIMP_env export > environment.yml
+conda env create -f environment.yml
 ```
 -------------
 TUTORIAL
