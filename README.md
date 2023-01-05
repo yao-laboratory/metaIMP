@@ -175,33 +175,18 @@ In order to install dependencies independently for this pipeline using conda/mam
 
 
 ```
-mamba install -y -c bioconda samtools
+1) How to use log file
+*Users can resume at any step by erasing the log file of a particular process and then restarting the pipeline.*
 
-mamba install -y -c bioconda quast
+```
+cd ./log_folder
+rm preprocessing.log
+sbatch example_stand_along_job.sh
+```
 
-mamba install -y -c bioconda bowtie2
+2) Use your own contig file
+*Users can replace the contig.fasta file created by metaIMP post-assembly and resume metaIMP pipeline. This would allow users to use a pre-existing contig file.*
 
-mamba install -y -c bioconda spades
-
-mamba install -y -c bioconda metabat2
-
-mamba install -y -c bioconda checkm-genome
-
-mamba install -y -c bioconda das_tool
-
-mamba install -y -c bioconda phylophlan
-
-mamba install -y -c conda-forge -c bioconda -c defaults instrain
-
-mamba install -y -c bioconda eggnog-mapper
-
-mamba install -y -c bioconda midas
-
-mamba install -y -c bioconda kraken2
-
-mamba install -y -c bioconda fastqc
-
-mamba install -c conda-forge singularity
 ```
 
 ---------------------------------------------------------------------------------------
