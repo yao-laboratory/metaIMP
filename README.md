@@ -144,9 +144,9 @@ OUTPUT FOLDER <br />
 | |____BAM SORTED FILE <br />
 | |___CONTIGS.FASTA <br />
 |
-|______BINS <br />
-|    |_____CHECKM FOLDER <br />
-|    |____ MERGEDFILE.FNA <br />
+|____________BINS <br />
+|    |||_____CHECKM FOLDER <br />
+|    |||____ MERGEDFILE.FNA <br />
 | 
 |_INSTRAIN FOLDER <br />
 |_EGGNOG RESULTS <br /> 
