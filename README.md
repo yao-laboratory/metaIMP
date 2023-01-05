@@ -137,10 +137,13 @@ from the examples folder to complete their analysis.
 OUTPUT
 ------
 ASSEMBLY PIPELINE OUTPUT FOLDER OUTLINE:
-OUTPUT FOLDER <br />
-|______METASPADES <br />
+OUTPUT FOLDER
+
+1)METASPADES
+	SAM FILE
+	BAM FILE
 | |_____SAM FILE <br />
-| |___BAM FILE <br />
+ ___BAM FILE <br />
 | |____BAM SORTED FILE <br />
 | |___CONTIGS.FASTA <br />
 |
