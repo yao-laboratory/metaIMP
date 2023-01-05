@@ -138,15 +138,15 @@ OUTPUT
 ------
 ASSEMBLY PIPELINE OUTPUT FOLDER OUTLINE:
 OUTPUT FOLDER <br />
-|______METASPADES FOLDER <br />
+|______METASPADES <br />
 | |_____SAM FILE <br />
 | |___BAM FILE <br />
 | |____BAM SORTED FILE <br />
 | |___CONTIGS.FASTA <br />
 |
-|______BINS FOLDER <br />
-| |_____CHECKM FOLDER <br />
-| |____ MERGEDFILE.FNA <br />
+|______BINS <br />
+|    |_____CHECKM FOLDER <br />
+|    |____ MERGEDFILE.FNA <br />
 | 
 |_INSTRAIN FOLDER <br />
 |_EGGNOG RESULTS <br /> 
