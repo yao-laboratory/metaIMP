@@ -65,10 +65,11 @@ These steps describes how to create a virtual python environment to run our pipe
 -------------
 TUTORIAL
 -------------
-```
+
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
+```
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
 STEP 1: Assembly based method
