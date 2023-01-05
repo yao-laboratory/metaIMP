@@ -137,26 +137,25 @@ from the examples folder to complete their analysis.
 OUTPUT
 ------
 ASSEMBLY PIPELINE OUTPUT FOLDER OUTLINE:
-OUTPUT FOLDER
+
 
 1)METASPADES
 
 	SAM FILE
 
 	BAM FILE
+	
+	BAM SORTED FILE
+	
+	CONTIGS.FASTA
+
+2) BINS
+
+	CHECKM FOLDER
+
+	MERGEDFILE.FNA
 
 
-
-| |_____SAM FILE <br />
- ___BAM FILE <br />
-| |____BAM SORTED FILE <br />
-| |___CONTIGS.FASTA <br />
-|
-|____________BINS <br />
-|    |||_____CHECKM FOLDER <br />
-|    |||____ MERGEDFILE.FNA <br />
-|
-|
 | 
 |_INSTRAIN FOLDER <br />
 |
