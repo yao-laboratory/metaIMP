@@ -41,31 +41,58 @@ singularity
 
 
 These python packages are required for metaIMP:
+```
 python/3.6
 pandas
 Bio
+```
 
+These steps describes how to create, update and verify a virtual python environment to run our pipeline:
 
-These steps describes how to create a virtual python environment to run our pipeline:
-
-1) Verify conda is installed, check version number : conda info
-2) Update conda to the current version : conda update conda
-3) List the environment you have ever created : conda env list
-4) Install a package included in Anaconda : conda install PACKAGENAME
-5) Create a new environment (example name: metaIMP_env), 
+1) Verify conda is installed and check version number 
+```
+conda info
+```
+2) Update conda to the current version 
+```
+conda update conda
+```
+3) List the environment you have ever created
+```
+conda env list
+```
+4) Install a package included in Anaconda 
+```
+conda install *PACKAGENAME*
+```
+5) Create a new environment (example name: metaIMP_env) 
 6) Install Python 3.8 
 ```  
 conda create -n metaIMP_env python=3.8.12
 ```
-7) Install pacakges for python in the new environment: pip install biopython 1.79, pip install pandas 1.3.5
-8) Activate new environment : conda activate metaIMP_env
+7) Install pacakges for python in the new environment
+```
+pip install biopython 1.79, pip install pandas 1.3.5
+```
+8) Activate new environment 
+```
+conda activate metaIMP_env
+```
 9) Now your new environment is ready to use metaIMP python codes.
 10) Proceed with step 4 if any missing packages are found
-11) Deleting environment:conda remove --name metaIMP_env
-        a) Deleting a package: conda remove package
-12) Sharing environment with a friend:
+11) Deleting environment
+```
+conda remove --name metaIMP_env
+```
+        a) Deleting a package
+```
+conda remove package
+```
+12) Sharing environment with a friend
+```
         a) conda metaIMP_env export > environment.yml
         b) conda env create -f environment.yml
+```
 -------------
 TUTORIAL
 -------------
