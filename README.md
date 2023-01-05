@@ -70,14 +70,22 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
-  STEP 1: Assembly based method
-  Option 1)Submit stand alone job for assembly pipeline using the stand alone example jobs in the Example folder.
-   Option 2)Submit job from Open-Science Grid (OSG) using example OSG jobs in the Example folder. 
-   Option 3)Submit job from UNL's Holland Computing Center (HCC) server using using HCC jobs in the Example folder.
-  STEP 2: Reference based method
-  Option 1)Submit stand alone job for reference pipeline using
-  Option 2)Submit job from Open-Science Grid (OSG) using
-  Option 3)Submit job from UNL's Holland Computing Center (HCC) server using
+
+STEP 1: Assembly based method
+
+Option 1)Submit stand alone job for assembly pipeline using the stand alone example jobs in the Example folder.
+
+Option 2)Submit job from Open-Science Grid (OSG) using example OSG jobs in the Example folder. 
+
+Option 3)Submit job from UNL's Holland Computing Center (HCC) server using using HCC jobs in the Example folder.
+
+STEP 2: Reference based method
+
+Option 1)Submit stand alone job for reference pipeline using
+
+Option 2)Submit job from Open-Science Grid (OSG) using
+
+Option 3)Submit job from UNL's Holland Computing Center (HCC) server using
 
 
 ----------------------
