@@ -73,19 +73,19 @@ STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
 STEP 1: Assembly based method
 
-*Submit stand alone job for assembly pipeline using the stand alone example jobs in the Example folder.
+* Submit stand alone job for assembly pipeline using the stand alone example jobs in the Example folder.
 
-*Submit job from Open-Science Grid (OSG) using example OSG jobs in the Example folder. 
+* Submit job from Open-Science Grid (OSG) using example OSG jobs in the Example folder. 
 
-*Submit job from UNL's Holland Computing Center (HCC) server using using HCC jobs in the Example folder.
+* Submit job from UNL's Holland Computing Center (HCC) server using using HCC jobs in the Example folder.
 
 STEP 2: Reference based method
 
-*Submit stand alone job for reference pipeline using
+* Submit stand alone job for reference pipeline using
 
-*Submit job from Open-Science Grid (OSG) using
+* Submit job from Open-Science Grid (OSG) using
 
-*Submit job from UNL's Holland Computing Center (HCC) server using
+* Submit job from UNL's Holland Computing Center (HCC) server using
 ```
 
 ----------------------
