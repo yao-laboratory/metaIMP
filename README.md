@@ -142,7 +142,7 @@ OUTPUT FOLDER
 ----
 TIPS
 ----
-In order to install dependencies for this pipeline using conda/mamba, use the following commands:
+In order to install dependencies independently for this pipeline using conda/mamba, use the following commands:
 
 
 ```
