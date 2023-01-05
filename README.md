@@ -176,9 +176,7 @@ In order to install dependencies independently for this pipeline using conda/mam
 
 ```
 1) How to use log file
-*Users can resume at any step by erasing the log file of a particular process and then restarting the pipeline.*
-
-```
+Users can resume at any step by erasing the log file of a particular process and then restarting the pipeline.
 
 cd ./log_folder
 
@@ -187,9 +185,10 @@ rm preprocessing.log
 sbatch example_stand_along_job.sh
 
 ```
+```
 
 2) Use your own contig file
-*Users can replace the contig.fasta file created by metaIMP post-assembly and resume metaIMP pipeline. This would allow users to use a pre-existing contig file.*
+Users can replace the contig.fasta file created by metaIMP post-assembly and resume metaIMP pipeline. This would allow users to use a pre-existing contig file.
 
 ```
 
