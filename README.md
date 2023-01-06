@@ -132,7 +132,14 @@ In this pipeline, the user will need to provide the following information:
 Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
 from the examples folder to complete their analysis.
 
-
+```
+1) read1 = Forward paired-end file (FASTQ)
+2) read2 = Reverse paired-end file (FASTQ)
+3) sampleID = sample name used in renaming the fastq reads and later processing
+4) output_folder= Output folder path
+5) min_thread= Total number of threads
+6) min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)
+```
 ------
 OUTPUT
 ------
