@@ -183,7 +183,9 @@ ASSEMBLY SNP ANNOTATION
 ---------------------------------------------------------------------------------
 
 src
+
    |-- main
+
    |   |-- java
    |   |   |-- com
    |   |   |   |-- foxguardsolutions
