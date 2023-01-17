@@ -181,27 +181,22 @@ ASSEMBLY SNP ANNOTATION
 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-
+<pre>
 src </br>
-   |-- main
-
-   |   |-- java
-
-   |   |   |-- com
-
-   |   |   |   |-- foxguardsolutions
-
-   |   |   |   |   |-- jonavon
-
-   |   |   |   |   |   |-- AbstractFile.java
-   |   |   |   |   |   |-- roman
-   |   |   |   |   |   |   |-- Main.java
-   |   |   |   |   |   |   |-- Numeral.java
-   |   |   |   |   |   |   |-- RomanNumberInputFile.java
-   |   |   |   |   |   |   |-- RomanNumeralToDecimalEvaluator.java
-   |-- test
-   |   |-- java
-   |   |   |-- com
+   |-- main </br>
+   |   |-- java </br>
+   |   |   |-- com </br> 
+   |   |   |   |-- foxguadsolutions </br>
+   |   |   |   |   |-- jonavon </br>
+   |   |   |   |   |   |-- AbstractFile.java </br>
+   |   |   |   |   |   |-- roman </br>
+   |   |   |   |   |   |   |-- Main.java </br>
+   |   |   |   |   |   |   |-- Numeral.java </br>
+   |   |   |   |   |   |   |-- RomanNumberInputFile.java </br>
+   |   |   |   |   |   |   |-- RomanNumeralToDecimalEvaluator.java </br>
+   |-- test </br>
+   |   |-- java </br>
+   |   |   |-- com </br>
    |   |   |   |-- foxguardsolutions
    |   |   |   |   |-- jonavon
    |   |   |   |   |   |-- roman
@@ -215,7 +210,7 @@ src </br>
    |   |   |   |   |   |   |-- Interpret.feature
    |   |   |-- sample-input.txt
 
-
+</pre>
 REFERENCE PIPELINE OUTPUT FOLDER OUTLINE:
 
 MIDAS
