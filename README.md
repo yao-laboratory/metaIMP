@@ -143,41 +143,6 @@ from the examples folder to complete their analysis.
 ------
 OUTPUT
 ------
-ASSEMBLY PIPELINE OUTPUT FOLDER OUTLINE:
-
-
-METASPADES
-
-	SAM FILE
-
-	BAM FILE
-	
-	BAM SORTED FILE
-	
-	CONTIGS.FASTA
-
-
-BINS
-
-```
-CHECKM FOLDER
-	
-MERGEDFILE.FNA
-```
-
-INSTRAIN
-
-EGGNOG
-
-DAS_TOOL
-
-QUAST
-
-FASTQC
-
-LOG
-
-ASSEMBLY SNP ANNOTATION
 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
@@ -202,21 +167,18 @@ ASSEMBLY SNP ANNOTATION
    |-- TEMP FOLDER
 </pre>
 
-MIDAS
+</pre>
+   REFERENCE OUTPUT FOLDER
+   |--REFERENCE SNP ANNOTATION
+   |-- MIDAS
+   |   |-- SPECIES
+   |   |-- GENES
+   |   |-- SNPS
+   |-- FASTQC
+   |-- LOG FOLDER
+   |-- TEMP FOLDER
 
-```
-SPECIES
-
-GENES
-
-SNPS
-```
-
-FASTQC
-
-LOG
-
-REFERENCE SNP ANNOTATION
+</pre>
 
 ----
 TIPS
