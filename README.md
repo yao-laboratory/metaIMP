@@ -165,9 +165,8 @@ OUTPUT
    |-- QUAST 
    |-- LOG FOLDER 
    |-- TEMP FOLDER
-</pre>
 
-</pre>
+
    REFERENCE OUTPUT FOLDER
    |--REFERENCE SNP ANNOTATION
    |-- MIDAS
