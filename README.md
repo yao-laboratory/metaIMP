@@ -184,22 +184,22 @@ ASSEMBLY SNP ANNOTATION
 <pre>
    ASSEMBLY OUTPUT FOLDER
    |--ASSEMBLY SNP ANNOTATION 
-   |-- METASPADES </br>
-   |   |-- CONTIGS.FASTA </br>
-   |   |-- COVERAGE.TXT </br> 
-   |   |-- ALN.SAM.GZ </br>
-   |   |-- DEPTH.TXT </br>
-   |-- BINS </br>
-   |   |-- CHECKM </br>
-   |-- EGGNOG </br>
-   |-- INSTRAIN </br>
-   |-- DAS_TOOL </br>
-   |-- PHYLOPHLAN </br>
-   |-- KRAKEN </br>
-   |-- FASTQC </br>
-   |-- QUAST </br>
-   |-- LOG FOLDER </br>
-   |-- TEMP FOLDER </br>
+   |-- METASPADES 
+   |   |-- CONTIGS.FASTA 
+   |   |-- COVERAGE.TXT
+   |   |-- ALN.SAM.GZ 
+   |   |-- DEPTH.TXT
+   |-- BINS 
+   |   |-- CHECKM 
+   |-- EGGNOG 
+   |-- INSTRAIN
+   |-- DAS_TOOL 
+   |-- PHYLOPHLAN
+   |-- KRAKEN
+   |-- FASTQC 
+   |-- QUAST 
+   |-- LOG FOLDER 
+   |-- TEMP FOLDER
 </pre>
 
 MIDAS
