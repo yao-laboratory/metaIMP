@@ -182,36 +182,25 @@ ASSEMBLY SNP ANNOTATION
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 <pre>
-src </br>
-   |-- main </br>
-   |   |-- java </br>
-   |   |   |-- com </br> 
-   |   |   |   |-- foxguadsolutions </br>
-   |   |   |   |   |-- jonavon </br>
-   |   |   |   |   |   |-- AbstractFile.java </br>
-   |   |   |   |   |   |-- roman </br>
-   |   |   |   |   |   |   |-- Main.java </br>
-   |   |   |   |   |   |   |-- Numeral.java </br>
-   |   |   |   |   |   |   |-- RomanNumberInputFile.java </br>
-   |   |   |   |   |   |   |-- RomanNumeralToDecimalEvaluator.java </br>
-   |-- test </br>
-   |   |-- java </br>
-   |   |   |-- com </br>
-   |   |   |   |-- foxguardsolutions
-   |   |   |   |   |-- jonavon
-   |   |   |   |   |   |-- roman
-   |   |   |   |   |   |   |-- InterpretSteps.java
-   |   |   |   |   |   |   |-- RunCukesTest.java
-   |   |-- resources
-   |   |   |-- com
-   |   |   |   |-- foxguardsolutions
-   |   |   |   |   |-- jonavon
-   |   |   |   |   |   |-- roman
-   |   |   |   |   |   |   |-- Interpret.feature
-   |   |   |-- sample-input.txt
-
+   ASSEMBLY OUTPUT FOLDER
+   |--ASSEMBLY SNP ANNOTATION </br>
+   |-- METASPADES </br>
+   |   |-- CONTIGS.FASTA </br>
+   |   |-- COVERAGE.TXT </br> 
+   |   |-- ALN.SAM.GZ </br>
+   |   |-- DEPTH.TXT </br>
+   |-- BINS </br>
+   |   |-- CHECKM </br>
+   |-- EGGNOG </br>
+   |-- INSTRAIN </br>
+   |-- DAS_TOOL </br>
+   |-- PHYLOPHLAN </br>
+   |-- KRAKEN </br>
+   |-- FASTQC </br>
+   |-- QUAST </br>
+   |-- LOG FOLDER </br>
+   |-- TEMP FOLDER </br>
 </pre>
-REFERENCE PIPELINE OUTPUT FOLDER OUTLINE:
 
 MIDAS
 
