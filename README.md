@@ -183,7 +183,7 @@ ASSEMBLY SNP ANNOTATION
 ---------------------------------------------------------------------------------
 <pre>
    ASSEMBLY OUTPUT FOLDER
-   |--ASSEMBLY SNP ANNOTATION </br>
+   |--ASSEMBLY SNP ANNOTATION 
    |-- METASPADES </br>
    |   |-- CONTIGS.FASTA </br>
    |   |-- COVERAGE.TXT </br> 
