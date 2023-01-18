@@ -1,9 +1,4 @@
 MetaIMP
-This is a test of new line \n
-We are using \n to test new line \n
-Ignore \n
-Delete these lines after testing \n
-
 -------------
 INTRODUCTION
 -------------
