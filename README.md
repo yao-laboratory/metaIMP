@@ -197,6 +197,14 @@ OUTPUT
 
 </pre>
 
+Outut Dataframes:
+
+
+| First Header  | Second Header | THIRD HEADER | 
+| ------------- | ------------- | ------------ |
+| Content Cell  | Content Cell  | CONTENT      |
+| Content Cell  | Content Cell  | CONTENT      |
+
 ----
 TIPS
 ----
