@@ -291,7 +291,9 @@ Users can replace the contig.fasta file created by metaIMP post-assembly and res
 
 Users can also submit jobs by requesting time on the OSG servers. This method may be time consuming as resources are limited on OSG.
 
-4) For users from University of Nebrasaka, Lincoln: You can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder (example_hcc_install.sh)
+4) For users from University of Nebrasaka, Lincoln
+
+UNL users can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder (example_hcc_install.sh)
 
 ---------------------------------------------------------------------------------------
 
