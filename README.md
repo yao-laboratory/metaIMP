@@ -200,10 +200,15 @@ OUTPUT
 Outut Dataframes:
 
 
-| First Header  | Second Header | THIRD HEADER | 
+| Table Name	| Assembly      | Reference    | 
 | ------------- | ------------- | ------------ |
-| Content Cell  | Content Cell  | CONTENT      |
-| Content Cell  | Content Cell  | CONTENT      |
+| Table 1       | Assembly_mapping_result_coding  |              |
+| Table 2       | Content Cell  | CONTENT      |
+|		|		|	       |
+|		|		|	       |	
+|		|		|	       |	
+|		|		|	       |	
+
 
 ----
 TIPS
