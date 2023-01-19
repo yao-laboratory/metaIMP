@@ -103,7 +103,7 @@ fastq-dump --split-files SRR9205532
 
 ```
 
-STEP 1: Update the stand alone job script with input parameters available in the example folder (/metaIMP/example).
+STEP 1: Update the stand alone job script with input parameters available in the example folder.
 
 ```
 cd /metaIMP/example/
