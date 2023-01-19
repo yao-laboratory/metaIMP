@@ -61,7 +61,7 @@ mamba install -y -c bioconda metabat2
 mamba install -y -c bioconda checkm-genome
 mamba install -y -c bioconda das_tool
 mamba install -y -c bioconda phylophlan
-mamba install -c bioconda -c conda-forge eggnog-mapper=2.1.9
+mamba install -y -c bioconda -c conda-forge eggnog-mapper=2.1.9
 #mamba install -y -c bioconda eggnog-mapper
 mamba install -y -c bioconda kraken2
 mamba install -y -c bioconda fastqc

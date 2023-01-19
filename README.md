@@ -11,7 +11,8 @@ metaIMP requires a cocktail of Java, Python and Linux scripts in order to provid
 
 To download metaIMP from Github, use : git clone https://github.com/yao-laboratory/metaIMP
 
-After the repo is cloned, user can run the following shell script to install their custom python environment
+After the repo is cloned, user can run the following shell script to install their custom python environment.
+Note: Users must have 'conda' and 'mamba' installed in their systems before proceeding with installation. This is a prerequisite.
 ```
 export $USER_ENVIRONMENT
 
@@ -290,5 +291,7 @@ Users can replace the contig.fasta file created by metaIMP post-assembly and res
 
 Users can also submit jobs by requesting time on the OSG servers. This method may be time consuming as resources are limited on OSG.
 
-4) For users from University of Nebrasaka, Lincoln: You can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder.
+4) For users from University of Nebrasaka, Lincoln: You can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder (example_hcc_install.sh)
+
 ---------------------------------------------------------------------------------------
+
