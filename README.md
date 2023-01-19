@@ -93,6 +93,7 @@ TUTORIAL
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
+
 ASSEMBLY:
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
@@ -102,9 +103,10 @@ fastq-dump --split-files SRR9205532
 
 ```
 
-STEP 1: Update the stand alone job script with input parameters.
+STEP 1: Update the stand alone job script with input parameters available in the example folder (/metaIMP/example).
 
 ```
+cd /metaIMP/example/
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaIMP_env
 fastq1=SRR9205532_1.fastq
@@ -148,9 +150,10 @@ fastq-dump --split-files SRR9205532
 
 ```
 
-STEP 1: Update the stand alone job script with input parameters.
+STEP 1: Update the stand alone job script with input parameters available in the Example folder.
 
 ```
+cd /metaIMP/example/
 metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
 export USER_ENV_NAME=metaIMP_env
 fastq1=SRR9205532_1.fastq
@@ -287,4 +290,5 @@ Users can replace the contig.fasta file created by metaIMP post-assembly and res
 
 Users can also submit jobs by requesting time on the OSG servers. This method may be time consuming as resources are limited on OSG.
 
+4) For users from University of Nebrasaka, Lincoln: You can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder.
 ---------------------------------------------------------------------------------------
