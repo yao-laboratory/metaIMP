@@ -200,7 +200,7 @@ OUTPUT
 Outut Dataframes:
 
 
-| Table Name	| Assembly      | Reference    | 
+| Dataframe	| Assembly      | Reference    | 
 | ------------- | ------------- | ------------ |
 | Table 1       | Assembly_mapping_result_coding.csv  | Reference_mapping_result_coding.csv              |
 | Table 2       | Assembly_mapping_result_non_coding.csv  | Reference_mapping_result_non_cds_gene.csv      |
