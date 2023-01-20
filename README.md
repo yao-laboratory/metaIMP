@@ -253,15 +253,14 @@ Outut Dataframes:
 
 | Dataframe	| Assembly      | Reference    | Description	|
 | ------------- | ------------- | ------------ |
-| Table 1       | Assembly_mapping_result_coding.csv  | Reference_mapping_result_coding.csv              | Coding region mutation information| 
-| Table 2       | Assembly_mapping_result_non_coding.csv  | Reference_mapping_result_non_cds_gene.csv      | Assembly: Non-coding level information 
-Reference: Non-CDS gene information |
-| Table 3	| Assembly_complete_protein.csv		| Reference_mapping_result_non_coding.csv	       |
-| Table 4	| Assembly_mapping_result_coding.vcf		| Reference_mapping_result_coding.vcf	       |	
-| Table 5	| Assembly_AA_mapping_result.csv		| Reference_AA_mapping_result.csv	       |	
-| Table 6	| Assembly_bin_species.csv		| Reference_mapping_result_total_mutation.csv	       |	
-| Table 7	| Assembly_EC_table.csv		| EC_gene.csv	       |
-| Table 8	| Assebmly_GO_table.csv		| GO_ref.csv	       |
+| Table 1       | Assembly_mapping_result_coding.csv  | Reference_mapping_result_coding.csv | Coding region mutation information |
+| Table 2       | Assembly_mapping_result_non_coding.csv  | Reference_mapping_result_non_cds_gene.csv | Assembly: Non-coding level information Reference: Non-CDS gene information |
+| Table 3	| Assembly_complete_protein.csv	| Reference_mapping_result_non_coding.csv |
+| Table 4	| Assembly_mapping_result_coding.vcf|Reference_mapping_result_coding.vcf|	
+| Table 5	| Assembly_AA_mapping_result.csv| Reference_AA_mapping_result.csv|	
+| Table 6	| Assembly_bin_species.csv| Reference_mapping_result_total_mutation.csv|	
+| Table 7	| Assembly_EC_table.csv	| EC_gene.csv	       |
+| Table 8	| Assebmly_GO_table.csv	| GO_ref.csv	       |
 
 
 ----
