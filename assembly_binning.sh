@@ -150,8 +150,11 @@ $DIR/bbmap/bbwrap.sh \
 	ref=$contigs \
         in1=$fastq1 \
         in2=$fastq2 \
-        out=$output/aln.sam.gz
-	threads=$t
+        out=$output/aln.sam.gz \
+	threads=$t \
+	trimreaddescriptions=t \
+	keepnames=t \
+
 ## Output contig coverage
 $DIR/bbmap/pileup.sh \
         in1=$output/aln.sam.gz \
