@@ -158,6 +158,6 @@ $DIR/bbmap/bbwrap.sh \
 ## Output contig coverage
 $DIR/bbmap/pileup.sh \
         in1=$output/aln.sam.gz \
-        out=$output/coverage.txt\
+        out=$output/coverage.txt \
 	threads=$t \
 	overwrite=t

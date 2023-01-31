@@ -281,8 +281,17 @@ rm preprocessing.log
 sbatch example_stand_along_job.sh
 
 ```
+Log file list:
+
+Preprocessing.log: Tracks preprocessing.sh
+
+Assembly:
+Assembly_binning.log: Tracks assembly_binning.sh
+Assembly_methods.log: Tracks assembly modes
 
 
+Reference:
+Ref_snp_annotation.log: Tracks ref_snp_annotation.sh
 2) Use your own contig file
 
 Users can replace the contig.fasta file created by metaIMP post-assembly and resume metaIMP pipeline. This would allow users to use a pre-existing contig file.
