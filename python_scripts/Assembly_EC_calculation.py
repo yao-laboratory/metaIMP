@@ -148,7 +148,7 @@ def main():
         coverage_file=args.coverage_file
         output=args.output
         print("--------Start to do assembly_ec_calculation-----------")
-        assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs, output)
+        assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, path_of_the_directory, instrain_snvs,coverage_file, output)
         print("--------Done, END of the assembly_ec_calculation--------")
     else:
         print("Wrong input. Check parameters")
