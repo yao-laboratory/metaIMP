@@ -51,8 +51,8 @@ echo "$DIR/python_scripts/Assembly_Complete_Bin_Table.py k_map -k $path_to_krake
 
 echo "python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output"
 echo "EC and GO tables"
-python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
-python $DIR/python_scripts/Assembly_GO_calculation.py go_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -o $output
+python $DIR/python_scripts/Assembly_EC_calculation.py ec_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -c $coverage_file -o $output
+python $DIR/python_scripts/Assembly_GO_calculation.py go_map -i $instrain -e $eggnog -v $step_5_mapping_results -s $scaffold_info -k $path_to_kraken_dir -c $coverage_file -o $output
 echo "EC + GO annotations ready"
 
 echo "Bin_AA mapping py from DST and bins"
