@@ -287,14 +287,28 @@ Preprocessing.log: Tracks preprocessing.sh
 
 Assembly:
 
-Assembly_binning.log: Tracks assembly_binning.sh
+Assembly_binning.log: Tracks assembly_binning.sh including index file creation, SAM + BAM file process and sorting, Bowtie binning method, coverage file creation.
 
-Assembly_methods.log: Tracks assembly modes
+Assembly_methods.log: Tracks assembly modes: Modes 1,2 is for MetaSpades. Modes 3,4 is for Megahit.
 
+Binning__taxonomy.log: Tracks taxonomy related tools: DAS_Tool, Kraken, Phylophlan.
+
+Assembly_contig_annotation.log: Tracks Eggnog.
+
+Snp_calling.log: Tracks Instrain.
+
+Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
+
+Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.  
 
 Reference:
 
-Ref_snp_annotation.log: Tracks ref_snp_annotation.sh
+ref_species_genes_snps.log: Tracks MIDAS.
+
+
+Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
+
+Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.
 
 2) Use your own contig file
 
