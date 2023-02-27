@@ -116,6 +116,13 @@ def checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, 
     scaffold_information=pd.merge(scaffold_information,coverage_list,on='contig',how='left')
     scaffold_information_coverage=scaffold_information.groupby(['bin']).median()
     final_merge_df=pd.merge(scaffold_information_coverage, df_kraken_checkm_annotation, on = 'bin')
+
+    tax_columns=['R','D','P','C','O','F','G','S']
+    for tax in tax_columns:
+        if tax not in final_merge_df.columns:
+            final_merge_df[tax]=""
+            #print('False')
+
     output=os.path.join(output, 'Table_6_assembly_bin_species.csv')
     final_merge_df.to_csv(output, index= None)
     
