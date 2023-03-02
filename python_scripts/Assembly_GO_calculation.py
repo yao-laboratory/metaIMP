@@ -95,10 +95,10 @@ def assembly_go_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
 
     print('--------------------PART3---finalectable--------')
     #coverage_list=list()
-    
+   
     coverage_list=pd.read_csv(coverage_file,sep='\t').rename(columns={"#ID": "contig", "Avg_fold":"cov"})
     coverage_list=coverage_list[['contig','cov']]
-    final_go_table_assembly=pd.merge(final_go_table_assembly,coverage_list,on='contig',how='left')
+    final_go_table_assembly=pd.merge(final_go_table_assembly,coverage_list,on='contig',how='outer')
     final_go_table=os.path.join(output,'Table_8_assembly_GO_table.csv')
     final_go_table_assembly.to_csv(final_go_table,index=None)
     #for i in final_go_table_assembly.index:

@@ -107,7 +107,7 @@ def assembly_ec_calculation(eggnog_file, scaffold_file, step_5_mapping_result, p
 
     coverage_list=pd.read_csv(coverage_file,sep='\t').rename(columns={"#ID": "contig", "Avg_fold":"cov"})
     coverage_list=coverage_list[['contig','cov']]
-    final_ec_table_assembly=pd.merge(final_ec_table_assembly,coverage_list,on='contig',how='left')
+    final_ec_table_assembly=pd.merge(final_ec_table_assembly,coverage_list,on='contig',how='outer')
     final_ec_table=os.path.join(output,'Table_7_assembly_EC_table.csv')
     final_ec_table_assembly.to_csv(final_ec_table,index=None)
 
