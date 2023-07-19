@@ -262,9 +262,11 @@ Outut Dataframes:
 | Table 7	| Assembly_EC_table.csv	| EC_gene.csv, EC_ref.csv | A: EC information R: EC information for gene id and ref id |
 | Table 8	| Assebmly_GO_table.csv	| GO_gene.csv, GO_ref.csv | A: GO information R: GO information with gene id and ref id |
 
+<pre>
 ----
 Table Dependency
 ----
+
 Assembly:
 
 Table 1: This table consists of mutation level information in the coding region.
@@ -317,7 +319,7 @@ Dependencies: Table 1,2,3,
 
 Table 8: This table consists of the mutations mapped with their GO numbers.
 Dependencies: Table 1,2,3
-
+<pre>
 ----
 TIPS
 ----
