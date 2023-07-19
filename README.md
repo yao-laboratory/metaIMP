@@ -269,17 +269,17 @@ Table Dependency
 
 Assembly:
 
-Table 1: This table consists of mutation level information in the coding region.
+Table 1: This table consists of mutation level information in the coding region. Coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. 
 Dependencies: Instrain, Eggnog
 
 
-Table 2: This table consists of mutation level information in the non-coding region.
+Table 2: This table consists of mutation level information in the non-coding region. Non-coding region mutations detected by Instrain are mapped with annotations collected from Eggnog.
 Dependencies: Instrain, Eggnog
 
-Table 3: This table consists of the the protein information. 
-Dependencies: Instrain, Eggnog
+Table 3: This table consists of the the protein information. Annotations from Eggnog are mapped with protein level information extracted from CheckM.
+Dependencies: Eggnog, CheckM
 
-Table 4: This is a VCF file summarazing Table 1 results.
+Table 4: This is a VCF file summarazing Table 1 results. 
 Dependencies: Table 1
 
 Table 5:This table maps the amino acid sequences with their respective mutations in the coding region.
