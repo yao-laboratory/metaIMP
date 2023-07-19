@@ -262,6 +262,61 @@ Outut Dataframes:
 | Table 7	| Assembly_EC_table.csv	| EC_gene.csv, EC_ref.csv | A: EC information R: EC information for gene id and ref id |
 | Table 8	| Assebmly_GO_table.csv	| GO_gene.csv, GO_ref.csv | A: GO information R: GO information with gene id and ref id |
 
+----
+Table Dependency
+----
+Assembly:
+
+Table 1: This table consists of mutation level information in the coding region.
+Dependencies: Instrain, Eggnog
+
+
+Table 2: This table consists of mutation level information in the non-coding region.
+Dependencies: Instrain, Eggnog
+
+Table 3: This table consists of the the protein information. 
+Dependencies: Instrain, Eggnog
+
+Table 4: This is a VCF file summarazing Table 1 results.
+Dependencies: Table 1
+
+Table 5:This table maps the amino acid sequences with their respective mutations in the coding region.
+Dependencies: Table 1, Kraken.....
+
+Table 6:
+Dependencies:
+
+Table 7:
+Dependencies:
+
+Table 8: 
+Dependencies:
+
+Reference:
+
+Table 1: This table consists of mutation level information in the coding region.         
+Dependencies: MIDAS, Patric Db
+
+Table 2: This table consists of mutation level information in the non-coding region. 
+Dependencies: MIDAS, Patric Db
+
+Table 3: This table consists of protein level information.
+Dependencies: MIDAS,Patric db
+
+Table 4: This is a VCF file summarazing Table 1 results.
+Dependencies: Table 1
+
+Table 5: This table maps the amino acid sequences with their respective mutations in the coding region.
+Dependencies:
+
+Table 6:
+Dependencies
+
+Table 7:
+Dependencies
+
+Table 8: 
+Dependencies:
 
 ----
 TIPS
