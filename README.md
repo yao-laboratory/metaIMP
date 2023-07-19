@@ -281,16 +281,16 @@ Table 4: This is a VCF file summarazing Table 1 results.
 Dependencies: Table 1
 
 Table 5:This table maps the amino acid sequences with their respective mutations in the coding region.
-Dependencies: Table 1, Kraken.....
+Dependencies: Table 1, Table 4, Contigs generated during assembly
 
-Table 6:
-Dependencies:
+Table 6:This table maps the binning information collected with the species level annotations. 
+Dependencies:Table 1, Kraken directory, Scaffold file, Instrain SNPs, Coverage file, Checkm Stats file
 
-Table 7:
-Dependencies:
+Table 7:This table consists of the mutations mapped with their EC numbers.
+Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
-Table 8: 
-Dependencies:
+Table 8: This table consists of the mutations mapped with their GO numbers.
+Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
 Reference:
 
@@ -307,16 +307,16 @@ Table 4: This is a VCF file summarazing Table 1 results.
 Dependencies: Table 1
 
 Table 5: This table maps the amino acid sequences with their respective mutations in the coding region.
-Dependencies:
+Dependencies: Table 1, Table 4
 
-Table 6:
-Dependencies
+Table 6: This table displays total mutation count for each species.
+Dependencies: Table 1
 
-Table 7:
-Dependencies
+Table 7:This table consists of the mutations mapped with their EC numbers.
+Dependencies: Table 1,2,3,
 
-Table 8: 
-Dependencies:
+Table 8: This table consists of the mutations mapped with their GO numbers.
+Dependencies: Table 1,2,3
 
 ----
 TIPS
