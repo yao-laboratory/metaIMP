@@ -19,6 +19,7 @@ export $USER_ENVIRONMENT
 1) ./install.sh
 2) ./install_test.sh
 ```
+User can either run install.sh or refer to example_hcc_install.sh for creating a job.
 
 -------------
 TUTORIAL
