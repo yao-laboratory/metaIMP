@@ -163,7 +163,9 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_f
 ------
 OUTPUT
 ------
-![Alt text](/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png?raw=true "Title")
+#![Altext](/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png?raw=true "Title")
+![plot](/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png)
+
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 <pre>
