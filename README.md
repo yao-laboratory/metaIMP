@@ -21,6 +21,17 @@ export $USER_ENVIRONMENT
 ```
 User can either run install.sh or refer to example_hcc_install.sh for creating a job.
 
+User also needs to have the following databases:
+
+ASSEMBLY BASED ANALYSIS:
+Kraken: kraken/2.0
+Phylophan: SGB.Jan19
+Eggnog: eggnog-mapper/2.1.3
+
+REFERENCE BASED ANALYSIS:
+Midas: midas_db_v1.2
+
+
 -------------
 TUTORIAL
 -------------
@@ -79,7 +90,7 @@ REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
-
+	
 ```
 fastq-dump --split-files SRR9205532
 
@@ -133,7 +144,7 @@ In this pipeline, the user will need to provide the following information:
 5) Path to metaIMP directoryEnvironment variable calling
 
 Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
-from the examples folder to complete their analysis.
+from the examples folder to complete their analysis. 'Example' folder has sample jobs for user reference.
 
 ```
 1) read1 = Forward paired-end file (FASTQ)
