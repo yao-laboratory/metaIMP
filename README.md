@@ -19,7 +19,7 @@ export $USER_ENVIRONMENT
 1) ./install.sh
 2) ./install_test.sh
 ```
-```
+
 -------------
 TUTORIAL
 -------------
