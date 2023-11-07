@@ -29,7 +29,7 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
 
-ASSEMBLY:
+ASSEMBLY BASED ANALYSIS:
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
@@ -42,7 +42,7 @@ STEP 1: Update the stand alone job script with input parameters available in the
 
 ```
 cd /metaIMP/example/
-metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
+metaIMP_path=/home/metaIMP
 export USER_ENV_NAME=metaIMP_env
 fastq1=SRR9205532_1.fastq
 fastq2=SRR9205532_2.fastq
@@ -75,7 +75,7 @@ cd metaIMP/ASSEMBLY_SNP_ANNOTATION
 ```
 
 
-REFERENCE:
+REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
@@ -89,7 +89,7 @@ STEP 1: Update the stand alone job script with input parameters available in the
 
 ```
 cd /metaIMP/example/
-metaIMP_path=/home/yaolab/ksahu2/.ssh/metaIMP
+metaIMP_path=/home/metaIMP
 export USER_ENV_NAME=metaIMP_env
 fastq1=SRR9205532_1.fastq
 fastq2=SRR9205532_2.fastq
@@ -142,6 +142,13 @@ from the examples folder to complete their analysis.
 4) output_folder= Output folder path
 5) min_thread= Total number of threads
 6) min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)
+
+ASSEMBLY COMMAND LINE:
+$metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
+
+REFERENCE COMMAND LINE:
+$metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
+
 ```
 ------
 OUTPUT
