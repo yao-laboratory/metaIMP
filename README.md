@@ -159,12 +159,11 @@ $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_fold
 
 REFERENCE COMMAND LINE:
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
-
 ```
 ------
 OUTPUT
 ------
-
+![Alt text](/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png?raw=true "Title")
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 <pre>
