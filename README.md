@@ -164,8 +164,9 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_f
 OUTPUT
 ------
 <img src="./fig1.png" width="500" height="600"/>
-
 If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to be empty.
+
+
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 <pre>
@@ -220,57 +221,73 @@ Outut Dataframes:
 Table Dependency
 ----
 
-Assembly:
+ASSEMBLY BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region. Coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. 
+
 Dependencies: Instrain, Eggnog
 
 
 Table 2: This table consists of mutation level information in the non-coding region. Non-coding region mutations detected by Instrain are mapped with annotations collected from Eggnog.
+
 Dependencies: Instrain, Eggnog
 
 Table 3: This table consists of the the protein information. Annotations from Eggnog are mapped with protein level information extracted from CheckM.
 Dependencies: Eggnog, CheckM
 
 Table 4: This is a VCF file summarazing Table 1 results. 
+
 Dependencies: Table 1
 
 Table 5:This table maps the amino acid sequences with their respective mutations in the coding region.
+
 Dependencies: Table 1, Table 4, Contigs generated during assembly
 
 Table 6:This table maps the binning information collected with the species level annotations. 
+
 Dependencies:Table 1, Kraken directory, Scaffold file, Instrain SNPs, Coverage file, Checkm Stats file
 
 Table 7:This table consists of the mutations mapped with their EC numbers.
+
 Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
 Table 8: This table consists of the mutations mapped with their GO numbers.
+
 Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
-Reference:
+
+REFERENCE BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region.         
+
 Dependencies: MIDAS, Patric Db
 
 Table 2: This table consists of mutation level information in the non-coding region. 
+
 Dependencies: MIDAS, Patric Db
 
 Table 3: This table consists of protein level information.
+
 Dependencies: MIDAS,Patric db
 
 Table 4: This is a VCF file summarazing Table 1 results.
+
 Dependencies: Table 1
 
 Table 5: This table maps the amino acid sequences with their respective mutations in the coding region.
+
 Dependencies: Table 1, Table 4
 
 Table 6: This table displays total mutation count for each species.
+
 Dependencies: Table 1
 
 Table 7:This table consists of the mutations mapped with their EC numbers.
+
 Dependencies: Table 1,2,3,
 
 Table 8: This table consists of the mutations mapped with their GO numbers.
+
 Dependencies: Table 1,2,3
 
 
