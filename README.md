@@ -202,7 +202,7 @@ If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to 
 
 </pre>
 
-Outut Dataframes:
+Output Dataframes:
 
 
 | Dataframe	| Assembly      | Reference    | Description (A: Assembly, R: Reference|
@@ -313,30 +313,29 @@ Log file list:
 
 Preprocessing.log: Tracks preprocessing.sh
 
-Assembly:
+ASSEMBLY BASED METHOD:
 
-Assembly_binning.log: Tracks assembly_binning.sh including index file creation, SAM + BAM file process and sorting, Bowtie binning method, coverage file creation.
+*Assembly_binning.log: Tracks assembly_binning.sh including index file creation, SAM + BAM file process and sorting, Bowtie binning method, coverage file creation.
 
-Assembly_methods.log: Tracks assembly modes: Modes 1,2 is for MetaSpades. Modes 3,4 is for Megahit.
+*Assembly_methods.log: Tracks assembly modes: Modes 1,2 is for MetaSpades. Modes 3,4 is for Megahit.
 
-Binning__taxonomy.log: Tracks taxonomy related tools: DAS_Tool, Kraken, Phylophlan.
+*Binning__taxonomy.log: Tracks taxonomy related tools: DAS_Tool, Kraken, Phylophlan.
 
-Assembly_contig_annotation.log: Tracks Eggnog.
+*Assembly_contig_annotation.log: Tracks Eggnog.
 
-Snp_calling.log: Tracks Instrain.
+*Snp_calling.log: Tracks Instrain.
 
-Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
+*Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
 
-Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.  
+*Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.  
 
-Reference:
+REFERENCE BASED METHOD:
 
-ref_species_genes_snps.log: Tracks MIDAS.
+*ref_species_genes_snps.log: Tracks MIDAS.
 
+*Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
 
-Snp_annotation.log: Tracks Tables 1-3 in ASSEMBLY_SNP_ANNOTATION folder.
-
-Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.
+*Protein_annotation.log: Tracks Tables 4-8 in ASSEMBLY_SNP_ANNOTATION folder.
 
 2) Use your own contig file
 
