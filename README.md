@@ -163,10 +163,11 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_f
 ------
 OUTPUT
 ------
-image=/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png
+#image=/home/yaolab/ksahu2/.ssh/metaIMP/tmp/fig1.png
 
 
-<img src="$image" width="500" height="600"/>
+#img src="$image" width="500" height="600"/>
+<img src="./fig1.png" width="500" height="600"/>
 
 If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to be empty.
 ---------------------------------------------------------------------------------
