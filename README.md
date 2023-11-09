@@ -1,6 +1,6 @@
 MetaIMP
 -------------
-INTRODUCTION
+1. INTRODUCTION
 -------------
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 
@@ -8,7 +8,7 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 
 
 -------------
-INSTALLATION
+2. INSTALLATION
 -------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
 
@@ -36,14 +36,14 @@ Midas: midas_db_v1.2
 
 
 -------------
-TUTORIAL
+3. TUTORIAL
 -------------
 
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
 
-ASSEMBLY BASED ANALYSIS:
+3.1 ASSEMBLY BASED ANALYSIS:
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
@@ -89,7 +89,7 @@ cd metaIMP/ASSEMBLY_SNP_ANNOTATION
 ```
 
 
-REFERENCE BASED ANALYSIS:
+3.2 REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
