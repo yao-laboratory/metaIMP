@@ -88,7 +88,6 @@ STEP 3: Verify results
 cd metaIMP/ASSEMBLY_SNP_ANNOTATION 
 ```
 
-
 3.2 REFERENCE BASED ANALYSIS:
 
 
@@ -136,7 +135,7 @@ cd metaIMP/REFERENCE_SNP_ANNOTATION
 
 
 ----------------------
-COMMAND LINE AND INPUT
+4. COMMAND LINE AND INPUT
 ----------------------
 In this pipeline, the user will need to provide the following information:
 
@@ -157,14 +156,17 @@ from the examples folder to complete their analysis. 'Example' folder has sample
 5) min_thread= Total number of threads
 6) min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)
 
-ASSEMBLY COMMAND LINE:
+
+4.1 ASSEMBLY COMMAND LINE:
+
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
 
-REFERENCE COMMAND LINE:
+4.2 REFERENCE COMMAND LINE:
+
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 ```
 ------
-OUTPUT
+5. OUTPUT
 ------
 If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to be empty.
 
@@ -220,10 +222,10 @@ Output Dataframes:
 
 
 ----
-Table Dependency
+6. Table Dependency
 ----
 
-ASSEMBLY BASED ANALYSIS:
+6. 1 ASSEMBLY BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region. Coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. 
 
@@ -258,7 +260,7 @@ Table 8: This table consists of the mutations mapped with their GO numbers.
 Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
 
-REFERENCE BASED ANALYSIS:
+6. 2 REFERENCE BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region.         
 
@@ -294,7 +296,7 @@ Dependencies: Table 1,2,3
 
 
 ----
-TIPS
+7. TIPS
 ----
 In order to install dependencies independently for this pipeline using conda/mamba, use the following commands:
 
