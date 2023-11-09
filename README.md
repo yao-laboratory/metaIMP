@@ -326,7 +326,7 @@ Dependencies: Table 1,2,3
 
 
 ----
-#7. TIPS
+# 7. TIPS
 ----
 In order to install dependencies independently for this pipeline using conda/mamba, use the following commands:
 
