@@ -12,7 +12,11 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 -------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
 
-To download metaIMP from Github, use : git clone https://github.com/yao-laboratory/metaIMP
+To download metaIMP from Github, use : 
+
+```
+git clone https://github.com/yao-laboratory/metaIMP
+```
 
 After the repo is cloned, user can run the following shell script to install their custom python environment.
 Note: Users must have 'conda' and 'mamba' installed in their systems before proceeding with installation. This is a prerequisite.
