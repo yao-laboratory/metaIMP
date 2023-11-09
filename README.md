@@ -87,9 +87,9 @@ STEP 3: Verify results
 ```
 cd metaIMP/ASSEMBLY_SNP_ANNOTATION 
 ```
-```
 
-3. 2 REFERENCE BASED ANALYSIS:
+
+3.2 REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
