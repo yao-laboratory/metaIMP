@@ -24,15 +24,17 @@ export $USER_ENVIRONMENT
 ```
 User can either run install.sh or refer to example_hcc_install.sh for creating a job.
 
-User also needs to have the following databases:
 
-ASSEMBLY BASED ANALYSIS:
-Kraken: kraken/2.0
-Phylophan: SGB.Jan19
-Eggnog: eggnog-mapper/2.1.3
+Required constants:
+2. 1 ASSEMBLY BASED ANALYSIS:
 
-REFERENCE BASED ANALYSIS:
-Midas: midas_db_v1.2
+1. KRAKEN_DATABASE: kraken/2.0
+2. PHYLOPHLAN_DATABASE: SGB.Jan19 
+3. EGGNOG_DIAMOND_DATABASE: eggnog-mapper/2.1.3
+
+2. 2 REFERENCE BASED ANALYSIS:
+
+1. database_folder: midas_db_v1.2
 
 
 -------------
