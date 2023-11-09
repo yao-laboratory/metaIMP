@@ -167,10 +167,16 @@ These following inputs will be used by command line:
 5) threads = Total minimum number of threads
 6) con_len = Filter contigs based on minimum length (Default: 1000)
 
+
 REQUIRED CONSTANTS:
+
 7) KRAKEN_DATABASE=/PATH/TO/kraken/2.0
+
 8) PHYLOPHLAN_DATABASE=/PATH/TO/SGB.Jan19
+
 9) EGGNOG_DIAMOND_DATABASE=/PATH/TO/eggnog-mapper/2.1.3
+
+
 
 ```
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
