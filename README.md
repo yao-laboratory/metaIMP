@@ -25,18 +25,19 @@ export $USER_ENVIRONMENT
 User can either run install.sh or refer to example_hcc_install.sh for creating a job.
 
 
-Required constants:
+These are the required constants which the user needs to provide when submitting a job. Example job submission script for assembly and reference can be found
+in the "Example" folder. Users can provide path to databases in order to use their own dbs.
 
 2. 1 ASSEMBLY BASED ANALYSIS:
 ```
-1. KRAKEN_DATABASE: kraken/2.0
-2. PHYLOPHLAN_DATABASE: SGB.Jan19 
-3. EGGNOG_DIAMOND_DATABASE: eggnog-mapper/2.1.3
+KRAKEN_DATABASE: kraken/2.0
+PHYLOPHLAN_DATABASE: SGB.Jan19 
+EGGNOG_DIAMOND_DATABASE: eggnog-mapper/2.1.3
 ```
 
 2. 2 REFERENCE BASED ANALYSIS:
 ```
-1. database_folder: midas_db_v1.2
+database_folder: midas_db_v1.2
 ```
 
 -------------
