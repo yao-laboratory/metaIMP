@@ -1,6 +1,6 @@
-MetaIMP
+# MetaIMP
 -------------
-1. INTRODUCTION
+## 1. INTRODUCTION
 -------------
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 
@@ -8,7 +8,7 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 
 
 -------------
-2. INSTALLATION
+## 2. INSTALLATION
 -------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
 
@@ -32,27 +32,27 @@ User can either run install.sh or refer to example_hcc_install.sh for creating a
 These are the required constants which the user needs to provide when submitting a job. Example job submission script for assembly and reference can be found
 in the "Example" folder. Users can provide path to databases in order to use their own dbs.
 
-2. 1 ASSEMBLY BASED ANALYSIS:
+###  2. 1 ASSEMBLY BASED ANALYSIS:
 ```
 KRAKEN_DATABASE: kraken/2.0
 PHYLOPHLAN_DATABASE: SGB.Jan19 
 EGGNOG_DIAMOND_DATABASE: eggnog-mapper/2.1.3
 ```
 
-2. 2 REFERENCE BASED ANALYSIS:
+### 2. 2 REFERENCE BASED ANALYSIS:
 ```
 database_folder: midas_db_v1.2
 ```
 
 -------------
-3. TUTORIAL
+## 3. TUTORIAL
 -------------
 
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
 
-3. 1 ASSEMBLY BASED ANALYSIS:
+### 3. 1 ASSEMBLY BASED ANALYSIS:
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
@@ -97,7 +97,7 @@ cd metaIMP/ASSEMBLY_SNP_ANNOTATION
 ```
 
 
-3. 2 REFERENCE BASED ANALYSIS:
+### 3. 2 REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
@@ -143,13 +143,13 @@ cd metaIMP/REFERENCE_SNP_ANNOTATION
 
 
 ----------------------
-4. COMMAND LINE AND INPUT
+### 4. COMMAND LINE AND INPUT
 ----------------------
 
 Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
 from the examples folder to complete their analysis. 'Example' folder has sample jobs for user reference.
 
-4. 1 ASSEMBLY COMMAND LINE:
+### 4. 1 ASSEMBLY COMMAND LINE:
 
 In this pipeline, the user will need to provide the following information:
 
@@ -182,7 +182,7 @@ REQUIRED CONSTANTS:
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
 ```
 
-4. 2 REFERENCE COMMAND LINE:
+### 4. 2 REFERENCE COMMAND LINE:
 
 
 In this pipeline, the user will need to provide the following information:
@@ -205,7 +205,7 @@ These following inputs will be used by command line:
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 ```
 ------
-5. OUTPUT
+## 5. OUTPUT
 ------
 If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to be empty.
 
@@ -252,10 +252,10 @@ Output Dataframes:
 
 
 ----
-6. Table Dependency
+## 6. Table Dependency
 ----
 
-6. 1 ASSEMBLY BASED ANALYSIS:
+### 6. 1 ASSEMBLY BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region. Coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. 
 
@@ -290,7 +290,7 @@ Table 8: This table consists of the mutations mapped with their GO numbers.
 Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
 
-6. 2 REFERENCE BASED ANALYSIS:
+### 6. 2 REFERENCE BASED ANALYSIS:
 
 Table 1: This table consists of mutation level information in the coding region.         
 
@@ -326,7 +326,7 @@ Dependencies: Table 1,2,3
 
 
 ----
-# 7. TIPS
+## 7. TIPS
 ----
 In order to install dependencies independently for this pipeline using conda/mamba, use the following commands:
 
