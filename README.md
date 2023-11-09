@@ -43,7 +43,7 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
 
 
-3.1 ASSEMBLY BASED ANALYSIS:
+3. 1 ASSEMBLY BASED ANALYSIS:
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
 
@@ -87,8 +87,9 @@ STEP 3: Verify results
 ```
 cd metaIMP/ASSEMBLY_SNP_ANNOTATION 
 ```
+```
 
-3.2 REFERENCE BASED ANALYSIS:
+3. 2 REFERENCE BASED ANALYSIS:
 
 
 STEP 0: Download fastq files from NCBI (http://ncbi.nlm.nih.gov)
