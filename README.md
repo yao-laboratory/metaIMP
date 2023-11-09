@@ -209,19 +209,13 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_f
 ------
 If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to be empty.
 
-
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 <pre>
    ASSEMBLY OUTPUT FOLDER
-   |--ASSEMBLY SNP ANNOTATION 
-   |-- METASPADES 
-   |   |-- CONTIGS.FASTA 
-   |   |-- COVERAGE.TXT
-   |   |-- ALN.SAM.GZ 
-   |   |-- DEPTH.TXT
+   |--ASSEMBLY_SNP_ANNOTATION 
+   |-- METASPADES    
    |-- BINS 
-   |   |-- CHECKM 
    |-- EGGNOG 
    |-- INSTRAIN
    |-- DAS_TOOL 
@@ -229,16 +223,13 @@ If mutations are not detected, then user can expect Tables 1, 2, 4, 5, and 6 to 
    |-- KRAKEN
    |-- FASTQC 
    |-- QUAST 
-   |-- LOG FOLDER 
-   |-- TEMP FOLDER
+   |-- LOG_FOLDER 
+   |-- TEMP_FOLDER
 
 
    REFERENCE OUTPUT FOLDER
-   |--REFERENCE SNP ANNOTATION
+   |--REFERENCE_SNP_ANNOTATION
    |-- MIDAS
-   |   |-- SPECIES
-   |   |-- GENES
-   |   |-- SNPS
    |-- FASTQC
    |-- LOG FOLDER
    |-- TEMP FOLDER
