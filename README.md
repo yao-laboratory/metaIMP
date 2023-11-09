@@ -145,32 +145,57 @@ cd metaIMP/REFERENCE_SNP_ANNOTATION
 ----------------------
 4. COMMAND LINE AND INPUT
 ----------------------
-In this pipeline, the user will need to provide the following information:
-
-1) Input paired-end file path
-2) Output folder path
-3) Number of threads
-4) Minimum contig length ( OPTIONAL) (ASSEMBLY ONLY) - if the user wants to filter contigs after assembly process, this option should be used.
-5) Path to metaIMP directoryEnvironment variable calling
 
 Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
 from the examples folder to complete their analysis. 'Example' folder has sample jobs for user reference.
 
-```
-1) read1 = Forward paired-end file (FASTQ)
-2) read2 = Reverse paired-end file (FASTQ)
+4. 1 ASSEMBLY COMMAND LINE:
+
+In this pipeline, the user will need to provide the following information:
+
+1) Input paired-end file paths
+2) Output folder path
+3) Number of threads
+4) Minimum contig length - if the user wants to filter contigs after assembly process, this option should be used. Default is 1kbp.
+5) Path to metaIMP directoryEnvironment variable calling
+
+These following inputs will be used by command line:
+1) fastq1 = Forward paired-end file (FASTQ)
+2) fastq2 = Reverse paired-end file (FASTQ)
 3) sampleID = sample name used in renaming the fastq reads and later processing
-4) output_folder= Output folder path
-5) min_thread= Total number of threads
-6) min_contig_length (OPTIONAL) = filter contigs based on minimum length (ex: 1000)
+4) output_folder_assembly = Output folder path
+5) threads = Total minimum number of threads
+6) con_len = Filter contigs based on minimum length (Default: 1000)
 
+REQUIRED CONSTANTS:
+7) KRAKEN_DATABASE=/PATH/TO/kraken/2.0
+8) PHYLOPHLAN_DATABASE=/PATH/TO/SGB.Jan19
+9) EGGNOG_DIAMOND_DATABASE=/PATH/TO/eggnog-mapper/2.1.3
 
-4.1 ASSEMBLY COMMAND LINE:
-
+```
 $metaIMP_path/main_assembly_processing.sh $fastq1 $fastq2 $sampleID $output_folder_assembly $threads $con_len
+```
 
-4.2 REFERENCE COMMAND LINE:
+4. 2 REFERENCE COMMAND LINE:
 
+
+In this pipeline, the user will need to provide the following information:
+
+1) Input paired-end file paths
+2) Output folder path
+3) Number of threads
+4) Path to metaIMP directoryEnvironment variable calling
+
+These following inputs will be used by command line:
+1) fastq1 = Forward paired-end file (FASTQ)
+2) fastq2 = Reverse paired-end file (FASTQ)
+3) sampleID = sample name used in renaming the fastq reads and later processing
+4) database_folder=/PATH/TO/midas_db_v1.2/ (REQUIRED CONSTANT)
+5) output_folder_reference = Output folder path
+6) threads = Total minimum number of threads
+
+
+```
 $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_folder $output_folder_reference $threads
 ```
 ------
