@@ -8,7 +8,6 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 
 -------------
 ## 2. INSTALLATION
--------------
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
 
 To download metaIMP from Github, use : 
