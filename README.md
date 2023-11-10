@@ -44,7 +44,6 @@ database_folder: midas_db_v1.2
 
 -------------
 ## 3. TUTORIAL
--------------
 
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 The users must download the metaIMP repository and use the local folder path of the repo as input to all the sh scripts.
@@ -142,7 +141,6 @@ cd metaIMP/REFERENCE_SNP_ANNOTATION
 
 ----------------------
 ### 4. COMMAND LINE AND INPUT
-----------------------
 
 Users must run install.sh to create an environment for metaIMP. Next, users can either use the stand-alone version or the OSG version
 from the examples folder to complete their analysis. 'Example' folder has sample jobs for user reference.
@@ -204,10 +202,7 @@ $metaIMP_path/main_reference_processing.sh $fastq1 $fastq2 $sampleID $database_f
 ```
 ------
 ## 5. OUTPUT
-------
 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
 <pre>
    ASSEMBLY OUTPUT FOLDER
    |--ASSEMBLY_SNP_ANNOTATION 
@@ -249,12 +244,12 @@ Output Dataframes:
 
 
 ----
-## 6. Table Dependency
-----
+## 6. Table Dependency and Description
+
 
 ### 6. 1 ASSEMBLY BASED ANALYSIS:
 
-## 6.1.1 Table Description
+#### 6.1.1 Table Description
 
 Table 1: This table consists of mutation level information in the coding region. Coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. Mutations results must be provided for this table.
 Table 2: This table consists of mutation level information in the non-coding region. Non-coding region mutations detected by Instrain are mapped with annotations collected from Eggnog. Mutations results must be provided for this table.
@@ -272,7 +267,7 @@ Table 7:This table consists of the mutations mapped with their EC numbers.This t
 
 Table 8: This table consists of the mutations mapped with their GO numbers. This table is not dependent on mutation level information.
 
-## 6.1.2 Table dependency
+#### 6.1.2 Table dependency
 
 Table 1 Dependencies: Instrain, Eggnog
 
@@ -293,7 +288,7 @@ Table 8 Dependencies:Eggnog,Instrain,Table 1, Scaffold file, Kraken directory
 
 ### 6. 2 REFERENCE BASED ANALYSIS:
 
-## 6.2.1 Table Description
+#### 6.2.1 Table Description
 
 Table 1: This table consists of mutation level information in the coding region. Mutations results must be provided for this table.
 Table 2: This table consists of mutation level information in the non-coding region. Mutations results must be provided for this table
@@ -307,7 +302,7 @@ Table 7:This table consists of the mutations mapped with their EC numbers. This 
 Table 8: This table consists of the mutations mapped with their GO numbers. This table is not dependent on mutation level information.
 
 
-## 6.2.2 Table dependency
+#### 6.2.2 Table dependency
 Table 1 Dependencies: MIDAS, Patric Db
 
 Table 2 Dependencies: MIDAS, Patric Db
@@ -327,7 +322,7 @@ Table 8 Dependencies: Table 1,2,3
 
 ----
 ## 7. TIPS
-----
+
 In order to install dependencies independently for this pipeline using conda/mamba, use the following commands:
 
 
