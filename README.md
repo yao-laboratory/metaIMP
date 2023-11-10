@@ -1,7 +1,6 @@
 # MetaIMP
--------------
+------------
 ## 1. INTRODUCTION
--------------
 metaIMP is an integrated metagenomic pipeline which allows users to identify mutations and their respective protein annotations using a pipeline model. In this document, we list out the steps to be followed by a user to successfully complete assembly and reference based methods of metagenomic analysis. Users can choose either the assembly or reference method to begin processing of two paired-end files provided as input in FASTA format.
 
 <img src="./fig1.png" width="500" height="600"/>
