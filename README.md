@@ -378,5 +378,23 @@ Users can also submit jobs by requesting time on the OSG servers. This method ma
 
 UNL users can submit a job for metaIMP using the Holland Computing Center's resources. We have provided examples for these jobs in the 'EXAMPLE' folder (example_hcc_install.sh)
 
+----
+## 8. For advanced users/ method developer
+
+8.1 Additional Assembly Methods by metaIMP
+
+	Users can pick between metaSpades and MegaHIT by using example_assembly_methods.sh
+	We have 4 modes in this script:  1) MetaSpade Assembly with read-correction  2) MetaSpade Assembly without error-correcttion  3) Megahit Assembly 4) Megahit with k-mer list
+	We recommend to use Mode 1 (basic metaSpades) and Mode 3 (basic megahit) for full assembly with Spades and Megahit respectively. IF users want fast processing with Metaspades, we recommend Mode 2.
+	If users have a k-mer list, we recommend mode 4.
+
+
+
+8.2 Assembled contigs by Users
+	
+	1) Users need to process the original input file with metaIMP, in order to generate all the output folders.
+	2) They can replace the 'contigs.fasta' file with their own contigs file, which then can be re-used after deleting specific logs from the log folder, to generate the final tables
+
+
 ---------------------------------------------------------------------------------------
 
