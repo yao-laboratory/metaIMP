@@ -389,14 +389,22 @@ Here are a few additional steps for advanced usage of metaIMP:
 2) We have 4 modes in this script:  
 
 Mode 1) MetaSpade Assembly with read-correction  
+	'''
 	spades.py --meta --pe1-1 $fastq1 \ --pe1-2 $fastq2 \ -t $t \ -m 1000 \ -o $metaspade_output
-Mode 2) MetaSpade Assembly without error-correcttion  
-	spades.py --meta --pe1-1 $fastq1 --pe1-2 $fastq2 -t $t -m 1000 --only-assembler -o $metaspade_output
-Mode 3) Megahit Assembly 
-	megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output/out
-Mode 4) Megahit with k-mer list
-	megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output/out
+	'''
 
+Mode 2) MetaSpade Assembly without error-correcttion  
+	'''
+	spades.py --meta --pe1-1 $fastq1 --pe1-2 $fastq2 -t $t -m 1000 --only-assembler -o $metaspade_output
+	'''
+Mode 3) Megahit Assembly 
+	'''
+	megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output/out
+	'''
+Mode 4) Megahit with k-mer list
+	'''
+	megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output/out
+	'''
 3) We recommend to use Mode 1 (basic metaSpades) and Mode 3 (basic megahit) for full assembly with Spades and Megahit respectively. 
 
 4) If users want fast processing with Metaspades, we recommend Mode 2.
