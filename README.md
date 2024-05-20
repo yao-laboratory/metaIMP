@@ -414,10 +414,28 @@ Mode 4) Megahit with k-mer list
 
 
 8.2 Assembled contigs by Users
-	
-1) Users need to process the original input file with metaIMP, in order to generate all the output folders.
-2) They can replace the 'contigs.fasta' file with their own contigs file, which then can be re-used after deleting specific logs from the log folder, to generate the final tables
 
+Users can also use their own 'contigs.fasta' to regenerate metaIMP output tables. Here are the general steps to follow:
+
+1) Process the original input file with metaIMP and generate all the output folders.
+
+2) They can replace the 'contigs.fasta' file with their own contigs file in the METASPADES folder.
+
+3) Remove the following log files from the log folder: 
+
+A) Assembly_binning.log 
+
+B) Binning__taxonomy.log
+
+C) Assembly_contig_annotation.log
+
+D) Snp_calling.log (This is optional, if users want to skip mutation calling)
+
+E) Snp_annotation.log
+
+F) Protein_annotation.log
+
+4) Resubmit the example_stand_alone_assembly.sh to re-run metaIMP with the new contigs.fasta 
 
 ---------------------------------------------------------------------------------------
 
