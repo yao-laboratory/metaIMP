@@ -383,10 +383,25 @@ UNL users can submit a job for metaIMP using the Holland Computing Center's reso
 
 8.1 Additional Assembly Methods by metaIMP
 
-Users can pick between metaSpades and MegaHIT by using example_assembly_methods.sh
-We have 4 modes in this script:  1) MetaSpade Assembly with read-correction  2) MetaSpade Assembly without error-correcttion  3) Megahit Assembly 4) Megahit with k-mer list
-We recommend to use Mode 1 (basic metaSpades) and Mode 3 (basic megahit) for full assembly with Spades and Megahit respectively. IF users want fast processing with Metaspades, we recommend Mode 2.
-If users have a k-mer list, we recommend mode 4.
+Here are a few additional steps for advanced usage of metaIMP:
+1) example_assembly_methods.sh : Users can use this script to choose between two assembly methods 1) MetaSPADES 2) MEGAHIT
+
+2) We have 4 modes in this script:  
+
+Mode 1) MetaSpade Assembly with read-correction  
+	spades.py --meta --pe1-1 $fastq1 \ --pe1-2 $fastq2 \ -t $t \ -m 1000 \ -o $metaspade_output
+Mode 2) MetaSpade Assembly without error-correcttion  
+	spades.py --meta --pe1-1 $fastq1 --pe1-2 $fastq2 -t $t -m 1000 --only-assembler -o $metaspade_output
+Mode 3) Megahit Assembly 
+	megahit -1 $fastq1 -2 $fastq2 --min-contig-len 1000 -t $t -o $megahit_output/out
+Mode 4) Megahit with k-mer list
+	megahit -1 $fastq1 -2 $fastq2 --k-list 79,99,119,141 --min-contig-len 1000 -t $t -o $megahit_output/out
+
+3) We recommend to use Mode 1 (basic metaSpades) and Mode 3 (basic megahit) for full assembly with Spades and Megahit respectively. 
+
+4) If users want fast processing with Metaspades, we recommend Mode 2.
+
+5) If users have a k-mer list, we recommend mode 4.
 
 
 
