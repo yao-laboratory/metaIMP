@@ -18,7 +18,7 @@ from Bio import SeqIO
 #function for one folder
 
 
-def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path):
+def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path,,midas_tax_db):
     #print("MIDAS SPECIES TEXT FILE PATH IS THIS ::: $$$ \n")
     #print(midas_species_table_path,"\n")
     #get species_profile filename from MIDAS. this is constant
@@ -77,7 +77,13 @@ def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_f
         new_species_list.append(new_sname)
     midas_species_profile['species_name']=new_species_list
     
-    midas_tax_db=pd.read_csv("./midas_tax_db.csv",sep='\t')
+    #midas_tax_db=pd.read_csv("./midas_tax_db.csv",sep='\t')
+    midas_tax_db=pd.read_csv(midas_tax_db,usecols=['species_name', 'taxid'],sep=',')
+    print("midas_species_profile is:")
+    print(midas_species_profile.head(5))
+    print("midas_tax_db looks like")
+    print(midas_tax_db.head(5))
+    
     table_6_ncbi_tax_id=pd.merge(midas_species_profile,midas_tax_db,how='left',on='species_name')
     
     total_species_info=os.path.join(ref_snp_annotations_folder_path,"Table_6_reference_mapping_result_total_mutation.csv") 
