@@ -15,7 +15,7 @@ fi
 
 DIR="${BASH_SOURCE[0]}"
 DIR="$(dirname "$DIR")"
-
+midas_tax_db=$DIR/python_scripts/midas_tax_db.csv
 
 echo "Welcome to REFERENCE MAPPING, presented by metaIMP. Starting @ $(date)"
 
@@ -33,7 +33,7 @@ echo 'AA mutations calcuated'
 
 
 echo "species summary is being created at $(date)"
-python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder_final
+python $DIR/python_scripts/Reference_species_summary.py species_mut_count -m $midas_species_folder -n $output_folder_final -d $midas_tax_db
 echo "species summary is done at $(date)"
 
 echo "starting ec and go map"
