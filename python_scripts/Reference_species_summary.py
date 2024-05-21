@@ -18,7 +18,7 @@ from Bio import SeqIO
 #function for one folder
 
 
-def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path,,midas_tax_db):
+def species_profile_for_all_files(midas_species_table_path,ref_snp_annotations_folder_path,midas_tax_db):
     #print("MIDAS SPECIES TEXT FILE PATH IS THIS ::: $$$ \n")
     #print(midas_species_table_path,"\n")
     #get species_profile filename from MIDAS. this is constant
