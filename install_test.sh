@@ -31,7 +31,8 @@ quast.py -h
 metabat2 -h
 checkm lineage_wf -h
 DAS_Tool -h
-phylophlan_metagenomic -h
+#phylophlan_metagenomic -h
+phylophlan_assign_sgbs -h
 inStrain profile -h
 emapper.py -h
 run_midas.py -h
