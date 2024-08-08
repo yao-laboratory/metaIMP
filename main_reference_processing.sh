@@ -78,7 +78,11 @@ else
 	echo ' '
         echo '###########################################################################################################'
 
-	source activate $USER_ENV_NAME
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source activate $USER_ENV_NAME
+
+        fi
 	log_snp_annotation=$log_folder/snp_annotation.log
 	if [ -f "$log_snp_annotation" ] ; then 
 		echo "$log_snp_annotation exists. Skipping annotations"
@@ -90,10 +94,22 @@ else
 	fi
         echo ' '
         echo '###########################################################################################################'	
-	source deactivate
+	
+	 if [ ! -z $USER_ENV_NAME ]; then
+
+                source deactivate
+
+        fi
+
+
+
+        if [ ! -z $USER_ENV_NAME ]; then
+
+                source activate $USER_ENV_NAME
+
+        fi
 	
 	
-	source activate $USER_ENV_NAME
         log_protein_annotation=$log_folder/protein_annotation.log
 	
 	if [ -f "$log_protein_annotation" ] ; then
@@ -107,5 +123,10 @@ else
 
 	echo ' '
 	echo '###########################################################################################################'
-	source deactivate
+
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source deactivate
+
+        fi
 fi
