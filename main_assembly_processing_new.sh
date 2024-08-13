@@ -159,7 +159,13 @@ else
         echo '###########################################################################################################'
 
 	# SNP_ANNOTATION
-	source activate $USER_ENV_NAME
+	#source activate $USER_ENV_NAME
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source activate $USER_ENV_NAME
+
+        fi
+
 	instrain_file=$snp_output/output/INSTRAIN_SNVs.tsv
 	annotation_file=$annotation_results/eggnog_results.emapper.annotations
 	assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
@@ -183,11 +189,22 @@ else
         echo '###########################################################################################################'
 
 	echo "finished assembly pipeline with snp calling and annotations. SNPS and their annotations are mapped. Thank you!!!"
-	source deactivate
+	#source deactivate
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source deactivate
+
+        fi
 
 	# PROTEIN_ANNOTATION
 
-	source activate $USER_ENV_NAME
+	#source activate $USER_ENV_NAME
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source activate $USER_ENV_NAME
+
+        fi
+
         instrain_file=$snp_output/output/INSTRAIN_SNVs.tsv
         annotation_file=$annotation_results/eggnog_results.emapper.annotations
         assembly_snp_annotation=$output_folder/ASSEMBLY_SNP_ANNOTATION
@@ -211,7 +228,12 @@ else
         echo '###########################################################################################################'
 
         echo "MetaIMP assembly pipeline complete with protein identification and annotations. Thank you!!! CHECK $output_folder for results."
-        source deactivate
+        #source deactivate
+	if [ ! -z $USER_ENV_NAME ]; then
+
+                source deactivate
+
+        fi
 
 
 fi
