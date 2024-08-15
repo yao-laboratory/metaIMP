@@ -1,28 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=hcc_reference
-#SBATCH --nodes=1
-#SBATCH --time=2:00:00
-#SBATCH --mem=20gb
-#SBATCH --output=hcc_reference.%J.out
-#SBATCH --error=hcc_reference.%J.err
 
 
-metaIMP_path=/work/yaolab/shared/2022_05_metaIMP/Workshop_testing/metaIMP/
-#export USER_ENV_NAME=ENV_SAMPLE
-#kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
-#export KRAKEN_DATABASE=$kraken_db_path
-#phylophlan_db_name=SGB.Jan19
-#export PHYLOPHLAN_DATABASE=$phylophlan_db_name
-#Inputs- FASTQ/FASTA paired-end files
-#output_folder_reference path
-output_folder_reference=$PWD/reference_output_1_another_testin
+metaIMP_path=$HOME/metaIMP/
+output_folder_reference=$HOME/metaIMP/2024_Workshop/reference_output
 
-fastq1=/work/yaolab/shared/2022_05_metaIMP/Workshop_testing/metaIMP/SRR9205542_1.fastq
+fastq1=$HOME/metaIMP/2024_Workshop/2024_Workshop/Data/reference_R1.fastq
 
-fastq2=/work/yaolab/shared/2022_05_metaIMP/Workshop_testing/metaIMP/SRR9205542_2.fastq
+fastq2=$HOME/metaIMP/2024_Workshop/2024_Workshop/Data/reference_R2.fastq
 
 
-sampleID=SRR9205542
+sampleID=testreferencesample
 
 
 

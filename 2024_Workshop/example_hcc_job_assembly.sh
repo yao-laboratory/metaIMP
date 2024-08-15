@@ -24,8 +24,8 @@ export EGGNOG_DIAMOND_DATABASE=$eggnog_db_name
 #export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
 
 #Inputs- FASTQ/FASTA paired-end files
-fastq1=$PWD/assembly_R1.fastq
-fastq2=$PWD/assembly_R2.fastq
+fastq1=$HOME/assembly_R1.fastq
+fastq2=$HOME/assembly_R2.fastq
 
 
 #####
@@ -34,18 +34,16 @@ fastq2=$PWD/assembly_R2.fastq
 #fastq1=$PWD/r2.fq
 #sampleID=SRR9205542
 #####
-output_folder_assembly=$PWD/assembly
-sampleID=SRR9205542
-threads=8
+output_folder_assembly=$HOME/metaIMP/2024_Workshop/assembly_out
+sampleID=testassembly1
+threads=2
 #Minimum_contig_length for filtering. THIS IS OPTIONAL
 con_len=1000
 #####
 
-#modules for assembly_binning.sh:
-
-echo "loading modules for assembly_binning.sh"
-module load python/3.8 
-module load spades/3.14
+#modules for assembly_contig_annotation.sh:
+module purge
+module load megahit/1.1
 module load quast/5.0
 module load bowtie/2.3
 module load samtools/1.9
@@ -59,12 +57,10 @@ module load phylophlan/3.0
 #modules for assembly_contig_annotation.sh:
 echo "loading modules for assembly_contig_annotation.sh"
 module load eggnog-mapper/2.1
-ml megahit/1.1
 #modules for assembly_snp_calling.sh:
 module load instrain/1.3
 export PYTHONNOUSERSITE=1
-
-
+PATH=/util/opt/anaconda/deployed-conda-envs/packages/instrain/envs/instrain-1.3.7/bin:$PATH
 
 echo " "
 assembly_mode=3
