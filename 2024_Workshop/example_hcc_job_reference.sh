@@ -2,26 +2,27 @@
 
 
 metaIMP_path=$HOME/metaIMP/
-output_folder_reference=$HOME/metaIMP/2024_Workshop/reference_output
+output_folder_reference=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/reference_output
 
-fastq1=$HOME/metaIMP/2024_Workshop/2024_Workshop/Data/reference_R1.fastq
+fastq1=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/data/reference_R1.fastq
 
-fastq2=$HOME/metaIMP/2024_Workshop/2024_Workshop/Data/reference_R2.fastq
+fastq2=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/data/reference_R2.fastq
 
 
 sampleID=testreferencesample
 
+#number of threads to be used by metaSPADES and Instrain
+threads=1
 
+##############################################################
+#USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
+##############################################################
 
 
 MIDAS_DB=/work/HCC/BCRF/app_specific/midas/1.3/MIDAS/midas_db_v1.2/
 
-#number of threads to be used by metaSPADES and Instrain
-threads=2
 
 
-
-###THIS IS THE END FOR USER###
 echo -e " \n "
 echo "###########################################################################################################"
 

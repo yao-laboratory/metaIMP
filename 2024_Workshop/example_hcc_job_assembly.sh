@@ -1,17 +1,25 @@
 #!/bin/bash
-#SBATCH --job-name=hcc_assembly
-#SBATCH --nodes=1
-#SBATCH --time=24:00:00
-#SBATCH --mem=96gb
-#SBATCH --ntasks-per-node=8
-#SBATCH --output=hcc_assembly.%J.out
-#SBATCH --error=hcc_assembly.%J.err
 
 
 #Example HCC Assembly job
 #metaimp path: Repository downloaded by user from Github
-metaIMP_path=$PWD
-#export USER_ENV_NAME=kalzone
+metaIMP_path=$HOME/metaIMP/
+#Inputs- FASTQ/FASTA paired-end files
+fastq1=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/data/assembly_R1.fastq
+fastq2=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/data/assembly_R2.fastq
+output_folder_assembly=$HOME/metaIMP/2024_Workshop/2024_Workshop_day1/assembly_output
+
+sampleID=testassembly
+threads=1
+
+#Minimum_contig_length for filtering. THIS IS OPTIONAL
+con_len=1000
+
+
+##############################################################
+#USER DOES NOT NEED TO CHANGE ANYTHING FROM HERE
+##############################################################
+
 #Kraken database path
 kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path
@@ -21,25 +29,6 @@ export PHYLOPHLAN_DATABASE=$phylophlan_db_name
 #Eggnog database path
 eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
 export EGGNOG_DIAMOND_DATABASE=$eggnog_db_name
-#export eggnog_db_name=$EGGNOG_DIAMOND_DATABASE
-
-#Inputs- FASTQ/FASTA paired-end files
-fastq1=$HOME/assembly_R1.fastq
-fastq2=$HOME/assembly_R2.fastq
-
-
-#####
-#inputs for workshop
-#fastq1=$PWD/r1.fq
-#fastq1=$PWD/r2.fq
-#sampleID=SRR9205542
-#####
-output_folder_assembly=$HOME/metaIMP/2024_Workshop/assembly_out
-sampleID=testassembly1
-threads=2
-#Minimum_contig_length for filtering. THIS IS OPTIONAL
-con_len=1000
-#####
 
 #modules for assembly_contig_annotation.sh:
 module purge
