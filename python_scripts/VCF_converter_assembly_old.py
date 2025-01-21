@@ -47,9 +47,7 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
     for i in assembly_input_df.index:
         #appending all the lists
         contig_id_list.append(assembly_input_df.loc[i]['scaffold'])
-        #position_list.append(assembly_input_df['position(0-based)'].loc[i])
-        position_list.append(int(assembly_input_df.loc[i, 'position(0-based)']) + 1)#change to one-based for VCF table
-        #new addition
+        position_list.append(assembly_input_df['position(0-based)'].loc[i])
         ref_base_list.append(assembly_input_df['ref_base'].loc[i])
         var_base_list.append(assembly_input_df['var_base'].loc[i])
         metaimp_id_list.append(assembly_input_df['MetaIMP_ID'].loc[i])
@@ -57,14 +55,9 @@ def vcf_converter(assembly_mapping_result_file, final_vcf_path):
         
         ref_base=assembly_input_df.loc[i]['ref_base']
         ref_count=assembly_input_df.loc[i][ref_base]
-
         alt_base=assembly_input_df.loc[i]['var_base']
-        if alt_base == ref_base:
-            alt_base = assembly_input_df.loc[i]['con_base']
         alt_count=assembly_input_df.loc[i][alt_base]
-        #frequency=alt_count/(alt_count+ref_count)
-        all_base_count=int(assembly_input_df.loc[i]['A'])+int(assembly_input_df.loc[i]['C'])+int(assembly_input_df.loc[i]['T'])+int(assembly_input_df.loc[i]['G'])
-        frequency=alt_count/all_base_count
+        frequency=alt_count/(alt_count+ref_count)
 
         depth = assembly_input_df['position_coverage'].loc[i]
         information_string="NS=1;DP="+str(depth)+";"+"AF="+str(frequency)+";"

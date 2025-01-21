@@ -182,7 +182,7 @@ def amino_acid_mapping(assembly_final_result, vcf, contigs,aa_final_output):
         ec=aa_df.loc[i]['EC']
         description=aa_df.loc[i]['Description']
         eggnog_og=aa_df.loc[i]['eggNOG_OGs']
-        mutation_na_pos=int(aa_df.loc[i]['POS'])-1 #Since in VCF Table, we use one-based, now change back to zero based position.
+        mutation_na_pos=int(aa_df.loc[i]['POS'])
         ref_na_letter=aa_df.loc[i]['REF']
         alt_na_letter=aa_df.loc[i]['ALT']
 
