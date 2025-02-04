@@ -1,4 +1,4 @@
-﻿name,taxid,preferred name,phylum,class,order,family,genus
+﻿species_name,taxid,preferred_name,phylum,class,order,family,genus
 Staphylococcus aureus,1280, ,Bacillota,Bacilli,Bacillales,Staphylococcaceae,Staphylococcus
 Streptococcus pneumoniae,1313, ,Bacillota,Bacilli,Lactobacillales,Streptococcaceae,Streptococcus
 Escherichia coli,562, ,Pseudomonadota,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Escherichia
