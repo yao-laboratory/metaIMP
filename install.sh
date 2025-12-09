@@ -59,8 +59,8 @@ mamba install -y -c bioconda bowtie2
 mamba install -y -c bioconda spades=3.15
 mamba install -y -c bioconda metabat2
 mamba install -y -c bioconda checkm-genome
-mamba install -y -c bioconda das_tool
-mamba install -y -c bioconda phylophlan
+mamba install -y -c bioconda das_tool=1.1.6 #das_tool 1.1.5 is outdated
+mamba install -y -c bioconda phylophlan=3.1 #phylophlan >= 3.1
 mamba install -y -c bioconda -c conda-forge eggnog-mapper=2.1.9
 #mamba install -y -c bioconda eggnog-mapper
 mamba install -y -c bioconda kraken2
