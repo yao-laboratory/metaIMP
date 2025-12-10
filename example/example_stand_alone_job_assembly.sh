@@ -17,7 +17,7 @@ export USER_ENV_NAME=metaimp_env
 kraken_db_path=/work/HCC/BCRF/app_specific/kraken/2.0
 export KRAKEN_DATABASE=$kraken_db_path
 #Phylophlan database path
-phylophlan_db_name=SGB.Jan19
+phylophlan_db_name=SGB.Oct22
 export PHYLOPHLAN_DATABASE=$phylophlan_db_name
 #Eggnog database path
 eggnog_db_name=/work/HCC/BCRF/app_specific/eggnog-mapper/2.1.3
