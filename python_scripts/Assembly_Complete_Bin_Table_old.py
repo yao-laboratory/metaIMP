@@ -236,111 +236,35 @@ def checkm_mapping_old(path_of_the_directory, instrain_snvs, step_5_mapping_resu
     final_merge_df.to_csv(output, index= None)
 
 
-def checkm_das_tool_file_reformat(scaffold_file,updated_scaffold_file):
-    scaffold=pd.read_csv(scaffold_file,sep="\t",header=None).drop(columns=[1, 2])
-    number_of_columns=scaffold.shape[1]
-    print("this is the number of columns without formatting" +str(number_of_columns))
-    if number_of_columns > 2:
-        scaffold = scaffold.drop(columns=[1, 2])
-        scaffold = scaffold.fillna('unbinned')
-    new_number_of_columns=scaffold.shape[1]
-    print("this is the new number of columns in scaffold file"+ str(new_number_of_columns))
-    scaffold.to_csv(updated_scaffold_file,sep="\t",header=None,index=None)
-
-
-
 def main():
-    import argparse
-
-    parser = argparse.ArgumentParser(
-        prog="META_IMP_assembly_based",
-        description="Execute Kraken annotation mapping with CheckM–Prodigal protein information"
-    )
-
-    subparsers = parser.add_subparsers(
-        dest="subcommand",
-        required=True,
-        help="Available subcommands"
-    )
-
-    kraken_parser = subparsers.add_parser(
-        "k_map",
-        help="Map SNPs with Kraken and CheckM annotations"
-    )
-
-    kraken_parser.add_argument("-k", dest="path_of_the_directory", required=True)
-    kraken_parser.add_argument("-c", dest="scaffold_information", required=True)
-    kraken_parser.add_argument("-i", dest="instrain_snvs", required=True)
-    kraken_parser.add_argument("-v", dest="step_5_mapping_result", required=True)
-    kraken_parser.add_argument("-s", dest="checkm_stats", required=True)
-    kraken_parser.add_argument("-e", dest="coverage", required=True)
-    kraken_parser.add_argument("-o", dest="output", required=True)
-
-    checkm_parser = subparsers.add_parser(
-        "checkm_dst_map",
-        help="Reformat CheckM scaffold file for DAS Tool"
-    )
-
-    checkm_parser.add_argument("-scaffold", dest="scaffold", required=True)
-    checkm_parser.add_argument("-updated_scaffold_file", dest="new_scaffold", required=True)
-
-    args = parser.parse_args()
-
-    if args.subcommand == "k_map":
-        checkm_mapping(
-            args.path_of_the_directory,
-            args.instrain_snvs,
-            args.step_5_mapping_result,
-            args.checkm_stats,
-            args.scaffold_information,
-            args.coverage,
-            args.output
-        )
-    elif args.subcommand == "checkm_dst_map":
-        checkm_das_tool_file_reformat(args.scaffold, args.new_scaffold)
-    else:
-        parser.error("Unknown subcommand")
-
-"""
-def main_old():
     parser = argparse.ArgumentParser(prog='META_IMP_assembly_based',description='this method executes Kraken annotation mapping with CHECKM-Prodigal protein inforamtion')
     subparser = parser.add_subparsers(dest='subcommand',help ='Enter the following files: 1) Scaffold_information 2) Instrain_SNVS 3) Assemnly_based_mapping_result 4) Checkm_stats')
     
     kraken_assembly_mapping_parser = subparser.add_parser("k_map",help="This function is to map snps with annotations")
-   # kraken_assembly_mapping_parser.add_argument("-k", dest="path_of_the_directory", type=str, help='path to kraken results')
-   # kraken_assembly_mapping_parser.add_argument("-c", dest="scaffold_information", type=str, help="eggnog file eg. /path/to/my_scaffolds2bin.tsv as input")
-   # kraken_assembly_mapping_parser.add_argument("-i", dest="instrain_snvs", type=str, help="instrain file eg./path/to/instrain_SNVs.tsv as input")
-  #  kraken_assembly_mapping_parser.add_argument("-v", dest="step_5_mapping_result", type=str, 
+    kraken_assembly_mapping_parser.add_argument("-k", dest="path_of_the_directory", type=str, help='path to kraken results')
+    kraken_assembly_mapping_parser.add_argument("-c", dest="scaffold_information", type=str, help="eggnog file eg. /path/to/my_scaffolds2bin.tsv as input")
+    kraken_assembly_mapping_parser.add_argument("-i", dest="instrain_snvs", type=str, help="instrain file eg./path/to/instrain_SNVs.tsv as input")
+    kraken_assembly_mapping_parser.add_argument("-v", dest="step_5_mapping_result", type=str, 
                                          help="step_5_mapping_result obtained from metaIMP as input eg. /path/to/assembly_mapping.csv")
- #   kraken_assembly_mapping_parser.add_argument("-s", dest="checkm_stats", type=str, help='checkm stats file eg. /path/to/BINS/CHECKM/storage/bin_stats.analyze.tsv')
-#    kraken_assembly_mapping_parser.add_argument("-e", dest="coverage", type=str, help="coverage file from bbwrap path") #new addition coverage file from bbwrap
-#    kraken_assembly_mapping_parser.add_argument("-o", dest="output", type=str, help="output file path")
-#       
-#    checkm_das_tool_mapping_parser=subparser.add_parser("checkm_dst_map",help="This function is reformats checkm output to optimize for dst")
-#    checkm_das_tool_mapping_parser=subparser.add_arguemnt("scaffold",help="get scaffold file from checkm /path/to/myscaffold.tsv")
-#    checkm_das_tool_mapping_parser=subparser.add_arguemnt("updated_scaffold_file",help="get scaffold file from checkm /path/to/new_myscaffold.tsv")
-
-#    args = parser.parse_args()
+    kraken_assembly_mapping_parser.add_argument("-s", dest="checkm_stats", type=str, help='checkm stats file eg. /path/to/BINS/CHECKM/storage/bin_stats.analyze.tsv')
+    kraken_assembly_mapping_parser.add_argument("-e", dest="coverage", type=str, help="coverage file from bbwrap path") #new addition coverage file from bbwrap
+    kraken_assembly_mapping_parser.add_argument("-o", dest="output", type=str, help="output file path")
     
-#    if args.subcommand=='k_map':
-#        path_of_the_directory=args.path_of_the_directory  #kraken_dir
-#        instrain_snvs=args.instrain_snvs
-#        step_5_mapping_result=args.step_5_mapping_result
-#        checkm_stats=args.checkm_stats
-#        scaffold_information=args.scaffold_information
-#        coverage=args.coverage
-#        output=args.output
-#        checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, coverage, output)
-#    elif args.subcommand=='checkm_dst_map':
-#        scaffold_file=args.scaffold
-#        updated_scaffold_file=args.new_scaffold
-#        checkm_das_tool_file_reformat(scaffold_file,updated_scaffold_file) 
-#           
-#    else:
-#        print("Wrong input. Check parameters")
-#"""
+    args = parser.parse_args()
+    
+    if args.subcommand=='k_map':
+        path_of_the_directory=args.path_of_the_directory  #kraken_dir
+        instrain_snvs=args.instrain_snvs
+        step_5_mapping_result=args.step_5_mapping_result
+        checkm_stats=args.checkm_stats
+        scaffold_information=args.scaffold_information
+        coverage=args.coverage
+        output=args.output
+        checkm_mapping(path_of_the_directory, instrain_snvs, step_5_mapping_result, checkm_stats, scaffold_information, coverage, output)
+        
+    else:
+        print("Wrong input. Check parameters")
 
-#we ignore old main
 if __name__ == "__main__":
     main()
     

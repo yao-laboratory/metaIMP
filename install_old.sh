@@ -51,15 +51,14 @@ if [ "$(command -v module)" ]; then
   module unload python
 fi
 
-mamba install -y python=3.9
+mamba install -y python=3.7
 echo " Python 3.7 is installed"
-mamba install -y  bioconda::checkm-genome==1.2.2
+
 mamba install -y -c bioconda quast
 mamba install -y -c bioconda bowtie2
 mamba install -y -c bioconda spades=3.15
 mamba install -y -c bioconda metabat2
-#mamba install -y  bioconda::checkm-genome==1.2.2
-#mamba install -y -c bioconda checkm-genome
+mamba install -y -c bioconda checkm-genome=1.2.2
 mamba install -y -c bioconda das_tool=1.1.6 #das_tool 1.1.5 is outdated
 mamba install -y -c bioconda phylophlan=3.1 #phylophlan >= 3.1
 mamba install -y -c bioconda -c conda-forge eggnog-mapper=2.1.9
