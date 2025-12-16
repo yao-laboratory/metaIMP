@@ -74,7 +74,7 @@ mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
 mamba install -y -c anaconda scikit-bio
 mamba install -y -c bioconda megahit=1.2
-
+mamba install -y pandas=1.3.5 #install this at the end to downgrade pandas, make it compatible for instrain
 #updated ulitity.py
 cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
 #Copying MIDAS utility.py to user environment where MIDAS is installed
