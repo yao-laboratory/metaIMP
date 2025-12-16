@@ -89,6 +89,17 @@ echo "finished kraken at $(date)"
 
 
 
+#move empty fa files into temp folder for phylophlan
+
+empty_fa_file_folder=$bins/empty_fasta_file
+if [ ! -d "$empty_fa_file" ] ; then
+        mkdir $empty_fa_file_folder
+fi
+
+mv $bins/tooShort.fa $empty_fa_file_folder
+mv $bins/lowDepth.fa $empty_fa_file_folder
+
+
 #PHYLOPHLAN
 echo "starting PHYLOPHLAN at $(date)"
 
