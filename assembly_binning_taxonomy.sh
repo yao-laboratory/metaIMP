@@ -110,7 +110,7 @@ if [ ! -d "$phylophlan_output" ] ; then
 fi
 
 
-phylophlan_assign_sgbs -i $bins -d $PHYLOPHLAN_DATABASE -e .fa -o $phylophlan_output/phylophlan
+phylophlan_assign_sgbs -i $bins -d $PHYLOPHLAN_DATABASE --nproc $thread -e .fa -o $phylophlan_output/phylophlan
 
 #phylophlan_metagenomic -i $bins -d $PHYLOPHLAN_DATABASE -e .fa -o $phylophlan_output/phylophlan
 
