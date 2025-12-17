@@ -38,16 +38,39 @@ else
 fi
 
 
-new_scaffold_file=$bins/new_my_scaffolds2bin.tsv
-old_scaffold_file=$bins/old_my_scaffolds2bin.tsv
-touch $new_scaffold_file
-touch $old_scaffold_file
 
-mv $scaffold_file $old_scaffold_file
-mv $new_scaffold_file $scaffold_file
-echo "python $DIR/python_scripts/Assembly_Complete_Bin_Table.py checkm_dst_map -scaffold $old_scaffold_file -updated_scaffold_file $scaffold_file"
-python $DIR/python_scripts/Assembly_Complete_Bin_Table.py checkm_dst_map -scaffold $old_scaffold_file -updated_scaffold_file $scaffold_file
+#new_scaffold_file=$bins/new_my_scaffolds2bin.tsv
+#old_scaffold_file=$bins/old_my_scaffolds2bin.tsv
+#touch $new_scaffold_file
+#touch $old_scaffold_file
 
+#mv $scaffold_file $old_scaffold_file
+#mv $new_scaffold_file $scaffold_file
+#echo "python $DIR/python_scripts/Assembly_Complete_Bin_Table.py checkm_dst_map -scaffold $old_scaffold_file -updated_scaffold_file $scaffold_file"
+#python $DIR/python_scripts/Assembly_Complete_Bin_Table.py checkm_dst_map -scaffold $old_scaffold_file -updated_scaffold_file $scaffold_file
+
+
+
+# count number of TAB-separated columns in the first non-empty line
+ncols=$(awk -F'\t' 'NF>0 {print NF; exit}' "$scaffold_file")
+
+if [ "$ncols" -gt 2 ]; then
+    new_scaffold_file=$bins/new_my_scaffolds2bin.tsv
+    old_scaffold_file=$bins/old_my_scaffolds2bin.tsv
+
+    touch "$new_scaffold_file"
+    touch "$old_scaffold_file"
+
+    mv "$scaffold_file" "$old_scaffold_file"
+    mv "$new_scaffold_file" "$scaffold_file"
+
+    echo "python $DIR/python_scripts/Assembly_Complete_Bin_Table.py checkm_dst_map -scaffold $old_scaffold_file -updated_scaffold_file $scaffold_file"
+    python "$DIR/python_scripts/Assembly_Complete_Bin_Table.py" checkm_dst_map \
+        -scaffold "$old_scaffold_file" \
+        -updated_scaffold_file "$scaffold_file"
+else
+    echo "Skipping checkm_dst_map: $scaffold_file has <= 2 TAB-separated columns"
+fi
 
 
 echo " Fasta_to_Scaffolds2Bin.sh -e fa -i $bins > $scaffold_file  " 
