@@ -237,7 +237,7 @@ def checkm_mapping_old(path_of_the_directory, instrain_snvs, step_5_mapping_resu
 
 
 def checkm_das_tool_file_reformat(scaffold_file,updated_scaffold_file):
-    scaffold=pd.read_csv(scaffold_file,sep="\t",header=None).drop(columns=[1, 2])
+    scaffold=pd.read_csv(scaffold_file,sep="\t",header=None,engine='python')
     number_of_columns=scaffold.shape[1]
     print("this is the number of columns without formatting" +str(number_of_columns))
     if number_of_columns > 2:

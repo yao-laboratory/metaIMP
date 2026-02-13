@@ -7,7 +7,6 @@ metaIMP is an integrated metagenomic pipeline which allows users to identify mut
 
 <img src="./fig1.png" width="500" height="600"/>
 
-
 -------------
 ## 2. INSTALLATION
 metaIMP requires a cocktail of Java, Python and Linux scripts in order to provide the most accurate analysis of user's metagenome data. Backend is based on Linux, which can be accessedusing any unix terminal.
@@ -35,7 +34,7 @@ in the "Example" folder. Users can provide path to databases in order to use the
 ###  2. 1 ASSEMBLY BASED ANALYSIS:
 ```
 KRAKEN_DATABASE: kraken/2.0
-PHYLOPHLAN_DATABASE: SGB.Jan19 
+PHYLOPHLAN_DATABASE: SGB.Oct22
 EGGNOG_DIAMOND_DATABASE: eggnog-mapper/2.1.3
 ```
 
