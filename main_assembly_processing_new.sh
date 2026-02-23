@@ -144,10 +144,13 @@ else
 	contig=$output_folder/METASPADES/contigs.fasta
 	snp_output=$output_folder/INSTRAIN
 	scaffold2bin=$output_folder/BINS/my_scaffolds2bin.tsv
-	
+	snp_output_folder=$output_folder/INSTRAIN/output/
 	log_snp_calling=$log_folder/snp_calling.log
 	if [ -f "$log_snp_calling" ] ; then
 		echo "$log_snp_calling exists. Skip SNP calling..."
+		if [ ! -d "$snp_output_folder" ] ; then
+        		mkdir $snp_output_folder
+		fi
         else
 		echo "$log_snp_calling does not exist"
 		echo "starting snp calling at $(date)..."
