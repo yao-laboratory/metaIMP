@@ -53,6 +53,8 @@ fi
 
 mamba install -y python=3.9
 echo " Python 3.7 is installed"
+mamba install -y -c bioconda das_tool=1.1.7 #das_tool 1.1.6 is outdated
+mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y  bioconda::checkm-genome==1.2.2
 mamba install -y -c bioconda quast
 mamba install -y -c bioconda bowtie2
@@ -60,7 +62,7 @@ mamba install -y -c bioconda spades=3.15
 mamba install -y -c bioconda metabat2
 #mamba install -y  bioconda::checkm-genome==1.2.2
 #mamba install -y -c bioconda checkm-genome
-mamba install -y -c bioconda das_tool=1.1.6 #das_tool 1.1.5 is outdated
+#mamba install -y -c bioconda das_tool=1.1.6 #das_tool 1.1.5 is outdated
 mamba install -y -c bioconda phylophlan=3.1 #phylophlan >= 3.1
 mamba install -y -c bioconda -c conda-forge eggnog-mapper=2.1.9
 #mamba install -y -c bioconda eggnog-mapper
@@ -70,7 +72,7 @@ mamba install -y -c bioconda usearch
 mamba install -y -c conda-forge biopython=1.76
 mamba install -y -c bioconda midas
 #MIDAS corrupts SAMTOOLS binary files. INSTALL SAMTOOLS AGAIN in the last step.
-mamba install -y -c conda-forge -c bioconda -c defaults instrain
+#mamba install -y -c conda-forge -c bioconda -c defaults instrain
 mamba install -y -c bioconda samtools=1.14
 mamba install -y -c anaconda scikit-bio
 mamba install -y -c bioconda megahit=1.2

@@ -153,8 +153,8 @@ $DIR/bbmap/bbwrap.sh \
         out=$output/aln.sam.gz \
 	threads=$t \
 	trimreaddescriptions=t \
-	keepnames=t  
-
+	keepnames=t \
+	path=$output #new addition to bbwrap command to account path
 ## Output contig coverage
 $DIR/bbmap/pileup.sh \
         in1=$output/aln.sam.gz \
