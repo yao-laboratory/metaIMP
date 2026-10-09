@@ -78,7 +78,11 @@ mamba install -y -c anaconda scikit-bio
 mamba install -y -c bioconda megahit=1.2
 mamba install -y pandas=1.3.5 #install this at the end to downgrade pandas, make it compatible for instrain
 #updated ulitity.py
-cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
+#cp $metaIMP_path/python_scripts/utility.py $CONDA_PREFIX/lib/python3.7/site-packages/midas/
+
+MIDAS_SITE_PACKAGES=$(python -c "import midas; import os; print(os.path.dirname(midas.__file__))")
+cp "$metaIMP_path/python_scripts/utility.py" "$MIDAS_SITE_PACKAGES/"
+
 #Copying MIDAS utility.py to user environment where MIDAS is installed
 
 if [[ "$install_singularity" == "-s" ]]; then
